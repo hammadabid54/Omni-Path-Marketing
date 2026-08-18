@@ -42,7 +42,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "From page 2 to page 1 across Brisbane North dental searches",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -358,48 +358,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Western Sydney"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "2,455", "from": "390"},
+      {"label": "Commercial keyword clicks", "value": "978", "from": "120"},
+      {"label": "Est. new patient leads", "value": "49", "from": "6"},
+      {"label": "Avg. position improvement", "value": "9.4", "from": "18.2"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 280},
+      {"month": "Mar", "value": 540},
+      {"month": "Apr", "value": 920},
+      {"month": "May", "value": 1450},
+      {"month": "Jun", "value": 1980},
+      {"month": "Jul", "value": 2455}
     ],
     "keywords": [
       {
@@ -571,7 +541,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "From page 3 to top-3 for the searches that book appointments",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 310 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 310 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "55 → 310 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -816,7 +786,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "An ACT dental practice ranked in the Maps 3-pack in 90 days",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -1077,7 +1047,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "A specialist group wins the high-value commercial searches",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -1345,7 +1315,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Brisbane North West dental, 90 days from launch to top-3",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -1583,7 +1553,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "A cosmetic dental boutique wins the 'invisible aligners near me' race",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -1851,7 +1821,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Melbourne metro dental group: 5x organic enquiries in 6 months",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -2126,7 +2096,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console + analytics",
     "h1": "Melbourne East dental: 3 locations, 1 winning content engine",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -2404,48 +2374,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Hand Therapy Practice — Sydney metro"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Organic clicks / month", "value": "1,500+", "from": "270"},
+      {"label": "Locations in Maps 3-pack", "value": "5 of 5", "from": "0 of 5"},
+      {"label": "Top-3 commercial queries", "value": "112", "from": "8"},
+      {"label": "Referral leads / month", "value": "32", "from": "4"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 270},
+      {"month": "Mar", "value": 420},
+      {"month": "Apr", "value": 680},
+      {"month": "May", "value": 940},
+      {"month": "Jun", "value": 1240},
+      {"month": "Jul", "value": 1500}
     ],
     "keywords": [],
     "pages": [
@@ -2565,7 +2505,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Sydney North dental: small clinic, big local presence",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -2886,48 +2826,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Healthcare Marketplace — South Asia"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Monthly organic visits", "value": "2.3M", "from": "1.8M"},
+      {"label": "Ranking keywords", "value": "193.3K", "from": "180K"},
+      {"label": "Authority score", "value": "58", "from": "—"},
+      {"label": "Referring domains", "value": "3.6K", "from": "—"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 1800000},
+      {"month": "Mar", "value": 1920000},
+      {"month": "Apr", "value": 2050000},
+      {"month": "May", "value": 2150000},
+      {"month": "Jun", "value": 2240000},
+      {"month": "Jul", "value": 2300000}
     ],
     "keywords": [],
     "pages": [],
@@ -2962,7 +2872,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Gold Coast dental: a 3-location group ranks for every suburb",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -3180,7 +3090,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Brisbane Northside dental, 4 months, top-3 for branded + non-branded",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -3382,7 +3292,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Gold Coast North dental: high-value cosmetic searches, won",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -3700,7 +3610,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Upper North Shore dental: from invisible to top-3 in 6 months",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -4018,7 +3928,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console + analytics",
     "h1": "A healthcare booking platform ranks for 1,800 suburb-level queries",
-    "summary": "B2B Healthcare for a ANZ b2b healthcare. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "B2B Healthcare for an ANZ b2b healthcare. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -4156,7 +4066,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "South West Sydney dental: 4 suburbs, 1 winning SEO playbook",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -4467,7 +4377,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Regional NSW dental: 2 clinics, 2 suburbs, 1 ranking engine",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -4726,7 +4636,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Mid North Coast dental: 90 days to the Maps 3-pack",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -4944,7 +4854,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Inner West dental: small practice, top-3 for every service",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 2,652 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 2,652 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "477 → 2,652 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
@@ -5162,7 +5072,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Surf Coast VIC dental: a coastal clinic wins the local pack",
-    "summary": "Local SEO for a ANZ local. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
+    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
     "cardHeadline": "270 → 1,500 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
