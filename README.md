@@ -66,4 +66,39 @@ Home, for-agencies, for-businesses, white-label-seo, automated-seo, pricing, aud
 
 ## Deploy
 
-Push to `main` → Vercel builds → preview at `*.vercel.app`. Production at `omnipathmarketing.com` (configure in Vercel + add `RESEND_API_KEY`, `NOTION_API_KEY`, etc.).
+VPS (Ubuntu) via **nginx + PM2 + Let's Encrypt**. See `deploy/DEPLOY.md` for the full step-by-step.
+
+```bash
+ssh root@YOUR_VPS_IP
+cd /opt && git clone https://github.com/YOUR_USER/omni-path-marketing.git
+cd omni-path-marketing/deploy && sudo ./setup-vps.sh
+# After DNS A record propagates:
+sudo certbot --nginx -d omnipathmarketing.com --non-interactive --agree-tos -m hammadabid54@gmail.com
+```
+
+The setup script installs Node 20, PM2, and nginx; clones the repo; builds the app; and starts it under PM2. `deploy/ecosystem.config.cjs` is the PM2 config, `deploy/nginx-omnipath.conf` is the vhost.
+
+To redeploy after a push:
+
+```bash
+ssh root@YOUR_VPS_IP "cd /var/www/omnipathmarketing.com && git pull && npm install && npm run build && pm2 restart omni-path-marketing"
+```
+
+## Required env vars (production)
+
+Set these in `/var/www/omnipathmarketing.com/.env.local` on the server:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://omnipathmarketing.com
+RESEND_API_KEY=re_xxx                # from https://resend.com/api-keys
+RESEND_FROM_EMAIL=contact@omnipathmarketing.com   # must be a domain verified in Resend
+RESEND_NOTIFY_EMAIL=hammadabid54@gmail.com
+```
+
+Optional:
+
+```bash
+NEXT_PUBLIC_CALCOM_URL=https://cal.com/your-handle
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=omnipathmarketing.com
+PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser   # only if audits fail
+```
