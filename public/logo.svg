@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" aria-label="Omni Path Marketing">
+  <defs>
+    <linearGradient id="omni-mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a3e635" />
+      <stop offset="1" stop-color="#bef264" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#0a0a0f" />
+  <path d="M16 5 L28 27 H22 L16 18 L10 27 H4 Z" fill="url(#omni-mark)" />
+  <circle cx="16" cy="22" r="2" fill="#0a0a0f" />
+</svg>
