@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header } from "@/components/nav/header";
 import { Footer } from "@/components/nav/footer";
 import { LenisProvider } from "@/components/motion/lenis-provider";
@@ -76,6 +77,7 @@ export const viewport: Viewport = {
 };
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -105,7 +107,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
 
-        {/* Plausible analytics (no-op if domain not set) */}
+        {/* Google Analytics 4 (no-op if NEXT_PUBLIC_GA_ID not set) */}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
+
+        {/* Plausible analytics (legacy — no-op if NEXT_PUBLIC_PLAUSIBLE_DOMAIN not set) */}
         {plausibleDomain && (
           <Script
             defer
