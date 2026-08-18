@@ -6,6 +6,7 @@ import { Header } from "@/components/nav/header";
 import { Footer } from "@/components/nav/footer";
 import { LenisProvider } from "@/components/motion/lenis-provider";
 import { AmbientBackground } from "@/components/background/ambient";
+import { FloatingCta } from "@/components/nav/floating-cta";
 import { orgSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <FloatingCta />
         </LenisProvider>
 
         {/* Global JSON-LD */}
