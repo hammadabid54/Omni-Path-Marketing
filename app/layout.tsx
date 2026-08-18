@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Header } from "@/components/nav/header";
 import { Footer } from "@/components/nav/footer";
 import { LenisProvider } from "@/components/motion/lenis-provider";
+import { AmbientBackground } from "@/components/background/ambient";
 import { orgSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
+        <AmbientBackground />
         <LenisProvider>
           <Header />
           <main id="main">{children}</main>

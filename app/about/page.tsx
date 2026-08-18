@@ -39,7 +39,7 @@ const STATS = [
 
 const TEAM = [
   {
-    slug: "hammad",
+    slug: "hammad-abid",
     name: "Hammad Abid",
     title: "Founder & Managing Director",
     bio: "Founded Omni Path to give SMBs and agencies the same SEO + content stack the top 1% use — at a price the bottom 99% can afford. Believes AI + automation should make great work cheap, not exclusive.",

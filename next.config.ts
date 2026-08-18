@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  async redirects() {
+    return [
+      // Renamed /about/hammad → /about/hammad-abid (2026-08-19).
+      { source: "/about/hammad", destination: "/about/hammad-abid", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

@@ -58,7 +58,7 @@ interface Person {
 }
 
 const TEAM: Record<string, Person> = {
-  "hammad": {
+  "hammad-abid": {
     name: "Hammad Abid",
     title: "Founder & Managing Director",
     links: { linkedin: "https://www.linkedin.com/in/hammad-abid" },
@@ -197,7 +197,7 @@ interface PersonExtras {
 }
 
 const EXTRAS: Record<string, PersonExtras> = {
-  "hammad": {
+  "hammad-abid": {
     heroLine: (
       <>
         Built Omni Path to ship{" "}

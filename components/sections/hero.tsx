@@ -41,8 +41,8 @@ export function Hero({
   const reduced = useReducedMotion();
 
   return (
-    <section className={cn("relative overflow-hidden pt-16 md:pt-24", className)}>
-      {/* Soft lime radial backdrop */}
+    <section className={cn("relative isolate overflow-hidden pt-16 md:pt-24", className)}>
+      {/* Soft lime radial backdrop (scoped to the hero via isolate) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-32 left-1/2 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-lime-400/8 blur-3xl" />
         <div className="absolute -top-20 right-[-10%] h-72 w-72 rounded-full bg-lime-400/8 blur-3xl drift-1" />

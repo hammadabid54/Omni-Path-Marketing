@@ -30,6 +30,7 @@ yarn-error.log*
 dev.out.log
 dev.err.log
 *.local.log
+*.log
 
 # env files
 .env*
