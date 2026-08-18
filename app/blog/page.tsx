@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
@@ -6,7 +7,9 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scr
 import { CtaSection } from "@/components/sections/cta";
 import { LinkButton } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/seo";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
+import { BLOG_POSTS } from "@/content/blog";
+import { TEAM_BY_SLUG } from "@/content/team";
 
 export const metadata: Metadata = buildMetadata({
   title: "Marketing Insights · SEO, AI, Growth | Omni Path Blog",
@@ -20,13 +23,6 @@ const CATEGORIES = [
   { name: "Playbooks", d: "How we do X (SEO audit, link outreach, content briefs)." },
   { name: "Case studies", d: "Real client wins, numbers intact." },
   { name: "Industry news", d: "Our take on Google updates, AI shifts, etc." },
-];
-
-const POSTS = [
-  { t: "State of SEO 2026", d: "Original benchmark data across 200+ client sites.", cat: "Original research" },
-  { t: "How we cut SEO delivery from 25 hours to 5", d: "Our process, tools, and the math behind it.", cat: "Playbooks" },
-  { t: "The 80/20 of white-label SEO", d: "What to keep in-house, what to ship to us.", cat: "Playbooks" },
-  { t: "AI in marketing: what we use, what we don't", d: "Honest breakdown of our AI tool stack.", cat: "Playbooks" },
 ];
 
 export default function BlogPage() {
@@ -67,25 +63,41 @@ export default function BlogPage() {
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Recent <em className="font-serif not-italic text-lime-400">posts.</em>
           </h2>
-          <p className="mt-3 text-sm text-white/55">Sample posts shown. Full archive ships in Phase 2.</p>
+          <p className="mt-3 text-sm text-white/55">{BLOG_POSTS.length} long-form pieces. Updated as we ship.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.06}>
-          {POSTS.map((p) => (
-            <StaggerItem key={p.t}>
-              <article className="bento bento-lg h-full group cursor-pointer hover:border-lime-400/40">
-                <span className="pill text-[10px]">{p.cat}</span>
-                <h3 className="mt-4 text-xl font-semibold text-white">
-                  <span className="bg-gradient-to-r from-lime-400 to-lime-400 bg-[length:0%_1px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_1px] transition-[background-size] duration-500">
-                    {p.t}
-                  </span>
-                </h3>
-                <p className="mt-2 text-sm text-white/65">{p.d}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-lime-400">
-                  Read <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </article>
-            </StaggerItem>
-          ))}
+          {BLOG_POSTS.map((p) => {
+            const author = TEAM_BY_SLUG[p.author];
+            return (
+              <StaggerItem key={p.slug}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="bento bento-lg h-full group block hover:border-lime-400/40"
+                >
+                  <div className="flex flex-wrap items-center gap-2 text-[10px]">
+                    <span className="pill pill-accent">{p.category}</span>
+                    <span className="pill inline-flex items-center gap-1">
+                      <Clock className="h-3 w-3" /> {p.readMinutes} min
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold text-white leading-snug">
+                    <span className="bg-gradient-to-r from-lime-400 to-lime-400 bg-[length:0%_1px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_1px] transition-[background-size] duration-500">
+                      {p.title}
+                    </span>
+                  </h3>
+                  <p className="mt-2 text-sm text-white/65 line-clamp-3">{p.description}</p>
+                  <div className="mt-4 flex items-center justify-between gap-3">
+                    <span className="text-xs text-white/55">
+                      {author ? `by ${author.name}` : "Omni Path team"}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-sm text-lime-400">
+                      Read <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            );
+          })}
         </StaggerGroup>
       </Section>
 
