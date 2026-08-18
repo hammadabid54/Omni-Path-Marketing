@@ -20,12 +20,18 @@ import {
   Check,
   Table2,
   TrendingUp,
+  Database,
+  Server,
+  Workflow,
+  Sparkles,
+  Activity,
+  Bell,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Analytics & Reporting · From $299/mo White-Label",
   description:
-    "Marketing analytics services for agencies and businesses. Custom dashboards, GA4 setup, conversion tracking, attribution modeling. From $299/mo white-label (60-70% margin) or $499/mo direct.",
+    "Marketing analytics services for agencies and businesses. Custom dashboards, GA4 setup, conversion tracking, attribution modeling. From $299/mo white-label (60-70% margin) or $349/mo direct.",
   path: "/services/analytics",
 });
 
@@ -73,9 +79,9 @@ interface DirectTier {
 const DIRECT_TIERS: DirectTier[] = [
   {
     tier: "Starter",
-    price: "$499/mo",
+    price: "$349/mo",
     includes: [
-      "1 custom Looker Studio dashboard",
+      "1 dashboard",
       "4 KPIs tracked",
       "Monthly email summary",
       "GA4 audit + cleanup (one-time)",
@@ -85,11 +91,11 @@ const DIRECT_TIERS: DirectTier[] = [
   },
   {
     tier: "Growth",
-    price: "$999/mo",
+    price: "$699/mo",
     includes: [
-      "4 custom dashboards",
+      "4 dashboards",
       "All major channels: GA4, paid ads, email, social",
-      "Weekly written summary",
+      "Weekly summary",
       "Monthly 30-min strategy call",
       "Conversion tracking setup",
       "Custom KPI definitions for your business",
@@ -100,10 +106,10 @@ const DIRECT_TIERS: DirectTier[] = [
   },
   {
     tier: "Scale",
-    price: "$1,499/mo",
+    price: "$999/mo",
     includes: [
       "Multi-touch attribution modeling",
-      "6+ custom dashboards",
+      "6+ dashboards",
       "4 hours of fractional CMO time per month",
       "Weekly strategy call",
       "Server-side GA4 + conversion tracking",
@@ -152,7 +158,7 @@ export default function AnalyticsServicePage() {
             <em className="font-serif not-italic text-lime-400">actually read.</em>
           </>
         }
-        subhead="Marketing analytics services for agencies and businesses. We build custom marketing dashboards, set up GA4, model attribution, and run weekly reporting so you know what's working. From $499/mo direct, $299/mo white-label."
+        subhead="Marketing analytics services for agencies and businesses. We build custom marketing dashboards, set up GA4, model attribution, and run weekly reporting so you know what's working. From $349/mo direct, $299/mo white-label."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual · Setup in 7 days"
@@ -328,6 +334,123 @@ export default function AnalyticsServicePage() {
             </div>
           </StaggerItem>
         </StaggerGroup>
+      </Section>
+
+      {/* Behind the scenes — how we ship analytics so fast */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+            Dashboards that{" "}
+            <em className="font-serif not-italic text-lime-400">build themselves.</em>
+          </h2>
+          <p className="mt-4 text-white/70">
+            Traditional agencies run on analyst hours. We run on automation. Here is
+            the stack that ships fresh data to your dashboard every morning, no
+            manual work required.
+          </p>
+        </ScrollReveal>
+        <StaggerGroup
+          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.05}
+        >
+          {[
+            {
+              icon: Database,
+              title: "Looker Studio + BigQuery",
+              d: "Direct connectors to GA4, Google Ads, Meta, and Klaviyo. No CSV exports, no copy-paste. The data lands in the dashboard before you finish your coffee.",
+            },
+            {
+              icon: Server,
+              title: "GA4 Measurement Protocol",
+              d: "Server-side event tracking. No GTM tag bloat, no ad-blocker data loss, no iOS 14-style blind spots. Conversions get counted the way they should be.",
+            },
+            {
+              icon: Workflow,
+              title: "Python + dbt daily ETL",
+              d: "Every morning at 6am, fresh data lands in every dashboard. dbt models turn raw events into clean, tested, business-ready tables your team can trust.",
+            },
+            {
+              icon: Sparkles,
+              title: "GPT-4 + SQL auto-summaries",
+              d: "The weekly report writes itself. We feed the model your KPIs, it writes the commentary, flags anomalies, and calls out what to focus on next.",
+            },
+            {
+              icon: Activity,
+              title: "Puppeteer + Lighthouse",
+              d: "Performance and SEO scores for your top pages, tracked daily. Core Web Vitals, accessibility, and page speed on the same dashboard as your revenue.",
+            },
+            {
+              icon: Bell,
+              title: "Slack + email alerting",
+              d: "KPI anomalies fire alerts to the right person. Cost-per-acquisition spike at 2am? You know before your morning standup starts.",
+            },
+          ].map((t) => {
+            const Icon = t.icon;
+            return (
+              <StaggerItem key={t.title}>
+                <div className="bento h-full">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-white">{t.title}</h3>
+                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{t.d}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
+          <ScrollReveal>
+            <div className="bento h-full">
+              <p className="text-xs font-semibold uppercase tracking-widest text-lime-400">
+                What this means for you
+              </p>
+              <ul className="mt-5 space-y-4 text-sm text-white/85">
+                <li className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <span className="leading-relaxed">
+                    <strong className="text-white">Daily data refresh,</strong> not
+                    monthly. Your dashboard is never more than 24 hours stale.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <span className="leading-relaxed">
+                    <strong className="text-white">
+                      Weekly auto-generated reports,
+                    </strong>{" "}
+                    sent to your inbox every Monday morning.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <span className="leading-relaxed">
+                    <strong className="text-white">
+                      5 hours of analyst time per client per month
+                    </strong>{" "}
+                    (vs 30+ at a traditional agency). That is why the price is what
+                    it is.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="bento h-full flex flex-col justify-center">
+              <p className="text-xl md:text-2xl font-bold leading-snug text-white">
+                Automation is why a 4-person team can run analytics for{" "}
+                <em className="font-serif not-italic text-lime-400">
+                  200+ clients.
+                </em>
+              </p>
+              <p className="mt-4 text-sm text-white/65 leading-relaxed">
+                Manual reporting is a cost we pass on. We do not have that cost, so
+                you do not pay it. That is the whole business model in one sentence.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
       </Section>
 
       {/* What dashboards look like */}
@@ -564,7 +687,7 @@ export default function AnalyticsServicePage() {
       {/* TldrBox */}
       <TldrBox
         items={[
-          "Marketing analytics services from $499/mo direct, $299/mo white-label (60-70% margin).",
+          "Marketing analytics services from $349/mo direct, $299/mo white-label (60-70% margin).",
           "GA4 setup, conversion tracking, attribution modeling, custom dashboards, fractional CMO — six jobs, one team.",
           "Setup in 7 days. Cancel anytime. No setup fees. Same team that runs the Fortune-500 stack, billed like a small agency.",
         ]}
@@ -579,10 +702,10 @@ export default function AnalyticsServicePage() {
             serviceSchema({
               name: "Analytics & Reporting",
               description:
-                "Marketing analytics services including custom dashboards, GA4 setup, conversion tracking, attribution modeling, and fractional CMO. From $499/mo direct or $299/mo white-label.",
+                "Marketing analytics services including custom dashboards, GA4 setup, conversion tracking, attribution modeling, and fractional CMO. From $349/mo direct or $299/mo white-label.",
               path: "/services/analytics",
               serviceType: "Analytics",
-              priceRange: "$299-$1499",
+              priceRange: "$299-$999",
             })
           ),
         }}

@@ -32,6 +32,10 @@ import {
   Layers,
   ArrowRight,
   Check,
+  Gauge,
+  Search,
+  Bot,
+  Code2,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
@@ -193,6 +197,49 @@ const whyUsRows = [
     label: "Time to first results",
     us: "30-60 days",
     them: "90-120 days",
+  },
+];
+
+/* ============================================================
+   Behind the scenes — the AI + automation stack
+   ============================================================ */
+
+const stackTools = [
+  {
+    icon: <Gauge className="h-5 w-5" />,
+    name: "Puppeteer + Lighthouse",
+    body: "Automated Core Web Vitals crawl that runs on every deploy and catches performance regressions before Google does. Replaces the 3-day manual audit most agencies still ship quarterly.",
+    stat: "Audits 200+ pages in 90 seconds",
+  },
+  {
+    icon: <Search className="h-5 w-5" />,
+    name: "Ahrefs API + GPT-4",
+    body: "Backlink profile analysis, content gap detection, and automated weekly reports that ship as PDFs. We catch losing keywords and link decay before they hit your traffic.",
+    stat: "Tracks 50K+ keywords daily",
+  },
+  {
+    icon: <FileText className="h-5 w-5" />,
+    name: "Surfer SEO + NLP",
+    body: "Content scoring and semantic enrichment for every post. Each brief gets graded against the top 10 ranking pages before we start writing, not after the draft is done.",
+    stat: "Every brief scored before we write",
+  },
+  {
+    icon: <Bot className="h-5 w-5" />,
+    name: "GPT-4 + custom prompts",
+    body: "First-draft content for 100% of blog posts. A senior editor human-edits, fact-checks, and adds your voice before anything ships. AI handles the typing. Human handles the judgment.",
+    stat: "1,500-word draft in under 4 minutes",
+  },
+  {
+    icon: <Code2 className="h-5 w-5" />,
+    name: "Screaming Frog + custom scripts",
+    body: "Full site audit, broken links, redirect chains, schema validation, and indexation checks. Automated Slack alerts fire the moment something breaks or shifts.",
+    stat: "Crawls 100K URLs per run",
+  },
+  {
+    icon: <BarChart3 className="h-5 w-5" />,
+    name: "Looker Studio + BigQuery",
+    body: "Real-time white-label dashboards for every client. No manual reporting, no screenshot dumps, no \"I will have that to you next week\" emails. The data is live and branded for you.",
+    stat: "Refreshes every 6 hours, auto-broadcasts",
   },
 ];
 
@@ -610,6 +657,79 @@ export default function SeoServicePage() {
             </div>
           </StaggerItem>
         </StaggerGroup>
+      </Section>
+
+      {/* ============================================================
+          Behind the scenes — how we ship SEO so fast
+          ============================================================ */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+            How we ship{" "}
+            <em className="font-serif not-italic text-lime-400">
+              10x faster than the agency down the street.
+            </em>
+          </h2>
+          <p className="mt-4 text-white/70 max-w-xl">
+            Most SEO agencies bill you for meetings, account-manager handoffs, and quarterly manual reports. We replaced that overhead with a custom AI and automation stack. Same work, same deliverables, shipped faster and priced 60-70% lower.
+          </p>
+        </ScrollReveal>
+
+        <StaggerGroup
+          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.06}
+        >
+          {stackTools.map((tool) => (
+            <StaggerItem key={tool.name}>
+              <div className="bento h-full">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  {tool.icon}
+                </div>
+                <h3 className="text-base font-semibold text-white">
+                  {tool.name}
+                </h3>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  {tool.body}
+                </p>
+                <p className="mt-4 text-xs text-lime-400 font-medium">
+                  {tool.stat}
+                </p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+
+        <ScrollReveal className="mt-12" delay={0.1}>
+          <div className="rounded-2xl border border-lime-400/20 bg-lime-400/[0.04] p-6 md:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+              What this means for you
+            </p>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div>
+                <p className="text-3xl font-bold text-white">5h</p>
+                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                  Human time per client per month. Traditional agencies run 25-30h per account. The rest is the overhead you are paying for.
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-white">Every 30 days</p>
+                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                  100% of clients get a fresh technical audit. Most agencies audit quarterly at best. Some never re-audit after month one.
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-white">70% lower</p>
+                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                  Same deliverables. 5x faster turnaround. 70% lower cost. The number on your invoice is the number on your books.
+                </p>
+              </div>
+            </div>
+            <p className="mt-8 text-sm text-white/75 max-w-2xl leading-relaxed">
+              That is why we can charge $200/client for white-label SEO while the agency down the street charges $1,500. We do less manual work. We ship more, and ship it sooner.
+            </p>
+          </div>
+        </ScrollReveal>
       </Section>
 
       {/* ============================================================

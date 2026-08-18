@@ -16,12 +16,17 @@ import {
   Heart,
   BarChart3,
   CheckCircle2,
+  Bot,
+  CalendarClock,
+  Clapperboard,
+  TrendingUp,
+  MessageSquare,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Social Media Management · From $299/mo White-Label",
   description:
-    "Done-for-you social media management for businesses ($499-$1,499/mo) and agencies ($299/mo white-label). Posts, community, short-form video, reporting.",
+    "Done-for-you social media management for businesses ($349-$999/mo) and agencies ($299/mo white-label). Posts, community, short-form video, reporting.",
   path: "/services/social-media",
 });
 
@@ -69,7 +74,7 @@ interface DirectTier {
 const DIRECT_TIERS: DirectTier[] = [
   {
     tier: "Direct · Starter",
-    price: "$499/mo",
+    price: "$349/mo",
     items: [
       "1 channel (Instagram OR LinkedIn OR X)",
       "12 posts per month",
@@ -82,7 +87,7 @@ const DIRECT_TIERS: DirectTier[] = [
   },
   {
     tier: "Direct · Growth",
-    price: "$999/mo",
+    price: "$699/mo",
     popular: true,
     items: [
       "2-3 channels (Instagram + LinkedIn + X or TikTok)",
@@ -97,7 +102,7 @@ const DIRECT_TIERS: DirectTier[] = [
   },
   {
     tier: "Direct · Scale",
-    price: "$1,499/mo",
+    price: "$999/mo",
     items: [
       "4+ channels across all relevant platforms",
       "30 posts per month",
@@ -108,6 +113,39 @@ const DIRECT_TIERS: DirectTier[] = [
     ],
     upgrade:
       "Need a custom pod? We build dedicated teams for 40+ channel accounts and multi-brand portfolios.",
+  },
+];
+
+const TOOLS = [
+  {
+    icon: Bot,
+    title: "GPT-4 + brand-voice prompts",
+    d: "First-draft captions, hashtags, and hooks for every post — written in your tone from a 30-min onboarding call, not a generic template.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Buffer, Later, and native schedulers",
+    d: "Automated posting, queue management, and per-platform optimal time slots. Posts ship without us touching a phone.",
+  },
+  {
+    icon: Clapperboard,
+    title: "CapCut + auto-captions",
+    d: "Short-form video editing with auto-captions, jump cuts, and b-roll. 80% faster than manual timelines.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Trend monitoring + competitor scraping",
+    d: "Daily reports on what's working in your niche, what your top three competitors shipped this week, and where the next wave is heading.",
+  },
+  {
+    icon: MessageSquare,
+    title: "ManyChat + community auto-replies",
+    d: "DM automation, comment moderation, and lead capture. The conversation never sleeps, and bad replies never reach your audience.",
+  },
+  {
+    icon: BarChart3,
+    title: "Looker Studio engagement dashboards",
+    d: "Real-time reach, saves, follower growth, and cost-per-engagement, broken down by platform, format, and post.",
   },
 ];
 
@@ -177,7 +215,7 @@ export default function SocialMediaServicePage() {
             Social that <em className="font-serif not-italic text-lime-400">shows up.</em>
           </>
         }
-        subhead="Done-for-you social media management for businesses ($499-$1,499/mo) and agencies ($299/mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
+        subhead="Done-for-you social media management for businesses ($349-$999/mo) and agencies ($299/mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
         primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
@@ -370,7 +408,7 @@ export default function SocialMediaServicePage() {
         </ScrollReveal>
         <div className="mt-10 grid gap-3 md:grid-cols-2">
           {[
-            { label: "Cost", us: "$499-1,499/mo direct, $299/mo white-label", them: "$3,000-8,000/mo per client" },
+            { label: "Cost", us: "$349-999/mo direct, $299/mo white-label", them: "$3,000-8,000/mo per client" },
             { label: "Setup fees", us: "$0", them: "$1,000-5,000" },
             { label: "Production model", us: "AI + senior strategists, 7-day turnaround", them: "Junior AMs, 14-21 day turnaround" },
             { label: "Posts per month", us: "12-30 posts + 4-6 short-form videos", them: "8-12 static posts" },
@@ -424,6 +462,58 @@ export default function SocialMediaServicePage() {
         </StaggerGroup>
       </Section>
 
+      {/* Behind the scenes — how we ship social so fast */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+            Posts that <em className="font-serif not-italic text-lime-400">write themselves. Strategy that doesn&apos;t.</em>
+          </h2>
+          <p className="mt-4 text-white/70">
+            The tool stack that lets us ship 30 posts a month per client at a third of the cost of a traditional agency — without cutting corners on quality or strategy.
+          </p>
+        </ScrollReveal>
+        <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+          {TOOLS.map((t) => {
+            const Icon = t.icon;
+            return (
+              <StaggerItem key={t.title}>
+                <div className="bento h-full">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-white">{t.title}</h3>
+                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{t.d}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
+
+        <ScrollReveal className="mt-12 max-w-3xl">
+          <div className="bento border border-lime-400/20 bg-lime-400/5">
+            <h3 className="text-base font-semibold text-lime-400">What this means for you</h3>
+            <ul className="mt-4 space-y-2 text-sm text-white/80">
+              <li className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <span>30 posts/mo, all platforms, on autopilot</span>
+              </li>
+              <li className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <span>AI drafts, senior human edits and approves every piece before it ships</span>
+              </li>
+              <li className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <span>5 hours of community manager time per client per month (vs 30+ at a traditional agency)</span>
+              </li>
+            </ul>
+            <p className="mt-5 text-sm text-white/75 leading-relaxed">
+              That&apos;s why Starter ships at <span className="text-lime-400 font-semibold">$349/mo</span> instead of $3,000+. Same output, lower overhead, real numbers every month — and we pass the savings to you, not to a headcount spreadsheet.
+            </p>
+          </div>
+        </ScrollReveal>
+      </Section>
+
       {/* The process */}
       <Section>
         <ScrollReveal className="max-w-2xl">
@@ -475,7 +565,7 @@ export default function SocialMediaServicePage() {
       {/* TldrBox */}
       <TldrBox
         items={[
-          "Social media management from $499/mo direct, $299/mo white-label. 70% lower than traditional agencies.",
+          "Social media management from $349/mo direct, $299/mo white-label. 70% lower than traditional agencies.",
           "12-30 posts per month, 4-6 short-form videos, community management, monthly reporting included.",
           "Five-step process: audit, plan, produce, post, report. Cancel anytime with 30 days notice.",
         ]}
@@ -493,7 +583,7 @@ export default function SocialMediaServicePage() {
                 "Done-for-you social media management and white-label social media marketing for agencies. Posts, community management, short-form video, reporting.",
               path: "/services/social-media",
               serviceType: "Social Media Marketing",
-              priceRange: "$299-$1499",
+              priceRange: "$299-$999",
             })
           ),
         }}

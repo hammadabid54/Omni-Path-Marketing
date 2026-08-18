@@ -37,7 +37,7 @@ import {
 export const metadata: Metadata = buildMetadata({
   title: "Branding Services · Logo, Identity & Full System from $99 | Omni Path",
   description:
-    "Branding services for businesses and white-label for agencies. Logo from $499, brand identity from $1,499, full system from $2,999. 3-14 day turnaround, full IP transfer.",
+    "Branding services for businesses and white-label for agencies. Logo from $349, brand identity from $999, full system from $1,999. 3-14 day turnaround, full IP transfer.",
   path: "/services/branding",
 });
 
@@ -59,7 +59,7 @@ interface DirectTier {
 const directTiers: DirectTier[] = [
   {
     name: "Logo",
-    price: "$499",
+    price: "$349",
     turnaround: "5-day turnaround · one-time",
     badge: "Starter",
     includes: [
@@ -78,7 +78,7 @@ const directTiers: DirectTier[] = [
   },
   {
     name: "Brand Identity",
-    price: "$1,499",
+    price: "$999",
     turnaround: "14-day turnaround · one-time",
     badge: "Most popular",
     includes: [
@@ -100,7 +100,7 @@ const directTiers: DirectTier[] = [
   },
   {
     name: "Full Brand System",
-    price: "$2,999",
+    price: "$1,999",
     turnaround: "14-day turnaround · one-time",
     badge: "Complete rebrand",
     includes: [
@@ -164,12 +164,12 @@ const whyUsBullets = [
   },
   {
     label: "Price for a logo",
-    us: "$499",
+    us: "$349",
     them: "$2,000-8,000",
   },
   {
     label: "Price for a full brand system",
-    us: "$2,999",
+    us: "$1,999",
     them: "$10,000-30,000",
   },
   {
@@ -214,6 +214,61 @@ const includedInEveryPlan = [
     title: "Fixed timeline, fixed price",
     body: "Quote is final. Turnaround is in writing. No surprise invoices for extra rounds.",
   },
+];
+
+/* ============================================================
+   Behind the scenes — the tool stack behind the speed
+   ============================================================ */
+
+interface BehindTheScenesTool {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+}
+
+const behindTheScenesTools: BehindTheScenesTool[] = [
+  {
+    icon: <Sparkles className="h-5 w-5" />,
+    title: "Midjourney / DALL-E + custom prompts",
+    body:
+      "We generate 50+ logo concepts in 10 minutes from your brief. Each one is unique, not a recolor of the same shape. Senior designer reviews every direction, kills the 47 that miss, and picks the strongest 3 to refine. More options, less wait.",
+  },
+  {
+    icon: <Palette className="h-5 w-5" />,
+    title: "Khroma + Coolors",
+    body:
+      "AI-extracted color palettes matched to your brand voice, your industry, and your audience. We deliver 3 directions, not 30 random swatches for you to wade through on a Friday night.",
+  },
+  {
+    icon: <Type className="h-5 w-5" />,
+    title: "Fontjoy + Google Fonts",
+    body:
+      "Automated typography pairing tuned to brand personality: confident, friendly, technical, or luxury. Two typefaces, six weights, every pair pre-tested for legibility from 12px to 200px. No guesswork, no endless type library scroll.",
+  },
+  {
+    icon: <MessageCircle className="h-5 w-5" />,
+    title: "GPT-4 brand voice extraction",
+    body:
+      "Feed it 5 pages of your existing copy. It returns a full voice doc: tone, vocabulary, do's, don'ts, and sample lines your team can use today.",
+  },
+  {
+    icon: <LayoutTemplate className="h-5 w-5" />,
+    title: "Figma + auto-layout",
+    body:
+      "20-page brand guide built in 2 hours, not 2 weeks. Auto-layout handles spacing, grids, and every export variant. Final guide is editable, not a locked PDF.",
+  },
+  {
+    icon: <Layers className="h-5 w-5" />,
+    title: "Canva brand kit",
+    body:
+      "Social templates, business cards, email signatures, plus launch graphics like cover images, banner templates, and email headers, all auto-generated from your colors and fonts. Drop your logo in once, every asset stays on-brand forever.",
+  },
+];
+
+const behindTheScenesOutcomes = [
+  "3-day logo turnaround, not 3 weeks",
+  "50+ concepts reviewed, you pick the best",
+  "5 hours of senior designer time, not 40",
 ];
 
 /* ============================================================
@@ -296,7 +351,7 @@ export default function BrandingServicePage() {
             <em className="font-serif not-italic text-lime-400">ship in days.</em>
           </>
         }
-        heroSubhead="Branding services for businesses and white-label for agencies. Logo from $499, brand identity from $1,499, full brand system from $2,999. 3-14 day turnaround, full IP transfer, senior designer on every project."
+        heroSubhead="Branding services for businesses and white-label for agencies. Logo from $349, brand identity from $999, full brand system from $1,999. 3-14 day turnaround, full IP transfer, senior designer on every project."
         heroPrimaryCta={{ label: "Get a free brand audit", href: "/contact" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="Full IP transfer on payment · 3 revisions included · 5-14 day turnaround"
@@ -585,8 +640,8 @@ export default function BrandingServicePage() {
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
           <p className="text-sm text-white/65 leading-relaxed">
             The short version: a logo that takes a traditional agency 6 weeks
-            and $4,000 lands in our hands in 5 days for $499. A full brand
-            system that would cost $25,000 at a big studio runs $2,999 here in
+            and $4,000 lands in our hands in 5 days for $349. A full brand
+            system that would cost $25,000 at a big studio runs $1,999 here in
             14 days. The senior designer is the same caliber. The process is
             just faster because we cut the meetings, the rounds, and the
             account-manager relay. Your brand goes live sooner, costs less, and
@@ -634,6 +689,81 @@ export default function BrandingServicePage() {
       </Section>
 
       {/* ============================================================
+          Behind the scenes — how we ship branding so fast
+          ============================================================ */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+            Branding at{" "}
+            <em className="font-serif not-italic text-lime-400">founder speed.</em>
+          </h2>
+          <p className="mt-4 text-white/70 max-w-xl">
+            The reason a 5-day logo costs $349 instead of $4,000 is not lower
+            quality but a production pipeline built on AI and automation, with
+            a senior designer directing every step, the same human review and
+            final polish, and just less busywork billed at $150 an hour — here
+            is the actual tool stack behind every project we ship.
+          </p>
+        </ScrollReveal>
+
+        <StaggerGroup
+          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.06}
+        >
+          {behindTheScenesTools.map((tool) => (
+            <StaggerItem key={tool.title}>
+              <div className="bento h-full">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  {tool.icon}
+                </div>
+                <h3 className="text-base font-semibold text-white">
+                  {tool.title}
+                </h3>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  {tool.body}
+                </p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+
+        <ScrollReveal delay={0.1} className="mt-12">
+          <div className="rounded-2xl border border-lime-400/30 bg-lime-400/[0.04] p-6 md:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+              What this means for you
+            </p>
+            <ul className="mt-4 grid gap-3 md:grid-cols-3">
+              {behindTheScenesOutcomes.map((outcome) => (
+                <li
+                  key={outcome}
+                  className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
+                >
+                  <Check className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                  <span>{outcome}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-white/75 leading-relaxed">
+              Same deliverables a $25,000 studio brand would ship, at
+              founder-friendly numbers. The senior designer is still on the
+              project — they just stopped spending their week on tasks a script
+              can finish in seconds. That is the whole game: automate the
+              busywork, pay for the judgment, ship in days not months. Your
+              brand costs less because we cut the meetings, the rounds, and the
+              account-manager relay. The designer who draws your logo is the
+              same caliber you would find at a big studio. The only difference
+              is what we charge, because what we charge reflects what the work
+              actually costs to run. Less overhead, same outcome, lower
+              invoice. That is the founder-friendly part — a $349 logo
+              instead of a $4,000 logo, because the bill reflects the real
+              cost of the work, not the cost of a fancy studio lease.
+            </p>
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      {/* ============================================================
           The process
           ============================================================ */}
       <Section>
@@ -644,10 +774,10 @@ export default function BrandingServicePage() {
             <em className="font-serif not-italic text-lime-400">Five steps.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            Same process whether you are a direct client booking a $1,499
-            Brand Identity or an agency running a $399 white-label resell. The
-            brief takes 10 minutes. Concepts land in 48-72 hours. Final files
-            ship on day 5-14.
+            Same process whether you are a direct client booking a $999 Brand
+            Identity or an agency running a $399 white-label resell. The brief
+            takes 10 minutes. Concepts land in 48-72 hours. Final files ship
+            on day 5-14.
           </p>
         </ScrollReveal>
 
@@ -725,7 +855,7 @@ export default function BrandingServicePage() {
 
       <TldrBox
         items={[
-          "Branding services from $499 (logo) to $2,999 (full system). One-time price, full IP, 5-14 day turnaround.",
+          "Branding services from $349 (logo) to $1,999 (full system). One-time price, full IP, 5-14 day turnaround.",
           "White-label for agencies: pay $99-999, resell at $500-7,500. 78-89% margin per project.",
           "Senior designer on every project. 3 concepts, 3 revisions, source files in every format.",
         ]}
@@ -742,7 +872,7 @@ export default function BrandingServicePage() {
                 "Branding services for businesses and white-label for agencies. Logo design, brand identity, brand guide, full brand system. 3-14 day turnaround, full IP transfer.",
               path: "/services/branding",
               serviceType: "Branding",
-              priceRange: "$99-$2999",
+              priceRange: "$99-$1999",
             })
           ),
         }}

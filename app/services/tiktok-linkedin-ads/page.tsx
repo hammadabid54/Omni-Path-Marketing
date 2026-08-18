@@ -29,19 +29,20 @@ import {
   FlaskConical,
   Users,
   BarChart3,
+  Bot,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "TikTok + LinkedIn Ads · From $299/mo White-Label",
   description:
-    "Run TikTok and LinkedIn ads with one team. Direct management from $499/mo, white-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok. Built for paid social that converts.",
+    "Run TikTok and LinkedIn ads with one team. Direct management from $349/mo, white-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok. Built for paid social that converts.",
   path: "/services/tiktok-linkedin-ads",
 });
 
 const tiktokDirectTiers = [
   {
     tier: "Starter",
-    price: "$499/mo",
+    price: "$349/mo",
     popular: false,
     includes: [
       "1 ad group with 3-5 creative variations",
@@ -51,17 +52,17 @@ const tiktokDirectTiers = [
       "Monthly performance report",
     ],
     upgrade:
-      "Upgrade to Growth for 3 ad groups, weekly optimization, advanced lookalikes, and Spark Ads amplification.",
+      "Upgrade to Growth for 3 ad groups, weekly tuning, advanced lookalikes, and Spark Ads amplification.",
   },
   {
     tier: "Growth",
-    price: "$999/mo",
+    price: "$699/mo",
     popular: true,
     includes: [
       "3 ad groups with 8-12 creative variations",
       "Spark Ads, in-feed, and TopView rotation",
       "Advanced lookalikes and retargeting segments",
-      "Weekly bid, budget, and creative optimization",
+      "Weekly bid, budget, and creative tuning",
       "Bi-weekly performance call",
     ],
     upgrade:
@@ -69,7 +70,7 @@ const tiktokDirectTiers = [
   },
   {
     tier: "Scale",
-    price: "$1,499/mo",
+    price: "$999/mo",
     popular: false,
     includes: [
       "Multi-campaign structure across audiences",
@@ -86,7 +87,7 @@ const tiktokDirectTiers = [
 const linkedinDirectTiers = [
   {
     tier: "Starter",
-    price: "$899/mo",
+    price: "$599/mo",
     popular: false,
     includes: [
       "1 Sponsored Content campaign",
@@ -100,7 +101,7 @@ const linkedinDirectTiers = [
   },
   {
     tier: "Growth",
-    price: "$1,499/mo",
+    price: "$999/mo",
     popular: true,
     includes: [
       "Sponsored Content, InMail, and Conversation Ads",
@@ -114,7 +115,7 @@ const linkedinDirectTiers = [
   },
   {
     tier: "Scale",
-    price: "$2,499/mo",
+    price: "$1,699/mo",
     popular: false,
     includes: [
       "Full-funnel: awareness, consideration, conversion",
@@ -140,6 +141,45 @@ const whiteLabelRows = [
     price: "$499/mo",
     resell: "Resell at $999-1,500/mo",
     margin: "50-67% margin",
+  },
+];
+
+const behindTheScenesTools = [
+  {
+    title: "TikTok Ads API + LinkedIn Campaign Manager API",
+    description:
+      "Direct bid automation through the official APIs. No manual UI work. Bids refresh daily, budgets rebalance every four hours.",
+    icon: <Bot className="h-5 w-5" />,
+  },
+  {
+    title: "GPT-4 + GPT-image-1 creative engine",
+    description:
+      "20+ creative variations per ad, generated in minutes. Hooks, copy, and visuals ship in a single pass, ready for review.",
+    icon: <Sparkles className="h-5 w-5" />,
+  },
+  {
+    title: "Spark Ads + UGC creator sourcing",
+    description:
+      "Automated creator outreach across 50+ marketplaces. Spark Ads amplify the best organic posts without extra spend.",
+    icon: <Users className="h-5 w-5" />,
+  },
+  {
+    title: "Audience expansion automation",
+    description:
+      "Lookalike seeds and interest expansion run daily. New audiences ship every week, not every quarter.",
+    icon: <Target className="h-5 w-5" />,
+  },
+  {
+    title: "Puppeteer screenshot testing",
+    description:
+      "Every ad variant gets preview-tested on mobile before launch. Catches broken creative before it burns spend.",
+    icon: <FlaskConical className="h-5 w-5" />,
+  },
+  {
+    title: "Looker Studio dashboards",
+    description:
+      "Real-time ROAS by platform, by audience, by creative. You see the numbers the moment they move.",
+    icon: <BarChart3 className="h-5 w-5" />,
   },
 ];
 
@@ -172,9 +212,9 @@ export default function TikTokLinkedInServicePage() {
           <p className="mt-5 text-lg text-white/70 leading-relaxed">
             TikTok and LinkedIn ads are the two highest-intent paid social
             platforms in 2026. We handle creative, targeting, campaign
-            structure, optimization, and reporting. You approve every asset
-            before it goes live. Built for SMBs and agencies that need paid
-            social that converts, not vanity metrics.
+            structure, tuning, and reporting. You approve every asset before
+            it goes live. Built for SMBs and agencies that need paid social
+            that converts, not vanity metrics.
           </p>
         </ScrollReveal>
         <StaggerGroup
@@ -570,6 +610,76 @@ export default function TikTokLinkedInServicePage() {
         </StaggerGroup>
       </Section>
 
+      {/* Behind the scenes — how we ship TikTok + LinkedIn ads so fast */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+            Two platforms.{" "}
+            <em className="font-serif not-italic text-lime-400">
+              One automated machine.
+            </em>
+          </h2>
+          <p className="mt-5 text-lg text-white/70 leading-relaxed">
+            We move fast on TikTok and LinkedIn because most of the work runs
+            through automation — not extra billable hours. Here&apos;s the
+            stack that ships every campaign.
+          </p>
+        </ScrollReveal>
+        <StaggerGroup
+          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.06}
+        >
+          {behindTheScenesTools.map((t) => (
+            <StaggerItem key={t.title}>
+              <div className="bento h-full">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  {t.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white">
+                  {t.title}
+                </h3>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  {t.description}
+                </p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+        <ScrollReveal delay={0.1} className="mt-12 max-w-3xl">
+          <div className="bento bento-lg border-lime-400/25 bg-lime-400/4">
+            <h3 className="text-2xl font-semibold text-white">
+              What this means for you
+            </h3>
+            <ul className="mt-5 space-y-2.5 text-base text-white/80 leading-relaxed">
+              <li className="flex gap-3">
+                <span className="text-lime-400 mt-1">·</span>
+                <span>
+                  20+ ad variants per campaign, always testing.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-lime-400 mt-1">·</span>
+                <span>Bid adjustments every 4 hours, not weekly.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-lime-400 mt-1">·</span>
+                <span>
+                  5 hours of media buyer time per client per month (vs 30+
+                  at a traditional agency).
+                </span>
+              </li>
+            </ul>
+            <p className="mt-6 text-base text-white/70 leading-relaxed">
+              Less time on the work means lower management fees. That&apos;s
+              how TikTok Starter lands at $349/mo and LinkedIn Scale caps at
+              $1,699/mo — while traditional agencies charge $3,000-6,000/mo
+              for the same scope of work. The automation is your discount.
+            </p>
+          </div>
+        </ScrollReveal>
+      </Section>
+
       {/* Process */}
       <ProcessSteps
         eyebrow="The process"
@@ -675,9 +785,9 @@ export default function TikTokLinkedInServicePage() {
 
       <TldrBox
         items={[
-          "TikTok Ads from $499/mo mgmt. LinkedIn Ads from $899/mo mgmt. Ad spend billed separately to the platforms.",
+          "TikTok Ads from $349/mo mgmt. LinkedIn Ads from $599/mo mgmt. Ad spend billed separately to the platforms.",
           "White-label from $299/mo (TikTok) and $499/mo (LinkedIn). Resell at 2-3x for 60-70% margin per client.",
-          "7-day onboarding, monthly reports, weekly optimizations, no setup fees. Cancel anytime with 30 days notice.",
+          "7-day onboarding, monthly reports, weekly tuning, no setup fees. Cancel anytime with 30 days notice.",
         ]}
       />
 
@@ -689,10 +799,10 @@ export default function TikTokLinkedInServicePage() {
             serviceSchema({
               name: "TikTok + LinkedIn Ads",
               description:
-                "Done-for-you TikTok and LinkedIn ad management. Direct for businesses from $499/mo. White-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok.",
+                "Done-for-you TikTok and LinkedIn ad management. Direct for businesses from $349/mo. White-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok.",
               path: "/services/tiktok-linkedin-ads",
               serviceType: "Paid Advertising",
-              priceRange: "$299-$2499",
+              priceRange: "$299-$1699",
             }),
           ),
         }}

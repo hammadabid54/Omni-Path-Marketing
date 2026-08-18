@@ -23,12 +23,17 @@ import {
   Rocket,
   FileCheck2,
   Wrench,
+  Code2,
+  Gauge,
+  Activity,
+  Bot,
+  FlaskConical,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Web Design & CRO Services · From $249 | Omni Path",
   description:
-    "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $749 direct, $249 white-label. 5-21 day turnaround.",
+    "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $499 direct, $249 white-label. 5-21 day turnaround.",
   path: "/services/web-design",
 });
 
@@ -70,7 +75,7 @@ export default function WebDesignServicePage() {
             Sites that <em className="font-serif not-italic text-lime-400">convert.</em>
           </>
         }
-        subhead="Web design services built for one thing: revenue. Landing pages, multi-page sites, e-commerce, and conversion rate optimization — from $749, delivered in 5-21 days."
+        subhead="Web design services built for one thing: revenue. Landing pages, multi-page sites, e-commerce, and conversion rate optimization — from $499, delivered in 5-21 days."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "#pricing" }}
         trustMicrocopy="No setup fees · 30 days of post-launch support · White-label available for agencies"
@@ -156,7 +161,7 @@ export default function WebDesignServicePage() {
             <div className="bento h-full flex flex-col">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-2xl font-bold text-white">Landing Page</h3>
-                <span className="text-2xl font-semibold text-lime-400">$749</span>
+                <span className="text-2xl font-semibold text-lime-400">$499</span>
               </div>
               <p className="mt-1 text-sm text-white/55">One-time · 5-day turnaround</p>
               <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
@@ -187,7 +192,7 @@ export default function WebDesignServicePage() {
                   <h3 className="text-2xl font-bold text-white">Standard Site</h3>
                   <span className="pill pill-accent text-[10px]">Popular</span>
                 </div>
-                <span className="text-2xl font-semibold text-lime-400">$1,499</span>
+                <span className="text-2xl font-semibold text-lime-400">$999</span>
               </div>
               <p className="mt-1 text-sm text-white/55">One-time · 10-day turnaround</p>
               <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
@@ -216,7 +221,7 @@ export default function WebDesignServicePage() {
             <div className="bento h-full flex flex-col">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-2xl font-bold text-white">Custom Site</h3>
-                <span className="text-2xl font-semibold text-lime-400">$2,999</span>
+                <span className="text-2xl font-semibold text-lime-400">$1,999</span>
               </div>
               <p className="mt-1 text-sm text-white/55">One-time · 21-day turnaround</p>
               <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
@@ -246,7 +251,7 @@ export default function WebDesignServicePage() {
             <div className="bento h-full flex flex-col">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-2xl font-bold text-white">E-commerce</h3>
-                <span className="text-2xl font-semibold text-lime-400">$2,499</span>
+                <span className="text-2xl font-semibold text-lime-400">$1,699</span>
               </div>
               <p className="mt-1 text-sm text-white/55">One-time · 14-day turnaround</p>
               <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
@@ -337,7 +342,106 @@ export default function WebDesignServicePage() {
         </ScrollReveal>
       </Section>
 
-      {/* 4. Why us vs traditional */}
+      {/* 4. Behind the scenes — how we ship web design so fast */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+            Sites built <em className="font-serif not-italic text-lime-400">in days, not months.</em>
+          </h2>
+          <p className="mt-4 text-white/70">
+            Six tools in our stack carry the heavy lifting on every project, so our senior designers
+            and developers focus on the 20% that actually wins the click. Here&rsquo;s the exact
+            automation behind a $499 landing page that ships in five days, a $999 standard site that
+            ships in ten, and a $1,999 custom build that ships in twenty-one.
+          </p>
+        </ScrollReveal>
+
+        <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+          {[
+            {
+              title: "v0.dev + Cursor + Claude",
+              description:
+                "AI code generation, design prompts, and inline refactors. About 80% of the HTML, CSS, and component logic is scaffolded before a senior human ever opens the file. That's how a 5-day deadline actually holds.",
+              icon: <Code2 className="h-5 w-5" />,
+            },
+            {
+              title: "Next.js + Tailwind + shadcn/ui",
+              description:
+                "Production-grade stack, SEO-fast by default. Server-side rendering, image handling, and accessibility built in from the first commit — no template, no theme, no bloat.",
+              icon: <Layers className="h-5 w-5" />,
+            },
+            {
+              title: "Puppeteer + Lighthouse",
+              description:
+                "Every page is audited for Core Web Vitals on every deploy. We catch the slow build, the missing alt tag, the layout shift, and the bad meta before customers do — not after the invoice.",
+              icon: <Gauge className="h-5 w-5" />,
+            },
+            {
+              title: "Hotjar + Microsoft Clarity",
+              description:
+                "Heatmaps, session recordings, and real conversion data flow back into the next design pass. The screen recording tells you where people tap, where they leave, and where they rage-click.",
+              icon: <Activity className="h-5 w-5" />,
+            },
+            {
+              title: "GPT-4 + brand voice doc",
+              description:
+                "First-draft copy for every section, then a senior editor rewrites for tone, clarity, and the words your buyers actually use in their search bar. AI speed with a human's ear for language.",
+              icon: <Bot className="h-5 w-5" />,
+            },
+            {
+              title: "A/B testing automation",
+              description:
+                "Every landing page ships with two variants running from day one. The data picks the winner inside a week, the losing version goes away, and the winning headline becomes the new baseline.",
+              icon: <FlaskConical className="h-5 w-5" />,
+            },
+          ].map((tool) => (
+            <StaggerItem key={tool.title}>
+              <div className="bento h-full">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  {tool.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white">{tool.title}</h3>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">{tool.description}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+
+        <ScrollReveal delay={0.15} className="mt-10">
+          <div className="rounded-2xl border border-lime-400/25 bg-lime-400/5 p-6 md:p-8">
+            <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
+              <Zap className="h-4 w-4" />
+              What this means for you
+            </div>
+            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">
+              Real speed. <em className="font-serif not-italic text-lime-400">Real numbers.</em>
+            </h3>
+            <ul className="mt-6 grid gap-3 md:grid-cols-3">
+              <li className="flex gap-2 text-white/85">
+                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
+                <span><strong className="text-white">5-day landing page turnaround</strong>, not 5 weeks.</span>
+              </li>
+              <li className="flex gap-2 text-white/85">
+                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
+                <span><strong className="text-white">Sub-2-second load times</strong>, guaranteed on real 4G.</span>
+              </li>
+              <li className="flex gap-2 text-white/85">
+                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
+                <span><strong className="text-white">Around 8 hours of senior designer time</strong>, not 80.</span>
+              </li>
+            </ul>
+            <p className="mt-6 text-sm text-white/70 leading-relaxed">
+              That&rsquo;s how a Standard Site ships at $999 direct — and resells at $3,000-5,500 to
+              your clients if you&rsquo;re a white-label partner. Same engineering, same craft, no
+              agency overhead, no six-week kickoff phase, no padded hourly billing. The automation
+              is the margin, and we pass the margin to you.
+            </p>
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      {/* 5. Why us vs traditional */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Why us vs a traditional agency</Eyebrow>
@@ -398,7 +502,7 @@ export default function WebDesignServicePage() {
         </div>
       </Section>
 
-      {/* 5. What's in every plan */}
+      {/* 6. What's in every plan */}
       <Section spacing="tight">
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What&rsquo;s in every plan</Eyebrow>
@@ -406,7 +510,7 @@ export default function WebDesignServicePage() {
             The baseline we <em className="font-serif not-italic text-lime-400">never skip.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Whether you buy a $749 landing page or a $2,999 custom build, these ship in every project.
+            Whether you buy a $499 landing page or a $1,999 custom build, these ship in every project.
             No upsell, no add-on fees, no fine print. If you want ongoing SEO on top of the launch
             baseline, see our <Link href="/services/seo" className="text-lime-400 hover:underline">SEO services</Link>.
           </p>
@@ -431,7 +535,7 @@ export default function WebDesignServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* 6. The process */}
+      {/* 7. The process */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">The process</Eyebrow>
@@ -471,7 +575,7 @@ export default function WebDesignServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* 7. FAQ */}
+      {/* 8. FAQ */}
       <FaqSection
         eyebrow="FAQ"
         title={<>Web design <em className="font-serif not-italic text-lime-400">questions.</em></>}
@@ -479,25 +583,25 @@ export default function WebDesignServicePage() {
         items={webDesignFaq}
       />
 
-      {/* 8. Final CTA */}
+      {/* 9. Final CTA */}
       <CtaSection
         variant="panel"
         title={<>Ready for a site that <em className="font-serif not-italic text-lime-400">converts?</em></>}
-        subhead="Get a free conversion audit, or book a 15-min call. Web design services from $749 direct, $249 white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
+        subhead="Get a free conversion audit, or book a 15-min call. Web design services from $499 direct, $249 white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
       />
 
-      {/* 9. TldrBox */}
+      {/* 10. TldrBox */}
       <TldrBox
         items={[
-          "Web design services from $749 direct, $249 white-label. 5-21 day turnaround, fixed price.",
+          "Web design services from $499 direct, $249 white-label. 5-21 day turnaround, fixed price.",
           "Four tiers: Landing, Standard, Custom, E-commerce. Source files + CMS on every build.",
           "Built on Next.js, Webflow, Shopify, or WordPress. You own the code, always.",
         ]}
       />
 
-      {/* 10. JSON-LD */}
+      {/* 11. JSON-LD */}
       <Script
         id="ld-service-web"
         type="application/ld+json"
@@ -506,10 +610,10 @@ export default function WebDesignServicePage() {
             serviceSchema({
               name: "Web Design & CRO Services",
               description:
-                "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $749 direct, $249 white-label.",
+                "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $499 direct, $249 white-label.",
               path: "/services/web-design",
               serviceType: "Web Design & CRO",
-              priceRange: "$249-$2999",
+              priceRange: "$249-$1999",
             })
           ),
         }}

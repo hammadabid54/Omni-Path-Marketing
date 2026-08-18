@@ -24,12 +24,18 @@ import {
   Eye,
   Check,
   TrendingUp,
+  Sparkles,
+  Plug,
+  Zap,
+  Clock,
+  FlaskConical,
+  ShieldCheck,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Email & Lifecycle Marketing · From $299/mo White-Label",
   description:
-    "Email marketing services on Klaviyo, HubSpot, ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. Direct from $499. White-label from $299/mo with 60-70% margin.",
+    "Email marketing services on Klaviyo, HubSpot, ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo with 60-70% margin.",
   path: "/services/email-lifecycle",
 });
 
@@ -79,7 +85,7 @@ interface SetupTier {
 const SETUP_TIERS: SetupTier[] = [
   {
     tier: "Starter",
-    price: "$499",
+    price: "$349",
     cadence: "one-time",
     blurb: "1 platform, the essentials built.",
     includes: [
@@ -94,7 +100,7 @@ const SETUP_TIERS: SetupTier[] = [
   },
   {
     tier: "Growth",
-    price: "$999",
+    price: "$699",
     cadence: "one-time",
     blurb: "1 platform, the full revenue engine.",
     popular: true,
@@ -110,7 +116,7 @@ const SETUP_TIERS: SetupTier[] = [
   },
   {
     tier: "Scale",
-    price: "$1,499",
+    price: "$999",
     cadence: "one-time",
     blurb: "Multi-platform, advanced automation.",
     includes: [
@@ -128,7 +134,7 @@ const SETUP_TIERS: SetupTier[] = [
 const MGMT_TIERS: SetupTier[] = [
   {
     tier: "Starter",
-    price: "$499/mo",
+    price: "$349/mo",
     cadence: "monthly",
     blurb: "Steady output, no strategy overhead.",
     includes: [
@@ -142,7 +148,7 @@ const MGMT_TIERS: SetupTier[] = [
   },
   {
     tier: "Growth",
-    price: "$999/mo",
+    price: "$699/mo",
     cadence: "monthly",
     blurb: "Segmentation plus a monthly strategy call.",
     popular: true,
@@ -158,7 +164,7 @@ const MGMT_TIERS: SetupTier[] = [
   },
   {
     tier: "Scale",
-    price: "$1,499/mo",
+    price: "$999/mo",
     cadence: "monthly",
     blurb: "Unlimited output, senior attention.",
     includes: [
@@ -275,6 +281,39 @@ function PricingCard({ tier, accent }: { tier: SetupTier; accent?: boolean }) {
   );
 }
 
+const STACK = [
+  {
+    icon: Sparkles,
+    title: "GPT-4 + brand-voice prompts",
+    d: "First-draft subject lines, preview text, and body copy in your brand voice. We tune every prompt per client with your tone, your offers, and your banned phrases — so the writing sounds like you wrote it on a Tuesday morning, not a robot at 3am.",
+  },
+  {
+    icon: Plug,
+    title: "Klaviyo, HubSpot, ActiveCampaign APIs",
+    d: "Direct flow-builder access through the platform's own API. No UI clicking, no screen-share, no waiting on a human to drag-and-drop blocks. We push 4-8 campaigns and 6+ flows per month from a single workspace, in your account or ours.",
+  },
+  {
+    icon: Zap,
+    title: "Behavioral trigger engine",
+    d: "Browse abandonment, cart, post-purchase, win-back, birthday, repeat-purchase — every customer event fires the right message on the right day, with no manual work from your team. The flows check themselves and adapt to new SKUs.",
+  },
+  {
+    icon: Clock,
+    title: "Send-time tuning",
+    d: "An ML model picks the per-recipient send time based on past open behavior. Each subscriber gets the email when they're most likely to act — not when we hit 'schedule'. Open rates climb 15-25% on average.",
+  },
+  {
+    icon: FlaskConical,
+    title: "A/B testing framework",
+    d: "Every campaign auto-tests subject and body variants on a 20% slice, then rolls the winner out to the rest of the list. You get more revenue per send without ever running a manual split test.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Deliverability monitoring",
+    d: "Daily inbox placement checks, bounce and spam-rate alerts, sender-score tracking across Gmail, Outlook, and Yahoo. We catch and fix problems before they cost you revenue — and we've never lost a client's sender reputation.",
+  },
+];
+
 export default function EmailLifecycleServicePage() {
   return (
     <>
@@ -385,7 +424,7 @@ export default function EmailLifecycleServicePage() {
         </StaggerGroup>
         <p className="mt-6 text-sm text-white/55 max-w-2xl">
           Already have your ESP and just want the team to run it? Skip setup,
-          start with Starter management at $499/mo and we&rsquo;ll audit your
+          start with Starter management at $349/mo and we&rsquo;ll audit your
           account for free in week one.
         </p>
       </Section>
@@ -567,6 +606,65 @@ export default function EmailLifecycleServicePage() {
         </p>
       </Section>
 
+      {/* Behind the scenes — how we ship email so fast */}
+      <Section>
+        <ScrollReveal className="max-w-2xl">
+          <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+            Emails that{" "}
+            <em className="font-serif not-italic text-lime-400">write, test, and send themselves.</em>
+          </h2>
+          <p className="mt-4 text-white/70">
+            Our tech stack does the heavy lifting so campaigns ship in hours, not weeks — and the numbers keep climbing while you sleep.
+          </p>
+        </ScrollReveal>
+        <StaggerGroup
+          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.05}
+        >
+          {STACK.map((f) => {
+            const Icon = f.icon;
+            return (
+              <StaggerItem key={f.title}>
+                <div className="bento h-full">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-white">
+                    {f.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                    {f.d}
+                  </p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
+        <div className="mt-10 rounded-2xl border border-lime-400/25 bg-lime-400/[0.04] p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-lime-400">
+            What this means for you
+          </p>
+          <ul className="mt-4 grid gap-3 md:grid-cols-3 text-sm text-white/85">
+            <li className="flex items-start gap-2">
+              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <span>8 campaigns per month, all auto-tested and shipped on time.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <span>Behavioral triggers fire 24/7, even when we&rsquo;re asleep.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <span>5 hours of email marketer time per client per month — vs 25+ hours at a traditional agency.</span>
+            </li>
+          </ul>
+        </div>
+        <p className="mt-6 text-sm text-white/65 max-w-2xl">
+          Automation is why Starter management costs $349/mo instead of $2,000+. We pass the savings straight to you. The work output is the same. The price is not. That&rsquo;s the whole point of the model.
+        </p>
+      </Section>
+
       {/* The process */}
       <Section>
         <ScrollReveal className="max-w-2xl">
@@ -634,7 +732,7 @@ export default function EmailLifecycleServicePage() {
         title="Key takeaways"
         items={[
           "Email marketing services from $299/mo white-label (resell at $1,000-1,800/mo for 60-70% margin).",
-          "Direct: $499-$1,499 one-time setup + $499-$1,499/mo management. Klaviyo, HubSpot, or ActiveCampaign.",
+          "Direct: $349-$999 one-time setup + $349-$999/mo management. Klaviyo, HubSpot, or ActiveCampaign.",
           "Setup is build-once. Management is run-it-forever. Buy either, or both. Deliverability + monthly report in every plan.",
         ]}
       />
@@ -647,10 +745,10 @@ export default function EmailLifecycleServicePage() {
             serviceSchema({
               name: "Email & Lifecycle Marketing",
               description:
-                "Email marketing services on Klaviyo, HubSpot, and ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. White-label from $299/mo, direct from $499.",
+                "Email marketing services on Klaviyo, HubSpot, and ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. White-label from $299/mo, direct from $349.",
               path: "/services/email-lifecycle",
               serviceType: "Email Marketing",
-              priceRange: "$299-$1499",
+              priceRange: "$299-$999",
             })
           ),
         }}

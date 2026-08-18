@@ -218,14 +218,14 @@ export default function HomePage() {
               <tbody className="divide-y divide-white/8">
                 {[
                   ["SEO", "$400/mo · 1 site", "$800/mo · multi-site", "$2,000+/mo · custom", "$200/client"],
-                  ["Paid Ads (mgmt)", "$500/mo · <$5K spend", "$1,000/mo · $5-20K", "$1,800/mo · $20K+", "$250-$750"],
-                  ["Branding (one-time)", "$499 · logo", "$1,499 · identity", "$2,999 · full system", "$99-$999"],
-                  ["Web & CRO (one-time)", "$749 · landing page", "$1,499 · 5-page site", "$2,999 · custom", "$249-$1,499"],
-                  ["Social Media", "$499/mo · 1 channel", "$999/mo · 2-3 channels", "$1,499/mo · 4+", "$299/mo"],
-                  ["TikTok Ads (mgmt)", "$499/mo · min $1.5K spend", "$999/mo · min $3K", "$1,499/mo · min $5K", "$299/mo"],
-                  ["LinkedIn Ads (mgmt)", "$899/mo · min $3K spend", "$1,499/mo · min $5K", "$2,499/mo · min $10K", "$499/mo"],
-                  ["Email & Lifecycle", "$499 setup + $499/mo", "$999 setup + $999/mo", "$1,499 setup + $1,499/mo", "$299/mo"],
-                  ["Analytics", "$499 setup · 2 dashboards", "$999/mo · 4 dashboards", "$1,499/mo · attribution", "$299/mo"],
+                  ["Paid Ads (mgmt)", "$350/mo · <$5K spend", "$700/mo · $5-20K", "$1,200/mo · $20K+", "$250-$750"],
+                  ["Branding (one-time)", "$349 · logo", "$999 · identity", "$1,999 · full system", "$99-$999"],
+                  ["Web & CRO (one-time)", "$499 · landing page", "$999 · 5-page site", "$1,999 · custom", "$249-$1,499"],
+                  ["Social Media", "$349/mo · 1 channel", "$699/mo · 2-3 channels", "$999/mo · 4+", "$299/mo"],
+                  ["TikTok Ads (mgmt)", "$349/mo · min $1.5K spend", "$699/mo · min $3K", "$999/mo · min $5K", "$299/mo"],
+                  ["LinkedIn Ads (mgmt)", "$599/mo · min $3K spend", "$999/mo · min $5K", "$1,699/mo · min $10K", "$499/mo"],
+                  ["Email & Lifecycle", "$349 setup + $349/mo", "$699 setup + $699/mo", "$999 setup + $999/mo", "$299/mo"],
+                  ["Analytics", "$349 setup · 2 dashboards", "$699/mo · 4 dashboards", "$999/mo · attribution", "$299/mo"],
                 ].map(([svc, ...tiers]) => (
                   <tr key={svc}>
                     <td className="py-4 pr-4 text-white font-medium">{svc}</td>
