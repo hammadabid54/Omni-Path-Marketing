@@ -8,7 +8,7 @@ set -euo pipefail
 APP_DIR="/var/www/omnipathmarketing.com"
 APP_USER="www-data"
 LOG_DIR="/var/log/omnipath"
-REPO_URL="https://github.com/<YOUR_GH_USER>/omni-path-marketing.git"   # <-- CHANGE THIS
+REPO_URL="https://github.com/hammadabid54/Omni-Path-Marketing.git"
 DOMAIN="omnipathmarketing.com"
 EMAIL="hammadabid54@gmail.com"   # for Let's Encrypt registration
 
