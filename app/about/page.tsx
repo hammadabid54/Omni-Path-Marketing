@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { ExternalLink } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
+import { LinkButton } from "@/components/ui/button";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
@@ -33,6 +35,44 @@ const STATS = [
   { v: "40+", l: "agency partners" },
   { v: "18mo", l: "avg client lifetime" },
   { v: "<5%", l: "monthly churn" },
+];
+
+const TEAM = [
+  {
+    slug: "hammad",
+    name: "Hammad Abid",
+    title: "Founder & Managing Director",
+    bio: "Founded Omni Path to give SMBs and agencies the same SEO + content stack the top 1% use — at a price the bottom 99% can afford. Believes AI + automation should make great work cheap, not exclusive.",
+    external: { label: "LinkedIn", href: "https://www.linkedin.com/in/hammad-abid" },
+  },
+  {
+    slug: "rana-moneeb",
+    name: "Rana Moneeb",
+    title: "Director of SEO & Content Strategy",
+    bio: "Runs the SEO and content engine. 7+ years building organic traffic for B2B, SaaS, e-commerce, and local services. Builds content systems that scale — AI drafts, senior edits, automated refinement.",
+    external: { label: "Website", href: "https://ranamoneeb.com/" },
+  },
+  {
+    slug: "adnan-ameer",
+    name: "Adnan Ameer",
+    title: "Director of Local Search & Google Business Profile",
+    bio: "Runs the local search practice. 8+ years ranking businesses in the Google Maps 3-pack. Google Business Profile growth, multi-location SEO, citations, review strategy, and recovery from suspensions.",
+    external: null,
+  },
+  {
+    slug: "haider-mateen",
+    name: "Haider Mateen",
+    title: "Director of Brand & Creative",
+    bio: "Runs brand and creative. 6+ years building brand identities for SMBs and agencies. Logos in 3 days, full identity systems in 14. The process is AI-first, human-curated, customer-validated.",
+    external: { label: "LinkedIn", href: "https://pk.linkedin.com/in/haidermateen" },
+  },
+  {
+    slug: "saad-yawar",
+    name: "Saad Yawar",
+    title: "Director of Paid Media",
+    bio: "Runs paid media. 7+ years managing Google Ads, Meta, TikTok, and LinkedIn. $5M+ in ad spend managed. 20+ creative variations per ad group, automated bids, daily audience expansion.",
+    external: { label: "LinkedIn", href: "https://www.linkedin.com/in/saad-yawar-543083109/" },
+  },
 ];
 
 export default function AboutPage() {
@@ -111,21 +151,32 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             5 humans. <em className="font-serif not-italic text-lime-400">Senior only.</em>
           </h2>
-          <p className="mt-4 text-white/65">Detailed bios ship in Phase 2. For now, here&apos;s the seat map.</p>
+          <p className="mt-4 text-white/65">5 humans. 30+ AI workflows. Every senior, every specialist.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
-          {[
-            { role: "Founder / CEO", who: "Hammad" },
-            { role: "Head of SEO", who: "TBD" },
-            { role: "Head of Paid Ads", who: "TBD" },
-            { role: "Head of Branding", who: "TBD" },
-            { role: "Head of Engineering", who: "TBD" },
-            { role: "Head of Content", who: "TBD" },
-          ].map((p) => (
-            <StaggerItem key={p.role}>
-              <div className="bento">
-                <div className="text-xs text-lime-400 font-semibold uppercase tracking-widest">{p.role}</div>
-                <div className="mt-3 text-xl font-semibold text-white">{p.who}</div>
+          {TEAM.map((member) => (
+            <StaggerItem key={member.slug}>
+              <div className="bento flex h-full flex-col">
+                <div className="text-xs text-lime-400 font-semibold uppercase tracking-widest">{member.title}</div>
+                <div className="mt-3 text-xl font-semibold text-white">{member.name}</div>
+                <p className="mt-3 text-sm text-white/65 leading-relaxed flex-1">{member.bio}</p>
+                <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <LinkButton href={`/about/${member.slug}`} variant="link" size="sm">
+                    Read full bio
+                  </LinkButton>
+                  {member.external ? (
+                    <LinkButton
+                      href={member.external.href}
+                      external
+                      variant="link"
+                      size="sm"
+                      aria-label={`${member.name} on ${member.external.label}`}
+                    >
+                      {member.external.label}
+                      <ExternalLink className="ml-1 inline-block h-3.5 w-3.5" aria-hidden="true" />
+                    </LinkButton>
+                  ) : null}
+                </div>
               </div>
             </StaggerItem>
           ))}
