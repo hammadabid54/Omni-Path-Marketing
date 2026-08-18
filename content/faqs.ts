@@ -256,6 +256,34 @@ export const seoFaq: FaqItem[] = [
   },
 ];
 
+export const tiktokLinkedInFaq: FaqItem[] = [
+  {
+    question: "What's the minimum ad spend for TikTok vs LinkedIn?",
+    answer:
+      "TikTok starts at $1,500/mo on Starter, $3,000/mo on Growth, and $5,000/mo on Scale. LinkedIn starts at $3,000/mo on Starter because the platform itself runs a higher CPM. Ad spend is billed directly to the ad platform — our management fee is separate. We won't run a campaign below the platform's data threshold.",
+  },
+  {
+    question: "Do you produce the creative?",
+    answer:
+      "Yes. Every plan includes creative production: ad copy, image briefs, UGC scripts for TikTok, and carousel or video scripts for LinkedIn. Scale tier adds UGC creator sourcing and a dedicated strategist reviewing every asset before launch. You approve everything before it goes live.",
+  },
+  {
+    question: "How fast can a campaign go live?",
+    answer:
+      "Seven days from kickoff to a live campaign for Direct clients. The first week covers the creative brief, audience research, pixel and event setup, and a 3-5 creative batch. White-label clients start in 14 days because we sync with your brand assets and reporting first.",
+  },
+  {
+    question: "Which platform is better for B2B?",
+    answer:
+      "LinkedIn. The platform lets you target by job title, company, industry, seniority, and company size — the only place you can reach a CFO at a 500-person SaaS company. TikTok is built for consumer awareness and Gen Z reach. Most B2B teams get higher intent from LinkedIn at a higher CPM.",
+  },
+  {
+    question: "Can I run both platforms at once?",
+    answer:
+      "Yes, and most clients do. TikTok for top-of-funnel awareness, LinkedIn for bottom-of-funnel B2B leads. We run both from one team, one report, one strategy call. Pricing stacks — pick the TikTok and LinkedIn tier that matches your budget and we'll build the joint plan.",
+  },
+];
+
 export const paidAdsFaq: FaqItem[] = [
   {
     question: "How much should I spend on ads?",
