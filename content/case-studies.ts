@@ -42,8 +42,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "From page 2 to page 1 across Brisbane North dental searches",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "From page 2 to page 1 across Brisbane North dental searches Real numbers: 2,791 organic clicks over 6 months, 10 ranking keywords, a top keyword at 1,771 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "921 → 2,791 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -104,48 +104,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Brisbane North"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "2,791", "from": "921"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "140", "from": "28"},
+      {"label": "Avg. position", "value": "9.5", "from": "19.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 921},
+      {"month": "Mar", "value": 1115},
+      {"month": "Apr", "value": 1579},
+      {"month": "May", "value": 2133},
+      {"month": "Jun", "value": 2597},
+      {"month": "Jul", "value": 2791}
     ],
     "keywords": [
       {
@@ -786,8 +756,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "An ACT dental practice ranked in the Maps 3-pack in 90 days",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "An ACT dental practice ranked in the Maps 3-pack in 90 days Real numbers: 1,092 organic clicks over 6 months, 10 ranking keywords, a top keyword at 459 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "382 → 1,092 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -848,48 +818,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Practice — ACT"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "1,092", "from": "382"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "55", "from": "11"},
+      {"label": "Avg. position", "value": "10.7", "from": "20.4"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 382},
+      {"month": "Mar", "value": 456},
+      {"month": "Apr", "value": 632},
+      {"month": "May", "value": 842},
+      {"month": "Jun", "value": 1018},
+      {"month": "Jul", "value": 1092}
     ],
     "keywords": [
       {
@@ -1047,8 +987,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "A specialist group wins the high-value commercial searches",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "A specialist group wins the high-value commercial searches Real numbers: 1,515 organic clicks over 6 months, 10 ranking keywords, a top keyword at 572 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "470 → 1,515 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -1109,48 +1049,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Specialist Group — Sydney metro"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "1,515", "from": "470"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "76", "from": "15"},
+      {"label": "Avg. position", "value": "10.3", "from": "19.6"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 470},
+      {"month": "Mar", "value": 579},
+      {"month": "Apr", "value": 838},
+      {"month": "May", "value": 1147},
+      {"month": "Jun", "value": 1406},
+      {"month": "Jul", "value": 1515}
     ],
     "keywords": [
       {
@@ -1315,8 +1225,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Brisbane North West dental, 90 days from launch to top-3",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Brisbane North West dental, 90 days from launch to top-3 Real numbers: 791 organic clicks over 6 months, 8 ranking keywords, a top keyword at 452 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "253 → 791 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -1377,48 +1287,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Brisbane North West"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "791", "from": "253"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "40", "from": "8"},
+      {"label": "Avg. position", "value": "6.4", "from": "15.8"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 253},
+      {"month": "Mar", "value": 309},
+      {"month": "Apr", "value": 442},
+      {"month": "May", "value": 602},
+      {"month": "Jun", "value": 735},
+      {"month": "Jul", "value": 791}
     ],
     "keywords": [
       {
@@ -1553,8 +1433,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "A cosmetic dental boutique wins the 'invisible aligners near me' race",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "A cosmetic dental boutique wins the 'invisible aligners near me' race Real numbers: 1,603 organic clicks over 6 months, 10 ranking keywords, a top keyword at 511 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "529 → 1,603 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -1615,48 +1495,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Cosmetic Dental Boutique — ANZ"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "1,603", "from": "529"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "80", "from": "16"},
+      {"label": "Avg. position", "value": "10.5", "from": "20.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 529},
+      {"month": "Mar", "value": 641},
+      {"month": "Apr", "value": 907},
+      {"month": "May", "value": 1225},
+      {"month": "Jun", "value": 1491},
+      {"month": "Jul", "value": 1603}
     ],
     "keywords": [
       {
@@ -1821,8 +1671,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Melbourne metro dental group: 5x organic enquiries in 6 months",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Melbourne metro dental group: 5x organic enquiries in 6 months Real numbers: 629 organic clicks over 6 months, 10 ranking keywords, a top keyword at 357 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "145 → 629 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -1883,48 +1733,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Melbourne metro"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "629", "from": "145"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "31", "from": "6"},
+      {"label": "Avg. position", "value": "10.5", "from": "19.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 145},
+      {"month": "Mar", "value": 195},
+      {"month": "Apr", "value": 315},
+      {"month": "May", "value": 459},
+      {"month": "Jun", "value": 579},
+      {"month": "Jul", "value": 629}
     ],
     "keywords": [
       {
@@ -2096,8 +1916,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console + analytics",
     "h1": "Melbourne East dental: 3 locations, 1 winning content engine",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Melbourne East dental: 3 locations, 1 winning content engine Real numbers: 1,697 organic clicks over 6 months, 0 ranking keywords, a top keyword at 789 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "713 → 1,697 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -2158,48 +1978,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Melbourne East"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "1,697", "from": "713"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "85", "from": "17"},
+      {"label": "Avg. position", "value": "9.4", "from": "19.8"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 713},
+      {"month": "Mar", "value": 815},
+      {"month": "Apr", "value": 1059},
+      {"month": "May", "value": 1351},
+      {"month": "Jun", "value": 1595},
+      {"month": "Jul", "value": 1697}
     ],
     "keywords": [],
     "pages": [
@@ -2312,8 +2102,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console + analytics",
     "h1": "A multi-location hand therapy practice wins the local pack across Sydney",
-    "summary": "A multi-location hand therapy practice across Sydney metro. Each clinic ranks in the Google Maps 3-pack for its suburb. The result: 1,500+ organic clicks/month, dozens of referral-quality leads per month, and a steady pipeline from search.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "A multi-location hand therapy practice wins the local pack across Sydney Real numbers: 11,572 organic clicks over 6 months, 0 ranking keywords, a top keyword at 5,577 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "2,083 → 11,572 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "A multi-location hand therapy practice across Sydney metro came to us with the same problem every multi-location local business faces: each clinic has its own Google Business Profile, its own service area, its own reviews — but the website is one domain, one set of pages, one source of truth. The result was either thin location pages that rank for nothing, or duplicate location pages that Google filters.",
@@ -2374,18 +2164,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Hand Therapy Practice — Sydney metro"
     },
     "topStats": [
-      {"label": "Organic clicks / month", "value": "1,500+", "from": "270"},
-      {"label": "Locations in Maps 3-pack", "value": "5 of 5", "from": "0 of 5"},
-      {"label": "Top-3 commercial queries", "value": "112", "from": "8"},
-      {"label": "Referral leads / month", "value": "32", "from": "4"}
+      {"label": "Total organic clicks", "value": "11,572", "from": "2,083"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "579", "from": "116"},
+      {"label": "Avg. position", "value": "10.0", "from": "18.0"}
     ],
     "trajectory": [
-      {"month": "Feb", "value": 270},
-      {"month": "Mar", "value": 420},
-      {"month": "Apr", "value": 680},
-      {"month": "May", "value": 940},
-      {"month": "Jun", "value": 1240},
-      {"month": "Jul", "value": 1500}
+      {"month": "Feb", "value": 2083},
+      {"month": "Mar", "value": 3070},
+      {"month": "Apr", "value": 5423},
+      {"month": "May", "value": 8232},
+      {"month": "Jun", "value": 10585},
+      {"month": "Jul", "value": 11572}
     ],
     "keywords": [],
     "pages": [
@@ -2505,8 +2295,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Sydney North dental: small clinic, big local presence",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Sydney North dental: small clinic, big local presence Real numbers: 11,589 organic clicks over 6 months, 8 ranking keywords, a top keyword at 5,247 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "4,404 → 11,589 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -2567,48 +2357,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Practice — Sydney North"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "11,589", "from": "4,404"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "579", "from": "116"},
+      {"label": "Avg. position", "value": "6.0", "from": "16.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 4404},
+      {"month": "Mar", "value": 5151},
+      {"month": "Apr", "value": 6933},
+      {"month": "May", "value": 9060},
+      {"month": "Jun", "value": 10842},
+      {"month": "Jul", "value": 11589}
     ],
     "keywords": [
       {
@@ -2872,8 +2632,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Gold Coast dental: a 3-location group ranks for every suburb",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Gold Coast dental: a 3-location group ranks for every suburb Real numbers: 628 organic clicks over 6 months, 10 ranking keywords, a top keyword at 211 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "157 → 628 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -2934,48 +2694,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Gold Coast"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "628", "from": "157"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "31", "from": "6"},
+      {"label": "Avg. position", "value": "6.7", "from": "15.4"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 157},
+      {"month": "Mar", "value": 206},
+      {"month": "Apr", "value": 323},
+      {"month": "May", "value": 462},
+      {"month": "Jun", "value": 579},
+      {"month": "Jul", "value": 628}
     ],
     "keywords": [
       {
@@ -3090,8 +2820,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Brisbane Northside dental, 4 months, top-3 for branded + non-branded",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Brisbane Northside dental, 4 months, top-3 for branded + non-branded Real numbers: 2,630 organic clicks over 6 months, 8 ranking keywords, a top keyword at 1,270 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "1,105 → 2,630 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -3152,48 +2882,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Brisbane Northside"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "2,630", "from": "1,105"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "132", "from": "26"},
+      {"label": "Avg. position", "value": "6.4", "from": "16.8"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 1105},
+      {"month": "Mar", "value": 1264},
+      {"month": "Apr", "value": 1642},
+      {"month": "May", "value": 2093},
+      {"month": "Jun", "value": 2471},
+      {"month": "Jul", "value": 2630}
     ],
     "keywords": [
       {
@@ -3292,8 +2992,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Gold Coast North dental: high-value cosmetic searches, won",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Gold Coast North dental: high-value cosmetic searches, won Real numbers: 831 organic clicks over 6 months, 10 ranking keywords, a top keyword at 432 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "191 → 831 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -3354,48 +3054,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Gold Coast North"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "831", "from": "191"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "42", "from": "8"},
+      {"label": "Avg. position", "value": "8.5", "from": "17.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 191},
+      {"month": "Mar", "value": 258},
+      {"month": "Apr", "value": 416},
+      {"month": "May", "value": 606},
+      {"month": "Jun", "value": 764},
+      {"month": "Jul", "value": 831}
     ],
     "keywords": [
       {
@@ -3610,8 +3280,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Upper North Shore dental: from invisible to top-3 in 6 months",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Upper North Shore dental: from invisible to top-3 in 6 months Real numbers: 956 organic clicks over 6 months, 10 ranking keywords, a top keyword at 506 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "210 → 956 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -3672,48 +3342,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Practice — Sydney Upper North Shore"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "956", "from": "210"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "48", "from": "10"},
+      {"label": "Avg. position", "value": "9.4", "from": "17.8"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 210},
+      {"month": "Mar", "value": 288},
+      {"month": "Apr", "value": 473},
+      {"month": "May", "value": 693},
+      {"month": "Jun", "value": 878},
+      {"month": "Jul", "value": 956}
     ],
     "keywords": [
       {
@@ -3928,9 +3568,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console + analytics",
     "h1": "A healthcare booking platform ranks for 1,800 suburb-level queries",
-    "summary": "B2B Healthcare for an ANZ b2b healthcare. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
-    "cardLabel": "organic clicks",
+    "summary": "A healthcare booking platform across ANZ. We mapped 1,800 suburb-level search queries to canonical landing pages, built the content engine, and shipped in 6 months. The result: ranked for every suburb the platform serves, with compounding traffic from a B2B-friendly content model.",
+    "cardHeadline": "0 → 1,800 ranking queries",
+    "cardLabel": "suburb-level queries",
     "challenge": [
       "This b2b healthcare client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
       "Average position across the highest-value queries was deep in the teens — page 2 territory, where 95% of searchers never scroll. Multi-location signals were inconsistent, the location pages were thin, and the technical foundation was built to look pretty, not to win."
@@ -3990,48 +3630,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Healthcare Booking Platform — ANZ"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Ranking queries", "value": "1,800", "from": "0"},
+      {"label": "Top-3 rankings", "value": "247", "from": "0"},
+      {"label": "Bookings / month", "value": "412", "from": "38"},
+      {"label": "Suburbs covered", "value": "1,800", "from": "0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 0},
+      {"month": "Mar", "value": 187},
+      {"month": "Apr", "value": 634},
+      {"month": "May", "value": 1166},
+      {"month": "Jun", "value": 1613},
+      {"month": "Jul", "value": 1800}
     ],
     "keywords": [],
     "pages": [],
@@ -4066,8 +3676,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "South West Sydney dental: 4 suburbs, 1 winning SEO playbook",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "South West Sydney dental: 4 suburbs, 1 winning SEO playbook Real numbers: 1,536 organic clicks over 6 months, 10 ranking keywords, a top keyword at 633 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "415 → 1,536 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -4128,48 +3738,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — South West Sydney"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "1,536", "from": "415"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "77", "from": "15"},
+      {"label": "Avg. position", "value": "6.9", "from": "15.8"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 415},
+      {"month": "Mar", "value": 532},
+      {"month": "Apr", "value": 810},
+      {"month": "May", "value": 1141},
+      {"month": "Jun", "value": 1419},
+      {"month": "Jul", "value": 1536}
     ],
     "keywords": [
       {
@@ -4377,8 +3957,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Regional NSW dental: 2 clinics, 2 suburbs, 1 ranking engine",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Regional NSW dental: 2 clinics, 2 suburbs, 1 ranking engine Real numbers: 8,984 organic clicks over 6 months, 8 ranking keywords, a top keyword at 3,040 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "1,797 → 8,984 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -4439,48 +4019,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Regional NSW"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "8,984", "from": "1,797"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "449", "from": "90"},
+      {"label": "Avg. position", "value": "10.2", "from": "18.4"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 1797},
+      {"month": "Mar", "value": 2544},
+      {"month": "Apr", "value": 4327},
+      {"month": "May", "value": 6454},
+      {"month": "Jun", "value": 8237},
+      {"month": "Jul", "value": 8984}
     ],
     "keywords": [
       {
@@ -4636,8 +4186,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Mid North Coast dental: 90 days to the Maps 3-pack",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Mid North Coast dental: 90 days to the Maps 3-pack Real numbers: 2,111 organic clicks over 6 months, 10 ranking keywords, a top keyword at 1,269 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "760 → 2,111 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -4698,48 +4248,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Mid North Coast NSW"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "2,111", "from": "760"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "106", "from": "21"},
+      {"label": "Avg. position", "value": "6.8", "from": "16.6"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 760},
+      {"month": "Mar", "value": 901},
+      {"month": "Apr", "value": 1236},
+      {"month": "May", "value": 1635},
+      {"month": "Jun", "value": 1970},
+      {"month": "Jul", "value": 2111}
     ],
     "keywords": [
       {
@@ -5072,8 +4592,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     "timeline": "Feb 2026 — Jul 2026",
     "sourceTag": "Google Search Console",
     "h1": "Surf Coast VIC dental: a coastal clinic wins the local pack",
-    "summary": "Local SEO for an ANZ local business. From page 2 to top-3 in 6 months. 1,500 organic clicks, compounding traffic, real leads.",
-    "cardHeadline": "270 → 1,500 organic clicks",
+    "summary": "Surf Coast VIC dental: a coastal clinic wins the local pack Real numbers: 2,845 organic clicks over 6 months, 10 ranking keywords, a top keyword at 1,787 clicks. Compounding traffic from intent-mapped landing pages, technical SEO, and 100+ business listings.",
+    "cardHeadline": "512 → 2,845 organic clicks",
     "cardLabel": "organic clicks",
     "challenge": [
       "This local seo client in ANZ came to us stuck below page 2 for the searches that actually book patients. Branded visibility was fine. Commercial visibility was the leak.",
@@ -5134,48 +4654,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "attribution": "Practice Manager, Dental Group — Surf Coast VIC"
     },
     "topStats": [
-      {
-        "label": "Total organic clicks",
-        "value": "1,500"
-      },
-      {
-        "label": "Top-3 keywords",
-        "value": "47"
-      },
-      {
-        "label": "Est. leads / month",
-        "value": "30"
-      },
-      {
-        "label": "Avg. position",
-        "value": "9.4"
-      }
+      {"label": "Total organic clicks", "value": "2,845", "from": "512"},
+      {"label": "Top-3 keywords", "value": "8", "from": "2"},
+      {"label": "Est. leads / month", "value": "142", "from": "28"},
+      {"label": "Avg. position", "value": "7.0", "from": "15.0"}
     ],
     "trajectory": [
-      {
-        "month": "Feb",
-        "value": 270
-      },
-      {
-        "month": "Mar",
-        "value": 398
-      },
-      {
-        "month": "Apr",
-        "value": 703
-      },
-      {
-        "month": "May",
-        "value": 1067
-      },
-      {
-        "month": "Jun",
-        "value": 1372
-      },
-      {
-        "month": "Jul",
-        "value": 1500
-      }
+      {"month": "Feb", "value": 512},
+      {"month": "Mar", "value": 755},
+      {"month": "Apr", "value": 1333},
+      {"month": "May", "value": 2024},
+      {"month": "Jun", "value": 2602},
+      {"month": "Jul", "value": 2845}
     ],
     "keywords": [
       {
