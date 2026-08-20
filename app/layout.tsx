@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Omni Path Marketing" }],
   creator: "Omni Path Marketing",
   formatDetection: { email: false, address: false, telephone: false },
+  verification: {
+    google: "sKgqrWtgsOJ_WpLxsbf_eXfixF4C541qE3mz9lLi9oU",
+  },
   openGraph: {
     type: "website",
     locale: "en",
