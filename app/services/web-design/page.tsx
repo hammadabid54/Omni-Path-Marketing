@@ -7,6 +7,7 @@ import { Eyebrow } from "@/components/ui/badge";
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { ServiceDefinition } from "@/components/sections/service-definition";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema, type FaqItem } from "@/lib/seo";
 import {
@@ -31,9 +32,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Web Design & CRO Services · From $249 | Omni Path",
+  title: "AI Web Design & CRO Services · From $249 | Omni Path",
   description:
-    "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $499 direct, $249 white-label. 5-21 day turnaround.",
+    "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct from $499. White-label from $249. 5-21 day turnaround, fixed price, CRO baked in.",
   path: "/services/web-design",
 });
 
@@ -79,6 +80,10 @@ export default function WebDesignServicePage() {
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "#pricing" }}
         trustMicrocopy="No setup fees · 30 days of post-launch support · White-label available for agencies"
+      />
+
+      <ServiceDefinition
+        text="AI-assisted web design is the build of conversion-focused websites on Next.js, Webflow, WordPress, or Shopify using AI for content drafts, layout generation, and CRO analysis, with a senior designer and developer polishing the final output. It ships in 5-21 days, mobile-first, and Lighthouse 90+ across the board."
       />
 
       {/* 1. What we do */}
@@ -608,11 +613,11 @@ export default function WebDesignServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "Web Design & CRO Services",
+              name: "AI Web Design & CRO Services",
               description:
-                "Web design services for businesses and white-label partners. Landing pages, multi-page sites, e-commerce, and conversion rate optimization. From $499 direct, $249 white-label.",
+                "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct from $499. White-label from $249. 5-21 day turnaround, fixed price, CRO baked in.",
               path: "/services/web-design",
-              serviceType: "Web Design & CRO",
+              serviceType: "AI Web Design",
               priceRange: "$249-$1999",
             })
           ),

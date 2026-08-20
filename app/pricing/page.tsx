@@ -12,9 +12,9 @@ import { pricingFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Transparent Pricing · No Setup Fees | Omni Path",
+  title: "Transparent AI Marketing Pricing · No Setup Fees | Omni Path",
   description:
-    "Same quality, fraction of the cost. SEO from $200/client. Branding in 7 days. Web design in 3 days. Try finding that anywhere else.",
+    "AI-powered marketing pricing. SEO from $200/client. Web design from $249. Branding in 5 days. Web in 3 days. No setup fees. Cancel anytime. 20% off annual.",
   path: "/pricing",
 });
 

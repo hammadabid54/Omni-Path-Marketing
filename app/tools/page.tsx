@@ -4,12 +4,13 @@ import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
+import { LinkButton } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Our Tool Stack · Public | Omni Path",
+  title: "AI Marketing Tool Stack · Public | Omni Path",
   description:
-    "We publish the full tool stack we use to deliver SEO, paid ads, content, and reporting. No mystery. No black box.",
+    "Six AI + automation tools carry the heavy lifting on every campaign. Senior strategists spend time on the work that needs a human. Full public tool list.",
   path: "/tools",
 });
 
@@ -112,6 +113,33 @@ export default function ToolsPage() {
         primaryCta={{ label: "See our process", href: "/process" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
       />
+
+      <Section>
+        <Eyebrow className="mb-4">Related</Eyebrow>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <LinkButton href="/process" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Process</span>
+              <span className="block text-white font-semibold mt-1">How we work</span>
+              <span className="block text-xs text-white/55 mt-1">The full delivery pipeline, step by step.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/about" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Team</span>
+              <span className="block text-white font-semibold mt-1">Who runs the work</span>
+              <span className="block text-xs text-white/55 mt-1">5 senior marketers, 30 AI workflows.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/case-studies" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Proof</span>
+              <span className="block text-white font-semibold mt-1">22 case studies</span>
+              <span className="block text-xs text-white/55 mt-1">Real results from these tools in production.</span>
+            </span>
+          </LinkButton>
+        </div>
+      </Section>
     </>
   );
 }

@@ -46,17 +46,35 @@ export default async function BlogPostPage({
     .map((s) => BLOG_POST_BY_SLUG[s])
     .filter(Boolean);
 
-  // JSON-LD Article schema
+  // JSON-LD Article schema (enhanced with mainEntityOfPage, keywords, articleSection, image)
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `https://omnipathmarketing.com/blog/${slug}#article`,
     headline: post.title,
     description: post.description,
+    url: `https://omnipathmarketing.com/blog/${slug}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://omnipathmarketing.com/blog/${slug}` },
     datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en",
+    keywords: post.tags?.join(", ") || post.category,
+    articleSection: post.category,
+    image: post.hero || "https://omnipathmarketing.com/og/default.png",
     author: author
-      ? { "@type": "Person", name: author.name, jobTitle: author.title }
+      ? {
+          "@type": "Person",
+          name: author.name,
+          jobTitle: author.title,
+          url: author.slug ? `https://omnipathmarketing.com/about/${author.slug}` : undefined,
+        }
       : { "@type": "Organization", name: "Omni Path Marketing" },
-    publisher: { "@type": "Organization", name: "Omni Path Marketing" },
+    publisher: {
+      "@type": "Organization",
+      name: "Omni Path Marketing",
+      url: "https://omnipathmarketing.com",
+      logo: { "@type": "ImageObject", url: "https://omnipathmarketing.com/logo.svg" },
+    },
   };
 
   return (

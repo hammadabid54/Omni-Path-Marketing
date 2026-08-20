@@ -19,9 +19,9 @@ import { homeFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Stop hiring five agencies. Hire us once. | Omni Path",
+  title: "AI Marketing Agency · White-Label & Direct | Omni Path",
   description:
-    "Full-service digital growth partner. SEO, paid ads, branding, content, web — done for you or white-labeled under your brand. From $200/client.",
+    "AI-powered digital marketing agency. White-label SEO from $200/client. Direct from $400/mo. SEO, paid ads, web, branding, social, email, analytics. 60-70% agency margin.",
   path: "/",
 });
 

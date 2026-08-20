@@ -11,9 +11,9 @@ import { processFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "How We Work · Transparent by Default | Omni Path",
+  title: "Our AI Marketing Process · Tools + Time + Team | Omni Path",
   description:
-    "80% automated, 20% senior strategy. We show our actual process: tools, time per task, who does what. See exactly what you get.",
+    "80% AI-automated, 20% senior strategy. We show the actual process: tools, time per task, who does what. The full delivery pipeline, in plain English.",
   path: "/process",
 });
 

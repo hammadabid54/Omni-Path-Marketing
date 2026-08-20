@@ -13,6 +13,7 @@ import { ProcessSteps } from "@/components/sections/process-steps";
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { ServiceDefinition } from "@/components/sections/service-definition";
 import {
   buildMetadata,
   faqSchema,
@@ -33,9 +34,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "TikTok + LinkedIn Ads · From $299/mo White-Label",
+  title: "AI TikTok + LinkedIn Ads Management | From $299/mo White-Label",
   description:
-    "Run TikTok and LinkedIn ads with one team. Direct management from $349/mo, white-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok. Built for paid social that converts.",
+    "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. White-label from $299/mo. Direct from $349/mo.",
   path: "/services/tiktok-linkedin-ads",
 });
 
@@ -200,6 +201,10 @@ export default function TikTokLinkedInServicePage() {
         primaryCta={{ label: "Book a strategy call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="$0 setup · 7-day onboarding · Cancel anytime"
+      />
+
+      <ServiceDefinition
+        text="AI-assisted TikTok and LinkedIn ads management is the planning, creative production, audience targeting, and bid optimization of paid social campaigns on both platforms. LinkedIn delivers B2B lead gen; TikTok delivers Gen Z reach and brand awareness. Same senior team, flat management fee, white-labeled under the agency's brand."
       />
 
       <Section>
@@ -797,11 +802,11 @@ export default function TikTokLinkedInServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "TikTok + LinkedIn Ads",
+              name: "AI TikTok + LinkedIn Ads Management",
               description:
-                "Done-for-you TikTok and LinkedIn ad management. Direct for businesses from $349/mo. White-label for agencies from $299/mo. B2B lead gen on LinkedIn, Gen Z reach on TikTok.",
+                "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. White-label from $299/mo. Direct from $349/mo.",
               path: "/services/tiktok-linkedin-ads",
-              serviceType: "Paid Advertising",
+              serviceType: "AI Paid Social Advertising",
               priceRange: "$299-$1699",
             }),
           ),

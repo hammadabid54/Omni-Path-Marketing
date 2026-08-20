@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { ServiceDefinition } from "@/components/sections/service-definition";
 import { FaqSection } from "@/components/sections/faq";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import {
@@ -24,9 +25,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Social Media Management · From $299/mo White-Label",
+  title: "AI Social Media Management · From $299/mo White-Label",
   description:
-    "Done-for-you social media management for businesses ($349-$999/mo) and agencies ($299/mo white-label). Posts, community, short-form video, reporting.",
+    "AI-assisted social media management. Direct from $349/mo. White-label from $299/mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
   path: "/services/social-media",
 });
 
@@ -219,6 +220,10 @@ export default function SocialMediaServicePage() {
         primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
+      />
+
+      <ServiceDefinition
+        text="AI-assisted social media management is the production and scheduling of posts, short-form video, community replies, and monthly reports across Instagram, Facebook, LinkedIn, X, and TikTok. AI drafts captions and clips; senior strategists curate and approve before anything ships under the client's brand."
       />
 
       {/* Intro */}
@@ -578,11 +583,11 @@ export default function SocialMediaServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "Social Media Management",
+              name: "AI Social Media Management",
               description:
-                "Done-for-you social media management and white-label social media marketing for agencies. Posts, community management, short-form video, reporting.",
+                "AI-assisted social media management. Direct from $349/mo. White-label from $299/mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
               path: "/services/social-media",
-              serviceType: "Social Media Marketing",
+              serviceType: "AI Social Media Management",
               priceRange: "$299-$999",
             })
           ),

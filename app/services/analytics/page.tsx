@@ -7,6 +7,7 @@ import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { ServiceDefinition } from "@/components/sections/service-definition";
 import { FaqSection } from "@/components/sections/faq";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import type { FaqItem } from "@/lib/seo";
@@ -29,9 +30,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Analytics & Reporting · From $299/mo White-Label",
+  title: "AI Marketing Analytics & Reporting · From $299/mo White-Label",
   description:
-    "Marketing analytics services for agencies and businesses. Custom dashboards, GA4 setup, conversion tracking, attribution modeling. From $299/mo white-label (60-70% margin) or $349/mo direct.",
+    "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. White-label from $299/mo. Direct from $349/mo.",
   path: "/services/analytics",
 });
 
@@ -162,6 +163,10 @@ export default function AnalyticsServicePage() {
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual · Setup in 7 days"
+      />
+
+      <ServiceDefinition
+        text="AI-powered marketing analytics is the setup, modeling, and reporting of marketing performance across paid, organic, email, and social — custom dashboards, GA4 + server-side tagging, attribution modeling, and weekly commentary in plain English. The data is live, the client sees the same numbers you see, and the report ships under the agency's brand."
       />
 
       {/* What we do — 6 features */}
@@ -700,11 +705,11 @@ export default function AnalyticsServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "Analytics & Reporting",
+              name: "AI Marketing Analytics & Reporting",
               description:
-                "Marketing analytics services including custom dashboards, GA4 setup, conversion tracking, attribution modeling, and fractional CMO. From $349/mo direct or $299/mo white-label.",
+                "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. White-label from $299/mo. Direct from $349/mo.",
               path: "/services/analytics",
-              serviceType: "Analytics",
+              serviceType: "AI Marketing Analytics",
               priceRange: "$299-$999",
             })
           ),

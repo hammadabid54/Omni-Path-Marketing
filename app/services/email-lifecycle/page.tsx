@@ -7,6 +7,7 @@ import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { ServiceDefinition } from "@/components/sections/service-definition";
 import { FaqSection } from "@/components/sections/faq";
 import {
   buildMetadata,
@@ -33,9 +34,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Email & Lifecycle Marketing · From $299/mo White-Label",
+  title: "AI Email & Lifecycle Marketing · From $299/mo White-Label",
   description:
-    "Email marketing services on Klaviyo, HubSpot, ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo with 60-70% margin.",
+    "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo.",
   path: "/services/email-lifecycle",
 });
 
@@ -329,6 +330,10 @@ export default function EmailLifecycleServicePage() {
         primaryCta={{ label: "Book a call", href: "/contact" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
         trustMicrocopy="$0 setup fees on management · Cancel anytime · 20% off annual"
+      />
+
+      <ServiceDefinition
+        text="AI-driven lifecycle marketing is the design and operation of automated email sequences — welcome, abandoned cart, win-back, post-purchase, and behavioral triggers — on Klaviyo, HubSpot, or ActiveCampaign. AI drafts the copy, segments the list, and personalizes send times; senior strategists set the lifecycle map and review before send."
       />
 
       {/* What we do */}
@@ -743,11 +748,11 @@ export default function EmailLifecycleServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "Email & Lifecycle Marketing",
+              name: "AI Email & Lifecycle Marketing",
               description:
-                "Email marketing services on Klaviyo, HubSpot, and ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. White-label from $299/mo, direct from $349.",
+                "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo.",
               path: "/services/email-lifecycle",
-              serviceType: "Email Marketing",
+              serviceType: "AI Email & Lifecycle Marketing",
               priceRange: "$299-$999",
             })
           ),

@@ -75,11 +75,28 @@ export default async function CaseStudyPage({
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "CreativeWork",
+    "@id": `https://omnipathmarketing.com/case-studies/${slug}#case-study`,
     headline: c.h1,
     description: c.summary,
-    author: { "@type": "Organization", name: "Omni Path Marketing" },
-    publisher: { "@type": "Organization", name: "Omni Path Marketing" },
+    url: `https://omnipathmarketing.com/case-studies/${slug}`,
+    datePublished: "2026-02-01",
+    dateModified: "2026-08-01",
+    inLanguage: "en",
+    keywords: [c.vertical, c.region, c.engagement, "AI marketing case study", "SEO results"],
+    about: {
+      "@type": "Service",
+      name: "AI-Powered SEO",
+      serviceType: c.vertical,
+    },
+    author: { "@type": "Organization", name: "Omni Path Marketing", url: "https://omnipathmarketing.com" },
+    publisher: {
+      "@type": "Organization",
+      name: "Omni Path Marketing",
+      url: "https://omnipathmarketing.com",
+      logo: { "@type": "ImageObject", url: "https://omnipathmarketing.com/logo.svg" },
+    },
+    isBasedOn: `${c.sourceTag}, ${c.engagement} engagement window (${c.timeline})`,
   };
 
   return (

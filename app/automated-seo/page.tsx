@@ -6,15 +6,16 @@ import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
+import { LinkButton } from "@/components/ui/button";
 import { TldrBox } from "@/components/sections/tldr-box";
 import { Testimonials } from "@/components/sections/testimonials";
 import { automatedSeoFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Automated SEO Service · From $400/month | Omni Path",
+  title: "Automated AI SEO Service · From $400/month | Omni Path",
   description:
-    "Done-for-you SEO with AI-powered audits, content, and links. From $400/month. No long contracts. See your site ranking in 90 days.",
+    "AI-driven automated SEO for direct clients. From $400/month. AI audits, content, links, and reporting. No long contracts. First ranking lift in 30-60 days.",
   path: "/automated-seo",
 });
 
@@ -193,6 +194,33 @@ export default function AutomatedSeoPage() {
       />
 
       <FaqSection eyebrow="FAQ" title="Automated SEO questions." items={automatedSeoFaq} />
+
+      <Section>
+        <Eyebrow className="mb-4">Related</Eyebrow>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <LinkButton href="/services/seo" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Service</span>
+              <span className="block text-white font-semibold mt-1">Full SEO service</span>
+              <span className="block text-xs text-white/55 mt-1">If you want a human team doing the work directly.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/white-label-seo" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">For agencies</span>
+              <span className="block text-white font-semibold mt-1">White-label SEO</span>
+              <span className="block text-xs text-white/55 mt-1">Resell this under your agency brand at 60-70% margin.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/for-agencies" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Partner</span>
+              <span className="block text-white font-semibold mt-1">Full partner program</span>
+              <span className="block text-xs text-white/55 mt-1">All 8 services under your brand. One partner agreement.</span>
+            </span>
+          </LinkButton>
+        </div>
+      </Section>
 
       <CtaSection
         title={

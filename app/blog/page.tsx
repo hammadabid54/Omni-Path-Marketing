@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { LinkButton } from "@/components/ui/button";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { BLOG_POSTS } from "@/content/blog";
 import { TEAM_BY_SLUG } from "@/content/team";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Marketing Insights · SEO, AI, Growth | Omni Path Blog",
+  title: "AI Marketing Blog · SEO, Automation, Growth | Omni Path",
   description:
-    "Original research, playbooks, and case studies on SEO, AI, and growth marketing. Written by the team that does the work.",
+    "Original research, playbooks, and frameworks on AI marketing, SEO, and growth. Written by the senior team that runs the work for agencies and businesses.",
   path: "/blog",
 });
 
@@ -121,6 +122,19 @@ export default function BlogPage() {
         subhead="Skip the wait. Get a 20-point report right now."
         primaryCta={{ label: "Run a free audit", href: "/audit" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
+      />
+
+      <Script
+        id="ld-bc-blog"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Blog", url: "/blog" },
+            ])
+          ),
+        }}
       />
     </>
   );

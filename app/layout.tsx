@@ -36,6 +36,13 @@ export const metadata: Metadata = {
   keywords: [
     "white label SEO",
     "white label digital marketing",
+    "AI marketing agency",
+    "AI SEO",
+    "AI ads",
+    "marketing automation agency",
+    "automated SEO",
+    "white label SEO services",
+    "agency reseller program",
     "SEO services",
     "paid ads agency",
     "branding services",

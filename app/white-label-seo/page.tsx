@@ -14,9 +14,9 @@ import { agencyFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "White-Label SEO for Agencies · From $200/client",
+  title: "White-Label AI SEO for Agencies · From $200/client",
   description:
-    "Add a full SEO delivery team to your agency without hiring. White-labeled under your brand. Resell at 60-70% margin. 14-day onboarding.",
+    "AI-powered white-label SEO for agencies. From $200/client. White-labeled under your brand. 60-70% margin. 14-day onboarding. No setup fees.",
   path: "/white-label-seo",
 });
 

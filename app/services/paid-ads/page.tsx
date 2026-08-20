@@ -29,9 +29,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Paid Ads Management · Google & Meta | From $350/mo",
+  title: "AI Paid Ads Management · Google & Meta | From $350/mo",
   description:
-    "Paid ads management for Google Ads and Meta Ads. Direct for businesses from $350/mo. White-label for agencies from $250/mo with 60-70% margin. No setup fees, 7-day onboarding.",
+    "AI-assisted paid ads management for Google + Meta. Direct from $350/mo. White-label from $250/mo. 60-70% margin. No setup fees. 7-day onboarding.",
   path: "/services/paid-ads",
 });
 
@@ -111,6 +111,7 @@ export default function PaidAdsServicePage() {
         heroPrimaryCta={{ label: "Get a free audit", href: "/audit" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="$0 setup · 7-day onboarding · Cancel anytime"
+        definition="AI-assisted paid ads management is the planning, building, and optimization of Google Ads and Meta Ads campaigns using AI for audience research, creative variation generation, automated bid management, and weekly budget reallocation. It delivers lower CPA and higher ROAS than manual management at a flat management fee."
 
         whatWeDoEyebrow="What we do"
         whatWeDoTitle={
@@ -784,11 +785,11 @@ export default function PaidAdsServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "Paid Ads Management",
+              name: "AI Paid Ads Management",
               description:
-                "Paid ads management for Google Ads and Meta Ads. Direct for businesses from $350/mo. White-label for agencies from $250/mo with 60-70% margin.",
+                "AI-assisted paid ads management for Google + Meta. White-label from $250/mo. Direct from $350/mo. 60-70% margin. No setup fees. 7-day onboarding.",
               path: "/services/paid-ads",
-              serviceType: "Paid Advertising",
+              serviceType: "AI Paid Media Management",
               priceRange: "$250-$1200",
             })
           ),

@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { LinkButton } from "@/components/ui/button";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, faqSchema, breadcrumbSchema, type FaqItem } from "@/lib/seo";
 import { FileText, LineChart, BarChart3, PenLine } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Sample Work · Redacted Deliverables | Omni Path",
+  title: "Sample Work · Real AI Marketing Deliverables | Omni Path",
   description:
-    "Real audits, blog posts, and reports from real client work. Redacted and anonymized. See what we actually ship.",
+    "Real deliverables from real clients, names redacted. AI-powered SEO reports, paid ads dashboards, branding work, web builds. See the work before you commit.",
   path: "/samples",
 });
 
@@ -98,6 +99,77 @@ export default function SamplesPage() {
         }
         primaryCta={{ label: "See our process", href: "/process" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
+      />
+
+      <Section>
+        <Eyebrow className="mb-4">Related</Eyebrow>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <LinkButton href="/for-agencies" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">For agencies</span>
+              <span className="block text-white font-semibold mt-1">White-label partner program</span>
+              <span className="block text-xs text-white/55 mt-1">All these samples can ship under your brand.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/case-studies" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Proof</span>
+              <span className="block text-white font-semibold mt-1">22 case studies</span>
+              <span className="block text-xs text-white/55 mt-1">Real numbers from real engagements.</span>
+            </span>
+          </LinkButton>
+          <LinkButton href="/process" variant="ghost" className="justify-start">
+            <span className="block">
+              <span className="text-xs uppercase tracking-widest text-white/45">Process</span>
+              <span className="block text-white font-semibold mt-1">How we work</span>
+              <span className="block text-xs text-white/55 mt-1">The full delivery pipeline, in plain English.</span>
+            </span>
+          </LinkButton>
+        </div>
+      </Section>
+
+      <Script
+        id="ld-faq-samples"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            faqSchema([
+              {
+                question: "Are the sample deliverables real client work?",
+                answer:
+                  "Yes. Every sample is a real deliverable from a real client engagement. Names, faces, and identifying details are redacted. The numbers, the format, the writing, the design, the structure — all real.",
+              },
+              {
+                question: "Do you sign NDAs before sharing samples?",
+                answer:
+                  "Yes. If your legal team needs an NDA before we share a sample from a specific client engagement, we sign one. Standard mutual NDA at no cost, signed within 48 hours.",
+              },
+              {
+                question: "Can I see a sample specific to my industry?",
+                answer:
+                  "If we have a relevant client in your vertical (and not under NDA that prevents it), we can share redacted samples. If we don't, we can show you samples from adjacent verticals and walk you through how the same approach would apply to your business.",
+              },
+              {
+                question: "Are the reports white-labeled under my brand?",
+                answer:
+                  "Yes. Every deliverable — audit PDFs, monthly reports, dashboards, blog posts, branding work — ships under your logo, your colors, your domain. Your client never sees us.",
+              },
+            ] as FaqItem[])
+          ),
+        }}
+      />
+
+      <Script
+        id="ld-bc-samples"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Samples", url: "/samples" },
+            ])
+          ),
+        }}
       />
     </>
   );

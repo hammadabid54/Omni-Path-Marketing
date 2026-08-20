@@ -39,9 +39,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "SEO Services · White-Label & Direct | From $200/client",
+  title: "AI SEO Services · White-Label & Direct | From $200/client",
   description:
-    "White-label SEO for agencies at $200/client. Direct SEO services for businesses at $400/mo. Technical SEO, content, links, local, reporting. 60-70% agency margin. No setup fees, cancel anytime.",
+    "AI-powered SEO services. White-label for agencies at $200/client. Direct for businesses at $400/mo. Technical SEO, content, links, AI visibility. 60-70% margin.",
   path: "/services/seo",
 });
 
@@ -354,6 +354,7 @@ export default function SeoServicePage() {
         heroPrimaryCta={{ label: "Get a free audit", href: "/audit" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
+        definition="AI-powered SEO is search engine optimization that combines AI audits, AI-drafted content, automated link outreach, and schema structured for Google AI Overviews and AI assistants (ChatGPT, Perplexity, Claude). It ranks clients in commercial-intent search faster than manual SEO at a fraction of the cost."
 
         whatWeDoEyebrow="What we do"
         whatWeDoTitle={
@@ -931,11 +932,11 @@ export default function SeoServicePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceSchema({
-              name: "SEO Services",
+              name: "AI SEO Services",
               description:
-                "White-label and direct SEO services. Technical SEO, on-page, content, links, local, reporting. From $200/client for agencies. From $400/mo for businesses.",
+                "AI-powered SEO services. White-label for agencies at $200/client. Direct for businesses at $400/mo. Technical SEO, content, links, AI visibility. 60-70% margin.",
               path: "/services/seo",
-              serviceType: "SEO",
+              serviceType: "AI Search Engine Optimization",
               priceRange: "$200-$2000",
             })
           ),

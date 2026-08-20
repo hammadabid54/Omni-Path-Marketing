@@ -9,12 +9,12 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scr
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
 import { aboutFaq } from "@/content/faqs";
-import { buildMetadata, faqSchema } from "@/lib/seo";
+import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Omni Path Marketing · 5 humans, 30 AI workflows",
+  title: "About Omni Path · AI Marketing Team + 30 Workflows",
   description:
-    "We're a small team that ships a lot of work. AI + automation lets us serve 100+ clients without scaling headcount. Here's who we are.",
+    "5 senior marketers and 30 AI workflows. We run the work, not the meetings. Meet the team, see the tools, read the process. The people behind your campaigns.",
   path: "/about",
 });
 
@@ -196,6 +196,19 @@ export default function AboutPage() {
         id="ld-faq-about"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(aboutFaq)) }}
+      />
+
+      <Script
+        id="ld-bc-about"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "About", url: "/about" },
+            ])
+          ),
+        }}
       />
     </>
   );

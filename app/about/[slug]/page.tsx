@@ -55,6 +55,8 @@ interface Person {
   longBio: string[];
   works: string[];
   wins: string[];
+  /** Topics this person is a recognized expert on. Used for E-E-A-T + Person.knowsAbout. */
+  knowsAbout: string[];
 }
 
 const TEAM: Record<string, Person> = {
@@ -79,6 +81,14 @@ const TEAM: Record<string, Person> = {
       "4.2M monthly organic visits managed",
       "12,000+ keywords ranked in top 3",
     ],
+    knowsAbout: [
+      "AI marketing",
+      "White-label marketing programs",
+      "Agency operations",
+      "Marketing automation",
+      "SEO strategy",
+      "Paid media strategy",
+    ],
   },
   "rana-moneeb": {
     name: "Rana Moneeb",
@@ -101,6 +111,14 @@ const TEAM: Record<string, Person> = {
       "12,000+ keywords ranked in top 3",
       "50+ client content engines built",
       "Built Omni Path's white-label SEO playbook",
+    ],
+    knowsAbout: [
+      "SEO",
+      "Content strategy",
+      "AI content workflows",
+      "Editorial systems",
+      "On-page SEO",
+      "Link building",
     ],
   },
   "adnan-ameer": {
@@ -126,6 +144,14 @@ const TEAM: Record<string, Person> = {
       "Recovered 50+ suspended GBP profiles",
       "Scaled 50-location franchise local SEO",
     ],
+    knowsAbout: [
+      "Local SEO",
+      "Google Business Profile",
+      "Multi-location SEO",
+      "Citations and NAP consistency",
+      "Review velocity",
+      "GBP suspension recovery",
+    ],
   },
   "haider-mateen": {
     name: "Haider Mateen",
@@ -148,6 +174,14 @@ const TEAM: Record<string, Person> = {
       "100+ brand identities shipped",
       "3-day average logo turnaround",
       "Built Omni Path's white-label brand playbook",
+    ],
+    knowsAbout: [
+      "Brand identity",
+      "Logo design",
+      "Brand systems",
+      "Brand voice",
+      "Visual design",
+      "Brand guidelines",
     ],
   },
   "saad-yawar": {
@@ -172,6 +206,15 @@ const TEAM: Record<string, Person> = {
       "$5M+ in ad spend managed",
       "30+ SMBs scaled to 5x ROAS",
       "8-figure agency campaigns run",
+    ],
+    knowsAbout: [
+      "Paid media",
+      "Google Ads",
+      "Meta Ads",
+      "TikTok Ads",
+      "LinkedIn Ads",
+      "Performance Max",
+      "ROAS tuning",
     ],
   },
 };
@@ -388,8 +431,12 @@ function personSchema(slug: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `https://omnipathmarketing.com/about/${slug}#person`,
     name: person.name,
     jobTitle: person.title,
+    description: person.shortBio,
+    url: `https://omnipathmarketing.com/about/${slug}`,
+    knowsAbout: person.knowsAbout,
     ...(sameAs ? { sameAs } : {}),
     worksFor: {
       "@type": "Organization",

@@ -21,9 +21,9 @@ import {
 import { Mail, Phone, Clock, Globe } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Omni Path Marketing · Reply within 4 hours",
+  title: "Contact Omni Path · Reply in 4 hours | AI Marketing",
   description:
-    "Tell us about your agency or business. We reply within 4 business hours with the right strategist and a custom proposal.",
+    "Reach the Omni Path team. Replies within 4 business hours from a senior strategist. Book a 15-min call or send a message about white-label or direct services.",
   path: "/contact",
 });
 

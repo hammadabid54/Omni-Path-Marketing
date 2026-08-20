@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { CtaSection } from "@/components/sections/cta";
 import { CaseStudyCard } from "@/components/case-study/case-study-card";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { CASE_STUDIES } from "@/content/case-studies";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Case Studies · Real Results from Real Clients | Omni Path",
+  title: "AI Marketing Case Studies · 22 Real Wins | Omni Path",
   description:
-    "22 client wins across local SEO, enterprise SEO, and SaaS. Anonymized for the global brand. Real numbers. Real compounding.",
+    "22 client wins in AI-powered SEO, paid ads, and full-funnel marketing. Real numbers, anonymized clients, before/after data. See the work and the compounding.",
   path: "/case-studies",
 });
 
@@ -79,6 +80,19 @@ export default function CaseStudiesPage() {
         subhead="Get a free audit, or book a 15-min call with a senior strategist."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
         secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+      />
+
+      <Script
+        id="ld-bc-case-studies"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Case studies", url: "/case-studies" },
+            ])
+          ),
+        }}
       />
     </>
   );

@@ -6,6 +6,7 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scr
 import { FaqSection } from "./faq";
 import { CtaSection } from "./cta";
 import type { FaqItem } from "@/lib/seo";
+import { ServiceDefinition } from "./service-definition";
 
 export interface FeatureCard {
   title: string;
@@ -29,6 +30,15 @@ interface ServicePageTemplateProps {
   heroPrimaryCta: { label: string; href: string };
   heroSecondaryCta?: { label: string; href: string };
   heroTrustMicrocopy?: string;
+
+  /**
+   * GEO: C02 — 40-60 word direct answer rendered in the first 150 words
+   * of body content (immediately after the hero). Self-contained,
+   * quotable, format: "[Service] is [category] that [primary function],
+   * [key characteristic]." AI engines (Google AI Overviews, ChatGPT,
+   * Perplexity, Claude) extract this paragraph for citations.
+   */
+  definition?: string;
 
   /** What we do (feature grid) */
   whatWeDoEyebrow?: string;
@@ -72,6 +82,9 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
         secondaryCta={props.heroSecondaryCta}
         trustMicrocopy={props.heroTrustMicrocopy}
       />
+
+      {/* GEO: C02 — direct answer in the first 150 words of body content */}
+      {props.definition && <ServiceDefinition text={props.definition} />}
 
       {/* What we do */}
       <Section>

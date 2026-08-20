@@ -11,9 +11,9 @@ import { auditFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Free SEO Audit · 20-Point Report in 60 Seconds",
+  title: "Free AI SEO Audit · 20-Point Report in 60 Seconds",
   description:
-    "Drop in your URL. We'll scan 20 SEO issues in 60 seconds and email you a scored, branded report. No credit card. No sales call.",
+    "Drop in your URL. We scan 20 SEO issues in 60 seconds with AI + Lighthouse. Email a scored, branded report. No credit card. No sales call.",
   path: "/audit",
 });
 

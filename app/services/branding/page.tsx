@@ -355,6 +355,7 @@ export default function BrandingServicePage() {
         heroPrimaryCta={{ label: "Get a free brand audit", href: "/contact" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="Full IP transfer on payment · 3 revisions included · 5-14 day turnaround"
+        definition="Branding is the design of a complete visual and verbal identity — logo, color system, typography, voice, and brand book — that distinguishes a business from competitors. AI-assisted branding produces more concepts faster; a senior designer selects and refines the final direction so the work is fast, distinctive, and IP-clean."
 
         whatWeDoEyebrow="What we do"
         whatWeDoTitle={
@@ -869,9 +870,9 @@ export default function BrandingServicePage() {
             serviceSchema({
               name: "Branding & Identity Services",
               description:
-                "Branding services for businesses and white-label for agencies. Logo design, brand identity, brand guide, full brand system. 3-14 day turnaround, full IP transfer.",
+                "Logo, identity, and full brand systems. AI-assisted production, senior designer on every project. White-label from $99. Direct from $349. 3-14 day turnaround.",
               path: "/services/branding",
-              serviceType: "Branding",
+              serviceType: "AI-Assisted Branding",
               priceRange: "$99-$1999",
             })
           ),
