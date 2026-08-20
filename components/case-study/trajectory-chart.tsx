@@ -78,10 +78,9 @@ export function TrajectoryChart({
       </div>
 
       <svg
-        className="mt-6 w-full"
+        className="mt-6 w-full h-[200px] sm:h-[280px]"
         viewBox={`0 0 ${W} ${H}`}
-        preserveAspectRatio="none"
-        style={{ height: 280 }}
+        preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label={`Trajectory chart from ${formatNumber(fromValue)} to ${formatNumber(toValue)}`}
       >

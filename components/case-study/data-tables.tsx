@@ -29,58 +29,62 @@ export function KeywordTable({
   const display = rows.slice(0, 6);
   return (
     <div className="bento overflow-hidden p-0">
-      <table className="w-full border-collapse text-sm">
-        <thead>
-          <tr>
-            <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Keyword
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Clicks
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Impr.
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              CTR
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Avg. pos.
-            </th>
-            {showLeads && (
-              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-                Est. leads
+      {/* Mobile: hide CTR, Avg pos, leads; show only keyword + clicks + impressions. */}
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px] border-collapse text-sm">
+          <thead>
+            <tr>
+              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
+                Keyword
               </th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {display.map((r) => (
-            <tr key={r.keyword} className="hover:bg-white/[0.02]">
-              <td className="px-4 py-3.5 border-b border-white/5 text-white/85">{r.keyword}</td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime">
-                {r.clicks.toLocaleString()}
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.impressions.toLocaleString()}
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.ctr.toFixed(2)}%
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.position.toFixed(2)}
-              </td>
+              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Clicks
+              </th>
+              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Impr.
+              </th>
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                CTR
+              </th>
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Avg. pos.
+              </th>
               {showLeads && (
-                <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                  {r.leads?.toFixed(1) ?? "—"}
-                </td>
+                <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                  Est. leads
+                </th>
               )}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {display.map((r) => (
+              <tr key={r.keyword} className="hover:bg-white/[0.02]">
+                <td className="px-4 py-3.5 border-b border-white/5 text-white/85">{r.keyword}</td>
+                <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime whitespace-nowrap">
+                  {r.clicks.toLocaleString()}
+                </td>
+                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.impressions.toLocaleString()}
+                </td>
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.ctr.toFixed(2)}%
+                </td>
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.position.toFixed(2)}
+                </td>
+                {showLeads && (
+                  <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                    {r.leads?.toFixed(1) ?? "—"}
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="p-4 text-xs text-white/45 text-center border-t border-white/5">
-        Showing top {display.length} of {rows.length} · 5% lead conversion estimate · Source: Google Search Console
+        Showing top {display.length} of {rows.length} · 5% lead conversion estimate · Source: Google Search Console ·{" "}
+        <span className="sm:hidden">Swipe →</span>
       </div>
     </div>
   );
@@ -90,50 +94,53 @@ export function LandingPageTable({ rows }: { rows: LandingRow[] }) {
   const display = rows.slice(0, 6);
   return (
     <div className="bento overflow-hidden p-0">
-      <table className="w-full border-collapse text-sm">
-        <thead>
-          <tr>
-            <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Page
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Clicks
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Impr.
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              CTR
-            </th>
-            <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
-              Avg. pos.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {display.map((r) => (
-            <tr key={r.path} className="hover:bg-white/[0.02]">
-              <td className="px-4 py-3.5 border-b border-white/5 text-white/85 font-mono text-xs">
-                {r.path}
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime">
-                {r.clicks.toLocaleString()}
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.impressions.toLocaleString()}
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.ctr.toFixed(2)}%
-              </td>
-              <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white">
-                {r.position.toFixed(2)}
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px] border-collapse text-sm">
+          <thead>
+            <tr>
+              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
+                Page
+              </th>
+              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Clicks
+              </th>
+              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Impr.
+              </th>
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                CTR
+              </th>
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                Avg. pos.
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {display.map((r) => (
+              <tr key={r.path} className="hover:bg-white/[0.02]">
+                <td className="px-4 py-3.5 border-b border-white/5 text-white/85 font-mono text-xs">
+                  {r.path}
+                </td>
+                <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime whitespace-nowrap">
+                  {r.clicks.toLocaleString()}
+                </td>
+                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.impressions.toLocaleString()}
+                </td>
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.ctr.toFixed(2)}%
+                </td>
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  {r.position.toFixed(2)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="p-4 text-xs text-white/45 text-center border-t border-white/5">
-        Showing top {display.length} of {rows.length} commercial landing pages · Source: Google Search Console
+        Showing top {display.length} of {rows.length} commercial landing pages · Source: Google Search Console ·{" "}
+        <span className="sm:hidden">Swipe →</span>
       </div>
     </div>
   );

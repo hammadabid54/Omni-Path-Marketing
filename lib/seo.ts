@@ -86,6 +86,21 @@ export const SOCIAL_PROFILES = {
   pinterest: "https://www.pinterest.com/omnipathmarketing/",
 } as const;
 
+/**
+ * Brand contact info. Used in:
+ * - Organization schema `contactPoint.telephone` and `email`
+ * - Footer + contact page (tel: link + email link)
+ * - privacy-policy + terms
+ *
+ * Canonical email: contact@omnipathmarketing.com (replaces the old hello@)
+ * Canonical phone:  +92 305 400 4001 (Pakistan, mobile)
+ *   E.164 raw:      +923054004001  — used in tel: links and schema
+ */
+export const BRAND_EMAIL = "contact@omnipathmarketing.com";
+export const BRAND_PHONE_DISPLAY = "+92 305 400 4001";
+export const BRAND_PHONE_E164 = "+923054004001";
+export const BRAND_PHONE_TEL = `tel:${BRAND_PHONE_E164}`;
+
 export function orgSchema() {
   return {
     "@context": "https://schema.org",
@@ -127,14 +142,17 @@ export function orgSchema() {
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "hello@omnipathmarketing.com",
+        email: BRAND_EMAIL,
+        telephone: BRAND_PHONE_E164,
         url: `${SITE_URL}/contact`,
         availableLanguage: ["English"],
+        areaServed: "Worldwide",
       },
       {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "partners@omnipathmarketing.com",
+        email: BRAND_EMAIL,
+        telephone: BRAND_PHONE_E164,
         availableLanguage: ["English"],
       },
     ],

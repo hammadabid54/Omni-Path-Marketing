@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
           <li>Delete your data</li>
           <li>Opt out of marketing emails (the unsubscribe link is in every email)</li>
         </ul>
-        <p>Email <a href="mailto:hello@omnipathmarketing.com">hello@omnipathmarketing.com</a> — we reply within 4 business hours.</p>
+        <p>Email <a href="mailto:contact@omnipathmarketing.com">contact@omnipathmarketing.com</a> — we reply within 4 business hours.</p>
 
         <h2>6. Children</h2>
         <p>Our services are not directed at children under 16. We do not knowingly collect data from children.</p>
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
         <p>
           Omni Path Marketing · Fully remote · Working with clients globally
           <br />
-          <a href="mailto:hello@omnipathmarketing.com">hello@omnipathmarketing.com</a>
+          <a href="mailto:contact@omnipathmarketing.com">contact@omnipathmarketing.com</a>
         </p>
       </div>
     </Section>

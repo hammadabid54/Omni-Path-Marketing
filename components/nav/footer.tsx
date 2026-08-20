@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { FooterContactForm } from "@/components/forms/footer-contact-form";
 import { SocialLinks } from "@/components/social/social-links";
+import { BRAND_EMAIL, BRAND_PHONE_DISPLAY, BRAND_PHONE_TEL } from "@/lib/seo";
 
 const SERVICES = [
   { label: "SEO", href: "/services/seo" },
@@ -58,12 +59,20 @@ export function Footer() {
               Tell us what you need — white-label fulfillment, a growth audit, a brand
               sprint. A human reads every message and replies within 4 business hours.
             </p>
-            <a
-              href="mailto:hello@omnipathmarketing.com"
-              className="mt-5 inline-flex items-center gap-2 text-sm text-white/80 hover:text-lime-400"
-            >
-              <Mail className="h-4 w-4" /> hello@omnipathmarketing.com
-            </a>
+            <div className="mt-5 flex flex-col gap-2 text-sm text-white/80">
+              <a
+                href={`mailto:${BRAND_EMAIL}`}
+                className="inline-flex items-center gap-2 hover:text-lime-400"
+              >
+                <Mail className="h-4 w-4" /> {BRAND_EMAIL}
+              </a>
+              <a
+                href={BRAND_PHONE_TEL}
+                className="inline-flex items-center gap-2 hover:text-lime-400"
+              >
+                <Phone className="h-4 w-4" /> {BRAND_PHONE_DISPLAY}
+              </a>
+            </div>
             <p className="mt-4 text-xs text-white/45">Fully remote · Working with clients globally</p>
 
             <div className="mt-6">

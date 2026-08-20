@@ -80,7 +80,7 @@ export default function TermsPage() {
 
         <h2>12. Contact</h2>
         <p>
-          Questions about these Terms? Email <a href="mailto:hello@omnipathmarketing.com">hello@omnipathmarketing.com</a>.
+          Questions about these Terms? Email <a href="mailto:contact@omnipathmarketing.com">contact@omnipathmarketing.com</a>.
         </p>
       </div>
     </Section>

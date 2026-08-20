@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
+import { BRAND_EMAIL } from "@/lib/seo";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -62,7 +63,7 @@ export function FooterContactForm() {
           <p className="text-sm text-white/65 mt-1">
             We&apos;ll reply within 4 business hours. Want it faster?{" "}
             <a
-              href="mailto:hello@omnipathmarketing.com"
+              href={`mailto:${BRAND_EMAIL}`}
               className="text-lime-400 hover:underline"
             >
               Email us directly
@@ -160,10 +161,10 @@ export function FooterContactForm() {
         <p className="text-xs text-red-400" role="alert">
           Something went wrong. Email{" "}
           <a
-            href="mailto:hello@omnipathmarketing.com"
+            href={`mailto:${BRAND_EMAIL}`}
             className="underline"
           >
-            hello@omnipathmarketing.com
+            {BRAND_EMAIL}
           </a>{" "}
           directly.
         </p>

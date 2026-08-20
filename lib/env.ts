@@ -9,7 +9,7 @@ const envSchema = z.object({
   NEXT_PUBLIC_CALCOM_URL: z.string().url().default("https://cal.com/omnipath"),
   NEXT_PUBLIC_PLAUSIBLE_DOMAIN: z.string().default("omnipathmarketing.com"),
   RESEND_API_KEY: z.string().optional(),
-  RESEND_FROM_EMAIL: z.string().email().default("hello@omnipathmarketing.com"),
+  RESEND_FROM_EMAIL: z.string().email().default("contact@omnipathmarketing.com"),
   RESEND_NOTIFY_EMAIL: z.string().email().default("team@omnipathmarketing.com"),
   NOTION_API_KEY: z.string().optional(),
   NOTION_LEADS_DB_ID: z.string().optional(),

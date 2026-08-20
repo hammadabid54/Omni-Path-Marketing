@@ -9,8 +9,16 @@ import { CtaSection } from "@/components/sections/cta";
 import { ContactForm } from "@/components/forms/contact-form";
 import { SocialLinks } from "@/components/social/social-links";
 import { contactFaq } from "@/content/faqs";
-import { buildMetadata, contactPageSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
-import { Mail, Clock, Globe } from "lucide-react";
+import {
+  buildMetadata,
+  contactPageSchema,
+  faqSchema,
+  breadcrumbSchema,
+  BRAND_EMAIL,
+  BRAND_PHONE_DISPLAY,
+  BRAND_PHONE_TEL,
+} from "@/lib/seo";
+import { Mail, Phone, Clock, Globe } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact Omni Path Marketing · Reply within 4 hours",
@@ -47,21 +55,29 @@ export default function ContactPage() {
             </h2>
             <ul className="mt-6 space-y-4 text-white/80">
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
                   <Mail className="h-4 w-4" />
                 </span>
-                <a href="mailto:hello@omnipathmarketing.com" className="hover:text-lime-400">
-                  hello@omnipathmarketing.com
+                <a href={`mailto:${BRAND_EMAIL}`} className="hover:text-lime-400 break-all">
+                  {BRAND_EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <Phone className="h-4 w-4" />
+                </span>
+                <a href={BRAND_PHONE_TEL} className="hover:text-lime-400">
+                  {BRAND_PHONE_DISPLAY}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
                   <Clock className="h-4 w-4" />
                 </span>
                 Mon-Fri 9am-6pm in your local timezone
               </li>
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
                   <Globe className="h-4 w-4" />
                 </span>
                 Fully remote · Working with clients globally
@@ -116,7 +132,7 @@ export default function ContactPage() {
         }
         subhead="No pitch, no pressure. Just a chat to see if we're a fit."
         primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
-        secondaryCta={{ label: "Email us", href: "mailto:hello@omnipathmarketing.com" }}
+        secondaryCta={{ label: "Email us", href: `mailto:${BRAND_EMAIL}` }}
       />
 
       <Script
