@@ -14,7 +14,7 @@ export function CaseStudyToc({ items }: { items: TocItem[] }) {
   return (
     <>
       {/* Mobile + tablet: horizontal chip list, sticky below header */}
-      <div className="lg:hidden -mx-4 sm:-mx-6 mb-10 sticky top-20 z-10 bg-[#0a0a0f]/85 backdrop-blur-md border-y border-white/5">
+      <div className="lg:hidden -mx-4 sm:-mx-6 mb-10 sticky top-20 z-10 bg-[#0a0a0f]/85 backdrop-blur-md border-y border-white/5 min-w-0">
         <div className="overflow-x-auto px-4 sm:px-6">
           <nav aria-label="On this page" className="flex gap-2 py-3 min-w-max">
             <span className="text-[0.65rem] uppercase tracking-widest text-white/45 self-center mr-1">

@@ -198,7 +198,7 @@ export default async function CaseStudyPage({
         <div className="grid lg:grid-cols-[200px_1fr] gap-12">
           <CaseStudyToc items={TOC} />
 
-          <div className="max-w-3xl">
+          <div className="max-w-3xl min-w-0">
             {/* THE CHALLENGE */}
             <div id="challenge" className="scroll-mt-24">
               <Eyebrow className="mb-4">The challenge</Eyebrow>
