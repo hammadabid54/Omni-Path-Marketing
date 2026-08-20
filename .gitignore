@@ -42,3 +42,8 @@ dev.err.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Verification scratch (recoverable, ignored from git)
+deploy/_trash/
+scripts/_trash/
+
