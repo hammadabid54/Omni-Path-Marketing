@@ -68,21 +68,78 @@ export interface BreadcrumbItem {
   url: string;
 }
 
+/**
+ * Social profile URLs. Used in:
+ * - Organization schema `sameAs` (entity disambiguation + Knowledge Graph)
+ * - Footer + contact page icon row
+ * - any "follow us" surface
+ *
+ * Keep in sync with the actual brand accounts. GEO engines (Google AI Overviews,
+ * ChatGPT, Perplexity) and brand SERP both lean on this list to identify the
+ * canonical entity.
+ */
+export const SOCIAL_PROFILES = {
+  x: "https://x.com/omnipathmarket",
+  instagram: "https://www.instagram.com/omnipathmarketing/",
+  facebook: "https://www.facebook.com/people/Omni-Path-Marketing/61593348218794/",
+  linkedin: "https://www.linkedin.com/company/omni-path-marketing/about/",
+  pinterest: "https://www.pinterest.com/omnipathmarketing/",
+} as const;
+
 export function orgSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    alternateName: "Omni Path",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
-    description: DEFAULT_DESCRIPTION,
-    sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: "hello@omnipathmarketing.com",
-      availableLanguage: ["English"],
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/logo.svg`,
+      width: 512,
+      height: 512,
     },
+    description: DEFAULT_DESCRIPTION,
+    foundingDate: "2024-01-01",
+    slogan: "Stop hiring five agencies. Hire us once.",
+    areaServed: [{ "@type": "Place", name: "Worldwide" }],
+    knowsAbout: [
+      "White-label SEO",
+      "AI SEO",
+      "AI Marketing",
+      "Marketing Automation",
+      "Paid Media",
+      "Web Design",
+      "Branding",
+      "Content Marketing",
+      "Email Marketing",
+      "Marketing Analytics",
+    ],
+    sameAs: [
+      SOCIAL_PROFILES.x,
+      SOCIAL_PROFILES.instagram,
+      SOCIAL_PROFILES.facebook,
+      SOCIAL_PROFILES.linkedin,
+      SOCIAL_PROFILES.pinterest,
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "hello@omnipathmarketing.com",
+        url: `${SITE_URL}/contact`,
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "partners@omnipathmarketing.com",
+        availableLanguage: ["English"],
+      },
+    ],
+    address: { "@type": "PostalAddress", addressCountry: "US" },
+    priceRange: "$$",
   };
 }
 

@@ -7,6 +7,7 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scr
 import { FaqSection } from "@/components/sections/faq";
 import { CtaSection } from "@/components/sections/cta";
 import { ContactForm } from "@/components/forms/contact-form";
+import { SocialLinks } from "@/components/social/social-links";
 import { contactFaq } from "@/content/faqs";
 import { buildMetadata, contactPageSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { Mail, Clock, Globe } from "lucide-react";
@@ -66,6 +67,18 @@ export default function ContactPage() {
                 Fully remote · Working with clients globally
               </li>
             </ul>
+
+            <div className="mt-10">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">
+                Find us on social
+              </h3>
+              <p className="mt-2 text-sm text-white/60">
+                We share original research, playbooks, and case studies on each channel.
+              </p>
+              <div className="mt-4">
+                <SocialLinks />
+              </div>
+            </div>
 
             <div className="mt-10">
               <h3 className="text-sm font-semibold text-white uppercase tracking-widest">What happens after you submit</h3>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FooterContactForm } from "@/components/forms/footer-contact-form";
+import { SocialLinks } from "@/components/social/social-links";
 
 const SERVICES = [
   { label: "SEO", href: "/services/seo" },
@@ -64,6 +65,13 @@ export function Footer() {
               <Mail className="h-4 w-4" /> hello@omnipathmarketing.com
             </a>
             <p className="mt-4 text-xs text-white/45">Fully remote · Working with clients globally</p>
+
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/45 mb-3">
+                Follow us
+              </h3>
+              <SocialLinks variant="compact" />
+            </div>
           </div>
 
           <div className="lg:col-span-3">
