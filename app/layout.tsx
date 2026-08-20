@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header } from "@/components/nav/header";
 import { Footer } from "@/components/nav/footer";
 import { LenisProvider } from "@/components/motion/lenis-provider";
@@ -85,7 +84,7 @@ export const viewport: Viewport = {
 };
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "G-023Y82G38R";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -116,8 +115,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
 
-        {/* Google Analytics 4 (no-op if NEXT_PUBLIC_GA_ID not set) */}
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {/* Google Analytics 4 — load as early as possible */}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          strategy="beforeInteractive"
+        />
+        <Script id="ga-init" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}');
+          `}
+        </Script>
 
         {/* Plausible analytics (legacy — no-op if NEXT_PUBLIC_PLAUSIBLE_DOMAIN not set) */}
         {plausibleDomain && (
