@@ -43,7 +43,7 @@ export function IntakeForm({ token }: { token: string }) {
     watch,
     setValue,
     trigger,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<IntakeFormValues>({
     resolver: zodResolver(intakeSchema),
     mode: "onChange",
@@ -189,6 +189,33 @@ export function IntakeForm({ token }: { token: string }) {
     }
   }
 
+  /**
+   * Called by react-hook-form when the user clicks Submit and validation
+   * fails. We figure out which step the first error is on, jump there,
+   * and show a banner so the user knows what to fix.
+   */
+  function onInvalid(errors: Record<string, unknown>) {
+    // Build a flat list of field names that have errors. We then check each
+    // step in order — the first step that owns a failing field is the one
+    // we jump to.
+    const failingFields = Object.keys(errors);
+    for (let s = 0; s < STEPS.length; s++) {
+      const stepFields = fieldsForStep(s) as string[];
+      if (failingFields.some((f) => stepFields.includes(f))) {
+        setStep(s);
+        break;
+      }
+    }
+    setState("error");
+    setErrorMsg(
+      `Some fields need attention. We jumped you back to the first step that needs a fix. (${failingFields.length} field${failingFields.length === 1 ? "" : "s"}.)`,
+    );
+    // Scroll the error banner into view.
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
   if (state === "success") {
     return (
       <motion.div
@@ -212,7 +239,7 @@ export function IntakeForm({ token }: { token: string }) {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
       noValidate
       className="rounded-2xl border border-white/10 bg-white/2 p-6 md:p-8"
     >
@@ -541,8 +568,21 @@ export function IntakeForm({ token }: { token: string }) {
                 </Field>
 
                 <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-4">
-                  <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mb-2">
-                    Anti-spam
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">
+                      Anti-spam
+                    </div>
+                    {hasTurnstile ? (
+                      turnOk ? (
+                        <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest font-semibold text-lime-400">
+                          <Check className="h-3 w-3" /> Verified
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest font-semibold text-amber-300">
+                          <span className="h-1.5 w-1.5 rounded-full bg-amber-300" /> Required
+                        </span>
+                      )
+                    ) : null}
                   </div>
                   {hasTurnstile ? (
                     <div id="turnstile-widget" />
@@ -592,7 +632,7 @@ export function IntakeForm({ token }: { token: string }) {
         ) : (
           <button
             type="submit"
-            disabled={state === "submitting" || !isValid || (hasTurnstile && !turnOk)}
+            disabled={state === "submitting" || (hasTurnstile && !turnOk)}
             className="btn btn-primary btn-lg"
           >
             {state === "submitting" ? (
