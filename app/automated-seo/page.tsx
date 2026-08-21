@@ -193,8 +193,6 @@ export default function AutomatedSeoPage() {
         ]}
       />
 
-      <FaqSection eyebrow="FAQ" title="Automated SEO questions." items={automatedSeoFaq} />
-
       <Section>
         <Eyebrow className="mb-4">Related</Eyebrow>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -221,6 +219,8 @@ export default function AutomatedSeoPage() {
           </LinkButton>
         </div>
       </Section>
+
+      <FaqSection eyebrow="FAQ" title="Automated SEO questions." items={automatedSeoFaq} />
 
       <CtaSection
         title={

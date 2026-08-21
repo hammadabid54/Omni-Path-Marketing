@@ -59,15 +59,27 @@ interface ServicePageTemplateProps {
 
   /** FAQ */
   faqEyebrow?: string;
-  faqTitle: ReactNode;
+  faqTitle?: ReactNode;
   faqSubhead?: string;
-  faqItems: FaqItem[];
+  faqItems?: FaqItem[];
+  /**
+   * If true, the FAQ section is not rendered. Use when the calling page
+   * wants to render FAQ elsewhere (e.g. after additional sections like
+   * a portfolio slider). Other service pages leave this false.
+   */
+  hideFaq?: boolean;
 
   /** Final CTA */
-  finalCtaTitle: ReactNode;
-  finalCtaSubhead: string;
-  finalCtaPrimary: { label: string; href: string };
+  finalCtaTitle?: ReactNode;
+  finalCtaSubhead?: string;
+  finalCtaPrimary?: { label: string; href: string };
   finalCtaSecondary?: { label: string; href: string };
+  /**
+   * If true, the final CTA section is not rendered. Use when the calling
+   * page wants to render the CTA elsewhere (e.g. after additional
+   * sections). Other service pages leave this false.
+   */
+  hideCta?: boolean;
 }
 
 export function ServicePageTemplate(props: ServicePageTemplateProps) {
@@ -213,20 +225,24 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
         </Section>
       )}
 
-      <FaqSection
-        eyebrow={props.faqEyebrow ?? "FAQ"}
-        title={props.faqTitle}
-        subhead={props.faqSubhead}
-        items={props.faqItems}
-      />
+      {!props.hideFaq && props.faqItems && props.faqItems.length > 0 && (
+        <FaqSection
+          eyebrow={props.faqEyebrow ?? "FAQ"}
+          title={props.faqTitle}
+          subhead={props.faqSubhead}
+          items={props.faqItems}
+        />
+      )}
 
-      <CtaSection
-        variant="panel"
-        title={props.finalCtaTitle}
-        subhead={props.finalCtaSubhead}
-        primaryCta={props.finalCtaPrimary}
-        secondaryCta={props.finalCtaSecondary}
-      />
+      {!props.hideCta && props.finalCtaTitle && props.finalCtaPrimary && (
+        <CtaSection
+          variant="panel"
+          title={props.finalCtaTitle}
+          subhead={props.finalCtaSubhead}
+          primaryCta={props.finalCtaPrimary}
+          secondaryCta={props.finalCtaSecondary}
+        />
+      )}
     </>
   );
 }

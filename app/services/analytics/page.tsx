@@ -663,6 +663,15 @@ export default function AnalyticsServicePage() {
         </StaggerGroup>
       </Section>
 
+      {/* TldrBox */}
+      <TldrBox
+        items={[
+          "Marketing analytics services from $349/mo direct, $299/mo white-label (60-70% margin).",
+          "GA4 setup, conversion tracking, attribution modeling, custom dashboards, fractional CMO — six jobs, one team.",
+          "Setup in 7 days. Cancel anytime. No setup fees. Same team that runs the Fortune-500 stack, billed like a small agency.",
+        ]}
+      />
+
       {/* FAQ */}
       <FaqSection
         eyebrow="FAQ"
@@ -687,15 +696,6 @@ export default function AnalyticsServicePage() {
         subhead="Get a free 60-second audit, or book a 15-min call. We will show you exactly what your marketing analytics services setup is missing — no pitch, no obligation."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
         secondaryCta={{ label: "Book a call", href: "/contact" }}
-      />
-
-      {/* TldrBox */}
-      <TldrBox
-        items={[
-          "Marketing analytics services from $349/mo direct, $299/mo white-label (60-70% margin).",
-          "GA4 setup, conversion tracking, attribution modeling, custom dashboards, fractional CMO — six jobs, one team.",
-          "Setup in 7 days. Cancel anytime. No setup fees. Same team that runs the Fortune-500 stack, billed like a small agency.",
-        ]}
       />
 
       {/* JSON-LD */}

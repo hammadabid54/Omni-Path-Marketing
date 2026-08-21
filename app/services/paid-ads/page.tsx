@@ -5,6 +5,8 @@ import { ServicePageTemplate } from "@/components/sections/service-page-template
 import { TldrBox } from "@/components/sections/tldr-box";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { CostComparison } from "@/components/sections/cost-comparison";
+import { FaqSection } from "@/components/sections/faq";
+import { CtaSection } from "@/components/sections/cta";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
@@ -213,22 +215,8 @@ export default function PaidAdsServicePage() {
           },
         ]}
 
-        faqEyebrow="FAQ"
-        faqTitle={
-          <>
-            Paid ads <em className="font-serif not-italic text-lime-400">questions.</em>
-          </>
-        }
-        faqItems={paidAdsFaqLocal}
-
-        finalCtaTitle={
-          <>
-            Ready to <em className="font-serif not-italic text-lime-400">scale without the overhead?</em>
-          </>
-        }
-        finalCtaSubhead="Get a free audit of your current campaigns, or book a 15-min strategy call with a senior strategist. No sales team, no SDR, no follow-up spam."
-        finalCtaPrimary={{ label: "Get a free audit", href: "/audit" }}
-        finalCtaSecondary={{ label: "Book a call", href: "/contact" }}
+        hideFaq
+        hideCta
       />
 
       {/* Direct pricing detail — what's in each tier + the upgrade path */}
@@ -777,6 +765,28 @@ export default function PaidAdsServicePage() {
           "Flat management fee, no percentage of ad spend, no setup fees, no lock-in. 7-day onboarding, senior strategists on every account.",
           "60-70% margin on the white-label program. Same deliverables as a $1,500-3,000/mo traditional agency, lower overhead, faster decisions.",
         ]}
+      />
+
+      <FaqSection
+        eyebrow="FAQ"
+        title={
+          <>
+            Paid ads <em className="font-serif not-italic text-lime-400">questions.</em>
+          </>
+        }
+        items={paidAdsFaqLocal}
+      />
+
+      <CtaSection
+        variant="panel"
+        title={
+          <>
+            Ready to <em className="font-serif not-italic text-lime-400">scale without the overhead?</em>
+          </>
+        }
+        subhead="Get a free audit of your current campaigns, or book a 15-min strategy call with a senior strategist. No sales team, no SDR, no follow-up spam."
+        primaryCta={{ label: "Get a free audit", href: "/audit" }}
+        secondaryCta={{ label: "Book a call", href: "/contact" }}
       />
 
       <Script

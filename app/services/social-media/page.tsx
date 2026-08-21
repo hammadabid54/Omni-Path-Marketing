@@ -541,6 +541,15 @@ export default function SocialMediaServicePage() {
         </StaggerGroup>
       </Section>
 
+      {/* TldrBox */}
+      <TldrBox
+        items={[
+          "Social media management from $349/mo direct, $299/mo white-label. 70% lower than traditional agencies.",
+          "12-30 posts per month, 4-6 short-form videos, community management, monthly reporting included.",
+          "Five-step process: audit, plan, produce, post, report. Cancel anytime with 30 days notice.",
+        ]}
+      />
+
       {/* FAQ */}
       <FaqSection
         eyebrow="FAQ"
@@ -565,15 +574,6 @@ export default function SocialMediaServicePage() {
         subhead="Book a 15-min call. We'll send a 30-day content calendar as a free sample. No credit card, no obligation."
         primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
-      />
-
-      {/* TldrBox */}
-      <TldrBox
-        items={[
-          "Social media management from $349/mo direct, $299/mo white-label. 70% lower than traditional agencies.",
-          "12-30 posts per month, 4-6 short-form videos, community management, monthly reporting included.",
-          "Five-step process: audit, plan, produce, post, report. Cancel anytime with 30 days notice.",
-        ]}
       />
 
       {/* JSON-LD */}

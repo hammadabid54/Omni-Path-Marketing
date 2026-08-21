@@ -1,0 +1,118 @@
+<!doctype html>
+<!--
+  PDF cover viewer — used by scripts/build-pdf-covers.mjs to render a single
+  page of a PDF (the second-to-last page, by default) to a canvas, then
+  signals window.__ready = true so Puppeteer can screenshot it.
+
+  The PDF.js library is loaded from scripts/vendor/pdfjs/ next to this file
+  (downloaded from unpkg, NOT a npm install — keeps the project free of
+  devDeps for the cover generator only).
+
+  Usage:
+    file:///.../pdf-cover-viewer.html?file=file:///path/to/case-study.pdf
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF Cover Renderer</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #000;
+        font: 14px/1.4 system-ui, sans-serif;
+      }
+      #status {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 6px 12px;
+        font: 12px/1.4 ui-monospace, monospace;
+        background: #a3e635;
+        color: #0a0a0f;
+        z-index: 10;
+      }
+      #status.error { background: #ef4444; color: #fff; }
+      #wrap {
+        padding: 32px 24px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      #canvas {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">loading…</div>
+    <div id="wrap"><canvas id="canvas"></canvas></div>
+
+    <script type="module">
+      const status = document.getElementById("status");
+      const canvas = document.getElementById("canvas");
+
+      function setStatus(msg, isError = false) {
+        status.textContent = msg;
+        status.className = isError ? "error" : "";
+      }
+
+      try {
+        const params = new URLSearchParams(location.search);
+        const file = params.get("file");
+        if (!file) throw new Error("missing ?file=…");
+
+        // Load PDF.js from the sibling vendor/ directory.
+        const pdfjs = await import("./vendor/pdfjs/pdf.min.mjs");
+        pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+          "./vendor/pdfjs/pdf.worker.min.mjs",
+          import.meta.url,
+        ).href;
+
+        setStatus("opening PDF…");
+        const loadingTask = pdfjs.getDocument({
+          url: file,
+          // Some PDFs need extra time to parse; bump the defaults a bit.
+          isEvalSupported: false,
+          disableFontFace: true,
+          useSystemFonts: false,
+        });
+        const pdf = await loadingTask.promise;
+        const numPages = pdf.numPages;
+        if (numPages < 1) throw new Error("PDF has no pages");
+
+        // Second-to-last page is the de-facto cover for the case studies
+        // (last page is the contact / "next steps" boilerplate).
+        const targetPage = Math.max(1, numPages - 1);
+
+        setStatus(`rendering page ${targetPage} of ${numPages}…`);
+        const page = await pdf.getPage(targetPage);
+
+        // Scale to ~108 DPI for crisp cards on retina + mobile.
+        const scale = 1.4;
+        const viewport = page.getViewport({ scale });
+
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+
+        const ctx = canvas.getContext("2d");
+        await page.render({ canvasContext: ctx, viewport }).promise;
+
+        setStatus(`done · ${canvas.width}×${canvas.height}`);
+        window.__pdfMeta = { numPages, targetPage, width: canvas.width, height: canvas.height };
+        window.__ready = true;
+      } catch (err) {
+        console.error(err);
+        setStatus(`error: ${err && err.message ? err.message : err}`, true);
+        window.__ready = "error";
+        window.__pdfError = String(err && err.message ? err.message : err);
+      }
+    </script>
+  </body>
+</html>

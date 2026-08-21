@@ -21,9 +21,18 @@ const SERVICES = [
 const PRIMARY = [
   { label: "For Agencies", href: "/for-agencies" },
   { label: "For Businesses", href: "/for-businesses" },
-  { label: "White-Label SEO", href: "/white-label-seo" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+];
+
+const MORE = [
+  { label: "White-Label SEO", href: "/white-label-seo" },
   { label: "Process", href: "/process" },
+  { label: "Blog", href: "/blog" },
+  { label: "Tools", href: "/tools" },
+  { label: "Samples", href: "/samples" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -31,6 +40,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -42,6 +52,7 @@ export function Header() {
   useEffect(() => {
     setOpen(false);
     setServicesOpen(false);
+    setMoreOpen(false);
   }, [pathname]);
 
   return (
@@ -70,6 +81,8 @@ export function Header() {
             isOpen={servicesOpen}
             onOpenChange={setServicesOpen}
             pathname={pathname}
+            viewAllHref="/services"
+            viewAllLabel="All services →"
           />
           {PRIMARY.map((item) => (
             <Link
@@ -85,6 +98,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <NavDropdown
+            label="More"
+            items={MORE}
+            isOpen={moreOpen}
+            onOpenChange={setMoreOpen}
+            pathname={pathname}
+          />
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
@@ -134,30 +154,19 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/about"
-              className="px-3 py-2 rounded-md text-white/80 hover:text-white hover:bg-white/5"
-            >
-              About
-            </Link>
-            <Link
-              href="/blog"
-              className="px-3 py-2 rounded-md text-white/80 hover:text-white hover:bg-white/5"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/case-studies"
-              className="px-3 py-2 rounded-md text-white/80 hover:text-white hover:bg-white/5"
-            >
-              Case studies
-            </Link>
-            <Link
-              href="/tools"
-              className="px-3 py-2 rounded-md text-white/80 hover:text-white hover:bg-white/5"
-            >
-              Tools
-            </Link>
+            <div className="text-xs uppercase tracking-widest text-white/45 px-3 pt-3 pb-1">More</div>
+            {MORE.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "px-3 py-2 rounded-md",
+                  pathname === item.href ? "text-lime-400" : "text-white/80 hover:text-white hover:bg-white/5",
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
             <div className="flex flex-col gap-2 pt-4">
               <LinkButton href="/audit" variant="ghost">
                 Free audit
@@ -179,12 +188,16 @@ function NavDropdown({
   isOpen,
   onOpenChange,
   pathname,
+  viewAllHref,
+  viewAllLabel,
 }: {
   label: string;
   items: { label: string; href: string }[];
   isOpen: boolean;
   onOpenChange: (v: boolean) => void;
   pathname: string;
+  viewAllHref?: string;
+  viewAllLabel?: string;
 }) {
   const isActive = items.some((i) => pathname === i.href);
   return (
@@ -224,13 +237,17 @@ function NavDropdown({
                 {s.label}
               </Link>
             ))}
-            <div className="h-px bg-white/8 my-1" />
-            <Link
-              href="/services"
-              className="block px-3 py-2 rounded-md text-sm text-white/60 hover:text-lime-400"
-            >
-              All services →
-            </Link>
+            {viewAllHref && viewAllLabel && (
+              <>
+                <div className="h-px bg-white/8 my-1" />
+                <Link
+                  href={viewAllHref}
+                  className="block px-3 py-2 rounded-md text-sm text-white/60 hover:text-lime-400"
+                >
+                  {viewAllLabel}
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

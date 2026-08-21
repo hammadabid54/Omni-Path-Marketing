@@ -3,6 +3,9 @@ import Link from "next/link";
 import Script from "next/script";
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { PdfPortfolio } from "@/components/sections/pdf-portfolio";
+import { FaqSection } from "@/components/sections/faq";
+import { CtaSection } from "@/components/sections/cta";
 import {
   buildMetadata,
   faqSchema,
@@ -406,23 +409,8 @@ export default function SeoServicePage() {
         }
         directSubhead="Three tiers, one monthly fee, no percentage of spend. The number on your invoice is the number on your books. Move up when your business does, no re-negotiation, no setup fee on the upgrade."
 
-        faqEyebrow="FAQ"
-        faqTitle={
-          <>
-            SEO questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
-          </>
-        }
-        faqItems={seoFaq}
-
-        finalCtaTitle={
-          <>
-            Ready to <em className="font-serif not-italic text-lime-400">rank higher?</em>
-          </>
-        }
-        finalCtaSubhead="Get a free audit, or book a 15-min call with a senior SEO strategist. No sales team, no SDR follow-up, no proposal deck."
-        finalCtaPrimary={{ label: "Get a free audit", href: "/audit" }}
-        finalCtaSecondary={{ label: "Book a call", href: "/contact" }}
+        hideFaq
+        hideCta
       />
 
       {/* ============================================================
@@ -924,6 +912,32 @@ export default function SeoServicePage() {
           "White-label for agencies: 60-70% margin. Resell at $500-1,500/client under your brand, your client never sees us.",
           "Same deliverables as a $1,500-3,000/mo traditional SEO agency. 60-70% lower cost, no lock-in contract, senior strategist on every account.",
         ]}
+      />
+
+      <PdfPortfolio />
+
+      <FaqSection
+        eyebrow="FAQ"
+        title={
+          <>
+            SEO questions,{" "}
+            <em className="font-serif not-italic text-lime-400">honestly.</em>
+          </>
+        }
+        subhead="If you don't see your question here, just ask. We reply within 4 business hours, no sales team in between."
+        items={seoFaq}
+      />
+
+      <CtaSection
+        variant="panel"
+        title={
+          <>
+            Ready to <em className="font-serif not-italic text-lime-400">rank higher?</em>
+          </>
+        }
+        subhead="Get a free audit, or book a 15-min call with a senior SEO strategist. No sales team, no SDR follow-up, no proposal deck."
+        primaryCta={{ label: "Get a free audit", href: "/audit" }}
+        secondaryCta={{ label: "Book a call", href: "/contact" }}
       />
 
       <Script

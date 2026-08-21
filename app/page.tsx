@@ -8,6 +8,7 @@ import { Hero } from "@/components/sections/hero";
 import { StatsStrip } from "@/components/sections/stats-strip";
 import { ServiceBento, type BentoService } from "@/components/sections/service-bento";
 import { CostComparison } from "@/components/sections/cost-comparison";
+import { PdfPortfolio } from "@/components/sections/pdf-portfolio";
 import { Testimonials } from "@/components/sections/testimonials";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { FaqSection } from "@/components/sections/faq";
@@ -291,6 +292,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <PdfPortfolio />
 
       <Testimonials
         items={[

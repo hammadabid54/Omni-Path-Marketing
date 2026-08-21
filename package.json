@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:covers": "node scripts/build-pdf-covers.mjs",
+    "intake": "node scripts/intake-token.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

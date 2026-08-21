@@ -1,6 +1,8 @@
 import { Resend } from "resend";
 import { env, resendEnabled } from "./env";
 import type { LeadScoreResult } from "./lead-score";
+import { INBOX_GOOGLE, INBOX_SOCIAL, getService, type ServiceConfig, type CredentialItem } from "./intake-services";
+import type { IntakeFormValues } from "./intake-schema";
 
 /* =========================================================
    Email templates (Resend) — graceful no-op when not configured.
@@ -197,4 +199,252 @@ function escapeHtml(s: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+/* =========================================================
+   Client intake (private, token-gated)
+   ========================================================= */
+
+/** Render one credential checklist line for a single service. */
+function credentialBlockHtml(
+  service: ServiceConfig,
+  sendBy: string,
+  notes: string,
+): string {
+  const byInbox: Record<string, CredentialItem[]> = {};
+  for (const c of service.credentials) {
+    (byInbox[c.inbox] ??= []).push(c);
+  }
+  const groups = Object.entries(byInbox);
+  const groupsHtml = groups
+    .map(
+      ([inbox, items]) => `
+        <div style="margin-top:8px;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:rgba(255,255,255,0.5);margin-bottom:6px;">→ <a href="mailto:${inbox}" style="color:#a3e635;text-decoration:underline;">${inbox}</a></div>
+          <ul style="margin:0;padding-left:18px;color:rgba(255,255,255,0.75);line-height:1.7;font-size:13px;">
+            ${items
+              .map(
+                (c) =>
+                  `<li><strong style="color:#fff;">${escapeHtml(c.label)}</strong> — ${escapeHtml(c.action)}</li>`,
+              )
+              .join("")}
+          </ul>
+        </div>`,
+    )
+    .join("");
+
+  return `
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;margin-top:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <strong style="color:#fff;font-size:14px;">${escapeHtml(service.label)}</strong>
+        <span style="font-size:11px;color:rgba(255,255,255,0.5);">Client will send by <strong style="color:#a3e635;">${escapeHtml(sendBy)}</strong></span>
+      </div>
+      ${service.credentials.length > 0 ? groupsHtml : `<p style="margin:8px 0 0;color:rgba(255,255,255,0.6);font-size:13px;">No credentials needed — kickoff call only.</p>`}
+      ${notes ? `<p style="margin:8px 0 0;color:rgba(255,255,255,0.55);font-size:12px;font-style:italic;">Notes: ${escapeHtml(notes)}</p>` : ""}
+    </div>`;
+}
+
+export interface IntakeSubmission {
+  /** Token that was used to submit. */
+  token: string;
+  /** All form values. */
+  data: IntakeFormValues;
+  /** IP address of the submitter. */
+  ip: string;
+  /** User agent of the submitter. */
+  userAgent: string;
+}
+
+export async function notifyIntakeSubmission(sub: IntakeSubmission) {
+  if (!resendEnabled()) {
+    console.log("[email] Resend not configured — skipping intake notification for", sub.data.contactEmail);
+    return { ok: false, reason: "not-configured" };
+  }
+  const c = client();
+  if (!c) return { ok: false, reason: "no-client" };
+
+  const d = sub.data;
+  const rows: Array<[string, string]> = [
+    ["Token", sub.token],
+    ["Submitted at", new Date().toISOString()],
+    ["IP", sub.ip],
+  ];
+  // Section 1
+  rows.push(["— Business basics —", ""]);
+  rows.push(["Business", d.businessName]);
+  rows.push(["Contact", `${d.contactName} (${d.contactRole})`]);
+  rows.push(["Email", d.contactEmail]);
+  rows.push(["Phone", d.contactPhone]);
+  rows.push(["Timezone", d.timezone]);
+  rows.push(["Website", d.websiteUrl]);
+  rows.push(["Industry", d.industry]);
+  rows.push(["Markets", d.geographicMarkets]);
+  if (d.topCompetitors) rows.push(["Top competitors", d.topCompetitors]);
+  // Section 2
+  rows.push(["— Goals & context —", ""]);
+  rows.push(["Primary goal (90d)", d.primaryGoal90d]);
+  rows.push(["Biggest challenge", d.biggestChallenge]);
+  rows.push(["Ideal customer", d.idealCustomer]);
+  rows.push(["Monthly budget", d.monthlyBudget]);
+  if (d.toolsInUse) rows.push(["Tools in use", d.toolsInUse]);
+  if (d.heardFrom) rows.push(["Heard from", d.heardFrom]);
+  // Section 3
+  rows.push(["— Services —", ""]);
+  rows.push(["Selected", d.services.join(", ")]);
+  // Section 4 (per-service)
+  rows.push(["— Credentials plan —", ""]);
+  for (const sid of d.services) {
+    const svc = getService(sid);
+    if (!svc) continue;
+    const plan = d.credentialsPlan?.[sid];
+    rows.push([
+      svc.label,
+      plan
+        ? `send by ${plan.sendBy}${plan.notes ? ` · notes: ${plan.notes}` : ""}`
+        : "—",
+    ]);
+  }
+  // Section 5
+  rows.push(["— Logistics —", ""]);
+  rows.push(["Project start", d.projectStartDate]);
+  rows.push(["Comms channel", d.commChannel]);
+  rows.push(["Invoicing email", d.invoicingEmail]);
+  rows.push(["Billing address", d.billingAddress]);
+  if (d.poNumber) rows.push(["PO #", d.poNumber]);
+  if (d.anythingElse) rows.push(["Anything else", d.anythingElse]);
+  // Section 6
+  rows.push(["— Legal —", ""]);
+  rows.push(["NDA accepted", "yes"]);
+  rows.push(["DPA accepted", "yes"]);
+  rows.push(["Signature", d.signature]);
+
+  const table = rows
+    .map(([k, v]) => {
+      if (v === "") {
+        // Section divider
+        return `<tr><td colspan="2" style="padding:14px 12px 4px;color:#a3e635;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">${escapeHtml(k)}</td></tr>`;
+      }
+      return `<tr><td style="padding:6px 12px;color:rgba(255,255,255,0.5);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:35%;vertical-align:top;">${escapeHtml(k)}</td><td style="padding:6px 12px;color:#fff;font-size:14px;line-height:1.5;">${escapeHtml(v)}</td></tr>`;
+    })
+    .join("");
+
+  const inner = `
+    <h1 style="font-size:24px;line-height:1.2;margin:0 0 8px;font-weight:700;">New client intake</h1>
+    <p style="color:rgba(255,255,255,0.65);margin:0 0 20px;font-size:14px;">From <strong style="color:#fff;">${escapeHtml(d.businessName)}</strong> · <a href="mailto:${d.contactEmail}" style="color:#a3e635;">${d.contactEmail}</a></p>
+    <table style="width:100%;border-collapse:collapse;background:rgba(255,255,255,0.04);border-radius:12px;overflow:hidden;">${table}</table>
+  `;
+
+  try {
+    const result = await c.emails.send({
+      from: FROM(),
+      to: NOTIFY(),
+      replyTo: d.contactEmail,
+      subject: `New intake — ${d.businessName} (${d.services.length} service${d.services.length === 1 ? "" : "s"})`,
+      html: brandChrome(inner),
+    });
+    if (result.error) {
+      console.error(`[email] intake notify failed: ${result.error.message}`);
+      return { ok: false, error: result.error.message };
+    }
+    return { ok: true, id: result.data?.id };
+  } catch (err) {
+    console.error("[email] intake notify threw:", err);
+    return { ok: false, error: String(err) };
+  }
+}
+
+export async function sendIntakeClientRecap(sub: IntakeSubmission) {
+  if (!resendEnabled()) {
+    console.log("[email] Resend not configured — skipping intake recap to", sub.data.contactEmail);
+    return { ok: false, reason: "not-configured" };
+  }
+  const c = client();
+  if (!c) return { ok: false, reason: "no-client" };
+
+  const d = sub.data;
+  const serviceBlocks = d.services
+    .map((sid) => {
+      const svc = getService(sid);
+      if (!svc) return "";
+      const plan = d.credentialsPlan?.[sid];
+      return credentialBlockHtml(
+        svc,
+        plan?.sendBy ?? "ASAP",
+        plan?.notes ?? "",
+      );
+    })
+    .join("");
+
+  const inner = `
+    <h1 style="font-size:28px;line-height:1.2;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;">Thanks, ${escapeHtml(d.contactName.split(" ")[0])}.</h1>
+    <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 8px;">We got your intake for <strong style="color:#fff;">${escapeHtml(d.businessName)}</strong>. Here&apos;s what happens next:</p>
+    <ol style="color:rgba(255,255,255,0.75);line-height:1.7;margin:0 0 24px;padding-left:20px;">
+      <li>We&apos;ll review your intake and prep for the kickoff call.</li>
+      <li>Send the credentials below to the matching inbox by the date you picked.</li>
+      <li>You&apos;ll get a kickoff invite from us within 1 business day.</li>
+    </ol>
+    <h2 style="font-size:18px;line-height:1.3;margin:24px 0 8px;font-weight:700;">Credentials checklist</h2>
+    ${serviceBlocks}
+    <h2 style="font-size:18px;line-height:1.3;margin:24px 0 8px;font-weight:700;">Where credentials go</h2>
+    <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 8px;">
+      <strong style="color:#a3e635;">${INBOX_GOOGLE}</strong> — Google Workspace tools (Search Console, GA4, Google Ads, GTM, YouTube, hosting/DNS/CMS for Web &amp; CRO).
+    </p>
+    <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 24px;">
+      <strong style="color:#a3e635;">${INBOX_SOCIAL}</strong> — Social media accounts (Instagram, Facebook, LinkedIn, X, TikTok, Pinterest).
+    </p>
+    <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin:24px 0 0;">
+      Reply to this email if anything is unclear. Keep this link for your records — it&apos;s how we identify your onboarding thread.
+    </p>
+  `;
+
+  try {
+    const result = await c.emails.send({
+      from: FROM(),
+      to: d.contactEmail,
+      subject: `Thanks — your Omni Path intake is in`,
+      html: brandChrome(inner),
+    });
+    if (result.error) {
+      console.error(`[email] intake recap failed: ${result.error.message}`);
+      return { ok: false, error: result.error.message };
+    }
+    return { ok: true, id: result.data?.id };
+  } catch (err) {
+    console.error("[email] intake recap threw:", err);
+    return { ok: false, error: String(err) };
+  }
+}
+
+/* =========================================================
+   Turnstile server-side verification
+   ========================================================= */
+
+export async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
+  const e = env();
+  if (!e.TURNSTILE_SECRET_KEY) {
+    // No secret configured — skip verification. Server still responds OK so
+    // the form works during dev.
+    console.warn("[turnstile] secret not configured — skipping verification");
+    return true;
+  }
+  if (!token) return false;
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: e.TURNSTILE_SECRET_KEY,
+        response: token,
+        remoteip: ip,
+      }).toString(),
+    });
+    const data = (await res.json()) as { success?: boolean; "error-codes"?: string[] };
+    if (!data.success) {
+      console.warn("[turnstile] verification failed:", data["error-codes"]);
+    }
+    return Boolean(data.success);
+  } catch (err) {
+    console.error("[turnstile] verify error:", err);
+    return false;
+  }
 }

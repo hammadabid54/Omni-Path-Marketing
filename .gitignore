@@ -45,5 +45,17 @@ next-env.d.ts
 
 # Verification scratch (recoverable, ignored from git)
 deploy/_trash/
+deploy/_trash
 scripts/_trash/
+scripts/_trash
+
+# PDF.js vendor files (downloaded on demand by scripts/build-pdf-covers.mjs)
+# The prebuilt covers themselves are committed under public/case-study-pdfs/covers/
+scripts/vendor/
+
+# Client intake tokens — operational data, not source. Managed via scripts/intake-token.mjs
+data/intake-tokens.json
+
+# Admin portal — operational data. Written by the form endpoints, read by /admin/*
+data/leads.json
 

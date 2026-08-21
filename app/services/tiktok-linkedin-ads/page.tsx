@@ -728,19 +728,6 @@ export default function TikTokLinkedInServicePage() {
         totalNote="White-label clients: 14 days total to first live deliverable. Direct clients: 7 days from kickoff to live campaign."
       />
 
-      {/* FAQ */}
-      <FaqSection
-        eyebrow="FAQ"
-        title={
-          <>
-            TikTok and LinkedIn ads,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
-          </>
-        }
-        subhead="The questions every client asks in the first call."
-        items={tiktokLinkedInFaq}
-      />
-
       {/* Internal cross-link to related services */}
       <Section>
         <ScrollReveal className="max-w-2xl">
@@ -772,6 +759,27 @@ export default function TikTokLinkedInServicePage() {
         </ScrollReveal>
       </Section>
 
+      <TldrBox
+        items={[
+          "TikTok Ads from $349/mo mgmt. LinkedIn Ads from $599/mo mgmt. Ad spend billed separately to the platforms.",
+          "White-label from $299/mo (TikTok) and $499/mo (LinkedIn). Resell at 2-3x for 60-70% margin per client.",
+          "7-day onboarding, monthly reports, weekly tuning, no setup fees. Cancel anytime with 30 days notice.",
+        ]}
+      />
+
+      {/* FAQ */}
+      <FaqSection
+        eyebrow="FAQ"
+        title={
+          <>
+            TikTok and LinkedIn ads,{" "}
+            <em className="font-serif not-italic text-lime-400">honestly.</em>
+          </>
+        }
+        subhead="The questions every client asks in the first call."
+        items={tiktokLinkedInFaq}
+      />
+
       {/* Final CTA */}
       <CtaSection
         variant="panel"
@@ -786,14 +794,6 @@ export default function TikTokLinkedInServicePage() {
         subhead="Book a 15-min strategy call. We&apos;ll scope your goals, your audience, and the right platform mix. No pitch deck, no obligation."
         primaryCta={{ label: "Book a strategy call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
-      />
-
-      <TldrBox
-        items={[
-          "TikTok Ads from $349/mo mgmt. LinkedIn Ads from $599/mo mgmt. Ad spend billed separately to the platforms.",
-          "White-label from $299/mo (TikTok) and $499/mo (LinkedIn). Resell at 2-3x for 60-70% margin per client.",
-          "7-day onboarding, monthly reports, weekly tuning, no setup fees. Cancel anytime with 30 days notice.",
-        ]}
       />
 
       <Script

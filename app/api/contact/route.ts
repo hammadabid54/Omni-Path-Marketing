@@ -3,6 +3,7 @@ import { z } from "zod";
 import { scoreLead } from "@/lib/lead-score";
 import { sendContactDelivery, notifyLead } from "@/lib/email";
 import { pushLeadToNotion } from "@/lib/notion";
+import { addLead } from "@/lib/leads-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -57,6 +58,8 @@ export async function POST(req: Request) {
     agencyClients,
   });
 
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "0.0.0.0";
+
   void (async () => {
     try {
       await Promise.allSettled([
@@ -88,6 +91,23 @@ export async function POST(req: Request) {
           bucket,
         }),
         sendContactDelivery({ to: data.email, name: data.name }),
+        addLead({
+          type: data.type === "agency" ? "partner" : "contact",
+          email: data.email,
+          name: data.name,
+          phone: data.phone,
+          company: data.company ?? data.agency,
+          url: data.website,
+          message: data.note,
+          services: data.services,
+          budget: data.budget,
+          timeline: data.timeline,
+          score,
+          bucket,
+          signals,
+          source: "contact-form",
+          ip,
+        }),
       ]);
     } catch (err) {
       console.error("[contact] side-effects failed", err);

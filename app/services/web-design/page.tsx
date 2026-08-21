@@ -580,7 +580,16 @@ export default function WebDesignServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* 8. FAQ */}
+      {/* 8. TldrBox */}
+      <TldrBox
+        items={[
+          "Web design services from $499 direct, $249 white-label. 5-21 day turnaround, fixed price.",
+          "Four tiers: Landing, Standard, Custom, E-commerce. Source files + CMS on every build.",
+          "Built on Next.js, Webflow, Shopify, or WordPress. You own the code, always.",
+        ]}
+      />
+
+      {/* 9. FAQ */}
       <FaqSection
         eyebrow="FAQ"
         title={<>Web design <em className="font-serif not-italic text-lime-400">questions.</em></>}
@@ -588,22 +597,13 @@ export default function WebDesignServicePage() {
         items={webDesignFaq}
       />
 
-      {/* 9. Final CTA */}
+      {/* 10. Final CTA */}
       <CtaSection
         variant="panel"
         title={<>Ready for a site that <em className="font-serif not-italic text-lime-400">converts?</em></>}
         subhead="Get a free conversion audit, or book a 15-min call. Web design services from $499 direct, $249 white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
-      />
-
-      {/* 10. TldrBox */}
-      <TldrBox
-        items={[
-          "Web design services from $499 direct, $249 white-label. 5-21 day turnaround, fixed price.",
-          "Four tiers: Landing, Standard, Custom, E-commerce. Source files + CMS on every build.",
-          "Built on Next.js, Webflow, Shopify, or WordPress. You own the code, always.",
-        ]}
       />
 
       {/* 11. JSON-LD */}

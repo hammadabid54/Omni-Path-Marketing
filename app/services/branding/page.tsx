@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
 import { TldrBox } from "@/components/sections/tldr-box";
+import { FaqSection } from "@/components/sections/faq";
+import { CtaSection } from "@/components/sections/cta";
 import {
   buildMetadata,
   faqSchema,
@@ -398,24 +400,8 @@ export default function BrandingServicePage() {
           },
         ]}
 
-        faqEyebrow="FAQ"
-        faqTitle={
-          <>
-            Branding questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
-          </>
-        }
-        faqItems={brandingFaq}
-
-        finalCtaTitle={
-          <>
-            Ready for a brand that{" "}
-            <em className="font-serif not-italic text-lime-400">works?</em>
-          </>
-        }
-        finalCtaSubhead="Tell us about your business. We will send 3 concepts within 48-72 hours. No long onboarding, no proposal deck, no sales call required."
-        finalCtaPrimary={{ label: "Get a free brand audit", href: "/contact" }}
-        finalCtaSecondary={{ label: "Book a 15-min call", href: "/contact" }}
+        hideFaq
+        hideCta
       />
 
       {/* ============================================================
@@ -860,6 +846,30 @@ export default function BrandingServicePage() {
           "White-label for agencies: pay $99-999, resell at $500-7,500. 78-89% margin per project.",
           "Senior designer on every project. 3 concepts, 3 revisions, source files in every format.",
         ]}
+      />
+
+      <FaqSection
+        eyebrow="FAQ"
+        title={
+          <>
+            Branding questions,{" "}
+            <em className="font-serif not-italic text-lime-400">honestly.</em>
+          </>
+        }
+        items={brandingFaq}
+      />
+
+      <CtaSection
+        variant="panel"
+        title={
+          <>
+            Ready for a brand that{" "}
+            <em className="font-serif not-italic text-lime-400">works?</em>
+          </>
+        }
+        subhead="Tell us about your business. We will send 3 concepts within 48-72 hours. No long onboarding, no proposal deck, no sales call required."
+        primaryCta={{ label: "Get a free brand audit", href: "/contact" }}
+        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
       />
 
       <Script

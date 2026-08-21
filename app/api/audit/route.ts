@@ -4,6 +4,7 @@ import { runAudit } from "@/lib/audit";
 import { scoreLead } from "@/lib/lead-score";
 import { sendAuditDelivery, notifyLead } from "@/lib/email";
 import { pushLeadToNotion } from "@/lib/notion";
+import { addLead } from "@/lib/leads-store";
 import { generateAuditPdf } from "@/lib/audit/generate-pdf";
 
 export const runtime = "nodejs";
@@ -34,6 +35,7 @@ export async function POST(req: Request) {
 
   const { url, name, email, company } = parsed.data;
   const urlWithScheme = /^https?:\/\//i.test(url) ? url : `https://${url}`;
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "0.0.0.0";
 
   try {
     const audit = await runAudit(urlWithScheme);
@@ -90,6 +92,18 @@ export async function POST(req: Request) {
             score: audit.score,
             bucket,
             pdf,
+          }),
+          addLead({
+            type: "audit",
+            name,
+            email,
+            company,
+            url: audit.finalUrl,
+            score,
+            bucket,
+            signals,
+            source: "audit-tool",
+            ip,
           }),
         ]);
       } catch (err) {

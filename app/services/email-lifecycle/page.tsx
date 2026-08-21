@@ -705,6 +705,16 @@ export default function EmailLifecycleServicePage() {
         </StaggerGroup>
       </Section>
 
+      {/* TldrBox */}
+      <TldrBox
+        title="Key takeaways"
+        items={[
+          "Email marketing services from $299/mo white-label (resell at $1,000-1,800/mo for 60-70% margin).",
+          "Direct: $349-$999 one-time setup + $349-$999/mo management. Klaviyo, HubSpot, or ActiveCampaign.",
+          "Setup is build-once. Management is run-it-forever. Buy either, or both. Deliverability + monthly report in every plan.",
+        ]}
+      />
+
       {/* FAQ */}
       <FaqSection
         eyebrow="FAQ"
@@ -730,16 +740,6 @@ export default function EmailLifecycleServicePage() {
         subhead="Book a 15-min call. We'll audit your current setup and tell you which tier fits — even if it's not ours."
         primaryCta={{ label: "Book a call", href: "/contact" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
-      />
-
-      {/* TldrBox */}
-      <TldrBox
-        title="Key takeaways"
-        items={[
-          "Email marketing services from $299/mo white-label (resell at $1,000-1,800/mo for 60-70% margin).",
-          "Direct: $349-$999 one-time setup + $349-$999/mo management. Klaviyo, HubSpot, or ActiveCampaign.",
-          "Setup is build-once. Management is run-it-forever. Buy either, or both. Deliverability + monthly report in every plan.",
-        ]}
       />
 
       <Script
