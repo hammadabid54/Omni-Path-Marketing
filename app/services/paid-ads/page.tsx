@@ -29,11 +29,12 @@ import {
   Camera,
   LayoutDashboard,
 } from "lucide-react";
+import { getDirectService, WL_SEO_OFFERING, WL_PRICE_RANGE } from "@/content/pricing";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Paid Ads Management · Google & Meta | From $350/mo",
+  title: "AI Paid Ads Management · Google & Meta · Bronze $250 to Gold $600/mo",
   description:
-    "AI-assisted paid ads management for Google + Meta. Direct from $350/mo. White-label from $250/mo. 60-70% margin. No setup fees. 7-day onboarding.",
+    "AI-assisted paid ads management for Google + Meta. Direct Bronze $250 / Silver $400 / Gold $600 per month. White-label $150-250 per client. 60-70% margin. No setup fees. 7-day onboarding.",
   path: "/services/paid-ads",
 });
 
@@ -109,7 +110,7 @@ export default function PaidAdsServicePage() {
             <em className="font-serif not-italic text-lime-400">Without the agency overhead.</em>
           </>
         }
-        heroSubhead="Paid ads management for Google Ads and Meta Ads. White-label for agencies from $250/mo at 60-70% margin. Direct for businesses from $350/mo. Senior strategists, weekly refinements, no setup fees, cancel anytime."
+        heroSubhead="Paid ads management for Google Ads and Meta Ads. White-label for agencies $150-250 per client at 60-70% margin. Direct for businesses Bronze $250 / Silver $400 / Gold $600 per month. Senior strategists, weekly refinements, no setup fees, cancel anytime."
         heroPrimaryCta={{ label: "Get a free audit", href: "/audit" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="$0 setup · 7-day onboarding · Cancel anytime"
@@ -164,27 +165,12 @@ export default function PaidAdsServicePage() {
           </>
         }
         directSubhead="You pay the platforms directly for ad spend. We charge a flat monthly management fee. No percentage of spend, no hidden fees, no markup on media. The number you see is the number you pay."
-        directTiers={[
-          {
-            tier: "Starter",
-            price: "$350/mo",
-            includes:
-              "Ad spend <$5K, 1 platform (Google OR Meta), basic campaign setup, weekly bid tweaks, monthly report",
-          },
-          {
-            tier: "Growth",
-            price: "$700/mo",
-            includes:
-              "Ad spend $5-20K, both platforms, audience testing, creative variations, weekly refinements, biweekly call",
-            popular: true,
-          },
-          {
-            tier: "Scale",
-            price: "$1,200/mo",
-            includes:
-              "Ad spend $20K+, both platforms, advanced audiences, landing page testing, dedicated strategist, weekly call",
-          },
-        ]}
+        directTiers={getDirectService("paid-ads")!.tiers.map((t) => ({
+          tier: t.id,
+          price: t.price,
+          includes: t.features.join(" · "),
+          popular: t.popular,
+        }))}
 
         whiteLabelEyebrow="White-label pricing"
         whiteLabelTitle={
@@ -195,24 +181,9 @@ export default function PaidAdsServicePage() {
         }
         whiteLabelSubhead="Resell at $500-1,500/client/month. Your logo, your pricing, your client never sees us. We work for you, not around you."
         whiteLabelTiers={[
-          {
-            tier: "Starter",
-            price: "$250/mo",
-            includes: "Resell at $500+/client, 1 client per license",
-          },
-          {
-            tier: "Growth",
-            price: "$400/mo",
-            includes:
-              "Resell at $750-1,200/client, up to 5 clients, weekly white-label report",
-            popular: true,
-          },
-          {
-            tier: "Scale",
-            price: "$750/mo",
-            includes:
-              "Resell at $1,200-1,500/client, 10+ clients, dedicated partner manager",
-          },
+          { tier: "Starter", price: "$250/mo", includes: "Resell at $500+/client, 1 client" },
+          { tier: "Growth",  price: "$200/mo", includes: "Resell at $750-1,200/client, 5+ clients", popular: true },
+          { tier: "Scale",   price: "$150/mo", includes: "Resell at $1,200-1,500/client, 15+ clients" },
         ]}
 
         hideFaq
@@ -233,14 +204,14 @@ export default function PaidAdsServicePage() {
         </ScrollReveal>
 
         <StaggerGroup className="mt-12 grid gap-6 lg:grid-cols-3" stagger={0.08}>
-          {/* Starter */}
+          {/* Bronze */}
           <StaggerItem>
             <div className="bento bento-lg h-full flex flex-col">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Starter</h3>
-                <span className="pill text-[10px]">Ad spend &lt;$5K</span>
+                <h3 className="text-xl font-semibold text-white">Direct · Bronze</h3>
+                <span className="pill text-[10px]">1 platform</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$350/mo</p>
+              <p className="mt-1 text-2xl font-bold text-lime-400">$250/mo</p>
               <p className="mt-3 text-sm text-white/55">
                 Best for: one channel, one offer, a clean test.
               </p>
@@ -254,15 +225,11 @@ export default function PaidAdsServicePage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>1 campaign, up to 3 ad groups</span>
+                  <span>Campaign setup + monthly optimization</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Keyword + audience research, 1 round</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
-                  <span>3 ad copy variations per ad group</span>
+                  <span>3 ad copy variations, 2 static image ads</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
@@ -274,35 +241,33 @@ export default function PaidAdsServicePage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Shared Slack channel for questions</span>
+                  <span>Ad spend billed separately by the platform</span>
                 </li>
               </ul>
               <div className="mt-6 pt-6 border-t border-white/8">
                 <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
-                  Upgrade to Growth for:
+                  Upgrade to Silver for:
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-white/70">
                   <li>+ Both Google and Meta managed together</li>
-                  <li>+ Multi-campaign structure, up to 6 ad groups</li>
-                  <li>+ 6-8 ad copy variations per ad group</li>
+                  <li>+ A/B testing + retargeting</li>
+                  <li>+ 5 ad copy variations + 1 video ad</li>
                   <li>+ Audience testing across 3-5 segments</li>
-                  <li>+ Weekly written updates with rationale</li>
-                  <li>+ Biweekly 30-min strategy call</li>
                 </ul>
               </div>
             </div>
           </StaggerItem>
 
-          {/* Growth */}
+          {/* Silver */}
           <StaggerItem>
             <div className="bento bento-lg h-full flex flex-col border-lime-400/30 bg-lime-400/4">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Growth</h3>
+                <h3 className="text-xl font-semibold text-white">Direct · Silver</h3>
                 <span className="pill pill-accent text-[10px]">Most popular</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$700/mo</p>
+              <p className="mt-1 text-2xl font-bold text-lime-400">$400/mo</p>
               <p className="mt-3 text-sm text-white/55">
-                Best for: ad spend $5-20K, both channels, real testing.
+                Best for: two channels, real testing, more creative volume.
               </p>
               <p className="mt-6 text-xs uppercase tracking-widest text-white/45 font-semibold">
                 What we do under this tier
@@ -310,23 +275,19 @@ export default function PaidAdsServicePage() {
               <ul className="mt-3 space-y-2 text-sm text-white/80">
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Both Google Ads AND Meta Ads</span>
+                  <span>2 platforms (Google Ads + Meta Ads)</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Multi-campaign structure, up to 6 ad groups</span>
+                  <span>A/B testing + retargeting</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span>5 ad copy variations, 4 static + 1 video ad</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
                   <span>Audience testing across 3-5 segments</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
-                  <span>6-8 ad copy variations per ad group</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Creative variations (images + copy)</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
@@ -336,33 +297,35 @@ export default function PaidAdsServicePage() {
                   <span className="text-lime-400 mt-0.5">→</span>
                   <span>Biweekly 30-min strategy call</span>
                 </li>
+                <li className="flex gap-2">
+                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span>Ad spend billed separately by the platform</span>
+                </li>
               </ul>
               <div className="mt-6 pt-6 border-t border-white/8">
                 <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
-                  Upgrade to Scale for:
+                  Upgrade to Gold for:
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-white/70">
-                  <li>+ Spend capacity above $20K/mo</li>
-                  <li>+ Advanced audience modeling (LTV, value-based)</li>
-                  <li>+ Landing page A/B testing built in</li>
+                  <li>+ 3-4 platforms (+ TikTok / LinkedIn)</li>
+                  <li>+ Full-funnel strategy</li>
+                  <li>+ 8 ad copies + 6 static + 3 video ads</li>
                   <li>+ Dedicated senior strategist (1:1)</li>
-                  <li>+ Weekly 30-min call, not biweekly</li>
-                  <li>+ Custom dashboard feed into your stack</li>
                 </ul>
               </div>
             </div>
           </StaggerItem>
 
-          {/* Scale */}
+          {/* Gold */}
           <StaggerItem>
             <div className="bento bento-lg h-full flex flex-col">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Scale</h3>
-                <span className="pill text-[10px]">Ad spend $20K+</span>
+                <h3 className="text-xl font-semibold text-white">Direct · Gold</h3>
+                <span className="pill text-[10px]">3-4 platforms</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$1,200/mo</p>
+              <p className="mt-1 text-2xl font-bold text-lime-400">$600/mo</p>
               <p className="mt-3 text-sm text-white/55">
-                Best for: high spend, full funnel, dedicated senior attention.
+                Best for: full funnel, multi-platform, dedicated senior attention.
               </p>
               <p className="mt-6 text-xs uppercase tracking-widest text-white/45 font-semibold">
                 What we do under this tier
@@ -370,15 +333,15 @@ export default function PaidAdsServicePage() {
               <ul className="mt-3 space-y-2 text-sm text-white/80">
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Both Google Ads AND Meta Ads, full funnel</span>
+                  <span>3-4 platforms (+ TikTok / LinkedIn)</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Advanced audience modeling (LTV, value-based)</span>
+                  <span>Full-funnel strategy</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>8-12 ad copy variations per ad group</span>
+                  <span>8 ad copy variations, 6 static + 3 video ads</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
@@ -394,7 +357,7 @@ export default function PaidAdsServicePage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-lime-400 mt-0.5">→</span>
-                  <span>Custom dashboard feed into your stack</span>
+                  <span>Ad spend billed separately by the platform</span>
                 </li>
               </ul>
               <div className="mt-6 pt-6 border-t border-white/8">
@@ -455,27 +418,27 @@ export default function PaidAdsServicePage() {
               </thead>
               <tbody>
                 <tr className="border-b border-white/5">
-                  <td className="px-5 py-4 text-white/85 font-medium">Starter</td>
-                  <td className="px-5 py-4 text-white/70">$250/mo</td>
-                  <td className="px-5 py-4 text-white/70">$500-800/mo</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$250-550/mo</td>
+                  <td className="px-5 py-4 text-white/85 font-medium">Starter (1 client)</td>
+                  <td className="px-5 py-4 text-white/70">$250/client</td>
+                  <td className="px-5 py-4 text-white/70">$500-800/client</td>
+                  <td className="px-5 py-4 text-lime-400 font-semibold">$250-550/client</td>
                   <td className="px-5 py-4 text-lime-400 font-semibold">50-69%</td>
                 </tr>
                 <tr className="border-b border-white/5 bg-lime-400/5">
                   <td className="px-5 py-4 text-white/85 font-medium">
-                    Growth <span className="pill pill-accent text-[10px] ml-1">Popular</span>
+                    Growth (5+ clients) <span className="pill pill-accent text-[10px] ml-1">Popular</span>
                   </td>
-                  <td className="px-5 py-4 text-white/70">$400/mo</td>
-                  <td className="px-5 py-4 text-white/70">$750-1,200/mo</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$350-800/mo</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">47-67%</td>
+                  <td className="px-5 py-4 text-white/70">$200/client</td>
+                  <td className="px-5 py-4 text-white/70">$750-1,200/client</td>
+                  <td className="px-5 py-4 text-lime-400 font-semibold">$550-1,000/client</td>
+                  <td className="px-5 py-4 text-lime-400 font-semibold">73-83%</td>
                 </tr>
                 <tr>
-                  <td className="px-5 py-4 text-white/85 font-medium">Scale</td>
-                  <td className="px-5 py-4 text-white/70">$750/mo</td>
-                  <td className="px-5 py-4 text-white/70">$1,200-1,500/mo</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$450-750/mo</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">38-50%</td>
+                  <td className="px-5 py-4 text-white/85 font-medium">Scale (15+ clients)</td>
+                  <td className="px-5 py-4 text-white/70">$150/client</td>
+                  <td className="px-5 py-4 text-white/70">$1,200-1,500/client</td>
+                  <td className="px-5 py-4 text-lime-400 font-semibold">$1,050-1,350/client</td>
+                  <td className="px-5 py-4 text-lime-400 font-semibold">88-90%</td>
                 </tr>
               </tbody>
             </table>
@@ -488,7 +451,7 @@ export default function PaidAdsServicePage() {
               <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
                 5 clients at Growth
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$1,750-4,000/mo</p>
+              <p className="mt-3 text-3xl font-bold text-white">$2,750-5,000/mo</p>
               <p className="mt-2 text-sm text-white/60">
                 Margin on a 5-client book at the Growth tier, charged at the lower to upper end of typical agency pricing.
               </p>
@@ -499,7 +462,7 @@ export default function PaidAdsServicePage() {
               <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
                 10 clients at Growth
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$3,500-8,000/mo</p>
+              <p className="mt-3 text-3xl font-bold text-white">$5,500-10,000/mo</p>
               <p className="mt-2 text-sm text-white/60">
                 Double the book, same per-client margin. We do not cap how many clients you can run through us.
               </p>
@@ -510,7 +473,7 @@ export default function PaidAdsServicePage() {
               <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
                 Partner bundle (8 services)
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">From $200/client</p>
+              <p className="mt-3 text-3xl font-bold text-white">From $150/client</p>
               <p className="mt-2 text-sm text-white/60">
                 Bundle paid ads with{" "}
                 <Link href="/services/seo" className="text-lime-400 hover:underline">
@@ -542,7 +505,7 @@ export default function PaidAdsServicePage() {
         subhead="We are a senior paid media agency running AI + automation to deliver at a lower cost than a 30-person shop. The math is simple: less overhead, same deliverables, faster decisions, and a senior human on your account — not a junior AM with 30 logins."
         columns={["Omni Path", "Traditional agency"]}
         rows={[
-          { label: "Direct management fee", values: ["$350-1,200/mo", "$1,500-3,000/mo"] },
+          { label: "Direct management fee", values: ["$250-600/mo", "$1,500-3,000/mo"] },
           { label: "Markup on ad spend", values: ["None", "12-15%"] },
           { label: "Time to launch", values: ["7 days", "30-60 days"] },
           { label: "Clients per strategist", values: ["8-12", "20-30"] },
@@ -562,7 +525,7 @@ export default function PaidAdsServicePage() {
             <em className="font-serif not-italic text-lime-400">In every tier.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            Whether you are on Starter at $350/mo or Scale at $1,200/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor.
+            Whether you are on Bronze at $250/mo or Gold at $600/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor.
           </p>
         </ScrollReveal>
 
@@ -741,7 +704,7 @@ export default function PaidAdsServicePage() {
 
         <ScrollReveal className="mt-8" delay={0.15}>
           <p className="text-base text-white/75 max-w-3xl mx-auto text-center leading-relaxed">
-            Same deliverables as a 30-person shop. Lower cost because the rest is automated, not because we cut corners on strategy, creative, or review. Most agencies charge you for the junior hours. We charge you for the senior strategy and the automation that handles the rest — which is exactly why Starter is $350/mo and Scale is $1,200/mo instead of $500-1,800.
+            Same deliverables as a 30-person shop. Lower cost because the rest is automated, not because we cut corners on strategy, creative, or review. Most agencies charge you for the junior hours. We charge you for the senior strategy and the automation that handles the rest — which is exactly why Bronze is $250/mo and Gold is $600/mo instead of $500-1,800.
           </p>
         </ScrollReveal>
       </Section>
@@ -761,7 +724,7 @@ export default function PaidAdsServicePage() {
 
       <TldrBox
         items={[
-          "Paid ads management for Google Ads + Meta Ads, direct from $350/mo, white-label for agencies from $250/mo.",
+          "Paid ads management for Google Ads + Meta Ads, direct Bronze $250 / Silver $400 / Gold $600 per month, white-label $150-250 per client.",
           "Flat management fee, no percentage of ad spend, no setup fees, no lock-in. 7-day onboarding, senior strategists on every account.",
           "60-70% margin on the white-label program. Same deliverables as a $1,500-3,000/mo traditional agency, lower overhead, faster decisions.",
         ]}
@@ -797,10 +760,10 @@ export default function PaidAdsServicePage() {
             serviceSchema({
               name: "AI Paid Ads Management",
               description:
-                "AI-assisted paid ads management for Google + Meta. White-label from $250/mo. Direct from $350/mo. 60-70% margin. No setup fees. 7-day onboarding.",
+                "AI-assisted paid ads management for Google + Meta. White-label $150-250 per client. Direct Bronze $250 / Silver $400 / Gold $600 per month. 60-70% margin. No setup fees. 7-day onboarding.",
               path: "/services/paid-ads",
               serviceType: "AI Paid Media Management",
-              priceRange: "$250-$1200",
+              priceRange: "$150-$600",
             })
           ),
         }}

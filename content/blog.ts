@@ -242,7 +242,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "Anything that involves the client's CFO, founder, or business strategy. SEO is a tactic, not a strategy. The agency's job is to keep the strategy conversation in-house.",
       ] },
       { type: "h2", text: "The pricing math" },
-      { type: "p", text: "Let's say you charge your client $2,000/mo for SEO. Our white-label rate is $200-500/client/mo (tiered). Your margin per client is $1,500-1,800/mo. At 20 active clients, that's $30K-36K/mo in margin on a delivery model that costs you 60-90 minutes of senior time per client per month." },
+      { type: "p", text: "Let's say you charge your client $2,000/mo for SEO. Our white-label rate is $150-250/client/mo (tiered: 1 client = $250, 5+ clients = $200, 15+ clients = $150 — same engine at every tier). Your margin per client is $1,750-1,850/mo. At 20 active clients, that's $35K-37K/mo in margin on a delivery model that costs you 60-90 minutes of senior time per client per month." },
       { type: "p", text: "Compare that to staffing one in-house SEO at $5-7K/mo. With one hire, you can serve 5-10 clients before the math gets ugly. With our model, you can serve 50+ without adding headcount." },
       { type: "callout", tone: "insight", text: "The agencies that grow fastest with white-label SEO are the ones that treat it as a margin-expansion play, not a headcount play. Hire account managers, not SEOs. Sell more, not staff more." },
       { type: "h2", text: "Getting started" },

@@ -9,88 +9,58 @@ import {
 } from "lucide-react";
 import { servicesFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { DIRECT_SERVICES, WL_PRICE_RANGE, getDirectService, type ServiceId } from "@/content/pricing";
 
 export const metadata: Metadata = buildMetadata({
   title: "Eight Services. One Partner. | Omni Path",
   description:
-    "SEO, paid ads, branding, content, web, email, social, analytics. Hire us direct or resell under your brand. From $200/client.",
+    "SEO, paid ads, branding, content, web, email, social, analytics. Hire us direct or resell under your brand. From $150-250/client white-label.",
   path: "/services",
 });
 
-const SERVICES: ServiceIndexRow[] = [
-  {
-    name: "SEO",
-    icon: Search,
-    href: "/services/seo",
-    fromPrice: "$200",
-    direct: "$400/mo",
-    whiteLabel: "$200/client",
-    description: "White-label, automated, AI-powered. From $200/client with full content engine.",
-  },
-  {
-    name: "Paid Ads",
-    icon: Megaphone,
-    href: "/services/paid-ads",
-    fromPrice: "$300",
-    direct: "$500/mo",
-    whiteLabel: "$300/mo",
-    description: "Google + Meta. Flat management fee. No % of spend. 65% agency margin.",
-  },
-  {
-    name: "Branding",
-    icon: PenTool,
-    href: "/services/branding",
-    fromPrice: "$150",
-    direct: "$800",
-    whiteLabel: "$150",
-    description: "Identity, logo, decks. 3-14 day turnaround. 60-70% margin.",
-  },
-  {
-    name: "Web & CRO",
-    icon: Globe,
-    href: "/services/web-design",
-    fromPrice: "$300",
-    direct: "$1,000",
-    whiteLabel: "$300",
-    description: "Sites, landing pages, conversion optimization. 3-7 day turnaround.",
-  },
-  {
-    name: "Social Media",
-    icon: Share2,
-    href: "/services/social-media",
-    fromPrice: "$500",
-    direct: "$1,500/mo",
-    whiteLabel: "$500/mo",
-    description: "Organic posts, community, short-form. 55% agency margin.",
-  },
-  {
-    name: "TikTok + LinkedIn",
-    icon: Tv,
-    href: "/services/tiktok-linkedin-ads",
-    fromPrice: "$500",
-    direct: "$1,500/mo",
-    whiteLabel: "$500/mo",
-    description: "B2B and Gen Z ad buying. 55% agency margin.",
-  },
-  {
-    name: "Email & Lifecycle",
-    icon: Mail,
-    href: "/services/email-lifecycle",
-    fromPrice: "$500",
-    direct: "$2,000/mo",
-    whiteLabel: "$500/mo",
-    description: "Klaviyo, HubSpot, automation. 55% agency margin.",
-  },
-  {
-    name: "Analytics",
-    icon: BarChart3,
-    href: "/services/analytics",
-    fromPrice: "$500",
-    direct: "$1,500/mo",
-    whiteLabel: "$500/mo",
-    description: "Dashboards, attribution, fractional CMO. 55% agency margin.",
-  },
+/* ============================================================
+   Service index — pricing pulled from content/pricing.ts
+   (single source of truth). Keep the icon + href + description
+   here; the price columns come from DIRECT_SERVICES.
+   ============================================================ */
+interface IndexEntry {
+  id: ServiceId;
+  name: string;
+  icon: ServiceIndexRow["icon"];
+  href: string;
+  description: string;
+}
+
+const INDEX: IndexEntry[] = [
+  { id: "seo",                 name: "SEO",                 icon: Search,    href: "/services/seo",                  description: "White-label, automated, AI-powered. Same engine at every tier." },
+  { id: "paid-ads",            name: "Paid Ads",            icon: Megaphone, href: "/services/paid-ads",             description: "Google + Meta. Flat management fee. No % of spend. 65% agency margin." },
+  { id: "branding",            name: "Branding",            icon: PenTool,   href: "/services/branding",             description: "Identity, logo, decks. 3-14 day turnaround. 60-70% margin." },
+  { id: "web-design",          name: "Web & CRO",           icon: Globe,     href: "/services/web-design",           description: "Sites, landing pages, conversion optimization. 3-7 day turnaround." },
+  { id: "social-media",        name: "Social Media",        icon: Share2,    href: "/services/social-media",         description: "Organic posts, community, short-form. 60-70% agency margin." },
+  { id: "tiktok-linkedin-ads", name: "TikTok + LinkedIn",   icon: Tv,        href: "/services/tiktok-linkedin-ads",  description: "B2B and Gen Z ad buying. 60-70% agency margin." },
+  { id: "email-lifecycle",     name: "Email & Lifecycle",   icon: Mail,      href: "/services/email-lifecycle",      description: "Klaviyo, HubSpot, automation. 60-70% agency margin." },
+  { id: "analytics",           name: "Analytics",           icon: BarChart3, href: "/services/analytics",            description: "Dashboards, attribution, fractional CMO. 60-70% agency margin." },
 ];
+
+/** Strip the "/mo" suffix to display the From price cleanly. */
+function stripMo(price: string): string {
+  return price.replace(/\/mo$/i, "");
+}
+
+const SERVICES: ServiceIndexRow[] = INDEX.map((entry) => {
+  const svc = getDirectService(entry.id)!;
+  const bronzePrice = stripMo(svc.tiers[0]!.price);
+  const goldPrice = stripMo(svc.tiers[svc.tiers.length - 1]!.price);
+  return {
+    name: entry.name,
+    icon: entry.icon,
+    href: entry.href,
+    fromPrice: bronzePrice,
+    direct: `${bronzePrice}–${goldPrice}/mo`,
+    whiteLabel: WL_PRICE_RANGE,
+    description: entry.description,
+  };
+});
 
 export default function ServicesPage() {
   return (

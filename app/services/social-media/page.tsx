@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
@@ -9,6 +10,7 @@ import { TldrBox } from "@/components/sections/tldr-box";
 import { ServiceDefinition } from "@/components/sections/service-definition";
 import { FaqSection } from "@/components/sections/faq";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
+import { getDirectService, WL_OTHER_SERVICES, WL_PRICE_RANGE } from "@/content/pricing";
 import {
   PenTool,
   Calendar,
@@ -22,12 +24,13 @@ import {
   Clapperboard,
   TrendingUp,
   MessageSquare,
+  Check,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Social Media Management · From $299/mo White-Label",
+  title: "AI Social Media Management · From $200/mo Direct · White-Label $150-250/client",
   description:
-    "AI-assisted social media management. Direct from $349/mo. White-label from $299/mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
+    "AI-assisted social media management. Direct Bronze $200 / Silver $300 / Gold $400 per month. White-label $150-250 / client / mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
   path: "/services/social-media",
 });
 
@@ -64,58 +67,31 @@ const FEATURES = [
   },
 ];
 
-interface DirectTier {
-  tier: string;
+/* ============================================================
+   Direct pricing — read from central config
+   ============================================================ */
+const directService = getDirectService("social-media")!;
+
+interface DirectTierRow {
+  name: string;
   price: string;
   items: string[];
   upgrade: string;
   popular?: boolean;
+  cta: { label: string; href: string };
 }
 
-const DIRECT_TIERS: DirectTier[] = [
-  {
-    tier: "Direct · Starter",
-    price: "$349/mo",
-    items: [
-      "1 channel (Instagram OR LinkedIn OR X)",
-      "12 posts per month",
-      "1 carousel per week",
-      "Monthly performance report",
-      "Slack support, 4-hour response",
-    ],
-    upgrade:
-      "Upgrade to Growth for: a second channel, short-form video, community management, and a biweekly call.",
-  },
-  {
-    tier: "Direct · Growth",
-    price: "$699/mo",
-    popular: true,
-    items: [
-      "2-3 channels (Instagram + LinkedIn + X or TikTok)",
-      "20-24 posts per month",
-      "4-6 short-form videos per month (reels, TikToks, Shorts)",
-      "Community management (comments + DMs)",
-      "Engagement and niche outreach",
-      "Biweekly strategy call",
-    ],
-    upgrade:
-      "Upgrade to Scale for: 4+ channels, daily posting, a dedicated social lead, and weekly calls.",
-  },
-  {
-    tier: "Direct · Scale",
-    price: "$999/mo",
-    items: [
-      "4+ channels across all relevant platforms",
-      "30 posts per month",
-      "Daily posting on the primary channel",
-      "Dedicated social lead who knows your brand",
-      "Weekly strategy call",
-      "Quarterly content review and pivot",
-    ],
-    upgrade:
-      "Need a custom pod? We build dedicated teams for 40+ channel accounts and multi-brand portfolios.",
-  },
-];
+const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
+  name: t.id,
+  price: t.price,
+  items: t.features,
+  upgrade:
+    i < directService.tiers.length - 1
+      ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
+      : "Need a custom pod? We build dedicated teams for 40+ channel accounts and multi-brand portfolios.",
+  popular: t.popular,
+  cta: { label: `Start with ${t.id}`, href: "/contact" },
+}));
 
 const TOOLS = [
   {
@@ -187,7 +163,7 @@ const FAQS = [
   {
     question: "Which platforms do you cover?",
     answer:
-      "Instagram, LinkedIn, X, Facebook, TikTok, and YouTube Shorts. Most clients run 1-3 channels. Starter covers one. Growth covers two to three. Scale runs four or more. We focus on where your audience already spends time, not where the trend says they should be.",
+      "Instagram, LinkedIn, X, Facebook, TikTok, and YouTube Shorts. Most clients run 1-3 channels. Bronze covers one. Silver covers two to three. Gold runs four or more. We focus on where your audience already spends time, not where the trend says they should be.",
   },
   {
     question: "Do you handle community comments and DMs?",
@@ -206,6 +182,8 @@ const FAQS = [
   },
 ];
 
+const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "social-media")!;
+
 export default function SocialMediaServicePage() {
   return (
     <>
@@ -216,7 +194,7 @@ export default function SocialMediaServicePage() {
             Social that <em className="font-serif not-italic text-lime-400">shows up.</em>
           </>
         }
-        subhead="Done-for-you social media management for businesses ($349-$999/mo) and agencies ($299/mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
+        subhead="Done-for-you social media management for businesses (Bronze $200 / Silver $300 / Gold $400) and agencies ($150-250 / client / mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
         primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
@@ -267,7 +245,7 @@ export default function SocialMediaServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* Direct pricing */}
+      {/* Direct pricing — Bronze / Silver / Gold from config */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
@@ -279,16 +257,16 @@ export default function SocialMediaServicePage() {
           </p>
         </ScrollReveal>
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {DIRECT_TIERS.map((t) => (
+          {directTiers.map((t) => (
             <div
-              key={t.tier}
+              key={t.name}
               className={`bento h-full flex flex-col ${
                 t.popular ? "border border-lime-400/30 bg-lime-400/5" : ""
               }`}
             >
               <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-base font-semibold text-white">{t.tier}</h3>
-                {t.popular && <span className="pill pill-accent text-[10px]">Popular</span>}
+                <h3 className="text-base font-semibold text-white">Direct · {t.name}</h3>
+                {t.popular && <span className="pill pill-accent text-[10px]">Most popular</span>}
               </div>
               <div className="mt-2 text-3xl font-bold text-lime-400">{t.price}</div>
               <ul className="mt-6 space-y-2 text-sm text-white/75">
@@ -304,19 +282,27 @@ export default function SocialMediaServicePage() {
                   <span className="font-semibold text-white">{t.upgrade}</span>
                 </p>
               </div>
+              <div className="mt-auto pt-6">
+                <Link
+                  href={t.cta.href}
+                  className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                >
+                  {t.cta.label}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
         <p className="mt-6 text-sm text-white/55">
           Need a custom setup or more than 30 posts per month?{" "}
-          <a href="/contact" className="text-lime-400 underline underline-offset-4 hover:text-lime-300">
+          <Link href="/contact" className="text-lime-400 underline underline-offset-4 hover:text-lime-300">
             Talk to us
-          </a>{" "}
+          </Link>{" "}
           about a dedicated pod.
         </p>
       </Section>
 
-      {/* White-label pricing */}
+      {/* White-label pricing — standard $150-250 / client / mo */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
@@ -324,38 +310,33 @@ export default function SocialMediaServicePage() {
             For agencies. <em className="font-serif not-italic text-lime-400">60%+ margin.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Resell under your brand. We never talk to your client. Reports, posts, and replies ship with your logo, your domain, your voice.
+            {WL_ROW.description} Resell under your brand. We never talk to your client. Reports, posts, and replies ship with your logo, your domain, your voice.
           </p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.05}>
           <StaggerItem>
             <div className="bento h-full">
               <h3 className="text-base font-semibold text-white">White-label · Reseller</h3>
-              <div className="mt-2 text-3xl font-bold text-lime-400">$299/mo</div>
+              <div className="mt-2 text-3xl font-bold text-lime-400">{WL_PRICE_RANGE}</div>
               <p className="mt-3 text-sm text-white/70">
                 Per client. Resell at $1,000-1,800/mo. That&apos;s 60-80% margin on a service you don&apos;t have to staff. We handle content, posting, community, reporting. You handle the relationship.
               </p>
               <ul className="mt-5 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Your logo, your domain, your brand</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>White-labeled monthly reports (PDF + dashboard)</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Add clients at $299 each, no minimum</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Partner Slack channel for support</span>
-                </li>
+                {[
+                  "Your logo, your domain, your brand",
+                  "White-labeled monthly reports (PDF + dashboard)",
+                  "Add clients per-tier, no minimum",
+                  "Partner Slack channel for support",
+                ].map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                    <span>{line}</span>
+                  </li>
+                ))}
               </ul>
               <p className="mt-5 text-sm text-white/65 leading-relaxed">
-                <span className="font-semibold text-white">Margin math:</span> 10 clients × $299 cost = $2,990/mo. Charge $1,200/client × 10 = $12,000/mo revenue.{" "}
-                <span className="text-lime-400 font-semibold">$9,010/mo margin.</span>
+                <span className="font-semibold text-white">Margin math:</span> 10 clients at $200 avg cost = $2,000/mo. Charge $1,200/client × 10 = $12,000/mo revenue.{" "}
+                <span className="text-lime-400 font-semibold">$10,000/mo margin.</span>
               </p>
             </div>
           </StaggerItem>
@@ -366,36 +347,28 @@ export default function SocialMediaServicePage() {
                 Built for agencies that want to scale social media without scaling headcount.
               </p>
               <ul className="mt-5 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>No client count minimums — start with 1</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Bulk pricing kicks in at 5+ clients</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Private partner Slack with senior strategists</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>Co-branded sales collateral (case studies, decks)</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
-                  <span>30-day money back guarantee on first client</span>
-                </li>
+                {[
+                  "No client count minimums — start with 1",
+                  "Volume pricing kicks in at 5+ clients",
+                  "Private partner Slack with senior strategists",
+                  "Co-branded sales collateral (case studies, decks)",
+                  "30-day money back guarantee on first client",
+                ].map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                    <span>{line}</span>
+                  </li>
+                ))}
               </ul>
               <p className="mt-5 text-sm text-white/65 leading-relaxed">
                 Bundle with our{" "}
-                <a
+                <Link
                   href="/white-label-seo"
                   className="text-lime-400 underline underline-offset-4 hover:text-lime-300"
                 >
                   white-label SEO
-                </a>{" "}
-                at $200/client to ship a social + search retainer for $499 cost, $1,500+ client price.
+                </Link>{" "}
+                at $200/client to ship a social + search retainer for $400 cost, $1,500+ client price.
               </p>
             </div>
           </StaggerItem>
@@ -413,7 +386,7 @@ export default function SocialMediaServicePage() {
         </ScrollReveal>
         <div className="mt-10 grid gap-3 md:grid-cols-2">
           {[
-            { label: "Cost", us: "$349-999/mo direct, $299/mo white-label", them: "$3,000-8,000/mo per client" },
+            { label: "Cost", us: "$200-400/mo direct, $150-250/client white-label", them: "$3,000-8,000/mo per client" },
             { label: "Setup fees", us: "$0", them: "$1,000-5,000" },
             { label: "Production model", us: "AI + senior strategists, 7-day turnaround", them: "Junior AMs, 14-21 day turnaround" },
             { label: "Posts per month", us: "12-30 posts + 4-6 short-form videos", them: "8-12 static posts" },
@@ -513,7 +486,7 @@ export default function SocialMediaServicePage() {
               </li>
             </ul>
             <p className="mt-5 text-sm text-white/75 leading-relaxed">
-              That&apos;s why Starter ships at <span className="text-lime-400 font-semibold">$349/mo</span> instead of $3,000+. Same output, lower overhead, real numbers every month — and we pass the savings to you, not to a headcount spreadsheet.
+              That&apos;s why Bronze ships at <span className="text-lime-400 font-semibold">$200/mo</span> instead of $3,000+. Same output, lower overhead, real numbers every month — and we pass the savings to you, not to a headcount spreadsheet.
             </p>
           </div>
         </ScrollReveal>
@@ -544,7 +517,7 @@ export default function SocialMediaServicePage() {
       {/* TldrBox */}
       <TldrBox
         items={[
-          "Social media management from $349/mo direct, $299/mo white-label. 70% lower than traditional agencies.",
+          `Social media management from $200/mo direct, ${WL_PRICE_RANGE} white-label. 70% lower than traditional agencies.`,
           "12-30 posts per month, 4-6 short-form videos, community management, monthly reporting included.",
           "Five-step process: audit, plan, produce, post, report. Cancel anytime with 30 days notice.",
         ]}
@@ -585,10 +558,10 @@ export default function SocialMediaServicePage() {
             serviceSchema({
               name: "AI Social Media Management",
               description:
-                "AI-assisted social media management. Direct from $349/mo. White-label from $299/mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
+                "AI-assisted social media management. Direct Bronze $200 / Silver $300 / Gold $400 per month. White-label $150-250 / client / mo. Posts, community, short-form video, monthly reporting. 70% lower than traditional agencies.",
               path: "/services/social-media",
               serviceType: "AI Social Media Management",
-              priceRange: "$299-$999",
+              priceRange: "$200-$400",
             })
           ),
         }}

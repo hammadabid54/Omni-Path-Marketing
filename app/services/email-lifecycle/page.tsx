@@ -16,6 +16,7 @@ import {
   breadcrumbSchema,
   type FaqItem,
 } from "@/lib/seo";
+import { getDirectService, WL_OTHER_SERVICES, WL_PRICE_RANGE } from "@/content/pricing";
 import {
   Mail,
   ShoppingCart,
@@ -34,9 +35,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Email & Lifecycle Marketing · From $299/mo White-Label",
+  title: "AI Email & Lifecycle Marketing · From $200/mo Direct · White-Label $150-250/client",
   description:
-    "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo.",
+    "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct Bronze $200 / Silver $300 / Gold $400. White-label $150-250 / client / mo.",
   path: "/services/email-lifecycle",
 });
 
@@ -73,112 +74,39 @@ const FEATURES = [
   },
 ];
 
-interface SetupTier {
-  tier: string;
+/* ============================================================
+   Direct pricing — read from central config
+   ============================================================ */
+const directService = getDirectService("email-lifecycle")!;
+
+interface DirectTierRow {
+  name: string;
   price: string;
-  cadence: string;
   blurb: string;
   includes: string[];
-  upgrade: string;
+  upgrade?: string;
   popular?: boolean;
+  cta: { label: string; href: string };
 }
 
-const SETUP_TIERS: SetupTier[] = [
-  {
-    tier: "Starter",
-    price: "$349",
-    cadence: "one-time",
-    blurb: "1 platform, the essentials built.",
-    includes: [
-      "1 platform (Klaviyo, HubSpot, or ActiveCampaign)",
-      "2 flows built: Welcome + Abandoned Cart",
-      "List import from your current ESP",
-      "Domain authentication (SPF, DKIM, DMARC)",
-      "Branded templates, ready to send",
-    ],
-    upgrade:
-      "Upgrade to Growth for: 2 more flows (Browse, Post-Purchase), 2 popups, and basic segmentation.",
-  },
-  {
-    tier: "Growth",
-    price: "$699",
-    cadence: "one-time",
-    blurb: "1 platform, the full revenue engine.",
-    popular: true,
-    includes: [
-      "1 platform (Klaviyo, HubSpot, or ActiveCampaign)",
-      "4 flows: Welcome, Cart, Browse, Post-Purchase",
-      "2 popups built and configured",
-      "Basic segmentation (RFM-lite, 5+ segments)",
-      "List import + deliverability check",
-    ],
-    upgrade:
-      "Upgrade to Scale for: multi-platform, 6+ flows, advanced automation, deliverability audit, 2 list-building campaigns.",
-  },
-  {
-    tier: "Scale",
-    price: "$999",
-    cadence: "one-time",
-    blurb: "Multi-platform, advanced automation.",
-    includes: [
-      "Multi-platform (e.g. Klaviyo + HubSpot together)",
-      "6+ flows built end-to-end",
-      "Advanced automation (branching, conditional logic)",
-      "Full deliverability audit + sender-score fixes",
-      "2 list-building campaigns with creative",
-    ],
-    upgrade:
-      "Every setup plan ships with domain authentication, branded templates, and a 30-day post-launch check-in.",
-  },
-];
+const blurbByTier: Record<string, string> = {
+  Bronze: "Steady output, no strategy overhead.",
+  Silver: "Segmentation plus a monthly strategy call.",
+  Gold: "Unlimited output, senior attention.",
+};
 
-const MGMT_TIERS: SetupTier[] = [
-  {
-    tier: "Starter",
-    price: "$349/mo",
-    cadence: "monthly",
-    blurb: "Steady output, no strategy overhead.",
-    includes: [
-      "4 email campaigns per month",
-      "1 A/B test per month",
-      "Basic performance reporting",
-      "List hygiene + deliverability monitoring",
-    ],
-    upgrade:
-      "Upgrade to Growth for: 2x the campaigns, 4x the A/B tests, full segmentation, and a monthly strategy call.",
-  },
-  {
-    tier: "Growth",
-    price: "$699/mo",
-    cadence: "monthly",
-    blurb: "Segmentation plus a monthly strategy call.",
-    popular: true,
-    includes: [
-      "8 email campaigns per month",
-      "4 A/B tests per month",
-      "Segmentation strategy + ongoing maintenance",
-      "Monthly 30-min strategy call",
-      "Priority support, 1 business day",
-    ],
-    upgrade:
-      "Upgrade to Scale for: unlimited campaigns, advanced segmentation, behavioral triggers, and weekly calls.",
-  },
-  {
-    tier: "Scale",
-    price: "$999/mo",
-    cadence: "monthly",
-    blurb: "Unlimited output, senior attention.",
-    includes: [
-      "Unlimited campaigns",
-      "Advanced segmentation + behavioral triggers",
-      "Weekly 30-min strategy call",
-      "Dedicated senior strategist",
-      "Same-day support, 4 business hours",
-    ],
-    upgrade:
-      "Every management plan includes deliverability monitoring and a monthly report — no add-on fees.",
-  },
-];
+const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
+  name: t.id,
+  price: t.price,
+  blurb: blurbByTier[t.id] ?? "",
+  includes: t.features,
+  upgrade:
+    i < directService.tiers.length - 1
+      ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 2).join(" + ")}.`
+      : undefined,
+  popular: t.popular,
+  cta: { label: `Start with ${t.id}`, href: "/contact" },
+}));
 
 const PROCESS = [
   {
@@ -212,7 +140,7 @@ const EMAIL_FAQ: FaqItem[] = [
   {
     question: "Do I need the management plan or just setup?",
     answer:
-      "Setup is a one-time build: we configure your platform and ship the first 2-6 flows. Management is the ongoing work — campaigns, A/B tests, segmentation, and monthly reporting. Most clients start with Setup, then add Management 30-60 days later. If you have an in-house marketer who can run campaigns, Setup alone is enough to get your revenue engine running.",
+      "Our Bronze / Silver / Gold plans bundle setup flows plus ongoing management into one monthly fee. Bronze ships 2 flows + 4 campaigns / month. Silver adds 2 more flows + segmentation + a monthly strategy call. Gold ships 6+ flows with branching logic + unlimited campaigns + a dedicated strategist. Most clients start with Silver and add scale as the list grows.",
   },
   {
     question: "How long until I see results?",
@@ -227,60 +155,9 @@ const EMAIL_FAQ: FaqItem[] = [
   {
     question: "Do you handle deliverability?",
     answer:
-      "Yes, and it's built into every plan at no extra cost. We monitor bounce rate, spam complaints, sender reputation, and inbox placement monthly. Setup tiers above Starter include a full deliverability audit: domain authentication, list cleaning, sunset flows, and a sender-score baseline. We fix problems before they cost you revenue — we've never lost a client's sender reputation.",
+      "Yes, and it's built into every plan at no extra cost. We monitor bounce rate, spam complaints, sender reputation, and inbox placement monthly. Silver and Gold include a full deliverability audit: domain authentication, list cleaning, sunset flows, and a sender-score baseline. We fix problems before they cost you revenue — we've never lost a client's sender reputation.",
   },
 ];
-
-function PricingCard({ tier, accent }: { tier: SetupTier; accent?: boolean }) {
-  return (
-    <div
-      className={
-        tier.popular
-          ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/[0.04]"
-          : "bento h-full flex flex-col"
-      }
-    >
-      <div className="flex items-center justify-between gap-3">
-        <h3 className="text-lg font-semibold text-white">{tier.tier}</h3>
-        {tier.popular && (
-          <span className="pill pill-accent text-[10px]">Most picked</span>
-        )}
-        {accent && !tier.popular && (
-          <span className="pill text-[10px]">Best value</span>
-        )}
-      </div>
-      <div className="mt-4 flex items-baseline gap-2">
-        <span className="text-4xl font-bold text-lime-400 tracking-tight">
-          {tier.price}
-        </span>
-        <span className="text-sm text-white/55">{tier.cadence}</span>
-      </div>
-      <p className="mt-2 text-sm text-white/70 leading-relaxed">{tier.blurb}</p>
-      <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-white/55">
-        What&rsquo;s included
-      </p>
-      <ul className="mt-3 grid gap-2.5">
-        {tier.includes.map((line) => (
-          <li
-            key={line}
-            className="flex items-start gap-2 text-sm text-white/80 leading-relaxed"
-          >
-            <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
-            <span>{line}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-5 pt-4 border-t border-white/8">
-        <p className="text-xs text-white/65 leading-relaxed">
-          <span className="text-lime-400 font-semibold">{tier.upgrade.split(":")[0]}:</span>
-          {tier.upgrade.includes(":")
-            ? tier.upgrade.split(":").slice(1).join(":")
-            : ""}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 const STACK = [
   {
@@ -315,6 +192,8 @@ const STACK = [
   },
 ];
 
+const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "email-lifecycle")!;
+
 export default function EmailLifecycleServicePage() {
   return (
     <>
@@ -326,10 +205,10 @@ export default function EmailLifecycleServicePage() {
             <em className="font-serif not-italic text-lime-400">prints money.</em>
           </>
         }
-        subhead="Email marketing services on Klaviyo, HubSpot, or ActiveCampaign. Welcome series, abandoned cart, win-back, behavioral triggers. Built once, running forever."
+        subhead="Email marketing services on Klaviyo, HubSpot, or ActiveCampaign. Direct Bronze $200 / Silver $300 / Gold $400 per month. White-label $150-250 / client / mo. Welcome series, abandoned cart, win-back, behavioral triggers. Built once, running forever."
         primaryCta={{ label: "Book a call", href: "/contact" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
-        trustMicrocopy="$0 setup fees on management · Cancel anytime · 20% off annual"
+        trustMicrocopy="$0 setup fees · Cancel anytime · 20% off annual"
       />
 
       <ServiceDefinition
@@ -375,66 +254,86 @@ export default function EmailLifecycleServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* Direct pricing — setup one-time */}
+      {/* Direct pricing — Bronze / Silver / Gold (from central config) */}
       <Section>
         <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">Direct pricing · setup (one-time)</Eyebrow>
+          <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Build it once.{" "}
-            <em className="font-serif not-italic text-lime-400">Pay once.</em>
+            Bronze. Silver. Gold.{" "}
+            <em className="font-serif not-italic text-lime-400">One monthly fee.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Setup is the one-time build: platform configured, flows built,
-            templates branded, list imported. After that, you can run it
-            yourself or hand it to our management team. Three tiers, listed
-            side by side so you can pick the right one in 30 seconds.
+            Three tiers, one transparent monthly fee. Higher tiers add more flows, more campaigns, more A/B tests, and a dedicated senior strategist. Pick the level that matches your list size and revenue goals.
           </p>
         </ScrollReveal>
         <StaggerGroup
           className="mt-12 grid gap-5 md:grid-cols-3"
           stagger={0.05}
         >
-          {SETUP_TIERS.map((t) => (
-            <StaggerItem key={t.tier}>
-              <PricingCard tier={t} />
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-      </Section>
-
-      {/* Direct pricing — management monthly */}
-      <Section>
-        <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">Direct pricing · management (monthly)</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Run it every month.{" "}
-            <em className="font-serif not-italic text-lime-400">Win on autopilot.</em>
-          </h2>
-          <p className="mt-4 text-white/70">
-            Management is what happens after setup: campaigns shipped, A/B
-            tests run, segments built, reports delivered. Three tiers — pick
-            the volume that matches your list. Cancel anytime with 30 days
-            notice.
-          </p>
-        </ScrollReveal>
-        <StaggerGroup
-          className="mt-12 grid gap-5 md:grid-cols-3"
-          stagger={0.05}
-        >
-          {MGMT_TIERS.map((t) => (
-            <StaggerItem key={t.tier}>
-              <PricingCard tier={t} />
+          {directTiers.map((t) => (
+            <StaggerItem key={t.name}>
+              <div
+                className={
+                  t.popular
+                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/[0.04]"
+                    : "bento h-full flex flex-col"
+                }
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-lg font-semibold text-white">Direct · {t.name}</h3>
+                  {t.popular && (
+                    <span className="pill pill-accent text-[10px]">Most picked</span>
+                  )}
+                </div>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-lime-400 tracking-tight">
+                    {t.price}
+                  </span>
+                  <span className="text-sm text-white/55">monthly</span>
+                </div>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">{t.blurb}</p>
+                <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-white/55">
+                  What&rsquo;s included
+                </p>
+                <ul className="mt-3 grid gap-2.5">
+                  {t.includes.map((line) => (
+                    <li
+                      key={line}
+                      className="flex items-start gap-2 text-sm text-white/80 leading-relaxed"
+                    >
+                      <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                {t.upgrade && (
+                  <div className="mt-5 pt-4 border-t border-white/8">
+                    <p className="text-xs text-white/65 leading-relaxed">
+                      <span className="text-lime-400 font-semibold">{t.upgrade.split(":")[0]}:</span>
+                      {t.upgrade.includes(":")
+                        ? t.upgrade.split(":").slice(1).join(":")
+                        : ""}
+                    </p>
+                  </div>
+                )}
+                <div className="mt-auto pt-6">
+                  <Link
+                    href={t.cta.href}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                  >
+                    {t.cta.label}
+                  </Link>
+                </div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerGroup>
         <p className="mt-6 text-sm text-white/55 max-w-2xl">
-          Already have your ESP and just want the team to run it? Skip setup,
-          start with Starter management at $349/mo and we&rsquo;ll audit your
-          account for free in week one.
+          Already have your ESP configured? Skip setup, start with Bronze at $200/mo and we&rsquo;ll audit your account for free in week one.
         </p>
       </Section>
 
-      {/* White-label pricing */}
+      {/* White-label pricing — standard $150-250 / client / mo structure */}
       <Section>
         <div className="rounded-3xl border border-lime-400/25 bg-lime-400/[0.04] p-8 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
@@ -445,14 +344,11 @@ export default function EmailLifecycleServicePage() {
                 <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
               </h2>
               <p className="mt-4 text-white/75 leading-relaxed">
-                One flat fee, all-in. Resell at $1,000-1,800/mo per client and
-                keep 60-70% of the recurring revenue. We work under your
-                brand, your dashboard, your client-facing deliverables.
-                Your client never sees us.
+                {WL_ROW.description} One flat fee, all-in. Resell at $1,000-1,800/mo per client and keep 60-70% of the recurring revenue. We work under your brand, your dashboard, your client-facing deliverables. Your client never sees us.
               </p>
               <ul className="mt-6 grid gap-2 text-sm text-white/80">
                 {[
-                  "$299/mo all-in — no setup fees, no add-ons",
+                  `${WL_PRICE_RANGE} all-in — no setup fees, no add-ons`,
                   "Resell at $1,000-1,800/mo for 60-70% margin",
                   "White-labeled reports, dashboards, deliverables",
                   "Klaviyo, HubSpot, ActiveCampaign, or your stack",
@@ -485,7 +381,7 @@ export default function EmailLifecycleServicePage() {
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
                   <span className="text-sm text-white/70">Your cost (us)</span>
-                  <span className="text-base font-semibold text-white">$299/mo</span>
+                  <span className="text-base font-semibold text-white">$200/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-sm text-white/70">You charge client</span>
@@ -493,11 +389,10 @@ export default function EmailLifecycleServicePage() {
                 </div>
                 <div className="border-t border-white/10 pt-3 flex items-baseline justify-between">
                   <span className="text-sm text-white/70">Your margin</span>
-                  <span className="text-xl font-bold text-lime-400">$901/mo</span>
+                  <span className="text-xl font-bold text-lime-400">$1,000/mo</span>
                 </div>
                 <p className="text-xs text-white/55 pt-1">
-                  10 clients = $9,010/mo recurring. 75% margin before you
-                  touch a deliverable.
+                  10 clients = $10,000/mo recurring. 83% margin before you touch a deliverable.
                 </p>
               </div>
             </div>
@@ -563,8 +458,7 @@ export default function EmailLifecycleServicePage() {
             <em className="font-serif not-italic text-lime-400">No surprises.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Two things ship in every single plan, white-label or direct, setup
-            or management. We don&rsquo;t gate them behind a higher tier.
+            Two things ship in every single plan, white-label or direct. We don&rsquo;t gate them behind a higher tier.
           </p>
         </ScrollReveal>
         <StaggerGroup
@@ -666,7 +560,7 @@ export default function EmailLifecycleServicePage() {
           </ul>
         </div>
         <p className="mt-6 text-sm text-white/65 max-w-2xl">
-          Automation is why Starter management costs $349/mo instead of $2,000+. We pass the savings straight to you. The work output is the same. The price is not. That&rsquo;s the whole point of the model.
+          Automation is why Bronze ships at $200/mo instead of $2,000+. We pass the savings straight to you. The work output is the same. The price is not. That&rsquo;s the whole point of the model.
         </p>
       </Section>
 
@@ -709,9 +603,9 @@ export default function EmailLifecycleServicePage() {
       <TldrBox
         title="Key takeaways"
         items={[
-          "Email marketing services from $299/mo white-label (resell at $1,000-1,800/mo for 60-70% margin).",
-          "Direct: $349-$999 one-time setup + $349-$999/mo management. Klaviyo, HubSpot, or ActiveCampaign.",
-          "Setup is build-once. Management is run-it-forever. Buy either, or both. Deliverability + monthly report in every plan.",
+          `Email marketing services ${WL_PRICE_RANGE} white-label (resell at $1,000-1,800/mo for 60-70% margin).`,
+          "Direct: Bronze $200 / Silver $300 / Gold $400 per month. Klaviyo, HubSpot, or ActiveCampaign.",
+          "Bronze ships 2 flows, Silver ships 4, Gold ships 6+. Deliverability + monthly report in every plan.",
         ]}
       />
 
@@ -750,10 +644,10 @@ export default function EmailLifecycleServicePage() {
             serviceSchema({
               name: "AI Email & Lifecycle Marketing",
               description:
-                "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct from $349. White-label from $299/mo.",
+                "AI-driven lifecycle marketing on Klaviyo, HubSpot, ActiveCampaign. Welcome, abandoned cart, win-back, behavioral triggers. Direct Bronze $200 / Silver $300 / Gold $400. White-label $150-250 / client / mo.",
               path: "/services/email-lifecycle",
               serviceType: "AI Email & Lifecycle Marketing",
-              priceRange: "$299-$999",
+              priceRange: "$200-$400",
             })
           ),
         }}

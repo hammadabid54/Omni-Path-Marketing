@@ -21,6 +21,7 @@ import {
   breadcrumbSchema,
 } from "@/lib/seo";
 import { tiktokLinkedInFaq } from "@/content/faqs";
+import { getDirectService, WL_OTHER_SERVICES, WL_PRICE_RANGE } from "@/content/pricing";
 import {
   Video,
   Briefcase,
@@ -31,119 +32,41 @@ import {
   Users,
   BarChart3,
   Bot,
+  Check,
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI TikTok + LinkedIn Ads Management | From $299/mo White-Label",
+  title: "AI TikTok + LinkedIn Ads · From $400/mo Direct · White-Label $150-250/client",
   description:
-    "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. White-label from $299/mo. Direct from $349/mo.",
+    "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. Direct Bronze $400 / Silver $600 / Gold $900. White-label $150-250 / client / mo.",
   path: "/services/tiktok-linkedin-ads",
 });
 
-const tiktokDirectTiers = [
-  {
-    tier: "Starter",
-    price: "$349/mo",
-    popular: false,
-    includes: [
-      "1 ad group with 3-5 creative variations",
-      "Basic audience testing and interest stacks",
-      "In-feed video + Spark Ads setup",
-      "Pixel and event tracking on TikTok Ads Manager",
-      "Monthly performance report",
-    ],
-    upgrade:
-      "Upgrade to Growth for 3 ad groups, weekly tuning, advanced lookalikes, and Spark Ads amplification.",
-  },
-  {
-    tier: "Growth",
-    price: "$699/mo",
-    popular: true,
-    includes: [
-      "3 ad groups with 8-12 creative variations",
-      "Spark Ads, in-feed, and TopView rotation",
-      "Advanced lookalikes and retargeting segments",
-      "Weekly bid, budget, and creative tuning",
-      "Bi-weekly performance call",
-    ],
-    upgrade:
-      "Upgrade to Scale for multi-campaign structure, UGC creator sourcing, A/B testing, and a dedicated strategist.",
-  },
-  {
-    tier: "Scale",
-    price: "$999/mo",
-    popular: false,
-    includes: [
-      "Multi-campaign structure across audiences",
-      "UGC creator sourcing and brief management",
-      "Continuous A/B testing on hooks and CTAs",
-      "Dedicated TikTok Ads strategist",
-      "Weekly call + monthly creative review",
-    ],
-    upgrade:
-      "Already at the top. Add LinkedIn Ads for a full-funnel TikTok awareness to LinkedIn B2B conversion path.",
-  },
-];
+/* ============================================================
+   Direct pricing — read from central config
+   ============================================================ */
+const directService = getDirectService("tiktok-linkedin-ads")!;
 
-const linkedinDirectTiers = [
-  {
-    tier: "Starter",
-    price: "$599/mo",
-    popular: false,
-    includes: [
-      "1 Sponsored Content campaign",
-      "Basic targeting by job title, industry, and seniority",
-      "Lead Gen Forms (no landing page required)",
-      "Pixel and conversion tracking setup",
-      "Monthly performance report",
-    ],
-    upgrade:
-      "Upgrade to Growth for Sponsored Content + InMail + Conversation Ads, ABM targeting, and lead nurturing.",
-  },
-  {
-    tier: "Growth",
-    price: "$999/mo",
-    popular: true,
-    includes: [
-      "Sponsored Content, InMail, and Conversation Ads",
-      "Account-based marketing (ABM) audience lists",
-      "Lead form + landing page split testing",
-      "Lead nurturing handoff to your CRM",
-      "Bi-weekly performance call",
-    ],
-    upgrade:
-      "Upgrade to Scale for full-funnel campaign structure, advanced ABM, and a dedicated B2B strategist.",
-  },
-  {
-    tier: "Scale",
-    price: "$1,699/mo",
-    popular: false,
-    includes: [
-      "Full-funnel: awareness, consideration, conversion",
-      "Account-based marketing at scale",
-      "Multi-touch attribution and pipeline reporting",
-      "Dedicated B2B LinkedIn strategist",
-      "Weekly call + quarterly business review",
-    ],
-    upgrade:
-      "Already at the top. Pair with TikTok Ads for top-of-funnel awareness feeding LinkedIn retargeting.",
-  },
-];
+interface DirectTierRow {
+  name: string;
+  price: string;
+  popular?: boolean;
+  includes: string[];
+  upgrade?: string;
+  cta: { label: string; href: string };
+}
 
-const whiteLabelRows = [
-  {
-    platform: "TikTok (white-label)",
-    price: "$299/mo",
-    resell: "Resell at $600-900/mo",
-    margin: "60-70% margin",
-  },
-  {
-    platform: "LinkedIn (white-label)",
-    price: "$499/mo",
-    resell: "Resell at $999-1,500/mo",
-    margin: "50-67% margin",
-  },
-];
+const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
+  name: t.id,
+  price: t.price,
+  popular: t.popular,
+  includes: t.features,
+  upgrade:
+    i < directService.tiers.length - 1
+      ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
+      : undefined,
+  cta: { label: `Start with ${t.id}`, href: "/contact" },
+}));
 
 const behindTheScenesTools = [
   {
@@ -184,6 +107,8 @@ const behindTheScenesTools = [
   },
 ];
 
+const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "paid-ads")!; // closest match — TikTok/LinkedIn sits under paid social
+
 export default function TikTokLinkedInServicePage() {
   return (
     <>
@@ -197,7 +122,7 @@ export default function TikTokLinkedInServicePage() {
             </em>
           </>
         }
-        subhead="Run TikTok and LinkedIn ads with one team. Direct management for businesses, white-label for agencies. From $299/mo. Same strategists, same process, real numbers."
+        subhead="Run TikTok and LinkedIn ads with one team. Direct management for businesses (Bronze $400 / Silver $600 / Gold $900). White-label for agencies ($150-250 / client / mo). Same strategists, same process, real numbers."
         primaryCta={{ label: "Book a strategy call", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="$0 setup · 7-day onboarding · Cancel anytime"
@@ -254,7 +179,7 @@ export default function TikTokLinkedInServicePage() {
             {
               title: "Spark Ads and UGC",
               description:
-                "TikTok Spark Ads to amplify organic posts, plus UGC creator sourcing on Scale tier for fresh creative weekly.",
+                "TikTok Spark Ads to amplify organic posts, plus UGC creator sourcing on Gold tier for fresh creative weekly.",
               icon: <Sparkles className="h-5 w-5" />,
             },
             {
@@ -281,39 +206,37 @@ export default function TikTokLinkedInServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* TikTok direct pricing */}
+      {/* Direct pricing — single Bronze/Silver/Gold for both platforms */}
       <Section>
         <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">TikTok Ads · Direct pricing</Eyebrow>
+          <Eyebrow className="mb-4">Direct pricing · TikTok + LinkedIn Ads</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Three tiers.{" "}
             <em className="font-serif not-italic text-lime-400">No surprises.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Flat management fee. Ad spend billed separately to TikTok Ads
-            Manager at the platform minimums below. No revenue share, no
-            percentage of spend.
+            Flat management fee per platform. Pick one to start, or run both on the same Bronze / Silver / Gold structure. Ad spend is billed separately to TikTok and LinkedIn at the platform minimums below. No revenue share, no percentage of spend.
           </p>
         </ScrollReveal>
         <StaggerGroup
           className="mt-10 grid gap-4 md:grid-cols-3"
           stagger={0.06}
         >
-          {tiktokDirectTiers.map((t) => (
-            <StaggerItem key={t.tier}>
+          {directTiers.map((t) => (
+            <StaggerItem key={t.name}>
               <div
                 className={
                   t.popular
-                    ? "bento h-full border-lime-400/30 bg-lime-400/4"
-                    : "bento h-full"
+                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/4"
+                    : "bento h-full flex flex-col"
                 }
               >
                 <div className="flex items-baseline justify-between gap-3 flex-wrap">
                   <h3 className="text-base font-semibold text-white">
-                    {t.tier}
+                    Direct · {t.name}
                     {t.popular && (
                       <span className="ml-2 pill pill-accent text-[10px]">
-                        Popular
+                        Most popular
                       </span>
                     )}
                   </h3>
@@ -322,10 +245,10 @@ export default function TikTokLinkedInServicePage() {
                   </span>
                 </div>
                 <p className="mt-2 text-xs text-white/55">
-                  Management fee. Ad spend billed separately.
+                  Management fee per platform. Ad spend billed separately.
                 </p>
                 <p className="mt-3 text-sm font-semibold text-white/85">
-                  What&apos;s included:
+                  What&rsquo;s included:
                 </p>
                 <ul className="mt-2 space-y-1.5 text-sm text-white/75">
                   {t.includes.map((line) => (
@@ -335,172 +258,101 @@ export default function TikTokLinkedInServicePage() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 rounded-lg border border-white/8 bg-white/2 p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-lime-400">
-                    Upgrade to{" "}
-                    {t.tier === "Starter"
-                      ? "Growth"
-                      : t.tier === "Growth"
-                        ? "Scale"
-                        : "Scale +"}{" "}
-                    for:
-                  </p>
-                  <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
-                    {t.upgrade}
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-        <p className="mt-6 text-center text-xs text-white/45">
-          Min ad spend: $1,500/mo Starter · $3,000/mo Growth · $5,000/mo Scale.
-          Spend goes directly to TikTok.
-        </p>
-      </Section>
-
-      {/* LinkedIn direct pricing */}
-      <Section>
-        <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">LinkedIn Ads · Direct pricing</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            B2B paid social.{" "}
-            <em className="font-serif not-italic text-lime-400">
-              Built for pipeline.
-            </em>
-          </h2>
-          <p className="mt-4 text-white/70">
-            LinkedIn runs a higher CPM than other paid social, which is why
-            the floors are higher. The trade-off: you can target a CFO at a
-            500-person SaaS company by job title, industry, and seniority.
-            No other paid social channel gives you that.
-          </p>
-        </ScrollReveal>
-        <StaggerGroup
-          className="mt-10 grid gap-4 md:grid-cols-3"
-          stagger={0.06}
-        >
-          {linkedinDirectTiers.map((t) => (
-            <StaggerItem key={t.tier}>
-              <div
-                className={
-                  t.popular
-                    ? "bento h-full border-lime-400/30 bg-lime-400/4"
-                    : "bento h-full"
-                }
-              >
-                <div className="flex items-baseline justify-between gap-3 flex-wrap">
-                  <h3 className="text-base font-semibold text-white">
-                    {t.tier}
-                    {t.popular && (
-                      <span className="ml-2 pill pill-accent text-[10px]">
-                        Popular
-                      </span>
-                    )}
-                  </h3>
-                  <span className="text-sm font-bold text-lime-400">
-                    {t.price}
-                  </span>
-                </div>
-                <p className="mt-2 text-xs text-white/55">
-                  Management fee. Ad spend billed separately.
-                </p>
-                <p className="mt-3 text-sm font-semibold text-white/85">
-                  What&apos;s included:
-                </p>
-                <ul className="mt-2 space-y-1.5 text-sm text-white/75">
-                  {t.includes.map((line) => (
-                    <li key={line} className="flex gap-2">
-                      <span className="text-lime-400 mt-1">·</span>
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 rounded-lg border border-white/8 bg-white/2 p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-lime-400">
-                    Upgrade to{" "}
-                    {t.tier === "Starter"
-                      ? "Growth"
-                      : t.tier === "Growth"
-                        ? "Scale"
-                        : "Scale +"}{" "}
-                    for:
-                  </p>
-                  <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
-                    {t.upgrade}
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-        <p className="mt-6 text-center text-xs text-white/45">
-          Min ad spend: $3,000/mo Starter · $5,000/mo Growth · $10,000/mo
-          Scale. Spend goes directly to LinkedIn.
-        </p>
-      </Section>
-
-      {/* White-label pricing */}
-      <Section>
-        <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">White-label pricing</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            For agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">
-              60-70% margin.
-            </em>
-          </h2>
-          <p className="mt-4 text-white/70">
-            Flat management fee. Resell at 2-3x. Deliver reports under your
-            logo. Your client never sees us. Built for agencies running paid
-            social for SMB clients who don&apos;t have the budget for a
-            full-service agency at $2,000-5,000/mo.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
-                <tr>
-                  <th className="px-5 py-4 font-medium">Platform</th>
-                  <th className="px-5 py-4 font-medium">Our fee</th>
-                  <th className="px-5 py-4 font-medium">Resell at</th>
-                  <th className="px-5 py-4 font-medium">Your margin</th>
-                </tr>
-              </thead>
-              <tbody>
-                {whiteLabelRows.map((row) => (
-                  <tr
-                    key={row.platform}
-                    className="border-b border-white/5 last:border-0"
+                {t.upgrade && (
+                  <div className="mt-4 rounded-lg border border-white/8 bg-white/2 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-lime-400">
+                      Upgrade
+                    </p>
+                    <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                      {t.upgrade}
+                    </p>
+                  </div>
+                )}
+                <div className="mt-auto pt-6">
+                  <Link
+                    href={t.cta.href}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
-                      {row.platform}
-                    </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
-                      {row.price}
-                    </td>
-                    <td className="px-5 py-4 text-white/70">{row.resell}</td>
-                    <td className="px-5 py-4 text-white/70">{row.margin}</td>
-                  </tr>
+                    {t.cta.label}
+                  </Link>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
+        <p className="mt-6 text-center text-xs text-white/45">
+          Min ad spend: TikTok $1,500/mo Bronze · $3,000/mo Silver · $5,000/mo Gold.
+          LinkedIn $3,000/mo Bronze · $5,000/mo Silver · $10,000/mo Gold. Spend goes directly to each platform.
+        </p>
+      </Section>
+
+      {/* White-label pricing — standard $150-250 / client / mo */}
+      <Section>
+        <div className="rounded-3xl border border-lime-400/25 bg-lime-400/[0.04] p-8 md:p-12">
+          <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
+            <div>
+              <Eyebrow className="mb-4">White-label pricing</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+                For agencies.{" "}
+                <em className="font-serif not-italic text-lime-400">
+                  60-70% margin.
+                </em>
+              </h2>
+              <p className="mt-4 text-white/75 leading-relaxed">
+                {WL_ROW.description} One flat fee, all-in. Resell at $1,000-1,800/mo per client and keep 60-70% of the recurring revenue. We work under your brand, your dashboard, your client-facing deliverables. Your client never sees us.
+              </p>
+              <ul className="mt-6 grid gap-2 text-sm text-white/80">
+                {[
+                  `${WL_PRICE_RANGE} all-in — no setup fees, no add-ons`,
+                  "Resell at $1,000-1,800/mo for 60-70% margin",
+                  "White-labeled reports, dashboards, deliverables",
+                  "TikTok, LinkedIn, Meta, or your stack",
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+                    <span>{line}</span>
+                  </li>
                 ))}
-              </tbody>
-            </table>
+              </ul>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/for-agencies"
+                  className="inline-flex items-center justify-center rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                >
+                  See agency partner program
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 hover:bg-white/10 transition-colors"
+                >
+                  See full pricing
+                </Link>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-[#0A0A0F] p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/55">
+                The margin math
+              </p>
+              <div className="mt-4 space-y-3">
+                <div className="flex items-baseline justify-between">
+                  <span className="text-sm text-white/70">Your cost (us)</span>
+                  <span className="text-base font-semibold text-white">$200/mo</span>
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-sm text-white/70">You charge client</span>
+                  <span className="text-base font-semibold text-lime-400">$1,200/mo</span>
+                </div>
+                <div className="border-t border-white/10 pt-3 flex items-baseline justify-between">
+                  <span className="text-sm text-white/70">Your margin</span>
+                  <span className="text-xl font-bold text-lime-400">$1,000/mo</span>
+                </div>
+                <p className="text-xs text-white/55 pt-1">
+                  10 clients = $10,000/mo recurring. 83% margin before you touch a deliverable.
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="mt-4 text-sm text-white/55">
-            The math: TikTok costs you $299/mo. Charge the client $600-900/mo.
-            That&apos;s $301-601/mo in pure margin, per client, per month.
-            Five clients = $1,500-3,000/mo recurring. See the full breakdown
-            on our{" "}
-            <Link
-              href="/pricing"
-              className="text-lime-400 underline underline-offset-2 hover:text-lime-300"
-            >
-              pricing page
-            </Link>
-            .
-          </p>
-        </ScrollReveal>
+        </div>
       </Section>
 
       {/* TikTok vs LinkedIn */}
@@ -677,8 +529,7 @@ export default function TikTokLinkedInServicePage() {
             </ul>
             <p className="mt-6 text-base text-white/70 leading-relaxed">
               Less time on the work means lower management fees. That&apos;s
-              how TikTok Starter lands at $349/mo and LinkedIn Scale caps at
-              $1,699/mo — while traditional agencies charge $3,000-6,000/mo
+              how Bronze lands at $400/mo per platform — while traditional agencies charge $3,000-6,000/mo
               for the same scope of work. The automation is your discount.
             </p>
           </div>
@@ -761,8 +612,8 @@ export default function TikTokLinkedInServicePage() {
 
       <TldrBox
         items={[
-          "TikTok Ads from $349/mo mgmt. LinkedIn Ads from $599/mo mgmt. Ad spend billed separately to the platforms.",
-          "White-label from $299/mo (TikTok) and $499/mo (LinkedIn). Resell at 2-3x for 60-70% margin per client.",
+          `TikTok + LinkedIn ads from $400/mo mgmt per platform. Direct Bronze / Silver / Gold.`,
+          `White-label ${WL_PRICE_RANGE}. Resell at 2-3x for 60-70% margin per client.`,
           "7-day onboarding, monthly reports, weekly tuning, no setup fees. Cancel anytime with 30 days notice.",
         ]}
       />
@@ -804,10 +655,10 @@ export default function TikTokLinkedInServicePage() {
             serviceSchema({
               name: "AI TikTok + LinkedIn Ads Management",
               description:
-                "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. White-label from $299/mo. Direct from $349/mo.",
+                "AI-assisted TikTok and LinkedIn ads management. B2B lead gen on LinkedIn, Gen Z reach on TikTok. Direct Bronze $400 / Silver $600 / Gold $900. White-label $150-250 / client / mo.",
               path: "/services/tiktok-linkedin-ads",
               serviceType: "AI Paid Social Advertising",
-              priceRange: "$299-$1699",
+              priceRange: "$400-$900",
             }),
           ),
         }}

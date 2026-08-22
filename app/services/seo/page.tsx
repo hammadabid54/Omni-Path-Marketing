@@ -40,17 +40,24 @@ import {
   Bot,
   Code2,
 } from "lucide-react";
+import {
+  getDirectService,
+  WL_SEO_TIERS,
+  WL_SEO_OFFERING,
+  type DirectTier as DirectTierConfig,
+} from "@/content/pricing";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI SEO Services · White-Label & Direct | From $200/client",
+  title: "AI SEO Services · White-Label $150-250/client · Direct Bronze/Silver/Gold",
   description:
-    "AI-powered SEO services. White-label for agencies at $200/client. Direct for businesses at $400/mo. Technical SEO, content, links, AI visibility. 60-70% margin.",
+    "AI-powered SEO services. White-label for agencies $150-250/client (same engine at every tier). Direct for businesses Bronze $250 / Silver $350 / Gold $450. Technical SEO, content, links, AI visibility. 60-70% margin.",
   path: "/services/seo",
 });
 
 /* ============================================================
-   Direct pricing — detailed cards with explicit tier scope
+   Direct pricing — read from central config
    ============================================================ */
+const directService = getDirectService("seo")!;
 
 interface DirectTier {
   name: string;
@@ -62,71 +69,18 @@ interface DirectTier {
   popular?: boolean;
 }
 
-const directTiers: DirectTier[] = [
-  {
-    name: "Local",
-    price: "$400/mo",
-    badge: "Starter",
-    includes: [
-      "1 location, single market",
-      "Google Business Profile optimization",
-      "Technical SEO audit + fixes (1 round)",
-      "On-page SEO: titles, metas, H1s, internal links",
-      "2 blog posts per month, AI-drafted and human-edited",
-      "4 link placements per month, DR 30+ domains",
-      "Monthly report (PDF) + monthly call",
-    ],
-    upgrade: [
-      "Multi-location support across cities or regions",
-      "Ongoing technical SEO with quarterly audits",
-      "4 blog posts per month with content strategy",
-      "8 link placements per month across DR 40+ domains",
-      "Dedicated senior strategist on your account",
-    ],
-    cta: { label: "Start with Local SEO", href: "/contact" },
-  },
-  {
-    name: "Growth",
-    price: "$800/mo",
-    badge: "Most popular",
-    includes: [
-      "Multi-location, multi-page targeting",
-      "Ongoing technical SEO with quarterly audits",
-      "On-page SEO across 20-60 priority pages",
-      "4 blog posts per month with content strategy",
-      "8 link placements per month, DR 40+ domains",
-      "Content strategy + editorial calendar",
-      "Monthly call + Slack access to your strategist",
-    ],
-    upgrade: [
-      "Multi-market expansion (national or international)",
-      "Custom SEO roadmap and dedicated pod",
-      "8 blog posts per month + landing page production",
-      "12-16 link placements per month, DR 50+ domains",
-      "Weekly calls with senior strategist",
-    ],
-    cta: { label: "Start with Growth SEO", href: "/contact" },
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "$2,000+/mo",
-    badge: "Custom",
-    includes: [
-      "Multi-market SEO across regions or countries",
-      "Dedicated team: strategist, writer, link builder",
-      "8 blog posts per month + landing pages",
-      "12-16 link placements per month, DR 50+ domains",
-      "Weekly calls + quarterly strategy review",
-      "Custom dashboard wired into your stack",
-      "Quarterly content and link strategy refresh",
-    ],
-    cta: { label: "Talk to us about Enterprise SEO", href: "/contact" },
-  },
-];
+const directTiers: DirectTier[] = directService.tiers.map((t: DirectTierConfig, i) => ({
+  name: t.id,
+  price: t.price,
+  badge: t.id === "Bronze" ? "Starter" : t.id === "Gold" ? "Custom" : "Most popular",
+  includes: t.features,
+  upgrade: i < directService.tiers.length - 1 ? directService.tiers[i + 1].features : undefined,
+  cta: { label: `Start with ${t.id} SEO`, href: "/contact" },
+  popular: t.popular,
+}));
 
 /* ============================================================
-   White-label pricing — for agencies that resell
+   White-label pricing — read from central config
    ============================================================ */
 
 interface WhiteLabelTier {
@@ -137,29 +91,27 @@ interface WhiteLabelTier {
   clientCount: string;
 }
 
-const whiteLabelTiers: WhiteLabelTier[] = [
-  {
-    name: "Starter",
-    ourPrice: "$250/client",
-    resell: "$500-800/client",
-    margin: "50-69%",
-    clientCount: "1 client",
-  },
-  {
-    name: "Growth",
-    ourPrice: "$200/client",
-    resell: "$750-1,200/client",
-    margin: "60-73%",
-    clientCount: "5+ clients",
-  },
-  {
-    name: "Scale",
-    ourPrice: "$150/client",
-    resell: "$1,000-1,500/client",
-    margin: "70-85%",
-    clientCount: "15+ clients",
-  },
-];
+const whiteLabelTiers: WhiteLabelTier[] = WL_SEO_TIERS.map((t, i) => {
+  // Margin assumes agency resells at $700/client (common).
+  // Starter resells higher, Scale lower — bracket accordingly.
+  const resellBrackets = [
+    "$500-800/client",   // Starter (1 client, charge modestly above)
+    "$750-1,200/client", // Growth (sweet spot)
+    "$1,000-1,500/client", // Scale (volume, can charge premium)
+  ];
+  const marginBrackets = [
+    "50-69%",  // Starter
+    "60-73%",  // Growth
+    "70-85%",  // Scale
+  ];
+  return {
+    name: t.id,
+    ourPrice: `${t.price}${t.per}`,
+    resell: resellBrackets[i],
+    margin: marginBrackets[i],
+    clientCount: t.min,
+  };
+});
 
 /* ============================================================
    Why us vs traditional agency — comparison rows
@@ -168,22 +120,22 @@ const whiteLabelTiers: WhiteLabelTier[] = [
 const whyUsRows = [
   {
     label: "Monthly fee",
-    us: "$400-2,000/mo",
+    us: "$250-450/mo direct · $150-250/client white-label",
     them: "$1,500-3,000/mo",
   },
   {
     label: "Technical SEO audit",
-    us: "Included, every quarter",
+    us: "Included, every month",
     them: "One-time, then billable",
   },
   {
     label: "Blog posts per month",
-    us: "2-16 included",
+    us: "2-15 included (Bronze / Silver / Gold)",
     them: "1-2, then $200+ each",
   },
   {
     label: "Link placements per month",
-    us: "4-16 included",
+    us: "5-20 included (Bronze / Silver / Gold)",
     them: "2-4, then $150+ each",
   },
   {
@@ -328,7 +280,7 @@ const seoFaq: FaqItem[] = [
   {
     question: "What's the difference between white-label and direct?",
     answer:
-      "White-label is for agencies: you pay us $150-250 per client per month, resell at $500-1,500, and keep 60-70% margin. Your client never sees us, every deliverable ships under your logo, and you set the price. Direct is for businesses: you pay us $400-2,000 per month, the work ships under the Omni Path brand, and you talk to us directly. Same delivery team, same quality, different wrapper.",
+      "White-label is for agencies: you pay us $150-250 per client per month (Bronze / Silver / Gold all ship the same engine), resell at $500-1,500, and keep 60-70% margin. Your client never sees us, every deliverable ships under your logo, and you set the price. Direct is for businesses: you pay us $250-450 per month Bronze / Silver / Gold, the work ships under the Omni Path brand, and you talk to us directly. Same delivery team, same quality, different wrapper.",
   },
   {
     question: "Do you write the content or do I?",
@@ -353,7 +305,7 @@ export default function SeoServicePage() {
             <em className="font-serif not-italic text-lime-400">Without the agency overhead.</em>
           </>
         }
-        heroSubhead="White-label SEO services for agencies at $200/client. Direct SEO services for businesses at $400/mo. Technical SEO, on-page, content, links, local, reporting. Same deliverables as a $1,500-3,000/mo traditional agency at 60-70% lower cost."
+        heroSubhead="White-label SEO services for agencies at $150-250/client (same engine at every tier). Direct SEO services for businesses at $250-450/mo Bronze / Silver / Gold. Technical SEO, on-page, content, links, local, reporting. Same deliverables as a $1,500-3,000/mo traditional agency at 60-70% lower cost."
         heroPrimaryCta={{ label: "Get a free audit", href: "/audit" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
@@ -407,7 +359,7 @@ export default function SeoServicePage() {
             <em className="font-serif not-italic text-lime-400">Flat fee, no markup.</em>
           </>
         }
-        directSubhead="Three tiers, one monthly fee, no percentage of spend. The number on your invoice is the number on your books. Move up when your business does, no re-negotiation, no setup fee on the upgrade."
+        directSubhead="Bronze / Silver / Gold — one monthly fee, no percentage of spend. The number on your invoice is the number on your books. Move up when your business does, no re-negotiation, no setup fee on the upgrade."
 
         hideFaq
         hideCta
@@ -715,7 +667,7 @@ export default function SeoServicePage() {
               </div>
             </div>
             <p className="mt-8 text-sm text-white/75 max-w-2xl leading-relaxed">
-              That is why we can charge $200/client for white-label SEO while the agency down the street charges $1,500. We do less manual work. We ship more, and ship it sooner.
+              That is why we can charge $150-250/client for white-label SEO while the agency down the street charges $1,500. We do less manual work. We ship more, and ship it sooner.
             </p>
           </div>
         </ScrollReveal>
@@ -770,7 +722,7 @@ export default function SeoServicePage() {
 
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
           <p className="text-sm text-white/65 leading-relaxed">
-            The short version: search engine optimization services that cost $1,500-3,000/mo at a traditional agency land at $400-2,000/mo here, with the same deliverables and a senior human on your account. The process is faster because we cut the meetings, the account-manager relay, and the long proposal cycles. Your rankings move sooner, your bill is lower, and you ship with no lock-in contract from day one. Pair SEO with{" "}
+            The short version: search engine optimization services that cost $1,500-3,000/mo at a traditional agency land at $250-450/mo here, with the same deliverables and a senior human on your account. The process is faster because we cut the meetings, the account-manager relay, and the long proposal cycles. Your rankings move sooner, your bill is lower, and you ship with no lock-in contract from day one. Pair SEO with{" "}
             <Link href="/services/paid-ads" className="text-lime-400 hover:underline">
               paid ads
             </Link>{" "}
@@ -790,7 +742,7 @@ export default function SeoServicePage() {
             <em className="font-serif not-italic text-lime-400">In every tier.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            Whether you are on Local at $400/mo or Enterprise at $2,000+/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor.
+            Whether you are on Bronze at $250/mo or Gold at $450/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor (audit + on-page + reporting).
           </p>
         </ScrollReveal>
 
@@ -827,7 +779,7 @@ export default function SeoServicePage() {
             <em className="font-serif not-italic text-lime-400">Five steps.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            Same process whether you are a direct client booking an $800 Growth plan or an agency running a $200 white-label resell. Audit lands in week one. Strategy approved in week two. Technical fixes, content, and links ship from month one.
+            Same process whether you are a direct client booking a $350 Silver plan or an agency running a $200 white-label resell. Audit lands in week one. Strategy approved in week two. Technical fixes, content, and links ship from month one.
           </p>
         </ScrollReveal>
 
@@ -908,7 +860,7 @@ export default function SeoServicePage() {
 
       <TldrBox
         items={[
-          "SEO services from $400/mo direct, $200/client white-label. Technical, on-page, content, links, local, reporting — one team, one flat fee.",
+          "SEO services from $250/mo direct (Bronze), $150/client white-label at Scale (15+). Same engine at every tier.",
           "White-label for agencies: 60-70% margin. Resell at $500-1,500/client under your brand, your client never sees us.",
           "Same deliverables as a $1,500-3,000/mo traditional SEO agency. 60-70% lower cost, no lock-in contract, senior strategist on every account.",
         ]}
@@ -948,10 +900,10 @@ export default function SeoServicePage() {
             serviceSchema({
               name: "AI SEO Services",
               description:
-                "AI-powered SEO services. White-label for agencies at $200/client. Direct for businesses at $400/mo. Technical SEO, content, links, AI visibility. 60-70% margin.",
+                "AI-powered SEO services. White-label for agencies $150-250/client (same engine at every tier). Direct for businesses Bronze $250 / Silver $350 / Gold $450 per month. Technical SEO, content, links, AI visibility. 60-70% margin.",
               path: "/services/seo",
               serviceType: "AI Search Engine Optimization",
-              priceRange: "$200-$2000",
+              priceRange: "$150-$450",
             })
           ),
         }}

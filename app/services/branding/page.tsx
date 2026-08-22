@@ -20,6 +20,7 @@ import {
 } from "@/components/motion/scroll-reveal";
 import { LinkButton } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
+import { getDirectService } from "@/content/pricing";
 import {
   Palette,
   Type,
@@ -37,9 +38,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Branding Services · Logo, Identity & Full System from $99 | Omni Path",
+  title: "Branding Services · Bronze $150 to Gold $400/mo | Omni Path",
   description:
-    "Branding services for businesses and white-label for agencies. Logo from $349, brand identity from $999, full system from $1,999. 3-14 day turnaround, full IP transfer.",
+    "Branding services for businesses and white-label for agencies. Direct Bronze $150 / Silver $250 / Gold $400 per month. White-label $150-250 per client per month. 3-14 day turnaround, full IP transfer.",
   path: "/services/branding",
 });
 
@@ -58,99 +59,49 @@ interface DirectTier {
   popular?: boolean;
 }
 
-const directTiers: DirectTier[] = [
-  {
-    name: "Logo",
-    price: "$349",
-    turnaround: "5-day turnaround · one-time",
-    badge: "Starter",
-    includes: [
-      "3 logo concepts to choose from",
-      "3 rounds of revisions",
-      "Source files: SVG, PNG, PDF, EPS",
-      "Black, white, and color variants",
-      "Commercial usage rights",
-    ],
-    upgrade: [
-      "Color palette + typography pairings",
-      "20-page brand guide with usage rules",
-      "12 social templates (IG, LinkedIn, X)",
-    ],
-    cta: { label: "Start a Logo project", href: "/contact" },
-  },
-  {
-    name: "Brand Identity",
-    price: "$999",
-    turnaround: "14-day turnaround · one-time",
-    badge: "Most popular",
-    includes: [
-      "Everything in the Logo tier",
-      "Full color palette with HEX, RGB, CMYK codes",
-      "Typography system: 2 typefaces, 6 weights",
-      "20-page brand guide (PDF + Figma)",
-      "Logo usage rules, do's and don'ts",
-      "Brand mark, sub-mark, and favicon set",
-    ],
-    upgrade: [
-      "Business cards, letterhead, email signature",
-      "Pitch deck template (12 slides)",
-      "Brand voice doc (tone, vocabulary, sample copy)",
-      "Social media template pack (20+ designs)",
-    ],
-    cta: { label: "Start a Brand Identity project", href: "/contact" },
-    popular: true,
-  },
-  {
-    name: "Full Brand System",
-    price: "$1,999",
-    turnaround: "14-day turnaround · one-time",
-    badge: "Complete rebrand",
-    includes: [
-      "Everything in the Brand Identity tier",
-      "Business cards + letterhead + envelope",
-      "Email signature HTML template",
-      "Pitch deck template: 12 slides, editable",
-      "Social media template pack: 20+ designs",
-      "Brand voice doc + messaging framework",
-      "Launch playbook with rollout checklist",
-    ],
-    cta: { label: "Start a Full Brand System project", href: "/contact" },
-  },
-];
+const directService = getDirectService("branding")!;
+
+const directTiers: DirectTier[] = directService.tiers.map((t, i) => ({
+  name: t.id,
+  price: t.price,
+  turnaround: t.id === "Bronze" ? "5-day turnaround · monthly retainer" : t.id === "Silver" ? "10-day turnaround · monthly retainer" : "14-day turnaround · monthly retainer",
+  badge: t.id === "Bronze" ? "Starter" : t.id === "Silver" ? "Most popular" : "Complete rebrand",
+  includes: t.features,
+  upgrade: i < directService.tiers.length - 1 ? directService.tiers[i + 1].features : undefined,
+  cta: { label: `Start ${t.id} branding`, href: "/contact" },
+  popular: t.popular,
+}));
 
 /* ============================================================
-   White-label pricing — for agencies that resell
+   White-label pricing — standard $150-250 / client / mo
+   (Same engine at every tier; volume unlocks price, not features)
    ============================================================ */
 
 interface WhiteLabelTier {
   name: string;
   ourPrice: string;
   resell: string;
-  turnaround: string;
   margin: string;
 }
 
 const whiteLabelTiers: WhiteLabelTier[] = [
   {
-    name: "Logo",
-    ourPrice: "$99",
-    resell: "$500-900",
-    turnaround: "3-day turnaround",
+    name: "Starter (1 client)",
+    ourPrice: "$250/mo",
+    resell: "$1,000-1,800/mo",
+    margin: "75-86% margin",
+  },
+  {
+    name: "Growth (5+ clients)",
+    ourPrice: "$200/mo",
+    resell: "$1,000-1,800/mo",
     margin: "80-89% margin",
   },
   {
-    name: "Brand Identity",
-    ourPrice: "$399",
-    resell: "$2,000-3,500",
-    turnaround: "7-day turnaround",
-    margin: "80-89% margin",
-  },
-  {
-    name: "Full Brand System",
-    ourPrice: "$999",
-    resell: "$4,500-7,500",
-    turnaround: "10-day turnaround",
-    margin: "78-87% margin",
+    name: "Scale (15+ clients)",
+    ourPrice: "$150/mo",
+    resell: "$1,000-1,800/mo",
+    margin: "85-92% margin",
   },
 ];
 
@@ -165,13 +116,13 @@ const whyUsBullets = [
     them: "6-10 weeks",
   },
   {
-    label: "Price for a logo",
-    us: "$349",
+    label: "Price for Bronze (logo)",
+    us: "$150/mo",
     them: "$2,000-8,000",
   },
   {
-    label: "Price for a full brand system",
-    us: "$1,999",
+    label: "Price for Gold (full brand system)",
+    us: "$400/mo",
     them: "$10,000-30,000",
   },
   {
@@ -353,7 +304,7 @@ export default function BrandingServicePage() {
             <em className="font-serif not-italic text-lime-400">ship in days.</em>
           </>
         }
-        heroSubhead="Branding services for businesses and white-label for agencies. Logo from $349, brand identity from $999, full brand system from $1,999. 3-14 day turnaround, full IP transfer, senior designer on every project."
+        heroSubhead="Branding services for businesses and white-label for agencies. Direct Bronze $150 / Silver $250 / Gold $400 per month. White-label $150-250 per client per month. 3-14 day turnaround, full IP transfer, senior designer on every project."
         heroPrimaryCta={{ label: "Get a free brand audit", href: "/contact" }}
         heroSecondaryCta={{ label: "See pricing", href: "/pricing" }}
         heroTrustMicrocopy="Full IP transfer on payment · 3 revisions included · 5-14 day turnaround"
@@ -457,7 +408,7 @@ export default function BrandingServicePage() {
                   <span className="text-4xl font-bold text-lime-400">
                     {tier.price}
                   </span>
-                  <span className="text-xs text-white/55">one-time</span>
+                  <span className="text-xs text-white/55">monthly</span>
                 </div>
                 <p className="mt-1 text-xs text-white/55 uppercase tracking-wider">
                   {tier.turnaround}
@@ -541,7 +492,6 @@ export default function BrandingServicePage() {
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">You pay us</th>
                   <th className="px-5 py-4 font-medium">Resell at</th>
-                  <th className="px-5 py-4 font-medium">Turnaround</th>
                   <th className="px-5 py-4 font-medium">Your margin</th>
                 </tr>
               </thead>
@@ -560,9 +510,6 @@ export default function BrandingServicePage() {
                     <td className="px-5 py-4 text-white/85">
                       {row.resell}
                     </td>
-                    <td className="px-5 py-4 text-white/70">
-                      {row.turnaround}
-                    </td>
                     <td className="px-5 py-4 text-white/70">{row.margin}</td>
                   </tr>
                 ))}
@@ -570,9 +517,7 @@ export default function BrandingServicePage() {
             </table>
           </div>
           <p className="mt-4 text-xs text-white/45">
-            Margins calculated on the low end of the resell range. White-label
-            partner agencies get a private Slack, white-labeled delivery portal,
-            and a dedicated partner manager after 5 projects.
+            Same branding engine at every tier. Volume unlocks price, not features. White-label partner agencies get a private Slack, white-labeled delivery portal, and a dedicated partner manager after 5 clients.
           </p>
         </ScrollReveal>
       </Section>
@@ -627,12 +572,12 @@ export default function BrandingServicePage() {
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
           <p className="text-sm text-white/65 leading-relaxed">
             The short version: a logo that takes a traditional agency 6 weeks
-            and $4,000 lands in our hands in 5 days for $349. A full brand
-            system that would cost $25,000 at a big studio runs $1,999 here in
-            14 days. The senior designer is the same caliber. The process is
-            just faster because we cut the meetings, the rounds, and the
-            account-manager relay. Your brand goes live sooner, costs less, and
-            ships with full IP transfer on day one.
+            and $4,000 lands in our hands in 5 days for $150/mo Bronze. A full
+            brand system that would cost $25,000 at a big studio runs $400/mo
+            Gold here in 14 days. The senior designer is the same caliber. The
+            process is just faster because we cut the meetings, the rounds,
+            and the account-manager relay. Your brand goes live sooner, costs
+            less, and ships with full IP transfer on day one.
           </p>
         </ScrollReveal>
       </Section>
@@ -686,7 +631,7 @@ export default function BrandingServicePage() {
             <em className="font-serif not-italic text-lime-400">founder speed.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            The reason a 5-day logo costs $349 instead of $4,000 is not lower
+            The reason a 5-day logo costs $150/mo instead of $4,000 is not lower
             quality but a production pipeline built on AI and automation, with
             a senior designer directing every step, the same human review and
             final polish, and just less busywork billed at $150 an hour — here
@@ -742,7 +687,7 @@ export default function BrandingServicePage() {
               same caliber you would find at a big studio. The only difference
               is what we charge, because what we charge reflects what the work
               actually costs to run. Less overhead, same outcome, lower
-              invoice. That is the founder-friendly part — a $349 logo
+              invoice. That is the founder-friendly part — a $150/mo logo
               instead of a $4,000 logo, because the bill reflects the real
               cost of the work, not the cost of a fancy studio lease.
             </p>
@@ -761,8 +706,8 @@ export default function BrandingServicePage() {
             <em className="font-serif not-italic text-lime-400">Five steps.</em>
           </h2>
           <p className="mt-4 text-white/70 max-w-xl">
-            Same process whether you are a direct client booking a $999 Brand
-            Identity or an agency running a $399 white-label resell. The brief
+            Same process whether you are a direct client booking a $250/mo Silver
+            branding or an agency running a $200 white-label resell. The brief
             takes 10 minutes. Concepts land in 48-72 hours. Final files ship
             on day 5-14.
           </p>
@@ -842,8 +787,8 @@ export default function BrandingServicePage() {
 
       <TldrBox
         items={[
-          "Branding services from $349 (logo) to $1,999 (full system). One-time price, full IP, 5-14 day turnaround.",
-          "White-label for agencies: pay $99-999, resell at $500-7,500. 78-89% margin per project.",
+          "Branding services from $150/mo Bronze (logo) to $400/mo Gold (full system). One-time price, full IP, 5-14 day turnaround.",
+          "White-label for agencies: pay $150-250 per project, resell at $500-7,500. Up to 97% margin per project.",
           "Senior designer on every project. 3 concepts, 3 revisions, source files in every format.",
         ]}
       />
@@ -880,10 +825,10 @@ export default function BrandingServicePage() {
             serviceSchema({
               name: "Branding & Identity Services",
               description:
-                "Logo, identity, and full brand systems. AI-assisted production, senior designer on every project. White-label from $99. Direct from $349. 3-14 day turnaround.",
+                "Logo, identity, and full brand systems. AI-assisted production, senior designer on every project. White-label $150-250 per client per month. Direct Bronze $150 / Silver $250 / Gold $400 per month. 3-14 day turnaround.",
               path: "/services/branding",
               serviceType: "AI-Assisted Branding",
-              priceRange: "$99-$1999",
+              priceRange: "$150-$400",
             })
           ),
         }}

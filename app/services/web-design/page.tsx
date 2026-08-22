@@ -10,6 +10,7 @@ import { TldrBox } from "@/components/sections/tldr-box";
 import { ServiceDefinition } from "@/components/sections/service-definition";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema, type FaqItem } from "@/lib/seo";
+import { getDirectService, WL_OTHER_SERVICES, WL_PRICE_RANGE } from "@/content/pricing";
 import {
   LayoutTemplate,
   Layers,
@@ -32,17 +33,17 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Web Design & CRO Services · From $249 | Omni Path",
+  title: "AI Web Design & CRO Services · Bronze $150 to Gold $500/mo | Omni Path",
   description:
-    "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct from $499. White-label from $249. 5-21 day turnaround, fixed price, CRO baked in.",
+    "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct Bronze $150 / Silver $300 / Gold $500 per month. White-label $150-250 per client. Mobile-first, Lighthouse 90+, monthly retainer.",
   path: "/services/web-design",
 });
 
 const webDesignFaq: FaqItem[] = [
   {
-    question: "How long does a typical website take?",
+    question: "How long does a typical website take to build?",
     answer:
-      "Landing pages ship in 5 days. Standard sites ship in 10 days. Custom sites take 21 days. E-commerce builds take 14 days. The clock starts the day you sign off on the brief, not the day you book the call. We don't promise dates we can't keep, and we hit our dates on 95%+ of builds.",
+      "Landing pages ship in 5 days. Standard sites ship in 10 days. Custom builds take 21 days. The clock starts the day you sign off on the brief, not the day you book the call. After launch, the monthly retainer covers ongoing design updates, hosting, security, and CRO. We don't promise dates we can't keep, and we hit our dates on 95%+ of builds.",
   },
   {
     question: "Do you write the copy or do I?",
@@ -57,7 +58,7 @@ const webDesignFaq: FaqItem[] = [
   {
     question: "What if I need changes after launch?",
     answer:
-      "Every build includes 30 days of free bug-fix support after launch — if something breaks, we fix it at no charge. Larger changes, new pages, or new features are billed at $95/hour or quoted as a small project. We're not the agency that ghosts you after the invoice is paid.",
+      "Every monthly plan includes ongoing design updates, new pages, and new copy in scope. Bigger rebuilds are quoted separately. We do not ghost after launch — that is the whole point of a retainer engagement.",
   },
   {
     question: "Do you build on WordPress or something else?",
@@ -65,6 +66,42 @@ const webDesignFaq: FaqItem[] = [
       "We build on whatever fits the brief. Next.js for custom builds and high-traffic projects. Webflow for fast standard sites. Shopify for e-commerce. WordPress when you genuinely need it. You own the code, the CMS login, and the domain — always, no exceptions, no lock-in.",
   },
 ];
+
+/* ============================================================
+   Direct pricing — read from central config
+   ============================================================ */
+const directService = getDirectService("web-design")!;
+
+interface DirectTierRow {
+  name: string;
+  price: string;
+  blurb: string;
+  includes: string[];
+  upgrade?: string;
+  popular?: boolean;
+  cta: { label: string; href: string };
+}
+
+const blurbByTier: Record<string, string> = {
+  Bronze: "Template design, basic hosting, the foundation that ships.",
+  Silver: "Custom design + ongoing updates + CRO baked in.",
+  Gold: "Full custom + e-com + speed + dedicated senior attention.",
+};
+
+const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
+  name: t.id,
+  price: t.price,
+  blurb: blurbByTier[t.id] ?? "",
+  includes: t.features,
+  upgrade:
+    i < directService.tiers.length - 1
+      ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
+      : undefined,
+  popular: t.popular,
+  cta: { label: `Start with ${t.id}`, href: "/contact" },
+}));
+
+const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "web-design")!;
 
 export default function WebDesignServicePage() {
   return (
@@ -76,14 +113,14 @@ export default function WebDesignServicePage() {
             Sites that <em className="font-serif not-italic text-lime-400">convert.</em>
           </>
         }
-        subhead="Web design services built for one thing: revenue. Landing pages, multi-page sites, e-commerce, and conversion rate optimization — from $499, delivered in 5-21 days."
+        subhead="Web design services built for one thing: revenue. Landing pages, multi-page sites, e-commerce, and conversion rate optimization — monthly retainers from $150/mo, no setup fees, 30-day post-launch support, white-label available for agencies."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "#pricing" }}
-        trustMicrocopy="No setup fees · 30 days of post-launch support · White-label available for agencies"
+        trustMicrocopy="No setup fees · Monthly retainer · White-label available for agencies"
       />
 
       <ServiceDefinition
-        text="AI-assisted web design is the build of conversion-focused websites on Next.js, Webflow, WordPress, or Shopify using AI for content drafts, layout generation, and CRO analysis, with a senior designer and developer polishing the final output. It ships in 5-21 days, mobile-first, and Lighthouse 90+ across the board."
+        text="AI-assisted web design is the build of conversion-focused websites on Next.js, Webflow, WordPress, or Shopify using AI for content drafts, layout generation, and CRO analysis, with a senior designer and developer polishing the final output. Shipped in 5-21 days, mobile-first, Lighthouse 90+ across the board, and covered by a monthly retainer for ongoing updates, hosting, and CRO."
       />
 
       {/* 1. What we do */}
@@ -108,7 +145,7 @@ export default function WebDesignServicePage() {
             },
             {
               title: "Multi-page websites",
-              description: "New builds or website redesigns — up to 15 pages: home, about, services, case studies, contact. Responsive web design, on-page SEO, real CMS access.",
+              description: "New builds or website redesigns — up to 20 pages: home, about, services, case studies, contact. Responsive web design, on-page SEO, real CMS access.",
               icon: <Layers className="h-5 w-5" />,
             },
             {
@@ -145,7 +182,7 @@ export default function WebDesignServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* 2. Direct Pricing */}
+      {/* 2. Direct Pricing — Bronze / Silver / Gold monthly retainers */}
       <Section id="pricing">
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
@@ -153,149 +190,78 @@ export default function WebDesignServicePage() {
             For businesses. <em className="font-serif not-italic text-lime-400">No agency markup.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Four tiers, fixed price, real deadlines. Pick the one that fits the brief — or talk to us
-            about a custom build. Every tier ships mobile-first, with on-page SEO and source files
-            included. See the full <Link href="/pricing" className="text-lime-400 hover:underline">pricing breakdown</Link>{" "}
+            Three monthly tiers, fixed monthly fee, real deadlines. Pick the level of design + hosting + ongoing updates that fits your business — or talk to us about a custom build. Every tier ships mobile-first, with on-page SEO and source files included. See the full <Link href="/pricing" className="text-lime-400 hover:underline">pricing breakdown</Link>{" "}
             for retainer bundles and ongoing care plans.
           </p>
         </ScrollReveal>
 
-        <StaggerGroup className="mt-12 grid gap-6 lg:grid-cols-2" stagger={0.05}>
-          {/* Landing Page */}
-          <StaggerItem>
-            <div className="bento h-full flex flex-col">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-2xl font-bold text-white">Landing Page</h3>
-                <span className="text-2xl font-semibold text-lime-400">$499</span>
-              </div>
-              <p className="mt-1 text-sm text-white/55">One-time · 5-day turnaround</p>
-              <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
-                What&rsquo;s included
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> 1 page, mobile-first, conversion-optimized</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Built on Next.js or Webflow</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> AI-drafted, human-edited copy (up to 600 words)</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Contact form integration</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Google Analytics + Search Console setup</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> 1 round of revisions</li>
-              </ul>
-              <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
-                <p className="text-sm text-white/85">
-                  <strong className="text-lime-400">Upgrade to Standard for:</strong> up to 5 pages,
-                  10-day turnaround, on-page SEO, contact form, responsive web design, source files.
-                </p>
-              </div>
-            </div>
-          </StaggerItem>
-
-          {/* Standard Site */}
-          <StaggerItem>
-            <div className="bento h-full flex flex-col border-lime-400/30">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-2xl font-bold text-white">Standard Site</h3>
-                  <span className="pill pill-accent text-[10px]">Popular</span>
+        <StaggerGroup className="mt-12 grid gap-6 lg:grid-cols-3" stagger={0.05}>
+          {directTiers.map((t) => (
+            <StaggerItem key={t.name}>
+              <div
+                className={
+                  t.popular
+                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/[0.04]"
+                    : "bento h-full flex flex-col"
+                }
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-xl font-semibold text-white">Direct · {t.name}</h3>
+                  {t.popular && <span className="pill pill-accent text-[10px]">Most popular</span>}
                 </div>
-                <span className="text-2xl font-semibold text-lime-400">$999</span>
-              </div>
-              <p className="mt-1 text-sm text-white/55">One-time · 10-day turnaround</p>
-              <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
-                What&rsquo;s included
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Up to 5 pages, responsive web design</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> On-page SEO baseline baked in</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Contact form on every page</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> AI-drafted, human-edited copy (up to 1,500 words)</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Google Analytics + Search Console setup</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> 2 rounds of revisions</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Source files on delivery</li>
-              </ul>
-              <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
-                <p className="text-sm text-white/85">
-                  <strong className="text-lime-400">Upgrade to Custom for:</strong> up to 15 pages,
-                  custom design, CMS, blog, advanced animations, 21-day turnaround.
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-lime-400">{t.price}</span>
+                  <span className="text-xs text-white/55">monthly retainer</span>
+                </div>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">{t.blurb}</p>
+                <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
+                  What&rsquo;s included
                 </p>
+                <ul className="mt-3 space-y-2 text-sm text-white/75">
+                  {t.includes.map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                {t.upgrade && (
+                  <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
+                    <p className="text-sm text-white/85">
+                      <strong className="text-lime-400">{t.upgrade.split(":")[0]}:</strong>
+                      {t.upgrade.includes(":")
+                        ? t.upgrade.split(":").slice(1).join(":")
+                        : ""}
+                    </p>
+                  </div>
+                )}
+                <div className="mt-auto pt-6">
+                  <Link
+                    href={t.cta.href}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                  >
+                    {t.cta.label}
+                  </Link>
+                </div>
               </div>
-            </div>
-          </StaggerItem>
-
-          {/* Custom Site */}
-          <StaggerItem>
-            <div className="bento h-full flex flex-col">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-2xl font-bold text-white">Custom Site</h3>
-                <span className="text-2xl font-semibold text-lime-400">$1,999</span>
-              </div>
-              <p className="mt-1 text-sm text-white/55">One-time · 21-day turnaround</p>
-              <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
-                What&rsquo;s included
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Custom design — no template, no theme</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Up to 15 pages</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> CMS — headless, Webflow, or WordPress</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Blog with categories and tags</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Advanced animations + interactions</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> AI-drafted, human-edited copy (up to 5,000 words)</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> 3 rounds of revisions + Figma source</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Lighthouse 90+ on mobile + desktop</li>
-              </ul>
-              <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
-                <p className="text-sm text-white/85">
-                  <strong className="text-lime-400">Add E-commerce for $1,000:</strong> Shopify or
-                  Stripe integration, up to 25 products, payments, shipping, tax — 14-day turnaround.
-                </p>
-              </div>
-            </div>
-          </StaggerItem>
-
-          {/* E-commerce */}
-          <StaggerItem>
-            <div className="bento h-full flex flex-col">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-2xl font-bold text-white">E-commerce</h3>
-                <span className="text-2xl font-semibold text-lime-400">$1,699</span>
-              </div>
-              <p className="mt-1 text-sm text-white/55">One-time · 14-day turnaround</p>
-              <div className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
-                What&rsquo;s included
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Shopify or Stripe — your call</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Up to 25 products with copy + images</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Payments, shipping, and tax configured</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Abandoned cart email flow</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> AI-drafted, human-edited product copy</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> 2 rounds of revisions</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" /> Source files + admin training</li>
-              </ul>
-              <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
-                <p className="text-sm text-white/85">
-                  <strong className="text-lime-400">Pair with a Custom Site for:</strong> a full
-                  marketing site + e-commerce on one cohesive design system — 21-day combined delivery.
-                </p>
-              </div>
-            </div>
-          </StaggerItem>
+            </StaggerItem>
+          ))}
         </StaggerGroup>
 
         <ScrollReveal delay={0.15} className="mt-8 text-center text-sm text-white/55">
-          All prices in USD. No setup fees. No hidden costs. Hosting + maintenance from $50/mo.
+          All prices in USD. No setup fees. No hidden costs. Build timeline: 5-21 days, then ongoing retainer for design updates + hosting + CRO.
         </ScrollReveal>
       </Section>
 
-      {/* 3. White-label Pricing */}
+      {/* 3. White-label Pricing — standard $150-250 / client / mo structure */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            For agencies. <em className="font-serif not-italic text-lime-400">75-89% margin.</em>
+            For agencies. <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Resell our work under your brand. Your client never sees us. Same deliverables, your logo,
-            your domain, your markup. Built for agencies — see the{" "}
+            {WL_ROW.description} Resell our work under your brand. Your client never sees us. Same deliverables, your logo, your domain, your markup. Built for agencies — see the{" "}
             <Link href="/for-agencies" className="text-lime-400 hover:underline">white-label partner program</Link>{" "}
             for full terms and onboarding details.
           </p>
@@ -307,18 +273,16 @@ export default function WebDesignServicePage() {
               <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
-                  <th className="px-5 py-4 font-medium">Your cost</th>
+                  <th className="px-5 py-4 font-medium">Your cost (per client)</th>
                   <th className="px-5 py-4 font-medium">Resell at</th>
                   <th className="px-5 py-4 font-medium">Your margin</th>
-                  <th className="px-5 py-4 font-medium hidden md:table-cell">Turnaround</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { tier: "Landing Page", cost: "$249", resell: "$1,000-2,000", margin: "75-88%", time: "3 days" },
-                  { tier: "Standard Site", cost: "$599", resell: "$3,000-5,500", margin: "80-89%", time: "7 days", popular: true },
-                  { tier: "Custom Site", cost: "$1,499", resell: "$6,000-10,000", margin: "75-85%", time: "14 days" },
-                  { tier: "E-commerce", cost: "$1,299", resell: "$5,500-9,000", margin: "76-86%", time: "14 days" },
+                  { tier: "Starter (1 client)", cost: "$250/mo", resell: "$750-1,200/mo", margin: "67-79%" },
+                  { tier: "Growth (5+ clients)", cost: "$200/mo", resell: "$750-1,200/mo", margin: "73-83%", popular: true },
+                  { tier: "Scale (15+ clients)", cost: "$150/mo", resell: "$750-1,200/mo", margin: "80-88%" },
                 ].map((row) => (
                   <tr
                     key={row.tier}
@@ -335,14 +299,13 @@ export default function WebDesignServicePage() {
                     <td className="px-5 py-4 text-white/75">{row.cost}</td>
                     <td className="px-5 py-4 text-lime-400 font-semibold">{row.resell}</td>
                     <td className="px-5 py-4 text-white/85">{row.margin}</td>
-                    <td className="px-5 py-4 text-white/65 hidden md:table-cell">{row.time}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="mt-4 text-xs text-white/45">
-            Margin = (resell midpoint − your cost) ÷ resell midpoint. Real numbers, not marketing math.
+            Same web design + CRO engine at every tier. Volume unlocks price, not features.
           </p>
         </ScrollReveal>
       </Section>
@@ -356,9 +319,7 @@ export default function WebDesignServicePage() {
           </h2>
           <p className="mt-4 text-white/70">
             Six tools in our stack carry the heavy lifting on every project, so our senior designers
-            and developers focus on the 20% that actually wins the click. Here&rsquo;s the exact
-            automation behind a $499 landing page that ships in five days, a $999 standard site that
-            ships in ten, and a $1,999 custom build that ships in twenty-one.
+            and developers focus on the 20% that actually wins the click. Same automation on every tier — Bronze, Silver, and Gold all ship with the same engine.
           </p>
         </ScrollReveal>
 
@@ -437,10 +398,7 @@ export default function WebDesignServicePage() {
               </li>
             </ul>
             <p className="mt-6 text-sm text-white/70 leading-relaxed">
-              That&rsquo;s how a Standard Site ships at $999 direct — and resells at $3,000-5,500 to
-              your clients if you&rsquo;re a white-label partner. Same engineering, same craft, no
-              agency overhead, no six-week kickoff phase, no padded hourly billing. The automation
-              is the margin, and we pass the margin to you.
+              That&rsquo;s how Silver ships at $300/mo direct — and resells at $750-1,200/mo to your clients if you&rsquo;re a white-label partner. Same engineering, same craft, no agency overhead, no six-week kickoff phase, no padded hourly billing. The automation is the margin, and we pass the margin to you.
             </p>
           </div>
         </ScrollReveal>
@@ -457,20 +415,19 @@ export default function WebDesignServicePage() {
             A traditional web agency burns 25-30 hours of human time on a single project, charges
             $5,000-15,000, and ships in 6-12 weeks. We run AI + automation on the 80% that&rsquo;s
             repetitive, and put senior humans on the 20% that actually moves the needle. Same
-            deliverables, lower overhead, faster delivery, fixed price.
+            deliverables, lower overhead, faster delivery, fixed monthly fee.
           </p>
         </ScrollReveal>
-
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {[
             {
               icon: <Zap className="h-5 w-5" />,
-              title: "5-21 day turnaround",
-              body: "Landing pages in 5 days, custom sites in 21. Not 6-12 weeks. Real deadlines, hit 95%+ of the time.",
+              title: "5-21 day build, then monthly retainer",
+              body: "Landing pages in 5 days, custom sites in 21. Then ongoing design + CRO for $150-500/mo. Not 6-12 weeks of agency build-out.",
             },
             {
               icon: <ShieldCheck className="h-5 w-5" />,
-              title: "Fixed price, no surprises",
+              title: "Fixed monthly fee, no surprises",
               body: "The price is the price. No hourly billing, no scope-creep invoices, no PM billing you to sit in meetings.",
             },
             {
@@ -481,7 +438,7 @@ export default function WebDesignServicePage() {
             {
               icon: <Rocket className="h-5 w-5" />,
               title: "Built to ship, not to bill",
-              body: "Around 5h of senior human time per project. We don't pad hours — there's no incentive to bill more.",
+              body: "Around 5-8h of senior human time per project. We don't pad hours — there's no incentive to bill more.",
             },
             {
               icon: <FileCheck2 className="h-5 w-5" />,
@@ -491,7 +448,7 @@ export default function WebDesignServicePage() {
             {
               icon: <Wrench className="h-5 w-5" />,
               title: "No ghosting after launch",
-              body: "30 days of free bug-fix support. Hosting + maintenance from $50/mo. We're the team you call when something breaks.",
+              body: "Monthly retainer covers ongoing design updates + hosting + CRO. We're the team you call when something breaks or you want to ship a new page.",
             },
           ].map((card) => (
             <ScrollReveal key={card.title}>
@@ -515,12 +472,11 @@ export default function WebDesignServicePage() {
             The baseline we <em className="font-serif not-italic text-lime-400">never skip.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Whether you buy a $499 landing page or a $1,999 custom build, these ship in every project.
+            Whether you start with Bronze or Gold, these ship in every engagement.
             No upsell, no add-on fees, no fine print. If you want ongoing SEO on top of the launch
             baseline, see our <Link href="/services/seo" className="text-lime-400 hover:underline">SEO services</Link>.
           </p>
         </ScrollReveal>
-
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
           {[
             { title: "Mobile-first responsive design", body: "Designed for thumbs first, desktop second. Tested on iPhone, Android, and tablet." },
@@ -549,17 +505,16 @@ export default function WebDesignServicePage() {
           </h2>
           <p className="mt-4 text-white/70">
             Five steps. No project managers, no weekly status meetings, no 40-slide kickoff deck.
-            You talk to the people doing the work, you get a real deadline, and we hit it.
+            You talk to the people doing the work, you get a real deadline, and we hit it. The monthly retainer kicks in after launch.
           </p>
         </ScrollReveal>
-
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" stagger={0.08}>
           {[
             { number: "1", title: "Brief", meta: "Day 1", description: "15-min call + written brief. Offer, audience, tone of voice, examples of sites you like." },
             { number: "2", title: "Wireframe", meta: "Day 2", description: "We send a wireframe + visual direction. You approve before we write a line of code." },
             { number: "3", title: "Build", meta: "Day 3-5", description: "We build, write the copy, and run QA across 6 devices. You get a staging URL to follow along." },
             { number: "4", title: "Review", meta: "Day 4-7", description: "You review on the staging URL. We push to production when you sign off." },
-            { number: "5", title: "Launch", meta: "Day 5-21", description: "DNS cutover, monitoring, and 30 days of free bug-fix support. Hosting + maintenance optional." },
+            { number: "5", title: "Retainer", meta: "Day 5-21+", description: "Monthly retainer covers hosting, design updates, security, and CRO. New pages ship in 3-5 days each." },
           ].map((step) => (
             <StaggerItem key={step.number}>
               <div className="bento h-full">
@@ -583,8 +538,8 @@ export default function WebDesignServicePage() {
       {/* 8. TldrBox */}
       <TldrBox
         items={[
-          "Web design services from $499 direct, $249 white-label. 5-21 day turnaround, fixed price.",
-          "Four tiers: Landing, Standard, Custom, E-commerce. Source files + CMS on every build.",
+          "Web design services from $150/mo direct, $150-250/client white-label. 5-21 day build, monthly retainer after.",
+          "Three tiers: Bronze / Silver / Gold. Source files + CMS on every build. CRO baked in.",
           "Built on Next.js, Webflow, Shopify, or WordPress. You own the code, always.",
         ]}
       />
@@ -601,7 +556,7 @@ export default function WebDesignServicePage() {
       <CtaSection
         variant="panel"
         title={<>Ready for a site that <em className="font-serif not-italic text-lime-400">converts?</em></>}
-        subhead="Get a free conversion audit, or book a 15-min call. Web design services from $499 direct, $249 white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
+        subhead="Get a free conversion audit, or book a 15-min call. Web design services from $150/mo direct, $150-250/client white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
       />
@@ -615,10 +570,10 @@ export default function WebDesignServicePage() {
             serviceSchema({
               name: "AI Web Design & CRO Services",
               description:
-                "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct from $499. White-label from $249. 5-21 day turnaround, fixed price, CRO baked in.",
+                "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct Bronze $150 / Silver $300 / Gold $500 per month. White-label $150-250 per client. Mobile-first, Lighthouse 90+.",
               path: "/services/web-design",
               serviceType: "AI Web Design",
-              priceRange: "$249-$1999",
+              priceRange: "$150-$500",
             })
           ),
         }}

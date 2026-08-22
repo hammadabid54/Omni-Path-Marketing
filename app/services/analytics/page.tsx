@@ -11,6 +11,7 @@ import { ServiceDefinition } from "@/components/sections/service-definition";
 import { FaqSection } from "@/components/sections/faq";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import type { FaqItem } from "@/lib/seo";
+import { getDirectService, WL_OTHER_SERVICES, WL_PRICE_RANGE } from "@/content/pricing";
 import {
   LayoutDashboard,
   Settings2,
@@ -30,9 +31,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Marketing Analytics & Reporting · From $299/mo White-Label",
+  title: "AI Marketing Analytics & Reporting · From $200/mo Direct · White-Label $150-250/client",
   description:
-    "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. White-label from $299/mo. Direct from $349/mo.",
+    "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. Direct Bronze $200 / Silver $350 / Gold $500. White-label $150-250 / client / mo.",
   path: "/services/analytics",
 });
 
@@ -77,48 +78,20 @@ interface DirectTier {
   popular?: boolean;
 }
 
-const DIRECT_TIERS: DirectTier[] = [
-  {
-    tier: "Starter",
-    price: "$349/mo",
-    includes: [
-      "1 dashboard",
-      "4 KPIs tracked",
-      "Monthly email summary",
-      "GA4 audit + cleanup (one-time)",
-    ],
-    upgrade:
-      "Upgrade to Growth for: 4 dashboards, all major channels (GA4, ads, email, social), weekly summary, monthly strategy call.",
-  },
-  {
-    tier: "Growth",
-    price: "$699/mo",
-    includes: [
-      "4 dashboards",
-      "All major channels: GA4, paid ads, email, social",
-      "Weekly summary",
-      "Monthly 30-min strategy call",
-      "Conversion tracking setup",
-      "Custom KPI definitions for your business",
-    ],
-    upgrade:
-      "Upgrade to Scale for: multi-touch attribution, 6+ dashboards, 4 hours of fractional CMO time per month, weekly call.",
-    popular: true,
-  },
-  {
-    tier: "Scale",
-    price: "$999/mo",
-    includes: [
-      "Multi-touch attribution modeling",
-      "6+ dashboards",
-      "4 hours of fractional CMO time per month",
-      "Weekly strategy call",
-      "Server-side GA4 + conversion tracking",
-      "Quarterly business review",
-      "Priority support — same-day replies",
-    ],
-  },
-];
+/* Direct pricing — read from central config */
+const _directSvc = getDirectService("analytics")!;
+const DIRECT_TIERS: DirectTier[] = _directSvc.tiers.map((t, i) => ({
+  tier: t.id,
+  price: t.price,
+  includes: t.features,
+  upgrade:
+    i < _directSvc.tiers.length - 1
+      ? `Upgrade to ${_directSvc.tiers[i + 1].id} for: ${_directSvc.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
+      : undefined,
+  popular: t.popular,
+}));
+
+const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "analytics")!;
 
 const FAQ_ITEMS: FaqItem[] = [
   {
@@ -159,7 +132,7 @@ export default function AnalyticsServicePage() {
             <em className="font-serif not-italic text-lime-400">actually read.</em>
           </>
         }
-        subhead="Marketing analytics services for agencies and businesses. We build custom marketing dashboards, set up GA4, model attribution, and run weekly reporting so you know what's working. From $349/mo direct, $299/mo white-label."
+        subhead="Marketing analytics services for agencies and businesses. We build custom marketing dashboards, set up GA4, model attribution, and run weekly reporting so you know what's working. Direct Bronze $200 / Silver $350 / Gold $500. White-label $150-250 / client / mo."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual · Setup in 7 days"
@@ -256,7 +229,7 @@ export default function AnalyticsServicePage() {
         </StaggerGroup>
       </Section>
 
-      {/* White-label pricing — single tier, margin math */}
+      {/* White-label pricing — standard $150-250 / client / mo structure */}
       <Section>
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
@@ -265,8 +238,7 @@ export default function AnalyticsServicePage() {
             <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
           </h2>
           <p className="mt-4 text-white/70">
-            Resell under your brand, your domain, your client relationship. We are
-            invisible. You keep the markup.
+            {WL_ROW.description} Resell under your brand, your domain, your client relationship. We are invisible. You keep the markup.
           </p>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-5 lg:grid-cols-[1.2fr_1fr]" stagger={0.05}>
@@ -274,13 +246,13 @@ export default function AnalyticsServicePage() {
             <div className="bento h-full">
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="text-base font-semibold text-white">White-label · Analytics</h3>
-                <span className="text-lg font-bold text-lime-400">$299/mo</span>
+                <span className="text-lg font-bold text-lime-400">{WL_PRICE_RANGE}</span>
               </div>
               <p className="mt-2 text-sm text-white/70">per client · billed to you monthly</p>
               <ul className="mt-5 space-y-2 text-sm text-white/80">
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
-                  <span>All Growth tier features (4 dashboards, weekly summary, monthly call)</span>
+                  <span>All Silver tier features (4 dashboards, weekly summary, monthly call)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
@@ -300,9 +272,7 @@ export default function AnalyticsServicePage() {
                 </li>
               </ul>
               <p className="mt-5 rounded-lg border border-lime-400/20 bg-lime-400/5 p-3 text-xs text-white/75 leading-relaxed">
-                <strong className="text-white">Volume discount:</strong> 5+ clients drops
-                to $249/client. 15+ clients drops to $199/client. Ask about partner
-                pricing.
+                <strong className="text-white">Volume pricing:</strong> 1 client = $250, 5+ clients = $200, 15+ clients = $150. Ask about partner pricing.
               </p>
             </div>
           </StaggerItem>
@@ -314,8 +284,8 @@ export default function AnalyticsServicePage() {
               <h3 className="mt-2 text-2xl font-bold text-white">Resell math that works</h3>
               <div className="mt-5 space-y-3 text-sm text-white/80">
                 <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
-                  <span>You pay us</span>
-                  <span className="font-semibold text-white">$299/mo</span>
+                  <span>You pay us (avg)</span>
+                  <span className="font-semibold text-white">$200/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
                   <span>You charge client</span>
@@ -323,16 +293,15 @@ export default function AnalyticsServicePage() {
                 </div>
                 <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
                   <span>Your gross margin</span>
-                  <span className="font-semibold text-lime-400">$701 - $1,501/mo</span>
+                  <span className="font-semibold text-lime-400">$800 - $1,600/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span>Margin %</span>
-                  <span className="font-bold text-lime-400">70% - 83%</span>
+                  <span className="font-bold text-lime-400">80% - 89%</span>
                 </div>
               </div>
               <p className="mt-5 text-xs text-white/55 leading-relaxed">
-                At 10 clients, that is $7,000-15,000/mo of pure margin on one service
-                line. Add <Link href="/services/seo" className="text-lime-400 hover:underline">SEO</Link>{" "}
+                At 10 clients, that is $8,000-16,000/mo of pure margin on one service line. Add <Link href="/services/seo" className="text-lime-400 hover:underline">SEO</Link>{" "}
                 and <Link href="/services/paid-ads" className="text-lime-400 hover:underline">paid ads</Link>{" "}
                 and you run a full-stack agency on delivery cost under $10k/mo.
               </p>
@@ -666,7 +635,7 @@ export default function AnalyticsServicePage() {
       {/* TldrBox */}
       <TldrBox
         items={[
-          "Marketing analytics services from $349/mo direct, $299/mo white-label (60-70% margin).",
+          `Marketing analytics services from $200/mo direct, ${WL_PRICE_RANGE} white-label (60-70% margin).`,
           "GA4 setup, conversion tracking, attribution modeling, custom dashboards, fractional CMO — six jobs, one team.",
           "Setup in 7 days. Cancel anytime. No setup fees. Same team that runs the Fortune-500 stack, billed like a small agency.",
         ]}
@@ -707,10 +676,10 @@ export default function AnalyticsServicePage() {
             serviceSchema({
               name: "AI Marketing Analytics & Reporting",
               description:
-                "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. White-label from $299/mo. Direct from $349/mo.",
+                "AI-powered marketing analytics. Custom dashboards, GA4 setup, server-side tagging, attribution modeling, weekly commentary. Direct Bronze $200 / Silver $350 / Gold $500. White-label $150-250 / client / mo.",
               path: "/services/analytics",
               serviceType: "AI Marketing Analytics",
-              priceRange: "$299-$999",
+              priceRange: "$200-$500",
             })
           ),
         }}
