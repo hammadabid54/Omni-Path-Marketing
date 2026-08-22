@@ -14,19 +14,22 @@ import { agencyFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "White-Label AI SEO for Agencies · From $200/client",
+  title: "White-Label AI SEO for Agencies · $150-$250/client",
   description:
-    "AI-powered white-label SEO for agencies. From $200/client. White-labeled under your brand. 60-70% margin. 14-day onboarding. No setup fees.",
+    "AI-powered white-label SEO for agencies. $150-$250 per client. Same engine at every tier. 60-70% margin. 14-day onboarding. No setup fees.",
   path: "/white-label-seo",
 });
 
+// Standardized white-label SEO offering — same at every tier.
+// Volume unlocks price, not features. Updated 2026-08-22.
 const INCLUDED = [
-  { t: "Technical SEO", d: "Monthly audit. Core Web Vitals tracking. Schema markup. Site speed. Crawl budget optimization." },
-  { t: "On-page SEO", d: "4-8 optimized pages/month. Title tags, meta descriptions, H1s, internal links, schema." },
-  { t: "AI content engine", d: "2-8 blog posts/month. AI-drafted, human-edited, SEO-optimized, image-included." },
-  { t: "Link building", d: "4-12 DR 30+ placements per client per month. Outreach done for you." },
-  { t: "White-label reports", d: "Your logo, your colors, your client list. Sent automatically on the 1st of each month." },
-  { t: "Strategy + support", d: "90-day content calendar. Monthly strategy call. Slack channel for questions." },
+  { t: "Monthly technical audit", d: "Full site crawl, Core Web Vitals, schema markup, site speed, index coverage. Flags what to fix, in priority order." },
+  { t: "On-page optimization", d: "Title tags, meta descriptions, H1s, alt text, internal linking. Applied to priority pages each month." },
+  { t: "2-4 blog posts / month", d: "SEO-optimized long-form content. AI-drafted, human-edited, keyword-mapped, image-included." },
+  { t: "4-8 backlinks / month", d: "DR 30+ placements from vetted outreach partners. Anchor text and target pages chosen per client." },
+  { t: "1 location optimization", d: "Google Business Profile setup, NAP consistency, local citations, geo-targeted content signals." },
+  { t: "Keyword tracking (SE Ranking)", d: "10 keywords tracked via SE Ranking. Weekly rank pulls, SERP feature detection, competitor benchmarks." },
+  { t: "Monthly white-label report", d: "Your logo, your colors, your client list. Auto-sent on the 1st of each month. PDF + live dashboard." },
 ];
 
 const STEPS = [
@@ -68,9 +71,9 @@ export default function WhiteLabelSeoPage() {
 
       <TldrBox
         items={[
-          "White-label SEO from $200/client/month (Growth tier, 5+ clients).",
+          "White-label SEO: $250 (1 client) / $200 (5+ clients) / $150 (15+ clients) per month.",
+          "Same engine at every tier — volume unlocks price, not features.",
           "Resell at $500-1,500/client for 60-70% margin.",
-          "Full stack: technical, on-page, content, links, reports.",
           "14-day onboarding, no setup fees, cancel anytime.",
         ]}
       />
@@ -79,8 +82,11 @@ export default function WhiteLabelSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Everything you need to <em className="font-serif not-italic text-lime-400">resell SEO.</em>
+            The same engine <em className="font-serif not-italic text-lime-400">at every tier.</em>
           </h2>
+          <p className="mt-4 text-white/65 text-sm">
+            Whether a client is paying you $500 or $1,500/month, the work we ship is identical. Only the price-per-client you pay us changes with volume.
+          </p>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           {INCLUDED.map((c) => (

@@ -22,7 +22,7 @@ import { buildMetadata, faqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "AI Marketing Agency · White-Label & Direct | Omni Path",
   description:
-    "AI-powered digital marketing agency. White-label SEO from $200/client. Direct from $400/mo. SEO, paid ads, web, branding, social, email, analytics. 60-70% agency margin.",
+    "AI-powered digital marketing agency. White-label from $150-250/client (same engine at every tier). Direct Bronze/Silver/Gold from $250/mo. SEO, paid ads, web, branding, social, email, analytics.",
   path: "/",
 });
 
@@ -30,59 +30,59 @@ const SERVICES: BentoService[] = [
   {
     icon: Search,
     title: "SEO",
-    description: "White-label, automated, AI-powered. From $200/client/month with full content engine.",
+    description: "White-label, automated, AI-powered. From $150/client at Scale (15+). Same engine at every tier.",
     href: "/services/seo",
-    fromPrice: "$200/client",
+    fromPrice: "$150-250/client",
     feature: true,
   },
   {
     icon: Megaphone,
     title: "Paid Ads",
-    description: "Google + Meta. From $250/mo. Flat fee, no % of ad spend.",
+    description: "Google + Meta. Bronze / Silver / Gold. Ad spend billed separately.",
     href: "/services/paid-ads",
-    fromPrice: "$250/mo",
+    fromPrice: "From $250/mo",
   },
   {
     icon: PenTool,
     title: "Branding",
-    description: "Logo, identity, full brand system. From $99. White-label ready, 3-day turnaround.",
+    description: "Logo, identity, full brand system. Bronze / Silver / Gold tiers.",
     href: "/services/branding",
-    fromPrice: "$99",
+    fromPrice: "From $150/mo",
   },
   {
     icon: Globe,
     title: "Web & CRO",
-    description: "Sites, landing pages, e-com. Mobile-first, fast, SEO-ready. From $249.",
+    description: "Sites, landing pages, e-com. Mobile-first, fast, SEO-ready.",
     href: "/services/web-design",
-    fromPrice: "$249",
+    fromPrice: "From $150/mo",
   },
   {
     icon: Share2,
     title: "Social Media",
-    description: "Organic posts, community, short-form. From $299/mo white-label, $499/mo direct.",
+    description: "Organic posts, community, short-form. Bronze / Silver / Gold.",
     href: "/services/social-media",
-    fromPrice: "$299/mo",
+    fromPrice: "From $200/mo",
   },
   {
     icon: Tv,
     title: "TikTok + LinkedIn",
-    description: "B2B LinkedIn + Gen Z TikTok ad buying. Creative, targeting, optimization.",
+    description: "B2B LinkedIn + Gen Z TikTok ad buying. Bronze / Silver / Gold.",
     href: "/services/tiktok-linkedin-ads",
-    fromPrice: "$299/mo",
+    fromPrice: "From $250/mo",
   },
   {
     icon: Mail,
     title: "Email & Lifecycle",
     description: "Klaviyo, HubSpot, ActiveCampaign. Welcome series, win-backs, behavioral triggers.",
     href: "/services/email-lifecycle",
-    fromPrice: "$299/mo",
+    fromPrice: "From $200/mo",
   },
   {
     icon: BarChart3,
     title: "Analytics",
     description: "Custom dashboards, attribution modeling, fractional CMO. Real ROI, real numbers.",
     href: "/services/analytics",
-    fromPrice: "$299/mo",
+    fromPrice: "From $200/mo",
   },
 ];
 
@@ -108,7 +108,7 @@ export default function HomePage() {
         subhead="We run the full growth stack for ambitious brands — and for the agencies that serve them. SEO, ads, branding, content, web, email, social, analytics. White-label or done-for-you."
         primaryCta={{ label: "I'm a business", href: "/for-businesses" }}
         secondaryCta={{ label: "I'm an agency", href: "/for-agencies" }}
-        trustMicrocopy="From $200/client · 14-day onboarding · No long contracts"
+        trustMicrocopy="From $150/client · 14-day onboarding · No long contracts"
       />
 
       <Suspense fallback={null}>
@@ -210,23 +210,20 @@ export default function HomePage() {
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="text-left py-3 pr-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Service</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Starter</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-lime-400 font-semibold">Growth · most picked</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Scale</th>
-                  <th className="text-right py-3 pl-4 text-xs uppercase tracking-widest text-white/45 font-semibold">White-label</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Bronze</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-lime-400 font-semibold">Silver · most picked</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Gold</th>
+                  <th className="text-right py-3 pl-4 text-xs uppercase tracking-widest text-white/45 font-semibold">White-label /client</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/8">
                 {[
-                  ["SEO", "$400/mo · 1 site", "$800/mo · multi-site", "$2,000+/mo · custom", "$200/client"],
-                  ["Paid Ads (mgmt)", "$350/mo · <$5K spend", "$700/mo · $5-20K", "$1,200/mo · $20K+", "$250-$750"],
-                  ["Branding (one-time)", "$349 · logo", "$999 · identity", "$1,999 · full system", "$99-$999"],
-                  ["Web & CRO (one-time)", "$499 · landing page", "$999 · 5-page site", "$1,999 · custom", "$249-$1,499"],
-                  ["Social Media", "$349/mo · 1 channel", "$699/mo · 2-3 channels", "$999/mo · 4+", "$299/mo"],
-                  ["TikTok Ads (mgmt)", "$349/mo · min $1.5K spend", "$699/mo · min $3K", "$999/mo · min $5K", "$299/mo"],
-                  ["LinkedIn Ads (mgmt)", "$599/mo · min $3K spend", "$999/mo · min $5K", "$1,699/mo · min $10K", "$499/mo"],
-                  ["Email & Lifecycle", "$349 setup + $349/mo", "$699 setup + $699/mo", "$999 setup + $999/mo", "$299/mo"],
-                  ["Analytics", "$349 setup · 2 dashboards", "$699/mo · 4 dashboards", "$999/mo · attribution", "$299/mo"],
+                  ["SEO", "$250/mo", "$350/mo", "$450/mo", "$150-$250"],
+                  ["Social Media", "$200/mo", "$300/mo", "$400/mo", "$150-$250"],
+                  ["Paid Ads", "$250/mo", "$400/mo", "$600/mo", "$150-$250"],
+                  ["Web Design & Dev", "$150/mo", "$300/mo", "$500/mo", "$150-$250"],
+                  ["Branding", "$150/mo", "$250/mo", "$400/mo", "$150-$250"],
+                  ["Creative Services", "$200/mo", "$350/mo", "$550/mo", "$150-$250"],
                 ].map(([svc, ...tiers]) => (
                   <tr key={svc}>
                     <td className="py-4 pr-4 text-white font-medium">{svc}</td>
@@ -239,7 +236,7 @@ export default function HomePage() {
               </tbody>
             </table>
             <p className="mt-4 text-xs text-white/45">
-              Direct pricing is what your client pays you. White-label is what you pay us to deliver under your brand. 60-70% margin on every line.
+              Direct pricing is what your client pays you. White-label is what you pay us to deliver under your brand — same engine at every tier. 60-70% margin on every line.
             </p>
           </div>
         </div>
@@ -251,7 +248,7 @@ export default function HomePage() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ScrollReveal>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                Add a full SEO team for <em className="font-serif not-italic text-lime-400">$200/client.</em>
+                Add a full SEO team for <em className="font-serif not-italic text-lime-400">$150-250/client.</em>
               </h2>
               <p className="mt-4 text-white/70 max-w-lg">
                 You sell. We deliver. Your client never knows we exist. We use AI to do the heavy lifting, senior humans to do the strategy. You get agency-grade work at freelancer prices.
@@ -261,6 +258,7 @@ export default function HomePage() {
                   "No hires. No overhead. No training.",
                   "White-labeled reports, dashboards, deliverables.",
                   "Resell at $500-1,500/client. Keep 60-70% margin.",
+                  "Same engine at every tier — $150 at 15+ clients, $250 at 1 client.",
                   "14-day onboarding for your first 5 clients.",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-3">
@@ -284,7 +282,7 @@ export default function HomePage() {
                 rows={[
                   { label: "Traditional agency", values: ["~~$1,500-3,000~~"] },
                   { label: "Other white-label providers", values: ["~~$400-800~~"] },
-                  { label: "Omni Path", values: ["$200"], highlight: true, note: "Same deliverables · 90% lower cost" },
+                  { label: "Omni Path", values: ["$150-$250"], highlight: true, note: "Same deliverables · 90% lower cost" },
                 ]}
                 caption="Internal cost at a traditional agency: $800-1,300 to deliver what we ship at $70."
               />
@@ -319,9 +317,9 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {[
-              { tier: "Starter", price: "$250", clients: "1 client", features: ["Audit + on-page", "2-4 blogs/mo", "4-8 links/mo", "Monthly report"] },
-              { tier: "Growth", price: "$200", clients: "5+ clients", popular: true, features: ["+ technical SEO", "4-8 blogs/mo", "8-12 links/mo", "Content strategy + dedicated strategist"] },
-              { tier: "Scale", price: "$150", clients: "15+ clients", features: ["+ weekly audit cadence", "8-16 blogs/mo", "12-20 links/mo", "Custom dashboard + partner manager"] },
+              { tier: "Starter", price: "$250", clients: "1 client", features: ["Monthly audit + on-page", "2-4 blogs/mo", "4-8 backlinks/mo", "1 location optimization", "SE Ranking · 10 keywords", "Monthly white-label report"] },
+              { tier: "Growth", price: "$200", clients: "5+ clients", popular: true, features: ["Monthly audit + on-page", "2-4 blogs/mo", "4-8 backlinks/mo", "1 location optimization", "SE Ranking · 10 keywords", "Monthly white-label report"] },
+              { tier: "Scale", price: "$150", clients: "15+ clients", features: ["Monthly audit + on-page", "2-4 blogs/mo", "4-8 backlinks/mo", "1 location optimization", "SE Ranking · 10 keywords", "Monthly white-label report"] },
             ].map((t) => (
               <ScrollReveal key={t.tier} delay={0.05}>
                 <div

@@ -19,15 +19,17 @@ export const metadata: Metadata = buildMetadata({
   path: "/for-agencies",
 });
 
+// All white-label services use the same $150/$200/$250 tier structure
+// (1 / 5+ / 15+ clients). Updated 2026-08-22 — same engine at every tier.
 const SERVICES = [
-  { label: "White-label SEO", price: "$200/client", margin: "70%", resell: "$500-1,500/client" },
-  { label: "Paid Ads", price: "$300/mo", margin: "65%", resell: "$800-1,500/mo" },
-  { label: "Branding", price: "$150", margin: "60-70%", resell: "$500-1,500" },
-  { label: "Web & CRO", price: "$300", margin: "60-70%", resell: "$1,000-3,000" },
-  { label: "Social Media", price: "$500/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "TikTok + LinkedIn", price: "$500/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "Email & Lifecycle", price: "$500/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "Analytics", price: "$500/mo", margin: "55%", resell: "$1,000-1,800/mo" },
+  { label: "White-label SEO", price: "$150-250/client/mo", margin: "70%", resell: "$500-1,500/client/mo" },
+  { label: "Paid Ads (Google / Meta)", price: "$150-250/client/mo", margin: "65%", resell: "$800-1,500/mo" },
+  { label: "Branding", price: "$150-250/client/mo", margin: "60-70%", resell: "$500-1,500" },
+  { label: "Web & CRO", price: "$150-250/client/mo", margin: "60-70%", resell: "$1,000-3,000" },
+  { label: "Social Media", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
+  { label: "TikTok + LinkedIn", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
+  { label: "Email & Lifecycle", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
+  { label: "Analytics", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
 ];
 
 const STEPS = [

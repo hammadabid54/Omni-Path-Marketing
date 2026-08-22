@@ -13,23 +13,31 @@ import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "AI Digital Marketing Agency for Businesses | Omni Path",
   description:
-    "Done-for-you growth for ambitious brands. AI-powered SEO, paid ads, web, branding, social, email. One team, one invoice. 60-70% lower than traditional agencies.",
+    "Done-for-you growth for ambitious brands. SEO, paid ads, web, branding, social, email. Bronze / Silver / Gold tiers. One team, one invoice. 60-70% lower than traditional agencies.",
   path: "/for-businesses",
 });
 
+// Direct (business) pricing — Bronze / Silver / Gold per XPRT-Marketing
+// Service & Pricing Guide. Updated 2026-08-22.
 const PRICING = [
-  { tier: "Local SEO", price: "$400/mo", desc: "1 location, GBP, 2 blogs, 4 links, monthly report" },
-  { tier: "Growth SEO", price: "$800/mo", desc: "Multi-location, 4 blogs, 8 links, content strategy" },
-  { tier: "Enterprise SEO", price: "$2,000+/mo", desc: "Custom, dedicated team, weekly calls" },
-  { tier: "Local + Website Care", price: "$600/mo", desc: "Local SEO + full website maintenance" },
-  { tier: "Growth + Care (popular)", price: "$1,200/mo", desc: "Growth SEO + maintenance + content edits" },
-  { tier: "Paid Ads Starter", price: "$500/mo", desc: "+ $1,500/mo min spend" },
-  { tier: "Paid Ads Growth", price: "$1,000/mo", desc: "+ $3,000/mo min spend" },
-  { tier: "Paid Ads Scale", price: "$2,000/mo", desc: "+ $10,000/mo min spend" },
-  { tier: "Brand Identity", price: "$2,500", desc: "Logo, guide, messaging, pitch deck (14 days)" },
-  { tier: "Landing Page", price: "$1,000", desc: "1 high-converting page (5 days)" },
-  { tier: "Standard Site", price: "$2,500", desc: "5-8 pages (10 days)" },
-  { tier: "Custom Site", price: "$5,000+", desc: "10-20 pages (14 days)" },
+  { tier: "SEO Bronze", price: "$250/mo", desc: "6 blogs, 5 backlinks, 100 listings, 10 keywords, monthly report" },
+  { tier: "SEO Silver", price: "$350/mo", desc: "10 blogs, 10 backlinks, 150 listings, 20 keywords, monthly report + call" },
+  { tier: "SEO Gold", price: "$450/mo", desc: "15 blogs, 20 backlinks, 200 listings, 35 keywords, weekly tracking, dedicated strategist" },
+  { tier: "Social Media Bronze", price: "$200/mo", desc: "2 platforms, 12 posts, custom graphics, content calendar" },
+  { tier: "Social Media Silver", price: "$300/mo", desc: "3 platforms, 20 posts, content calendar + performance reporting" },
+  { tier: "Social Media Gold", price: "$400/mo", desc: "4+ platforms, 30 posts, video content + influencer outreach" },
+  { tier: "Paid Ads Bronze", price: "$250/mo", desc: "1 platform, setup + monthly optimization, ad spend billed separately" },
+  { tier: "Paid Ads Silver", price: "$400/mo", desc: "2 platforms, A/B testing, retargeting, 5 ad copies + 4 static + 1 video" },
+  { tier: "Paid Ads Gold", price: "$600/mo", desc: "3-4 platforms, full-funnel strategy, 8 copies + 6 static + 3 video ads" },
+  { tier: "Web Design Bronze", price: "$150/mo", desc: "Up to 5 pages, basic template, SSL + backup, 3 custom graphics" },
+  { tier: "Web Design Silver", price: "$300/mo", desc: "Up to 10 pages, custom design, contact forms, 8 graphics + 1 promo video" },
+  { tier: "Web Design Gold", price: "$500/mo", desc: "Up to 20 pages, e-com / booking ready, speed optimized, 15+ graphics + 2 videos" },
+  { tier: "Branding Bronze", price: "$150/mo", desc: "1 logo concept, 2 revisions, basic color palette" },
+  { tier: "Branding Silver", price: "$250/mo", desc: "2 logo concepts, 4 revisions, color + typography + business card" },
+  { tier: "Branding Gold", price: "$400/mo", desc: "3 logo concepts, unlimited revisions, full style guide + social media kit" },
+  { tier: "Creative Bronze", price: "$200/mo", desc: "5 static designs, 1 short-form video edit (30 sec)" },
+  { tier: "Creative Silver", price: "$350/mo", desc: "10 static designs, 3 video edits, 1 campaign concept" },
+  { tier: "Creative Gold", price: "$550/mo", desc: "20 static designs, 6 video edits, 3 campaign concepts + storyboard" },
 ];
 
 const STEPS = [
@@ -64,7 +72,7 @@ export default function ForBusinessesPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
             <p>
-              Most agencies charge $1,500-3,000/month for SEO. We charge $400-2,000. Same strategy, same deliverables, same results. The difference? We built our delivery pipeline on AI + automation, so our costs are 70% lower. We pass the savings to you.
+              Most agencies charge $1,500-3,000/month for SEO. We charge $250-450 — Bronze / Silver / Gold. Same strategy, same deliverables, same results. The difference? We built our delivery pipeline on AI + automation, so our costs are 70% lower. We pass the savings to you.
             </p>
             <p className="mt-4">
               You get a full senior growth team for less than one mid-level hire. We earn your business every month. No long contracts, no setup fees, no surprises.
