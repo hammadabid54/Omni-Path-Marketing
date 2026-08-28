@@ -1,11 +1,92 @@
 /**
  * BlogBlockRenderer — renders a BlogBlock tree as styled HTML.
  * Server component. No JS, no client deps.
+ *
+ * Supports inline markdown links in text fields: `[anchor](url)`.
+ * External URLs (http/https) render as <a target="_blank">;
+ * relative URLs render as Next.js <Link>.
  */
 import type { BlogBlock } from "@/content/blog";
 import Link from "next/link";
+import type { ReactNode } from "react";
+
+/** Parse `[anchor](url)` markdown inside a text field and render as links. */
+function renderInline(text: string, keyPrefix: string): ReactNode {
+  if (!text || !text.includes("](")) return text;
+  const parts: ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let k = 0;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const anchor = match[1];
+    const url = match[2];
+    const linkClass = "text-lime-400 underline decoration-lime-400/40 underline-offset-2 hover:text-lime-300 hover:decoration-lime-300";
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      parts.push(
+        <a
+          key={`${keyPrefix}-${k++}`}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+        >
+          {anchor}
+        </a>,
+      );
+    } else {
+      parts.push(
+        <Link
+          key={`${keyPrefix}-${k++}`}
+          href={url}
+          className={linkClass}
+        >
+          {anchor}
+        </Link>,
+      );
+    }
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
+/** Slugify an H2 string for use as a stable HTML id (and TOC anchor target). */
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+/** Walk all blocks, find H2s, and produce a map from H2 text → unique slug id.
+ *  De-duplicates collisions with `-1`, `-2` suffixes (renders as `h-1` if needed). */
+function buildHeadingIdMap(blocks: BlogBlock[]): Map<string, string> {
+  const map = new Map<string, string>();
+  const used = new Set<string>();
+  for (const b of blocks) {
+    if (b.type === "h2") {
+      const base = slugifyHeading(b.text);
+      let id = base;
+      let n = 2;
+      while (used.has(id)) {
+        id = `${base}-${n++}`;
+      }
+      used.add(id);
+      map.set(b.text, id);
+    }
+  }
+  return map;
+}
 
 export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
+  const idMap = buildHeadingIdMap(blocks);
   return (
     <div className="prose-legal">
       {blocks.map((b, i) => {
@@ -13,25 +94,33 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
           case "p":
             return (
               <p key={i} className="text-white/80 leading-relaxed text-[17px]">
-                {b.text}
+                {renderInline(b.text, `p-${i}`)}
               </p>
             );
-          case "h2":
+          case "h2": {
+            const id = idMap.get(b.text);
             return (
               <h2
                 key={i}
-                className="mt-14 mb-4 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-white"
+                id={id}
+                className="mt-14 mb-4 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-white scroll-mt-24"
               >
-                {b.text}
+                <a
+                  href={`#${id}`}
+                  className="no-underline hover:text-lime-400 transition-colors"
+                >
+                  {renderInline(b.text, `h2-${i}`)}
+                </a>
               </h2>
             );
+          }
           case "h3":
             return (
               <h3
                 key={i}
                 className="mt-10 mb-3 text-xl md:text-2xl font-semibold text-white"
               >
-                {b.text}
+                {renderInline(b.text, `h3-${i}`)}
               </h3>
             );
           case "ul":
@@ -39,7 +128,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
               <ul key={i} className="my-5 space-y-2 list-disc pl-6 text-white/80">
                 {b.items.map((it, j) => (
                   <li key={j} className="leading-relaxed text-[17px]">
-                    {it}
+                    {renderInline(it, `ul-${i}-${j}`)}
                   </li>
                 ))}
               </ul>
@@ -49,7 +138,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
               <ol key={i} className="my-5 space-y-2 list-decimal pl-6 text-white/80">
                 {b.items.map((it, j) => (
                   <li key={j} className="leading-relaxed text-[17px]">
-                    {it}
+                    {renderInline(it, `ol-${i}-${j}`)}
                   </li>
                 ))}
               </ol>
@@ -60,10 +149,10 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                 key={i}
                 className="my-8 border-l-4 border-lime-400 pl-6 italic text-xl md:text-2xl text-white leading-snug"
               >
-                &ldquo;{b.text}&rdquo;
+                &ldquo;{renderInline(b.text, `q-${i}`)}&rdquo;
                 {b.cite && (
                   <footer className="mt-3 text-sm not-italic text-white/55">
-                    — {b.cite}
+                    — {renderInline(b.cite, `qc-${i}`)}
                   </footer>
                 )}
               </blockquote>
@@ -91,7 +180,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                     ? "Watch out"
                     : "Insight"}
                 </div>
-                {b.text}
+                {renderInline(b.text, `co-${i}`)}
               </div>
             );
           case "stats":
@@ -130,7 +219,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                           key={j}
                           className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5"
                         >
-                          {h}
+                          {renderInline(h, `th-${i}-${j}`)}
                         </th>
                       ))}
                     </tr>
@@ -143,7 +232,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                             key={k}
                             className="px-4 py-3 border-b border-white/5 text-white/85"
                           >
-                            {c}
+                            {renderInline(c, `td-${i}-${j}-${k}`)}
                           </td>
                         ))}
                       </tr>
@@ -152,6 +241,38 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                 </table>
               </div>
             );
+          case "toc": {
+            const h2s = blocks.filter(
+              (x): x is { type: "h2"; text: string } => x.type === "h2",
+            );
+            if (h2s.length < 2) return null;
+            return (
+              <nav
+                key={i}
+                aria-label="Table of contents"
+                className="my-10 rounded-xl border border-white/10 bg-white/[0.02] p-6 md:p-7"
+              >
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-lime-400 mb-4">
+                  In this guide
+                </div>
+                <ol className="space-y-2.5 text-[15px] list-decimal pl-5 marker:text-white/40">
+                  {h2s.map((h, j) => {
+                    const id = idMap.get(h.text);
+                    return (
+                      <li key={j} className="text-white/80 leading-snug">
+                        <a
+                          href={`#${id}`}
+                          className="hover:text-lime-400 transition-colors"
+                        >
+                          {h.text}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </nav>
+            );
+          }
           default:
             return null;
         }
