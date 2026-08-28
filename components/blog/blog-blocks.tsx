@@ -2,7 +2,8 @@
  * BlogBlockRenderer — renders a BlogBlock tree as styled HTML.
  * Server component. No JS, no client deps.
  *
- * Supports inline markdown links in text fields: `[anchor](url)`.
+ * Supports inline markdown in text fields: `[anchor](url)` links,
+ * `**bold**`, `*italic*`, and `` `inline code` ``.
  * External URLs (http/https) render as <a target="_blank">;
  * relative URLs render as Next.js <Link>.
  */
@@ -10,42 +11,84 @@ import type { BlogBlock } from "@/content/blog";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/** Parse `[anchor](url)` markdown inside a text field and render as links. */
+/**
+ * Parse inline markdown in a text field and render as React elements.
+ * Supports: `[anchor](url)` links, `**bold**`, `*italic*`, and `` `inline code` ``.
+ * External URLs (http/https) render as <a target="_blank">;
+ * relative URLs render as Next.js <Link>.
+ */
 function renderInline(text: string, keyPrefix: string): ReactNode {
-  if (!text || !text.includes("](")) return text;
+  if (!text) return text;
+  // Fast path: skip the regex walk if no markdown chars present
+  if (!/[\[*`]/.test(text)) return text;
+
   const parts: ReactNode[] = [];
-  const regex = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  // Order matters: links first (longer pattern), then **bold**, *italic*, `code`.
+  const regex =
+    /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*\n]+?)\*\*|\*([^*\n]+?)\*|`([^`\n]+?)`/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
   let k = 0;
+  const linkClass =
+    "text-lime-400 underline decoration-lime-400/40 underline-offset-2 hover:text-lime-300 hover:decoration-lime-300";
+
   while ((match = regex.exec(text)) !== null) {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
-    const anchor = match[1];
-    const url = match[2];
-    const linkClass = "text-lime-400 underline decoration-lime-400/40 underline-offset-2 hover:text-lime-300 hover:decoration-lime-300";
-    if (url.startsWith("http://") || url.startsWith("https://")) {
+    if (match[1] !== undefined && match[2] !== undefined) {
+      // [anchor](url) link
+      const anchor = match[1];
+      const url = match[2];
+      if (url.startsWith("http://") || url.startsWith("https://")) {
+        parts.push(
+          <a
+            key={`${keyPrefix}-${k++}`}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            {anchor}
+          </a>,
+        );
+      } else {
+        parts.push(
+          <Link
+            key={`${keyPrefix}-${k++}`}
+            href={url}
+            className={linkClass}
+          >
+            {anchor}
+          </Link>,
+        );
+      }
+    } else if (match[3] !== undefined) {
+      // **bold**
       parts.push(
-        <a
+        <strong
           key={`${keyPrefix}-${k++}`}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={linkClass}
+          className="font-semibold text-white"
         >
-          {anchor}
-        </a>,
+          {match[3]}
+        </strong>,
       );
-    } else {
+    } else if (match[4] !== undefined) {
+      // *italic*
       parts.push(
-        <Link
+        <em key={`${keyPrefix}-${k++}`} className="italic text-white/90">
+          {match[4]}
+        </em>,
+      );
+    } else if (match[5] !== undefined) {
+      // `inline code`
+      parts.push(
+        <code
           key={`${keyPrefix}-${k++}`}
-          href={url}
-          className={linkClass}
+          className="px-1.5 py-0.5 rounded bg-white/10 text-lime-400 font-mono text-[0.9em]"
         >
-          {anchor}
-        </Link>,
+          {match[5]}
+        </code>,
       );
     }
     lastIndex = match.index + match[0].length;
