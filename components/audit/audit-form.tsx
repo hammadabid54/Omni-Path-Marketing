@@ -68,7 +68,7 @@ export function AuditForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="rounded-2xl border border-white/10 bg-white/2 p-6 md:p-8"
+      className="rounded-2xl border border-neutral-200/10 bg-neutral-900/2 p-6 md:p-8"
     >
       <div className="grid gap-5">
         <Field
@@ -162,7 +162,7 @@ export function AuditForm() {
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="flex items-center gap-2 rounded-lg border border-lime-400/30 bg-lime-400/8 p-3 text-sm text-lime-200"
+              className="flex items-center gap-2 rounded-lg border border-blue-600/30 bg-blue-600/8 p-3 text-sm text-blue-200"
             >
               <CheckCircle2 className="h-4 w-4" /> Audit complete. Loading your report…
             </motion.div>
@@ -189,7 +189,7 @@ export function AuditForm() {
           )}
         </button>
 
-        <p className="text-xs text-white/45">
+        <p className="text-xs text-neutral-900/45">
           20-point audit · Delivered in 60s · No credit card · Unsubscribe anytime
         </p>
       </div>
@@ -214,7 +214,7 @@ function Field({
     <div>
       <label htmlFor={id} className="label">
         {label}
-        {required && <span aria-hidden className="text-lime-400 ml-1">*</span>}
+        {required && <span aria-hidden className="text-blue-600 ml-1">*</span>}
       </label>
       {input}
       {error && (

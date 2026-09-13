@@ -80,12 +80,12 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border border-lime-400/30 bg-lime-400/5 p-8 text-center"
+        className="rounded-2xl border border-blue-600/30 bg-blue-600/5 p-8 text-center"
         role="status"
       >
-        <CheckCircle2 className="h-8 w-8 text-lime-400 mx-auto" />
-        <h3 className="mt-3 text-xl font-semibold text-white">Got it. We&apos;ll reply within 4 hours.</h3>
-        <p className="mt-2 text-white/65 text-sm">
+        <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto" />
+        <h3 className="mt-3 text-xl font-semibold text-neutral-900">Got it. We&apos;ll reply within 4 hours.</h3>
+        <p className="mt-2 text-neutral-900/65 text-sm">
           Check your inbox for a confirmation. In the meantime, want to skip the queue?
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -104,7 +104,7 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="rounded-2xl border border-white/10 bg-white/2 p-6 md:p-8"
+      className="rounded-2xl border border-neutral-200/10 bg-neutral-900/2 p-6 md:p-8"
     >
       <fieldset>
         <legend className="label">I&apos;m interested as a…</legend>
@@ -120,8 +120,8 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
                 className={
                   "cursor-pointer rounded-xl border p-4 transition-colors " +
                   (selected
-                    ? "border-lime-400 bg-lime-400/5"
-                    : "border-white/10 bg-white/2 hover:border-white/20")
+                    ? "border-blue-600 bg-blue-600/5"
+                    : "border-neutral-200/10 bg-neutral-900/2 hover:border-neutral-200/20")
                 }
               >
                 <input
@@ -131,8 +131,8 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
                   checked={selected}
                   onChange={() => setValue("type", opt.v as "agency" | "business")}
                 />
-                <div className="text-sm font-semibold text-white">{opt.t}</div>
-                <div className="mt-1 text-xs text-white/55">{opt.s}</div>
+                <div className="text-sm font-semibold text-neutral-900">{opt.t}</div>
+                <div className="mt-1 text-xs text-neutral-900/55">{opt.s}</div>
               </label>
             );
           })}
@@ -171,7 +171,7 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
                 }}
                 className={
                   "pill cursor-pointer transition-colors " +
-                  (active ? "pill-accent" : "hover:border-white/30")
+                  (active ? "pill-accent" : "hover:border-neutral-200/30")
                 }
                 aria-pressed={active}
               >
@@ -234,7 +234,7 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
           </>
         )}
       </button>
-      <p className="mt-3 text-xs text-white/45">Replies within 4 business hours · No spam, ever</p>
+      <p className="mt-3 text-xs text-neutral-900/45">Replies within 4 business hours · No spam, ever</p>
     </form>
   );
 }
@@ -256,7 +256,7 @@ function Field({
     <div>
       <label htmlFor={id} className="label">
         {label}
-        {required && <span aria-hidden className="text-lime-400 ml-1">*</span>}
+        {required && <span aria-hidden className="text-blue-600 ml-1">*</span>}
       </label>
       {children}
       {error && (

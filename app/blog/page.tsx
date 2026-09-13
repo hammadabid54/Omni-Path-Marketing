@@ -33,7 +33,7 @@ export default function BlogPage() {
         title={
           <>
             Marketing insights.{" "}
-            <em className="font-serif not-italic text-lime-400">From the team that does the work.</em>
+            <em className="font-serif not-italic text-blue-600">From the team that does the work.</em>
           </>
         }
         subhead="Original research, playbooks, and case studies on SEO, AI, and growth marketing. No fluff, no recycled content."
@@ -43,15 +43,15 @@ export default function BlogPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Categories</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Browse by <em className="font-serif not-italic text-lime-400">topic.</em>
+            Browse by <em className="font-serif not-italic text-blue-600">topic.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
           {CATEGORIES.map((c) => (
             <StaggerItem key={c.name}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{c.name}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{c.d}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{c.name}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{c.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -62,9 +62,9 @@ export default function BlogPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Featured</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Recent <em className="font-serif not-italic text-lime-400">posts.</em>
+            Recent <em className="font-serif not-italic text-blue-600">posts.</em>
           </h2>
-          <p className="mt-3 text-sm text-white/55">{BLOG_POSTS.length} long-form pieces. Updated as we ship.</p>
+          <p className="mt-3 text-sm text-neutral-900/55">{BLOG_POSTS.length} long-form pieces. Updated as we ship.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.06}>
           {BLOG_POSTS.map((p) => {
@@ -73,7 +73,7 @@ export default function BlogPage() {
               <StaggerItem key={p.slug}>
                 <Link
                   href={`/blog/${p.slug}`}
-                  className="bento bento-lg h-full group block hover:border-lime-400/40"
+                  className="bento bento-lg h-full group block hover:border-blue-600/40"
                 >
                   <div className="flex flex-wrap items-center gap-2 text-[10px]">
                     <span className="pill pill-accent">{p.category}</span>
@@ -81,17 +81,17 @@ export default function BlogPage() {
                       <Clock className="h-3 w-3" /> {p.readMinutes} min
                     </span>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-white leading-snug">
-                    <span className="bg-gradient-to-r from-lime-400 to-lime-400 bg-[length:0%_1px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_1px] transition-[background-size] duration-500">
+                  <h3 className="mt-4 text-xl font-semibold text-neutral-900 leading-snug">
+                    <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-[length:0%_1px] bg-no-repeat bg-bottom group-hover:bg-[length:100%_1px] transition-[background-size] duration-500">
                       {p.title}
                     </span>
                   </h3>
-                  <p className="mt-2 text-sm text-white/65 line-clamp-3">{p.description}</p>
+                  <p className="mt-2 text-sm text-neutral-900/65 line-clamp-3">{p.description}</p>
                   <div className="mt-4 flex items-center justify-between gap-3">
-                    <span className="text-xs text-white/55">
+                    <span className="text-xs text-neutral-900/55">
                       {author ? `by ${author.name}` : "Omni Path team"}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-sm text-lime-400">
+                    <span className="inline-flex items-center gap-1.5 text-sm text-blue-600">
                       Read <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
@@ -104,11 +104,11 @@ export default function BlogPage() {
 
       <Section>
         <ScrollReveal>
-          <div className="rounded-2xl border border-lime-400/20 bg-lime-400/4 p-8 text-center">
+          <div className="rounded-2xl border border-blue-600/20 bg-blue-600/4 p-8 text-center">
             <h3 className="text-2xl md:text-3xl font-bold">
-              Get our monthly <em className="font-serif not-italic text-lime-400">transparency report.</em>
+              Get our monthly <em className="font-serif not-italic text-blue-600">transparency report.</em>
             </h3>
-            <p className="mt-3 text-white/70 max-w-md mx-auto">What we shipped, what worked, what didn&apos;t. One email per month. No spam.</p>
+            <p className="mt-3 text-neutral-900/70 max-w-md mx-auto">What we shipped, what worked, what didn&apos;t. One email per month. No spam.</p>
             <form className="mt-6 flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
               <input type="email" placeholder="you@company.com" className="input flex-1" aria-label="Email address" />
               <LinkButton href="/contact" variant="primary">Subscribe</LinkButton>

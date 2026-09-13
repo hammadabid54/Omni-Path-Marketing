@@ -105,19 +105,19 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             {props.whatWeDoTitle}
           </h2>
-          {props.whatWeDoSubhead && <p className="mt-4 text-white/70">{props.whatWeDoSubhead}</p>}
+          {props.whatWeDoSubhead && <p className="mt-4 text-neutral-900/70">{props.whatWeDoSubhead}</p>}
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           {props.features.map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
                 {f.icon && (
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     {f.icon}
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{f.description}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{f.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{f.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -135,13 +135,13 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
               </h2>
             )}
             {props.whiteLabelSubhead && (
-              <p className="mt-4 text-white/70">{props.whiteLabelSubhead}</p>
+              <p className="mt-4 text-neutral-900/70">{props.whiteLabelSubhead}</p>
             )}
           </ScrollReveal>
           <ScrollReveal delay={0.1} className="mt-10">
-            <div className="overflow-x-auto rounded-2xl border border-white/8">
+            <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
               <table className="w-full text-left text-sm">
-                <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+                <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                   <tr>
                     <th className="px-5 py-4 font-medium">Tier</th>
                     <th className="px-5 py-4 font-medium">Price</th>
@@ -154,18 +154,18 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
                       key={i}
                       className={
                         row.popular
-                          ? "border-b border-white/5 bg-lime-400/5 last:border-0"
-                          : "border-b border-white/5 last:border-0"
+                          ? "border-b border-neutral-200/5 bg-blue-600/5 last:border-0"
+                          : "border-b border-neutral-200/5 last:border-0"
                       }
                     >
-                      <td className="px-5 py-4 text-white/85 font-medium">
+                      <td className="px-5 py-4 text-neutral-900/85 font-medium">
                         {row.tier}
                         {row.popular && (
                           <span className="ml-2 pill pill-accent text-[10px]">Popular</span>
                         )}
                       </td>
-                      <td className="px-5 py-4 text-lime-400 font-semibold">{row.price}</td>
-                      <td className="px-5 py-4 text-white/70">{row.includes}</td>
+                      <td className="px-5 py-4 text-blue-600 font-semibold">{row.price}</td>
+                      <td className="px-5 py-4 text-neutral-900/70">{row.includes}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -185,13 +185,13 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
               </h2>
             )}
             {props.directSubhead && (
-              <p className="mt-4 text-white/70">{props.directSubhead}</p>
+              <p className="mt-4 text-neutral-900/70">{props.directSubhead}</p>
             )}
           </ScrollReveal>
           <ScrollReveal delay={0.1} className="mt-10">
-            <div className="overflow-x-auto rounded-2xl border border-white/8">
+            <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
               <table className="w-full text-left text-sm">
-                <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+                <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                   <tr>
                     <th className="px-5 py-4 font-medium">Tier</th>
                     <th className="px-5 py-4 font-medium">Price</th>
@@ -204,18 +204,18 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
                       key={i}
                       className={
                         row.popular
-                          ? "border-b border-white/5 bg-lime-400/5 last:border-0"
-                          : "border-b border-white/5 last:border-0"
+                          ? "border-b border-neutral-200/5 bg-blue-600/5 last:border-0"
+                          : "border-b border-neutral-200/5 last:border-0"
                       }
                     >
-                      <td className="px-5 py-4 text-white/85 font-medium">
+                      <td className="px-5 py-4 text-neutral-900/85 font-medium">
                         {row.tier}
                         {row.popular && (
                           <span className="ml-2 pill pill-accent text-[10px]">Popular</span>
                         )}
                       </td>
-                      <td className="px-5 py-4 text-lime-400 font-semibold">{row.price}</td>
-                      <td className="px-5 py-4 text-white/70">{row.includes}</td>
+                      <td className="px-5 py-4 text-blue-600 font-semibold">{row.price}</td>
+                      <td className="px-5 py-4 text-neutral-900/70">{row.includes}</td>
                     </tr>
                   ))}
                 </tbody>

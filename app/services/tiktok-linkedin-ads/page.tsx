@@ -117,7 +117,7 @@ export default function TikTokLinkedInServicePage() {
         title={
           <>
             Reach Gen Z on TikTok.{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               Reach decision-makers on LinkedIn.
             </em>
           </>
@@ -137,9 +137,9 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">What we do</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Two paid social channels.{" "}
-            <em className="font-serif not-italic text-lime-400">One team.</em>
+            <em className="font-serif not-italic text-blue-600">One team.</em>
           </h2>
-          <p className="mt-5 text-lg text-white/70 leading-relaxed">
+          <p className="mt-5 text-lg text-neutral-900/70 leading-relaxed">
             TikTok and LinkedIn ads are the two highest-intent paid social
             platforms in 2026. We handle creative, targeting, campaign
             structure, tuning, and reporting. You approve every asset before
@@ -191,13 +191,13 @@ export default function TikTokLinkedInServicePage() {
           ].map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-neutral-900">
                   {f.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {f.description}
                 </p>
               </div>
@@ -212,9 +212,9 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">Direct pricing · TikTok + LinkedIn Ads</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Three tiers.{" "}
-            <em className="font-serif not-italic text-lime-400">No surprises.</em>
+            <em className="font-serif not-italic text-blue-600">No surprises.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Flat management fee per platform. Pick one to start, or run both on the same Bronze / Silver / Gold structure. Ad spend is billed separately to TikTok and LinkedIn at the platform minimums below. No revenue share, no percentage of spend.
           </p>
         </ScrollReveal>
@@ -227,12 +227,12 @@ export default function TikTokLinkedInServicePage() {
               <div
                 className={
                   t.popular
-                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/4"
+                    ? "bento h-full flex flex-col border-blue-600/40 bg-blue-600/4"
                     : "bento h-full flex flex-col"
                 }
               >
                 <div className="flex items-baseline justify-between gap-3 flex-wrap">
-                  <h3 className="text-base font-semibold text-white">
+                  <h3 className="text-base font-semibold text-neutral-900">
                     Direct · {t.name}
                     {t.popular && (
                       <span className="ml-2 pill pill-accent text-[10px]">
@@ -240,30 +240,30 @@ export default function TikTokLinkedInServicePage() {
                       </span>
                     )}
                   </h3>
-                  <span className="text-sm font-bold text-lime-400">
+                  <span className="text-sm font-bold text-blue-600">
                     {t.price}
                   </span>
                 </div>
-                <p className="mt-2 text-xs text-white/55">
+                <p className="mt-2 text-xs text-neutral-900/55">
                   Management fee per platform. Ad spend billed separately.
                 </p>
-                <p className="mt-3 text-sm font-semibold text-white/85">
+                <p className="mt-3 text-sm font-semibold text-neutral-900/85">
                   What&rsquo;s included:
                 </p>
-                <ul className="mt-2 space-y-1.5 text-sm text-white/75">
+                <ul className="mt-2 space-y-1.5 text-sm text-neutral-900/75">
                   {t.includes.map((line) => (
                     <li key={line} className="flex gap-2">
-                      <span className="text-lime-400 mt-1">·</span>
+                      <span className="text-blue-600 mt-1">·</span>
                       <span>{line}</span>
                     </li>
                   ))}
                 </ul>
                 {t.upgrade && (
-                  <div className="mt-4 rounded-lg border border-white/8 bg-white/2 p-3">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-lime-400">
+                  <div className="mt-4 rounded-lg border border-neutral-200/8 bg-neutral-900/2 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
                       Upgrade
                     </p>
-                    <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                    <p className="mt-1.5 text-xs text-neutral-900/70 leading-relaxed">
                       {t.upgrade}
                     </p>
                   </div>
@@ -271,7 +271,7 @@ export default function TikTokLinkedInServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -280,7 +280,7 @@ export default function TikTokLinkedInServicePage() {
             </StaggerItem>
           ))}
         </StaggerGroup>
-        <p className="mt-6 text-center text-xs text-white/45">
+        <p className="mt-6 text-center text-xs text-neutral-900/45">
           Min ad spend: TikTok $1,500/mo Bronze · $3,000/mo Silver · $5,000/mo Gold.
           LinkedIn $3,000/mo Bronze · $5,000/mo Silver · $10,000/mo Gold. Spend goes directly to each platform.
         </p>
@@ -288,20 +288,20 @@ export default function TikTokLinkedInServicePage() {
 
       {/* White-label pricing — standard $150-250 / client / mo */}
       <Section>
-        <div className="rounded-3xl border border-lime-400/25 bg-lime-400/[0.04] p-8 md:p-12">
+        <div className="rounded-3xl border border-blue-600/25 bg-blue-600/[0.04] p-8 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
             <div>
               <Eyebrow className="mb-4">White-label pricing</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
                 For agencies.{" "}
-                <em className="font-serif not-italic text-lime-400">
+                <em className="font-serif not-italic text-blue-600">
                   60-70% margin.
                 </em>
               </h2>
-              <p className="mt-4 text-white/75 leading-relaxed">
+              <p className="mt-4 text-neutral-900/75 leading-relaxed">
                 {WL_ROW.description} One flat fee, all-in. Resell at $1,000-1,800/mo per client and keep 60-70% of the recurring revenue. We work under your brand, your dashboard, your client-facing deliverables. Your client never sees us.
               </p>
-              <ul className="mt-6 grid gap-2 text-sm text-white/80">
+              <ul className="mt-6 grid gap-2 text-sm text-neutral-900/80">
                 {[
                   `${WL_PRICE_RANGE} all-in — no setup fees, no add-ons`,
                   "Resell at $1,000-1,800/mo for 60-70% margin",
@@ -309,7 +309,7 @@ export default function TikTokLinkedInServicePage() {
                   "TikTok, LinkedIn, Meta, or your stack",
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+                    <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
                     <span>{line}</span>
                   </li>
                 ))}
@@ -317,36 +317,36 @@ export default function TikTokLinkedInServicePage() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/for-agencies"
-                  className="inline-flex items-center justify-center rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                 >
                   See agency partner program
                 </Link>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full border border-neutral-200/15 bg-neutral-900/5 px-5 py-2.5 text-sm font-medium text-neutral-900/85 hover:bg-neutral-900/10 transition-colors"
                 >
                   See full pricing
                 </Link>
               </div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-[#0A0A0F] p-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/55">
+            <div className="rounded-2xl border border-neutral-200/10 bg-white p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-neutral-900/55">
                 The margin math
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">Your cost (us)</span>
-                  <span className="text-base font-semibold text-white">$200/mo</span>
+                  <span className="text-sm text-neutral-900/70">Your cost (us)</span>
+                  <span className="text-base font-semibold text-neutral-900">$200/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">You charge client</span>
-                  <span className="text-base font-semibold text-lime-400">$1,200/mo</span>
+                  <span className="text-sm text-neutral-900/70">You charge client</span>
+                  <span className="text-base font-semibold text-blue-600">$1,200/mo</span>
                 </div>
-                <div className="border-t border-white/10 pt-3 flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">Your margin</span>
-                  <span className="text-xl font-bold text-lime-400">$1,000/mo</span>
+                <div className="border-t border-neutral-200/10 pt-3 flex items-baseline justify-between">
+                  <span className="text-sm text-neutral-900/70">Your margin</span>
+                  <span className="text-xl font-bold text-blue-600">$1,000/mo</span>
                 </div>
-                <p className="text-xs text-white/55 pt-1">
+                <p className="text-xs text-neutral-900/55 pt-1">
                   10 clients = $10,000/mo recurring. 83% margin before you touch a deliverable.
                 </p>
               </div>
@@ -361,11 +361,11 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">TikTok vs LinkedIn</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Different platforms.{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               Different jobs.
             </em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Use both. They don&apos;t compete. TikTok and LinkedIn ads sit at
             opposite ends of the paid social funnel, and the strongest
             strategies stack them.
@@ -374,13 +374,13 @@ export default function TikTokLinkedInServicePage() {
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           <ScrollReveal>
             <div className="bento bento-lg h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Video className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-2xl font-semibold text-white">
+              <h3 className="mt-4 text-2xl font-semibold text-neutral-900">
                 TikTok = top of funnel, Gen Z, consumer
               </h3>
-              <p className="mt-2 text-white/65 leading-relaxed">
+              <p className="mt-2 text-neutral-900/65 leading-relaxed">
                 TikTok is where you build awareness, ship UGC creative, and
                 reach Gen Z and younger millennials in the same scroll. Cheap
                 CPMs, fast creative turnaround, native-feeling ads. Best for
@@ -391,13 +391,13 @@ export default function TikTokLinkedInServicePage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div className="bento bento-lg h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Briefcase className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-2xl font-semibold text-white">
+              <h3 className="mt-4 text-2xl font-semibold text-neutral-900">
                 LinkedIn = bottom of funnel, B2B, decision-makers
               </h3>
-              <p className="mt-2 text-white/65 leading-relaxed">
+              <p className="mt-2 text-neutral-900/65 leading-relaxed">
                 LinkedIn is where you reach the people who sign contracts.
                 Target by job title, company, seniority, industry, and
                 company size — no other paid social channel gives you that.
@@ -416,11 +416,11 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">What&apos;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Same foundation.{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               Every tier.
             </em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Every plan ships with the same core deliverables, regardless of
             tier. Higher tiers add volume and dedicated support, but never
             skip the basics.
@@ -452,13 +452,13 @@ export default function TikTokLinkedInServicePage() {
           ].map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-neutral-900">
                   {f.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {f.description}
                 </p>
               </div>
@@ -473,11 +473,11 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Two platforms.{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               One automated machine.
             </em>
           </h2>
-          <p className="mt-5 text-lg text-white/70 leading-relaxed">
+          <p className="mt-5 text-lg text-neutral-900/70 leading-relaxed">
             We move fast on TikTok and LinkedIn because most of the work runs
             through automation — not extra billable hours. Here&apos;s the
             stack that ships every campaign.
@@ -490,13 +490,13 @@ export default function TikTokLinkedInServicePage() {
           {behindTheScenesTools.map((t) => (
             <StaggerItem key={t.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {t.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-neutral-900">
                   {t.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {t.description}
                 </p>
               </div>
@@ -504,30 +504,30 @@ export default function TikTokLinkedInServicePage() {
           ))}
         </StaggerGroup>
         <ScrollReveal delay={0.1} className="mt-12 max-w-3xl">
-          <div className="bento bento-lg border-lime-400/25 bg-lime-400/4">
-            <h3 className="text-2xl font-semibold text-white">
+          <div className="bento bento-lg border-blue-600/25 bg-blue-600/4">
+            <h3 className="text-2xl font-semibold text-neutral-900">
               What this means for you
             </h3>
-            <ul className="mt-5 space-y-2.5 text-base text-white/80 leading-relaxed">
+            <ul className="mt-5 space-y-2.5 text-base text-neutral-900/80 leading-relaxed">
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1">·</span>
+                <span className="text-blue-600 mt-1">·</span>
                 <span>
                   20+ ad variants per campaign, always testing.
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1">·</span>
+                <span className="text-blue-600 mt-1">·</span>
                 <span>Bid adjustments every 4 hours, not weekly.</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1">·</span>
+                <span className="text-blue-600 mt-1">·</span>
                 <span>
                   5 hours of media buyer time per client per month (vs 30+
                   at a traditional agency).
                 </span>
               </li>
             </ul>
-            <p className="mt-6 text-base text-white/70 leading-relaxed">
+            <p className="mt-6 text-base text-neutral-900/70 leading-relaxed">
               Less time on the work means lower management fees. That&apos;s
               how Bronze lands at $400/mo per platform — while traditional agencies charge $3,000-6,000/mo
               for the same scope of work. The automation is your discount.
@@ -542,7 +542,7 @@ export default function TikTokLinkedInServicePage() {
         title={
           <>
             From kickoff to live campaign in{" "}
-            <em className="font-serif not-italic text-lime-400">7 days.</em>
+            <em className="font-serif not-italic text-blue-600">7 days.</em>
           </>
         }
         subhead="Same playbook for TikTok and LinkedIn. Faster for white-label clients because we already have the templates."
@@ -585,23 +585,23 @@ export default function TikTokLinkedInServicePage() {
           <Eyebrow className="mb-4">Pair it with</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             TikTok and LinkedIn ads work{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               even better stacked.
             </em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Most clients running TikTok and LinkedIn ads also need Google
             and Meta in the mix. Bundle paid social with our{" "}
             <Link
               href="/services/paid-ads"
-              className="text-lime-400 underline underline-offset-2 hover:text-lime-300"
+              className="text-blue-600 underline underline-offset-2 hover:text-blue-300"
             >
               Google and Meta ads management
             </Link>{" "}
             for full-funnel coverage, or layer in organic{" "}
             <Link
               href="/services/social-media"
-              className="text-lime-400 underline underline-offset-2 hover:text-lime-300"
+              className="text-blue-600 underline underline-offset-2 hover:text-blue-300"
             >
               social media content
             </Link>{" "}
@@ -624,7 +624,7 @@ export default function TikTokLinkedInServicePage() {
         title={
           <>
             TikTok and LinkedIn ads,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         subhead="The questions every client asks in the first call."
@@ -637,7 +637,7 @@ export default function TikTokLinkedInServicePage() {
         title={
           <>
             Ready to run TikTok and LinkedIn ads{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               that convert?
             </em>
           </>

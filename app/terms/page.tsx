@@ -14,7 +14,7 @@ export default function TermsPage() {
   return (
     <Section spacing="default" container="narrow">
       <div className="prose-legal">
-        <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">Last updated: August 2026</p>
+        <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">Last updated: August 2026</p>
         <h1>Terms of Service</h1>
         <p>
           These Terms govern your use of Omni Path Marketing&apos;s website and services. By using the site or signing up for a service you agree to these Terms. We&apos;ve tried to keep them short and clear.

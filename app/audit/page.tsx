@@ -39,7 +39,7 @@ export default function AuditPage() {
         eyebrow="Free tool · 20-point audit · Delivered in 60 seconds"
         title={
           <>
-            See what&apos;s <em className="font-serif not-italic text-lime-400">hurting your rankings.</em>
+            See what&apos;s <em className="font-serif not-italic text-blue-600">hurting your rankings.</em>
           </>
         }
         subhead="Drop in your URL. We'll scan 20 SEO issues in 60 seconds and email you a scored, branded report. No credit card. No sales call."
@@ -52,19 +52,19 @@ export default function AuditPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-white/55">Your report covers</h3>
-            <ul className="mt-4 space-y-2 text-white/80">
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-900/55">Your report covers</h3>
+            <ul className="mt-4 space-y-2 text-neutral-900/80">
               {CHECKS.map((c) => (
                 <li key={c} className="flex items-start gap-2">
-                  <span className="text-lime-400 mt-1">·</span>
+                  <span className="text-blue-600 mt-1">·</span>
                   <span>{c}</span>
                 </li>
               ))}
-              <li className="text-white/50">+ 8 more in the full PDF</li>
+              <li className="text-neutral-900/50">+ 8 more in the full PDF</li>
             </ul>
 
-            <h3 className="mt-10 text-sm font-semibold uppercase tracking-widest text-white/55">Why trust this audit?</h3>
-            <ul className="mt-4 space-y-2 text-white/80">
+            <h3 className="mt-10 text-sm font-semibold uppercase tracking-widest text-neutral-900/55">Why trust this audit?</h3>
+            <ul className="mt-4 space-y-2 text-neutral-900/80">
               <li>· Built on the same tools we use daily — Ahrefs, Lighthouse, Puppeteer</li>
               <li>· No spam — your email is only used to send the audit. Unsubscribe anytime.</li>
               <li>· No sales call required — get the report, decide if you want help</li>
@@ -78,9 +78,9 @@ export default function AuditPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What the report looks like</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            A 15-20 page PDF. <em className="font-serif not-italic text-lime-400">Scored, ranked, actionable.</em>
+            A 15-20 page PDF. <em className="font-serif not-italic text-blue-600">Scored, ranked, actionable.</em>
           </h2>
-          <ul className="mt-6 space-y-2 text-white/80">
+          <ul className="mt-6 space-y-2 text-neutral-900/80">
             <li>· Overall SEO score (0-100)</li>
             <li>· Section scores (technical, on-page, content, links, performance)</li>
             <li>· Top 5 issues ranked by impact</li>
@@ -94,7 +94,7 @@ export default function AuditPage() {
       <FaqSection eyebrow="FAQ" title="Audit questions." items={auditFaq} />
 
       <CtaSection
-        title={<>Ready to see <em className="font-serif not-italic text-lime-400">what&apos;s wrong?</em></>}
+        title={<>Ready to see <em className="font-serif not-italic text-blue-600">what&apos;s wrong?</em></>}
         subhead="Submit your URL. Get a 20-point report in 60 seconds. Then decide if you want help."
         primaryCta={{ label: "Run my free audit", href: "#" }}
       />

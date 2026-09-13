@@ -244,7 +244,7 @@ const EXTRAS: Record<string, PersonExtras> = {
     heroLine: (
       <>
         Built Omni Path to ship{" "}
-        <em className="font-serif not-italic text-lime-400">
+        <em className="font-serif not-italic text-blue-600">
           the work that actually moves the needle.
         </em>
       </>
@@ -273,7 +273,7 @@ const EXTRAS: Record<string, PersonExtras> = {
     heroLine: (
       <>
         Runs the SEO engine{" "}
-        <em className="font-serif not-italic text-lime-400">
+        <em className="font-serif not-italic text-blue-600">
           that scales content without scaling writers.
         </em>
       </>
@@ -302,7 +302,7 @@ const EXTRAS: Record<string, PersonExtras> = {
     heroLine: (
       <>
         Puts local businesses on the map{" "}
-        <em className="font-serif not-italic text-lime-400">
+        <em className="font-serif not-italic text-blue-600">
           — and back on it when they get suspended.
         </em>
       </>
@@ -331,7 +331,7 @@ const EXTRAS: Record<string, PersonExtras> = {
     heroLine: (
       <>
         Ships brand identities{" "}
-        <em className="font-serif not-italic text-lime-400">
+        <em className="font-serif not-italic text-blue-600">
           in 3 days, not 3 weeks.
         </em>
       </>
@@ -360,7 +360,7 @@ const EXTRAS: Record<string, PersonExtras> = {
     heroLine: (
       <>
         Manages $5M+ in ad spend{" "}
-        <em className="font-serif not-italic text-lime-400">
+        <em className="font-serif not-italic text-blue-600">
           to scale SMBs to 5x return.
         </em>
       </>
@@ -471,25 +471,25 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       {/* ====================== HERO ====================== */}
       <Section spacing="default" className="pt-16 md:pt-24">
         <ScrollReveal>
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/55">
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-neutral-900/55">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-lime-400 transition-colors">
+                <Link href="/" className="hover:text-blue-600 transition-colors">
                   Home
                 </Link>
               </li>
-              <li aria-hidden className="text-white/30">
+              <li aria-hidden className="text-neutral-900/30">
                 /
               </li>
               <li>
-                <Link href="/about" className="hover:text-lime-400 transition-colors">
+                <Link href="/about" className="hover:text-blue-600 transition-colors">
                   About
                 </Link>
               </li>
-              <li aria-hidden className="text-white/30">
+              <li aria-hidden className="text-neutral-900/30">
                 /
               </li>
-              <li className="text-white/85" aria-current="page">
+              <li className="text-neutral-900/85" aria-current="page">
                 {person.name}
               </li>
             </ol>
@@ -507,13 +507,13 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <p className="mt-3 text-xl md:text-2xl text-lime-400 font-semibold">
+          <p className="mt-3 text-xl md:text-2xl text-blue-600 font-semibold">
             {person.title}
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
-          <p className="text-xl md:text-2xl text-white/80 leading-snug">
+          <p className="text-xl md:text-2xl text-neutral-900/80 leading-snug">
             {extras.heroLine}
           </p>
         </ScrollReveal>
@@ -529,15 +529,15 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             <Eyebrow className="mb-4">Background</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               Who{" "}
-              <em className="font-serif not-italic text-lime-400">
+              <em className="font-serif not-italic text-blue-600">
                 {firstName} is.
               </em>
             </h2>
-            <p className="mt-4 text-white/65 leading-relaxed">
+            <p className="mt-4 text-neutral-900/65 leading-relaxed">
               {extras.bioIntro}
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             {person.longBio.map((para, i) => (
               <p key={i} className={i > 0 ? "mt-4" : ""}>
                 {para}
@@ -553,7 +553,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           <Eyebrow className="mb-4">What I work on</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             The work {firstName} ships{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               every week.
             </em>
           </h2>
@@ -567,11 +567,11 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             return (
               <StaggerItem key={work}>
                 <div className="bento h-full">
-                  <div className="flex items-center gap-2 text-xs text-lime-400 font-semibold uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-xs text-blue-600 font-semibold uppercase tracking-widest">
                     <Icon className="h-3.5 w-3.5" aria-hidden />
                     Focus {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold text-white">
+                  <h3 className="mt-3 text-lg font-semibold text-neutral-900">
                     {work}
                   </h3>
                 </div>
@@ -588,12 +588,12 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             <Eyebrow className="mb-4">How I work</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               The{" "}
-              <em className="font-serif not-italic text-lime-400">
+              <em className="font-serif not-italic text-blue-600">
                 operating system.
               </em>
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>{extras.approach}</p>
           </ScrollReveal>
         </div>
@@ -605,7 +605,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           <Eyebrow className="mb-4">Recent wins</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             The numbers{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               that compound.
             </em>
           </h2>
@@ -617,10 +617,10 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           {extras.winsDisplay.map((w, i) => (
             <StaggerItem key={`${w.value}-${i}`}>
               <div className="bento h-full">
-                <div className="text-3xl md:text-4xl font-bold text-lime-400 leading-none">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 leading-none">
                   {w.value}
                 </div>
-                <div className="mt-3 text-sm text-white/75 leading-relaxed">
+                <div className="mt-3 text-sm text-neutral-900/75 leading-relaxed">
                   {w.label}
                 </div>
               </div>
@@ -636,12 +636,12 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             <Eyebrow className="mb-4">What this means</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               The{" "}
-              <em className="font-serif not-italic text-lime-400">
+              <em className="font-serif not-italic text-blue-600">
                 footprint.
               </em>
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>{extras.winsContext}</p>
           </ScrollReveal>
         </div>
@@ -680,10 +680,10 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             <Eyebrow className="mb-4">Working together</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               How to{" "}
-              <em className="font-serif not-italic text-lime-400">start.</em>
+              <em className="font-serif not-italic text-blue-600">start.</em>
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>{extras.workingProcess}</p>
           </ScrollReveal>
         </div>
@@ -694,7 +694,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         title={
           <>
             Want to work with {firstName}?{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               Let&apos;s start.
             </em>
           </>

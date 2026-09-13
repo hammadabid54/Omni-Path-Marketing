@@ -129,7 +129,7 @@ export default function AnalyticsServicePage() {
         title={
           <>
             Numbers you can{" "}
-            <em className="font-serif not-italic text-lime-400">actually read.</em>
+            <em className="font-serif not-italic text-blue-600">actually read.</em>
           </>
         }
         subhead="Marketing analytics services for agencies and businesses. We build custom marketing dashboards, set up GA4, model attribution, and run weekly reporting so you know what's working. Direct Bronze $200 / Silver $350 / Gold $500. White-label $150-250 / client / mo."
@@ -148,9 +148,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">What we do</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             The full analytics stack.{" "}
-            <em className="font-serif not-italic text-lime-400">One team.</em>
+            <em className="font-serif not-italic text-blue-600">One team.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Most agencies hand you a spreadsheet and call it reporting. We build the
             dashboards, set up the tracking, model the attribution, and run the
             cadence. Six jobs, one team, monthly rate.
@@ -162,11 +162,11 @@ export default function AnalyticsServicePage() {
             return (
               <StaggerItem key={f.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{f.d}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{f.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{f.d}</p>
                 </div>
               </StaggerItem>
             );
@@ -180,9 +180,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             For businesses.{" "}
-            <em className="font-serif not-italic text-lime-400">No agency overhead.</em>
+            <em className="font-serif not-italic text-blue-600">No agency overhead.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Same delivery team, no markup. Pick the tier that matches your channel
             count, then move up or down as your needs change.
           </p>
@@ -193,33 +193,33 @@ export default function AnalyticsServicePage() {
               <div
                 className={
                   "bento h-full flex flex-col " +
-                  (t.popular ? "border-lime-400/40 ring-1 ring-lime-400/30" : "")
+                  (t.popular ? "border-blue-600/40 ring-1 ring-blue-600/30" : "")
                 }
               >
                 <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="text-base font-semibold text-white">
+                  <h3 className="text-base font-semibold text-neutral-900">
                     {t.tier}
                     {t.popular && (
                       <span className="ml-2 pill pill-accent text-[10px]">Popular</span>
                     )}
                   </h3>
-                  <span className="text-lg font-bold text-lime-400">{t.price}</span>
+                  <span className="text-lg font-bold text-blue-600">{t.price}</span>
                 </div>
                 <div className="mt-5">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-white/55">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-neutral-900/55">
                     What&apos;s included
                   </p>
-                  <ul className="mt-3 space-y-2 text-sm text-white/80">
+                  <ul className="mt-3 space-y-2 text-sm text-neutral-900/80">
                     {t.includes.map((line) => (
                       <li key={line} className="flex items-start gap-2">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                         <span className="leading-relaxed">{line}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 {t.upgrade && (
-                  <p className="mt-5 rounded-lg border border-lime-400/20 bg-lime-400/5 p-3 text-xs text-white/75 leading-relaxed">
+                  <p className="mt-5 rounded-lg border border-blue-600/20 bg-blue-600/5 p-3 text-xs text-neutral-900/75 leading-relaxed">
                     {t.upgrade}
                   </p>
                 )}
@@ -235,9 +235,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             For agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
+            <em className="font-serif not-italic text-blue-600">60-70% margin.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             {WL_ROW.description} Resell under your brand, your domain, your client relationship. We are invisible. You keep the markup.
           </p>
         </ScrollReveal>
@@ -245,64 +245,64 @@ export default function AnalyticsServicePage() {
           <StaggerItem>
             <div className="bento h-full">
               <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-base font-semibold text-white">White-label · Analytics</h3>
-                <span className="text-lg font-bold text-lime-400">{WL_PRICE_RANGE}</span>
+                <h3 className="text-base font-semibold text-neutral-900">White-label · Analytics</h3>
+                <span className="text-lg font-bold text-blue-600">{WL_PRICE_RANGE}</span>
               </div>
-              <p className="mt-2 text-sm text-white/70">per client · billed to you monthly</p>
-              <ul className="mt-5 space-y-2 text-sm text-white/80">
+              <p className="mt-2 text-sm text-neutral-900/70">per client · billed to you monthly</p>
+              <ul className="mt-5 space-y-2 text-sm text-neutral-900/80">
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>All Silver tier features (4 dashboards, weekly summary, monthly call)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>Branded under your logo and your domain</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>White-labeled PDF reports on the 1st of every month</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>Private Slack channel with senior strategists</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span>Your client never talks to us directly</span>
                 </li>
               </ul>
-              <p className="mt-5 rounded-lg border border-lime-400/20 bg-lime-400/5 p-3 text-xs text-white/75 leading-relaxed">
-                <strong className="text-white">Volume pricing:</strong> 1 client = $250, 5+ clients = $200, 15+ clients = $150. Ask about partner pricing.
+              <p className="mt-5 rounded-lg border border-blue-600/20 bg-blue-600/5 p-3 text-xs text-neutral-900/75 leading-relaxed">
+                <strong className="text-neutral-900">Volume pricing:</strong> 1 client = $250, 5+ clients = $200, 15+ clients = $150. Ask about partner pricing.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs font-semibold uppercase tracking-widest text-lime-400">
+              <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">
                 The math
               </p>
-              <h3 className="mt-2 text-2xl font-bold text-white">Resell math that works</h3>
-              <div className="mt-5 space-y-3 text-sm text-white/80">
-                <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
+              <h3 className="mt-2 text-2xl font-bold text-neutral-900">Resell math that works</h3>
+              <div className="mt-5 space-y-3 text-sm text-neutral-900/80">
+                <div className="flex items-baseline justify-between border-b border-neutral-200/8 pb-2">
                   <span>You pay us (avg)</span>
-                  <span className="font-semibold text-white">$200/mo</span>
+                  <span className="font-semibold text-neutral-900">$200/mo</span>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
+                <div className="flex items-baseline justify-between border-b border-neutral-200/8 pb-2">
                   <span>You charge client</span>
-                  <span className="font-semibold text-white">$1,000 - $1,800/mo</span>
+                  <span className="font-semibold text-neutral-900">$1,000 - $1,800/mo</span>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-white/8 pb-2">
+                <div className="flex items-baseline justify-between border-b border-neutral-200/8 pb-2">
                   <span>Your gross margin</span>
-                  <span className="font-semibold text-lime-400">$800 - $1,600/mo</span>
+                  <span className="font-semibold text-blue-600">$800 - $1,600/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span>Margin %</span>
-                  <span className="font-bold text-lime-400">80% - 89%</span>
+                  <span className="font-bold text-blue-600">80% - 89%</span>
                 </div>
               </div>
-              <p className="mt-5 text-xs text-white/55 leading-relaxed">
-                At 10 clients, that is $8,000-16,000/mo of pure margin on one service line. Add <Link href="/services/seo" className="text-lime-400 hover:underline">SEO</Link>{" "}
-                and <Link href="/services/paid-ads" className="text-lime-400 hover:underline">paid ads</Link>{" "}
+              <p className="mt-5 text-xs text-neutral-900/55 leading-relaxed">
+                At 10 clients, that is $8,000-16,000/mo of pure margin on one service line. Add <Link href="/services/seo" className="text-blue-600 hover:underline">SEO</Link>{" "}
+                and <Link href="/services/paid-ads" className="text-blue-600 hover:underline">paid ads</Link>{" "}
                 and you run a full-stack agency on delivery cost under $10k/mo.
               </p>
             </div>
@@ -316,9 +316,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Dashboards that{" "}
-            <em className="font-serif not-italic text-lime-400">build themselves.</em>
+            <em className="font-serif not-italic text-blue-600">build themselves.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Traditional agencies run on analyst hours. We run on automation. Here is
             the stack that ships fresh data to your dashboard every morning, no
             manual work required.
@@ -364,11 +364,11 @@ export default function AnalyticsServicePage() {
             return (
               <StaggerItem key={t.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{t.title}</h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{t.d}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{t.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{t.d}</p>
                 </div>
               </StaggerItem>
             );
@@ -377,30 +377,30 @@ export default function AnalyticsServicePage() {
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
           <ScrollReveal>
             <div className="bento h-full">
-              <p className="text-xs font-semibold uppercase tracking-widest text-lime-400">
+              <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">
                 What this means for you
               </p>
-              <ul className="mt-5 space-y-4 text-sm text-white/85">
+              <ul className="mt-5 space-y-4 text-sm text-neutral-900/85">
                 <li className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span className="leading-relaxed">
-                    <strong className="text-white">Daily data refresh,</strong> not
+                    <strong className="text-neutral-900">Daily data refresh,</strong> not
                     monthly. Your dashboard is never more than 24 hours stale.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span className="leading-relaxed">
-                    <strong className="text-white">
+                    <strong className="text-neutral-900">
                       Weekly auto-generated reports,
                     </strong>{" "}
                     sent to your inbox every Monday morning.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <span className="leading-relaxed">
-                    <strong className="text-white">
+                    <strong className="text-neutral-900">
                       5 hours of analyst time per client per month
                     </strong>{" "}
                     (vs 30+ at a traditional agency). That is why the price is what
@@ -412,13 +412,13 @@ export default function AnalyticsServicePage() {
           </ScrollReveal>
           <ScrollReveal>
             <div className="bento h-full flex flex-col justify-center">
-              <p className="text-xl md:text-2xl font-bold leading-snug text-white">
+              <p className="text-xl md:text-2xl font-bold leading-snug text-neutral-900">
                 Automation is why a 4-person team can run analytics for{" "}
-                <em className="font-serif not-italic text-lime-400">
+                <em className="font-serif not-italic text-blue-600">
                   200+ clients.
                 </em>
               </p>
-              <p className="mt-4 text-sm text-white/65 leading-relaxed">
+              <p className="mt-4 text-sm text-neutral-900/65 leading-relaxed">
                 Manual reporting is a cost we pass on. We do not have that cost, so
                 you do not pay it. That is the whole business model in one sentence.
               </p>
@@ -433,9 +433,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">What you get</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             What the marketing dashboards{" "}
-            <em className="font-serif not-italic text-lime-400">actually show.</em>
+            <em className="font-serif not-italic text-blue-600">actually show.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             No vanity charts. Every panel answers a specific question a founder,
             marketing lead, or client would actually ask.
           </p>
@@ -477,11 +477,11 @@ export default function AnalyticsServicePage() {
             return (
               <StaggerItem key={d.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{d.title}</h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{d.d}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{d.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{d.d}</p>
                 </div>
               </StaggerItem>
             );
@@ -496,9 +496,9 @@ export default function AnalyticsServicePage() {
             <Eyebrow className="mb-4">Why us</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               Dashboards, not{" "}
-              <em className="font-serif not-italic text-lime-400">spreadsheets.</em>
+              <em className="font-serif not-italic text-blue-600">spreadsheets.</em>
             </h2>
-            <p className="mt-4 text-white/70">
+            <p className="mt-4 text-neutral-900/70">
               A spreadsheet is not a marketing analytics service. It is a snapshot
               someone built once and forgot. Live dashboards, accurate tracking, and
               weekly human review are the difference between data you look at and
@@ -533,11 +533,11 @@ export default function AnalyticsServicePage() {
               },
             ].map((b) => (
               <StaggerItem key={b.h}>
-                <div className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/2 p-4">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
+                <div className="flex items-start gap-3 rounded-xl border border-neutral-200/8 bg-neutral-900/2 p-4">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                   <div>
-                    <h3 className="text-sm font-semibold text-white">{b.h}</h3>
-                    <p className="mt-1 text-sm text-white/65 leading-relaxed">{b.d}</p>
+                    <h3 className="text-sm font-semibold text-neutral-900">{b.h}</h3>
+                    <p className="mt-1 text-sm text-neutral-900/65 leading-relaxed">{b.d}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -552,9 +552,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">Always included</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             What ships in{" "}
-            <em className="font-serif not-italic text-lime-400">every plan.</em>
+            <em className="font-serif not-italic text-blue-600">every plan.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             These are not upsells. They are the baseline we run on every engagement.
           </p>
         </ScrollReveal>
@@ -575,8 +575,8 @@ export default function AnalyticsServicePage() {
           ].map((b) => (
             <StaggerItem key={b.h}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{b.h}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{b.d}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{b.h}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{b.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -589,9 +589,9 @@ export default function AnalyticsServicePage() {
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             From signup to live dashboards{" "}
-            <em className="font-serif not-italic text-lime-400">in 7 days.</em>
+            <em className="font-serif not-italic text-blue-600">in 7 days.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             No 90-day onboarding. No discovery phase that ships a deck. We move fast
             because the work is repeatable.
           </p>
@@ -621,11 +621,11 @@ export default function AnalyticsServicePage() {
           ].map((p) => (
             <StaggerItem key={p.step}>
               <div className="bento h-full">
-                <span className="text-xs font-bold tracking-widest text-lime-400">
+                <span className="text-xs font-bold tracking-widest text-blue-600">
                   {p.step}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">{p.h}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{p.d}</p>
+                <h3 className="mt-3 text-lg font-semibold text-neutral-900">{p.h}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{p.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -647,7 +647,7 @@ export default function AnalyticsServicePage() {
         title={
           <>
             Analytics questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         subhead="Five questions we get on every sales call, answered straight."
@@ -659,7 +659,7 @@ export default function AnalyticsServicePage() {
         title={
           <>
             Ready to{" "}
-            <em className="font-serif not-italic text-lime-400">know what works?</em>
+            <em className="font-serif not-italic text-blue-600">know what works?</em>
           </>
         }
         subhead="Get a free 60-second audit, or book a 15-min call. We will show you exactly what your marketing analytics services setup is missing — no pitch, no obligation."

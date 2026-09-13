@@ -37,21 +37,21 @@ export function CostComparison({
       <ScrollReveal className="max-w-2xl">
         {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
-        {subhead && <p className="mt-4 text-white/70 max-w-xl">{subhead}</p>}
+        {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl">{subhead}</p>}
       </ScrollReveal>
 
       <ScrollReveal delay={0.1} className="mt-10">
-        <div className="overflow-x-auto rounded-2xl border border-white/8 bg-white/2">
+        <div className="overflow-x-auto rounded-2xl border border-neutral-200/8 bg-neutral-900/2">
           <table className="w-full text-left text-sm">
             <thead>
-              <tr className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <tr className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <th className="px-5 py-4 font-medium">Option</th>
                 {columns.map((c, i) => (
                   <th
                     key={c}
                     className={cn(
                       "px-5 py-4 font-medium",
-                      i === highlightColumn && "text-lime-400",
+                      i === highlightColumn && "text-blue-600",
                     )}
                   >
                     {c}
@@ -64,25 +64,25 @@ export function CostComparison({
                 <tr
                   key={ri}
                   className={cn(
-                    "border-b border-white/5 last:border-0",
-                    row.highlight && "bg-lime-400/5",
+                    "border-b border-neutral-200/5 last:border-0",
+                    row.highlight && "bg-blue-600/5",
                   )}
                 >
-                  <td className="px-5 py-4 text-white/80 font-medium">{row.label}</td>
+                  <td className="px-5 py-4 text-neutral-900/80 font-medium">{row.label}</td>
                   {row.values.map((v, ci) => (
                     <td
                       key={ci}
                       className={cn(
                         "px-5 py-4",
                         ci === highlightColumn
-                          ? "text-lime-400 font-semibold"
-                          : "text-white/75",
-                        typeof v === "string" && v.startsWith("~~") && "line-through text-white/45",
+                          ? "text-blue-600 font-semibold"
+                          : "text-neutral-900/75",
+                        typeof v === "string" && v.startsWith("~~") && "line-through text-neutral-900/45",
                       )}
                     >
                       {v}
                       {row.note && ci === highlightColumn && (
-                        <span className="block text-xs text-white/50 mt-1 font-normal">{row.note}</span>
+                        <span className="block text-xs text-neutral-900/50 mt-1 font-normal">{row.note}</span>
                       )}
                     </td>
                   ))}
@@ -91,7 +91,7 @@ export function CostComparison({
             </tbody>
           </table>
         </div>
-        {caption && <p className="mt-4 text-xs text-white/45">{caption}</p>}
+        {caption && <p className="mt-4 text-xs text-neutral-900/45">{caption}</p>}
       </ScrollReveal>
     </Section>
   );

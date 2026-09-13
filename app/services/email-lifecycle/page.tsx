@@ -202,7 +202,7 @@ export default function EmailLifecycleServicePage() {
         title={
           <>
             Email that{" "}
-            <em className="font-serif not-italic text-lime-400">prints money.</em>
+            <em className="font-serif not-italic text-blue-600">prints money.</em>
           </>
         }
         subhead="Email marketing services on Klaviyo, HubSpot, or ActiveCampaign. Direct Bronze $200 / Silver $300 / Gold $400 per month. White-label $150-250 / client / mo. Welcome series, abandoned cart, win-back, behavioral triggers. Built once, running forever."
@@ -221,9 +221,9 @@ export default function EmailLifecycleServicePage() {
           <Eyebrow className="mb-4">What we do</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Lifecycle marketing that{" "}
-            <em className="font-serif not-italic text-lime-400">runs itself.</em>
+            <em className="font-serif not-italic text-blue-600">runs itself.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Six core jobs. One revenue engine. We build the flows, segment the
             list, and ship the campaigns so every subscriber gets the right
             message at the right moment — without you touching a thing.
@@ -238,13 +238,13 @@ export default function EmailLifecycleServicePage() {
             return (
               <StaggerItem key={f.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                     {f.title}
                   </h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                     {f.d}
                   </p>
                 </div>
@@ -260,9 +260,9 @@ export default function EmailLifecycleServicePage() {
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Bronze. Silver. Gold.{" "}
-            <em className="font-serif not-italic text-lime-400">One monthly fee.</em>
+            <em className="font-serif not-italic text-blue-600">One monthly fee.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Three tiers, one transparent monthly fee. Higher tiers add more flows, more campaigns, more A/B tests, and a dedicated senior strategist. Pick the level that matches your list size and revenue goals.
           </p>
         </ScrollReveal>
@@ -275,41 +275,41 @@ export default function EmailLifecycleServicePage() {
               <div
                 className={
                   t.popular
-                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/[0.04]"
+                    ? "bento h-full flex flex-col border-blue-600/40 bg-blue-600/[0.04]"
                     : "bento h-full flex flex-col"
                 }
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-white">Direct · {t.name}</h3>
+                  <h3 className="text-lg font-semibold text-neutral-900">Direct · {t.name}</h3>
                   {t.popular && (
                     <span className="pill pill-accent text-[10px]">Most picked</span>
                   )}
                 </div>
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-lime-400 tracking-tight">
+                  <span className="text-4xl font-bold text-blue-600 tracking-tight">
                     {t.price}
                   </span>
-                  <span className="text-sm text-white/55">monthly</span>
+                  <span className="text-sm text-neutral-900/55">monthly</span>
                 </div>
-                <p className="mt-2 text-sm text-white/70 leading-relaxed">{t.blurb}</p>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-white/55">
+                <p className="mt-2 text-sm text-neutral-900/70 leading-relaxed">{t.blurb}</p>
+                <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-neutral-900/55">
                   What&rsquo;s included
                 </p>
                 <ul className="mt-3 grid gap-2.5">
                   {t.includes.map((line) => (
                     <li
                       key={line}
-                      className="flex items-start gap-2 text-sm text-white/80 leading-relaxed"
+                      className="flex items-start gap-2 text-sm text-neutral-900/80 leading-relaxed"
                     >
-                      <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+                      <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
                       <span>{line}</span>
                     </li>
                   ))}
                 </ul>
                 {t.upgrade && (
-                  <div className="mt-5 pt-4 border-t border-white/8">
-                    <p className="text-xs text-white/65 leading-relaxed">
-                      <span className="text-lime-400 font-semibold">{t.upgrade.split(":")[0]}:</span>
+                  <div className="mt-5 pt-4 border-t border-neutral-200/8">
+                    <p className="text-xs text-neutral-900/65 leading-relaxed">
+                      <span className="text-blue-600 font-semibold">{t.upgrade.split(":")[0]}:</span>
                       {t.upgrade.includes(":")
                         ? t.upgrade.split(":").slice(1).join(":")
                         : ""}
@@ -319,7 +319,7 @@ export default function EmailLifecycleServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -328,25 +328,25 @@ export default function EmailLifecycleServicePage() {
             </StaggerItem>
           ))}
         </StaggerGroup>
-        <p className="mt-6 text-sm text-white/55 max-w-2xl">
+        <p className="mt-6 text-sm text-neutral-900/55 max-w-2xl">
           Already have your ESP configured? Skip setup, start with Bronze at $200/mo and we&rsquo;ll audit your account for free in week one.
         </p>
       </Section>
 
       {/* White-label pricing — standard $150-250 / client / mo structure */}
       <Section>
-        <div className="rounded-3xl border border-lime-400/25 bg-lime-400/[0.04] p-8 md:p-12">
+        <div className="rounded-3xl border border-blue-600/25 bg-blue-600/[0.04] p-8 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
             <div>
               <Eyebrow className="mb-4">White-label pricing</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
                 For agencies.{" "}
-                <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
+                <em className="font-serif not-italic text-blue-600">60-70% margin.</em>
               </h2>
-              <p className="mt-4 text-white/75 leading-relaxed">
+              <p className="mt-4 text-neutral-900/75 leading-relaxed">
                 {WL_ROW.description} One flat fee, all-in. Resell at $1,000-1,800/mo per client and keep 60-70% of the recurring revenue. We work under your brand, your dashboard, your client-facing deliverables. Your client never sees us.
               </p>
-              <ul className="mt-6 grid gap-2 text-sm text-white/80">
+              <ul className="mt-6 grid gap-2 text-sm text-neutral-900/80">
                 {[
                   `${WL_PRICE_RANGE} all-in — no setup fees, no add-ons`,
                   "Resell at $1,000-1,800/mo for 60-70% margin",
@@ -354,7 +354,7 @@ export default function EmailLifecycleServicePage() {
                   "Klaviyo, HubSpot, ActiveCampaign, or your stack",
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+                    <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
                     <span>{line}</span>
                   </li>
                 ))}
@@ -362,36 +362,36 @@ export default function EmailLifecycleServicePage() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/for-agencies"
-                  className="inline-flex items-center justify-center rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                 >
                   See agency partner program
                 </Link>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full border border-neutral-200/15 bg-neutral-900/5 px-5 py-2.5 text-sm font-medium text-neutral-900/85 hover:bg-neutral-900/10 transition-colors"
                 >
                   See full pricing
                 </Link>
               </div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-[#0A0A0F] p-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/55">
+            <div className="rounded-2xl border border-neutral-200/10 bg-white p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-neutral-900/55">
                 The margin math
               </p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">Your cost (us)</span>
-                  <span className="text-base font-semibold text-white">$200/mo</span>
+                  <span className="text-sm text-neutral-900/70">Your cost (us)</span>
+                  <span className="text-base font-semibold text-neutral-900">$200/mo</span>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">You charge client</span>
-                  <span className="text-base font-semibold text-lime-400">$1,200/mo</span>
+                  <span className="text-sm text-neutral-900/70">You charge client</span>
+                  <span className="text-base font-semibold text-blue-600">$1,200/mo</span>
                 </div>
-                <div className="border-t border-white/10 pt-3 flex items-baseline justify-between">
-                  <span className="text-sm text-white/70">Your margin</span>
-                  <span className="text-xl font-bold text-lime-400">$1,000/mo</span>
+                <div className="border-t border-neutral-200/10 pt-3 flex items-baseline justify-between">
+                  <span className="text-sm text-neutral-900/70">Your margin</span>
+                  <span className="text-xl font-bold text-blue-600">$1,000/mo</span>
                 </div>
-                <p className="text-xs text-white/55 pt-1">
+                <p className="text-xs text-neutral-900/55 pt-1">
                   10 clients = $10,000/mo recurring. 83% margin before you touch a deliverable.
                 </p>
               </div>
@@ -407,16 +407,16 @@ export default function EmailLifecycleServicePage() {
             <Eyebrow className="mb-4">Why email pays for itself</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               The highest-ROI channel in{" "}
-              <em className="font-serif not-italic text-lime-400">your stack.</em>
+              <em className="font-serif not-italic text-blue-600">your stack.</em>
             </h2>
-            <p className="mt-4 text-white/70">
+            <p className="mt-4 text-neutral-900/70">
               No other channel comes close. Here&rsquo;s what the industry
               benchmarks say — and why email beats{" "}
-              <Link href="/services/paid-ads" className="text-lime-400 underline-offset-4 hover:underline">
+              <Link href="/services/paid-ads" className="text-blue-600 underline-offset-4 hover:underline">
                 paid ads
               </Link>{" "}
               and even{" "}
-              <Link href="/services/seo" className="text-lime-400 underline-offset-4 hover:underline">
+              <Link href="/services/seo" className="text-blue-600 underline-offset-4 hover:underline">
                 organic SEO
               </Link>{" "}
               on first-dollar ROI.
@@ -431,19 +431,19 @@ export default function EmailLifecycleServicePage() {
                 { stat: "99%", label: "Of users check email daily — every other channel is below 30%" },
               ].map((s) => (
                 <div key={s.stat} className="bento h-full">
-                  <p className="text-3xl md:text-4xl font-bold text-lime-400 tracking-tight">
+                  <p className="text-3xl md:text-4xl font-bold text-blue-600 tracking-tight">
                     {s.stat}
                   </p>
-                  <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                  <p className="mt-2 text-sm text-neutral-900/70 leading-relaxed">
                     {s.label}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-white/65 leading-relaxed">
+            <p className="mt-6 text-sm text-neutral-900/65 leading-relaxed">
               The number is conservative. Our clients typically see 50-80x
               once abandoned cart and win-back flows are live. Source:{" "}
-              <span className="text-white/80">Litmus 2024 State of Email, DMA Marketer Email Tracker</span>.
+              <span className="text-neutral-900/80">Litmus 2024 State of Email, DMA Marketer Email Tracker</span>.
             </p>
           </ScrollReveal>
         </div>
@@ -455,9 +455,9 @@ export default function EmailLifecycleServicePage() {
           <Eyebrow className="mb-4">What&rsquo;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             No add-on fees.{" "}
-            <em className="font-serif not-italic text-lime-400">No surprises.</em>
+            <em className="font-serif not-italic text-blue-600">No surprises.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Two things ship in every single plan, white-label or direct. We don&rsquo;t gate them behind a higher tier.
           </p>
         </ScrollReveal>
@@ -481,13 +481,13 @@ export default function EmailLifecycleServicePage() {
             return (
               <StaggerItem key={f.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                     {f.title}
                   </h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                     {f.d}
                   </p>
                 </div>
@@ -495,10 +495,10 @@ export default function EmailLifecycleServicePage() {
             );
           })}
         </StaggerGroup>
-        <p className="mt-6 text-sm text-white/55">
+        <p className="mt-6 text-sm text-neutral-900/55">
           Need a custom scope? Most clients start with one of the tiers above
           and add services as they scale. Talk to us about a tailored plan at{" "}
-          <Link href="/contact" className="text-lime-400 underline-offset-4 hover:underline">
+          <Link href="/contact" className="text-blue-600 underline-offset-4 hover:underline">
             /contact
           </Link>
           .
@@ -511,9 +511,9 @@ export default function EmailLifecycleServicePage() {
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Emails that{" "}
-            <em className="font-serif not-italic text-lime-400">write, test, and send themselves.</em>
+            <em className="font-serif not-italic text-blue-600">write, test, and send themselves.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Our tech stack does the heavy lifting so campaigns ship in hours, not weeks — and the numbers keep climbing while you sleep.
           </p>
         </ScrollReveal>
@@ -526,13 +526,13 @@ export default function EmailLifecycleServicePage() {
             return (
               <StaggerItem key={f.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                     {f.title}
                   </h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                     {f.d}
                   </p>
                 </div>
@@ -540,26 +540,26 @@ export default function EmailLifecycleServicePage() {
             );
           })}
         </StaggerGroup>
-        <div className="mt-10 rounded-2xl border border-lime-400/25 bg-lime-400/[0.04] p-6 md:p-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-lime-400">
+        <div className="mt-10 rounded-2xl border border-blue-600/25 bg-blue-600/[0.04] p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">
             What this means for you
           </p>
-          <ul className="mt-4 grid gap-3 md:grid-cols-3 text-sm text-white/85">
+          <ul className="mt-4 grid gap-3 md:grid-cols-3 text-sm text-neutral-900/85">
             <li className="flex items-start gap-2">
-              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
               <span>8 campaigns per month, all auto-tested and shipped on time.</span>
             </li>
             <li className="flex items-start gap-2">
-              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
               <span>Behavioral triggers fire 24/7, even when we&rsquo;re asleep.</span>
             </li>
             <li className="flex items-start gap-2">
-              <Check className="h-4 w-4 mt-0.5 text-lime-400 flex-shrink-0" />
+              <Check className="h-4 w-4 mt-0.5 text-blue-600 flex-shrink-0" />
               <span>5 hours of email marketer time per client per month — vs 25+ hours at a traditional agency.</span>
             </li>
           </ul>
         </div>
-        <p className="mt-6 text-sm text-white/65 max-w-2xl">
+        <p className="mt-6 text-sm text-neutral-900/65 max-w-2xl">
           Automation is why Bronze ships at $200/mo instead of $2,000+. We pass the savings straight to you. The work output is the same. The price is not. That&rsquo;s the whole point of the model.
         </p>
       </Section>
@@ -570,9 +570,9 @@ export default function EmailLifecycleServicePage() {
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Four steps.{" "}
-            <em className="font-serif not-italic text-lime-400">No hand-waving.</em>
+            <em className="font-serif not-italic text-blue-600">No hand-waving.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             What happens from the moment you book a call to the first month of
             revenue. No 90-day onboarding, no mystery deliverables.
           </p>
@@ -584,13 +584,13 @@ export default function EmailLifecycleServicePage() {
           {PROCESS.map((p) => (
             <StaggerItem key={p.step}>
               <div className="bento h-full">
-                <span className="text-xs font-bold tracking-widest text-lime-400">
+                <span className="text-xs font-bold tracking-widest text-blue-600">
                   STEP {p.step}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">
+                <h3 className="mt-3 text-lg font-semibold text-neutral-900">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {p.d}
                 </p>
               </div>
@@ -615,7 +615,7 @@ export default function EmailLifecycleServicePage() {
         title={
           <>
             Email marketing services,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         subhead="Five questions we get every week, answered in plain English."
@@ -628,7 +628,7 @@ export default function EmailLifecycleServicePage() {
         title={
           <>
             Ready to make email your{" "}
-            <em className="font-serif not-italic text-lime-400">highest-ROI channel?</em>
+            <em className="font-serif not-italic text-blue-600">highest-ROI channel?</em>
           </>
         }
         subhead="Book a 15-min call. We'll audit your current setup and tell you which tier fits — even if it's not ours."

@@ -27,7 +27,7 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 const STATUS_COLOR: Record<string, string> = {
-  new: "bg-lime-400/15 text-lime-400 border-lime-400/30",
+  new: "bg-blue-600/15 text-blue-600 border-blue-600/30",
   contacted: "bg-amber-400/15 text-amber-300 border-amber-400/30",
   won: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
   lost: "bg-rose-400/15 text-rose-300 border-rose-400/30",
@@ -58,8 +58,8 @@ export default async function AdminLeadsPage({
     <div>
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Leads</h1>
-          <p className="text-sm text-white/55 mt-1">
+          <h1 className="text-2xl font-bold text-neutral-900">Leads</h1>
+          <p className="text-sm text-neutral-900/55 mt-1">
             {leads.length} {leads.length === 1 ? "lead" : "leads"} matching your filters.
           </p>
         </div>
@@ -75,31 +75,31 @@ export default async function AdminLeadsPage({
           className="input max-w-xs"
         />
         <div className="flex items-center gap-1">
-          <span className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mr-1">Type</span>
+          <span className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mr-1">Type</span>
           {TYPES.map((t) => (
             <FilterPill key={t.id} href={buildHref({ type: t.id, status, q })} active={type === t.id} label={t.label} />
           ))}
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mr-1">Status</span>
+          <span className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mr-1">Status</span>
           {STATUSES.map((s) => (
             <FilterPill key={s.id} href={buildHref({ type, status: s.id, q })} active={status === s.id} label={s.label} />
           ))}
         </div>
         <button type="submit" className="btn btn-ghost">Apply</button>
         {(type !== "all" || status !== "all" || q) && (
-          <Link href="/admin/leads" className="text-xs text-white/55 hover:text-white">Clear all</Link>
+          <Link href="/admin/leads" className="text-xs text-neutral-900/55 hover:text-neutral-900">Clear all</Link>
         )}
       </form>
 
       {leads.length === 0 ? (
-        <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-8 text-center text-sm text-white/55">
+        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-8 text-center text-sm text-neutral-900/55">
           No leads match the current filters.
         </div>
       ) : (
-        <div className="rounded-xl border border-white/8 overflow-hidden">
+        <div className="rounded-xl border border-neutral-200/8 overflow-hidden">
           <table className="w-full text-sm">
-            <thead className="bg-white/4 text-[10px] uppercase tracking-widest text-white/45">
+            <thead className="bg-neutral-900/4 text-[10px] uppercase tracking-widest text-neutral-900/45">
               <tr>
                 <th className="text-left px-4 py-2.5 font-semibold">Type</th>
                 <th className="text-left px-4 py-2.5 font-semibold">Name / Email</th>
@@ -111,32 +111,32 @@ export default async function AdminLeadsPage({
             </thead>
             <tbody className="divide-y divide-white/5">
               {leads.map((l) => (
-                <tr key={l.id} className="hover:bg-white/2">
+                <tr key={l.id} className="hover:bg-neutral-900/2">
                   <td className="px-4 py-2.5">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-white/65">
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-900/65">
                       {TYPE_LABEL[l.type] ?? l.type}
                     </span>
                   </td>
                   <td className="px-4 py-2.5">
-                    <Link href={`/admin/leads/${l.id}`} className="block hover:text-lime-400">
-                      <div className="font-medium text-white">{l.name ?? "—"}</div>
-                      <div className="text-xs text-white/55">{l.email}</div>
+                    <Link href={`/admin/leads/${l.id}`} className="block hover:text-blue-600">
+                      <div className="font-medium text-neutral-900">{l.name ?? "—"}</div>
+                      <div className="text-xs text-neutral-900/55">{l.email}</div>
                     </Link>
                   </td>
-                  <td className="px-4 py-2.5 text-white/75 hidden md:table-cell">
+                  <td className="px-4 py-2.5 text-neutral-900/75 hidden md:table-cell">
                     <div>{l.company ?? "—"}</div>
-                    {l.url && <div className="text-xs text-white/45 truncate max-w-[200px]">{l.url}</div>}
+                    {l.url && <div className="text-xs text-neutral-900/45 truncate max-w-[200px]">{l.url}</div>}
                   </td>
                   <td className="px-4 py-2.5 hidden lg:table-cell">
                     {l.score != null ? (
                       <span className={`font-mono text-sm font-semibold ${
-                        l.bucket === "hot" ? "text-lime-400" :
+                        l.bucket === "hot" ? "text-blue-600" :
                         l.bucket === "warm" ? "text-amber-300" : "text-rose-300"
                       }`}>
                         {l.score}
                       </span>
                     ) : (
-                      <span className="text-white/30">—</span>
+                      <span className="text-neutral-900/30">—</span>
                     )}
                   </td>
                   <td className="px-4 py-2.5">
@@ -144,7 +144,7 @@ export default async function AdminLeadsPage({
                       {l.status}
                     </span>
                   </td>
-                  <td className="px-4 py-2.5 text-right text-white/55 text-xs hidden sm:table-cell">
+                  <td className="px-4 py-2.5 text-right text-neutral-900/55 text-xs hidden sm:table-cell">
                     {fmtDate(l.createdAt)}
                   </td>
                 </tr>
@@ -162,7 +162,7 @@ function FilterPill({ href, active, label }: { href: string; active: boolean; la
     <Link
       href={href}
       className={
-        "pill text-[10px] " + (active ? "pill-accent" : "hover:border-white/30 text-white/65")
+        "pill text-[10px] " + (active ? "pill-accent" : "hover:border-neutral-200/30 text-neutral-900/65")
       }
     >
       {label}

@@ -16,7 +16,7 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 const STATUS_COLOR: Record<string, string> = {
-  new: "bg-lime-400/15 text-lime-400 border-lime-400/30",
+  new: "bg-blue-600/15 text-blue-600 border-blue-600/30",
   contacted: "bg-amber-400/15 text-amber-300 border-amber-400/30",
   won: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
   lost: "bg-rose-400/15 text-rose-300 border-rose-400/30",
@@ -36,8 +36,8 @@ export default async function AdminDashboard() {
     <div>
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-          <p className="text-sm text-white/55 mt-1">Leads, intake tokens, recent activity.</p>
+          <h1 className="text-2xl font-bold text-neutral-900">Dashboard</h1>
+          <p className="text-sm text-neutral-900/55 mt-1">Leads, intake tokens, recent activity.</p>
         </div>
       </div>
 
@@ -64,16 +64,16 @@ export default async function AdminDashboard() {
           { label: "Lost", value: stats.byStatus.lost },
         ]} />
         <Breakdown title="By bucket" rows={[
-          { label: "Hot", value: stats.byBucket.hot, color: "text-lime-400" },
+          { label: "Hot", value: stats.byBucket.hot, color: "text-blue-600" },
           { label: "Warm", value: stats.byBucket.warm, color: "text-amber-300" },
           { label: "Cold", value: stats.byBucket.cold, color: "text-rose-300" },
         ]} />
-        <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-4">
-          <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mb-3">Quick links</div>
+        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
+          <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">Quick links</div>
           <div className="space-y-2 text-sm">
-            <Link href="/admin/leads" className="block text-lime-400 hover:text-lime-300">→ View all leads</Link>
-            <Link href="/admin/intake" className="block text-lime-400 hover:text-lime-300">→ Manage intake tokens</Link>
-            <a href={process.env.NEXT_PUBLIC_SITE_URL ?? "https://omnipathmarketing.com"} target="_blank" rel="noopener" className="block text-lime-400 hover:text-lime-300">→ Open public site ↗</a>
+            <Link href="/admin/leads" className="block text-blue-600 hover:text-blue-300">→ View all leads</Link>
+            <Link href="/admin/intake" className="block text-blue-600 hover:text-blue-300">→ Manage intake tokens</Link>
+            <a href={process.env.NEXT_PUBLIC_SITE_URL ?? "https://omnipathmarketing.com"} target="_blank" rel="noopener" className="block text-blue-600 hover:text-blue-300">→ Open public site ↗</a>
           </div>
         </div>
       </div>
@@ -81,17 +81,17 @@ export default async function AdminDashboard() {
       {/* Recent activity */}
       <div className="mt-8">
         <div className="flex items-end justify-between gap-3 mb-3">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-white/55">Recent activity</h2>
-          <Link href="/admin/leads" className="text-xs text-lime-400 hover:text-lime-300">See all →</Link>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-neutral-900/55">Recent activity</h2>
+          <Link href="/admin/leads" className="text-xs text-blue-600 hover:text-blue-300">See all →</Link>
         </div>
         {recent.length === 0 ? (
-          <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-6 text-center text-sm text-white/45">
-            No leads yet. Submit the contact form on <Link href="/contact" target="_blank" rel="noopener" className="text-lime-400 hover:underline">/contact</Link> to test.
+          <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-6 text-center text-sm text-neutral-900/45">
+            No leads yet. Submit the contact form on <Link href="/contact" target="_blank" rel="noopener" className="text-blue-600 hover:underline">/contact</Link> to test.
           </div>
         ) : (
-          <div className="rounded-xl border border-white/8 overflow-hidden">
+          <div className="rounded-xl border border-neutral-200/8 overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-white/4 text-[10px] uppercase tracking-widest text-white/45">
+              <thead className="bg-neutral-900/4 text-[10px] uppercase tracking-widest text-neutral-900/45">
                 <tr>
                   <th className="text-left px-4 py-2.5 font-semibold">Type</th>
                   <th className="text-left px-4 py-2.5 font-semibold">Name / Email</th>
@@ -102,25 +102,25 @@ export default async function AdminDashboard() {
               </thead>
               <tbody className="divide-y divide-white/5">
                 {recent.map((l) => (
-                  <tr key={l.id} className="hover:bg-white/2">
+                  <tr key={l.id} className="hover:bg-neutral-900/2">
                     <td className="px-4 py-2.5">
-                      <span className="text-[10px] uppercase tracking-widest font-semibold text-white/65">
+                      <span className="text-[10px] uppercase tracking-widest font-semibold text-neutral-900/65">
                         {TYPE_LABEL[l.type] ?? l.type}
                       </span>
                     </td>
                     <td className="px-4 py-2.5">
-                      <Link href={`/admin/leads/${l.id}`} className="block hover:text-lime-400">
-                        <div className="font-medium text-white">{l.name ?? "—"}</div>
-                        <div className="text-xs text-white/55">{l.email}</div>
+                      <Link href={`/admin/leads/${l.id}`} className="block hover:text-blue-600">
+                        <div className="font-medium text-neutral-900">{l.name ?? "—"}</div>
+                        <div className="text-xs text-neutral-900/55">{l.email}</div>
                       </Link>
                     </td>
-                    <td className="px-4 py-2.5 text-white/75 hidden sm:table-cell">{l.company ?? "—"}</td>
+                    <td className="px-4 py-2.5 text-neutral-900/75 hidden sm:table-cell">{l.company ?? "—"}</td>
                     <td className="px-4 py-2.5">
                       <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${STATUS_COLOR[l.status] ?? ""}`}>
                         {l.status}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-right text-white/55 text-xs hidden sm:table-cell">
+                    <td className="px-4 py-2.5 text-right text-neutral-900/55 text-xs hidden sm:table-cell">
                       {fmtDate(l.createdAt)}
                     </td>
                   </tr>
@@ -136,10 +136,10 @@ export default async function AdminDashboard() {
 
 function Stat({ label, value, accent }: { label: string; value: number; accent?: "lime" | "amber" | "emerald" }) {
   const color =
-    accent === "amber" ? "text-amber-300" : accent === "emerald" ? "text-emerald-300" : "text-lime-400";
+    accent === "amber" ? "text-amber-300" : accent === "emerald" ? "text-emerald-300" : "text-blue-600";
   return (
-    <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-5">
-      <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">{label}</div>
+    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5">
+      <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">{label}</div>
       <div className={`mt-1.5 text-3xl font-bold ${color}`}>{value}</div>
     </div>
   );
@@ -147,13 +147,13 @@ function Stat({ label, value, accent }: { label: string; value: number; accent?:
 
 function Breakdown({ title, rows }: { title: string; rows: { label: string; value: number; color?: string }[] }) {
   return (
-    <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-4">
-      <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mb-3">{title}</div>
+    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
+      <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">{title}</div>
       <div className="space-y-1.5 text-sm">
         {rows.map((r) => (
           <div key={r.label} className="flex items-center justify-between">
-            <span className="text-white/65">{r.label}</span>
-            <span className={`font-semibold ${r.color ?? "text-white"}`}>{r.value}</span>
+            <span className="text-neutral-900/65">{r.label}</span>
+            <span className={`font-semibold ${r.color ?? "text-neutral-900"}`}>{r.value}</span>
           </div>
         ))}
       </div>

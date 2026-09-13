@@ -3,8 +3,8 @@
  *
  * Lives in the root layout. Adds:
  *  - Soft grid pattern (mask-faded toward the edges)
- *  - 4 slow-drifting lime + white orbs (different speeds, different positions)
- *  - Subtle SVG noise grain (mix-blend-mode: overlay)
+ *  - 4 slow-drifting blue + white orbs (different speeds, different positions)
+ *  - Subtle SVG noise grain (mix-blend-mode: multiply on light mode)
  *
  * Performance:
  *  - All animations are transform-only (GPU-composited).

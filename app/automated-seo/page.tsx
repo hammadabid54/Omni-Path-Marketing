@@ -53,7 +53,7 @@ export default function AutomatedSeoPage() {
         title={
           <>
             Rank higher. Convert more.{" "}
-            <em className="font-serif not-italic text-lime-400">Scale faster.</em>
+            <em className="font-serif not-italic text-blue-600">Scale faster.</em>
           </>
         }
         subhead="Done-for-you SEO with AI-powered audits, content, and links. From $400/month. No long contracts. See your site ranking in 90 days."
@@ -75,14 +75,14 @@ export default function AutomatedSeoPage() {
           <ScrollReveal>
             <Eyebrow className="mb-4">What is automated SEO?</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              AI does 80%. <em className="font-serif not-italic text-lime-400">Humans do 20%.</em> The 20% that matters.
+              AI does 80%. <em className="font-serif not-italic text-blue-600">Humans do 20%.</em> The 20% that matters.
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>
               Automated SEO is SEO delivery powered by AI + automation, with senior humans doing the strategy and QA. We use tools like Puppeteer, Lighthouse, Ahrefs, and Surfer to do the heavy lifting (audits, research, content drafts, reports). Our strategists do the 20% that actually moves rankings: positioning, edge cases, content quality.
             </p>
-            <p className="mt-4 text-lime-400 font-medium">The result? Same quality as a traditional agency. 70% lower cost.</p>
+            <p className="mt-4 text-blue-600 font-medium">The result? Same quality as a traditional agency. 70% lower cost.</p>
           </ScrollReveal>
         </div>
       </Section>
@@ -91,15 +91,15 @@ export default function AutomatedSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">How it works</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            From audit to live <em className="font-serif not-italic text-lime-400">in 7 days.</em>
+            From audit to live <em className="font-serif not-italic text-blue-600">in 7 days.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
           {TIMELINE.map((t) => (
             <StaggerItem key={t.step}>
               <div className="bento h-full">
-                <span className="text-xs uppercase tracking-widest text-lime-400 font-semibold">{t.step}</span>
-                <p className="mt-3 text-white/80 text-sm leading-relaxed">{t.what}</p>
+                <span className="text-xs uppercase tracking-widest text-blue-600 font-semibold">{t.step}</span>
+                <p className="mt-3 text-neutral-900/80 text-sm leading-relaxed">{t.what}</p>
               </div>
             </StaggerItem>
           ))}
@@ -110,13 +110,13 @@ export default function AutomatedSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Three tiers. <em className="font-serif not-italic text-lime-400">One transparent price.</em>
+            Three tiers. <em className="font-serif not-italic text-blue-600">One transparent price.</em>
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">Price</th>
@@ -127,14 +127,14 @@ export default function AutomatedSeoPage() {
                 {TIERS.map((r, i) => (
                   <tr
                     key={i}
-                    className={r.popular ? "border-b border-white/5 bg-lime-400/5 last:border-0" : "border-b border-white/5 last:border-0"}
+                    className={r.popular ? "border-b border-neutral-200/5 bg-blue-600/5 last:border-0" : "border-b border-neutral-200/5 last:border-0"}
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {r.tier}
                       {r.popular && <span className="ml-2 pill pill-accent text-[10px]">Popular</span>}
                     </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">{r.price}</td>
-                    <td className="px-5 py-4 text-white/70">{r.includes}</td>
+                    <td className="px-5 py-4 text-blue-600 font-semibold">{r.price}</td>
+                    <td className="px-5 py-4 text-neutral-900/70">{r.includes}</td>
                   </tr>
                 ))}
               </tbody>
@@ -147,16 +147,16 @@ export default function AutomatedSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Bundle</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Lock in with <em className="font-serif not-italic text-lime-400">SEO + Website Care.</em>
+            Lock in with <em className="font-serif not-italic text-blue-600">SEO + Website Care.</em>
           </h2>
-          <p className="mt-4 text-white/70">The lock-in product. Higher retention. Full website care + SEO from one team.</p>
+          <p className="mt-4 text-neutral-900/70">The lock-in product. Higher retention. Full website care + SEO from one team.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-3 md:grid-cols-3" stagger={0.06}>
           {BUNDLES.map((b) => (
             <StaggerItem key={b.name}>
               <div className="bento h-full flex items-center justify-between gap-3">
-                <span className="font-semibold text-white">{b.name}</span>
-                <span className="text-lime-400 font-bold">{b.price}</span>
+                <span className="font-semibold text-neutral-900">{b.name}</span>
+                <span className="text-blue-600 font-bold">{b.price}</span>
               </div>
             </StaggerItem>
           ))}
@@ -167,15 +167,15 @@ export default function AutomatedSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Results timeline</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            What to expect, <em className="font-serif not-italic text-lime-400">honestly.</em>
+            What to expect, <em className="font-serif not-italic text-blue-600">honestly.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
           {RESULTS.map((r) => (
             <StaggerItem key={r.time}>
               <div className="bento h-full">
-                <span className="text-xs uppercase tracking-widest text-lime-400 font-semibold">{r.time}</span>
-                <p className="mt-3 text-white/80 text-sm leading-relaxed">{r.what}</p>
+                <span className="text-xs uppercase tracking-widest text-blue-600 font-semibold">{r.time}</span>
+                <p className="mt-3 text-neutral-900/80 text-sm leading-relaxed">{r.what}</p>
               </div>
             </StaggerItem>
           ))}
@@ -198,23 +198,23 @@ export default function AutomatedSeoPage() {
         <div className="grid gap-3 sm:grid-cols-3">
           <LinkButton href="/services/seo" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">Service</span>
-              <span className="block text-white font-semibold mt-1">Full SEO service</span>
-              <span className="block text-xs text-white/55 mt-1">If you want a human team doing the work directly.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">Service</span>
+              <span className="block text-neutral-900 font-semibold mt-1">Full SEO service</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">If you want a human team doing the work directly.</span>
             </span>
           </LinkButton>
           <LinkButton href="/white-label-seo" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">For agencies</span>
-              <span className="block text-white font-semibold mt-1">White-label SEO</span>
-              <span className="block text-xs text-white/55 mt-1">Resell this under your agency brand at 60-70% margin.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">For agencies</span>
+              <span className="block text-neutral-900 font-semibold mt-1">White-label SEO</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">Resell this under your agency brand at 60-70% margin.</span>
             </span>
           </LinkButton>
           <LinkButton href="/for-agencies" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">Partner</span>
-              <span className="block text-white font-semibold mt-1">Full partner program</span>
-              <span className="block text-xs text-white/55 mt-1">All 8 services under your brand. One partner agreement.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">Partner</span>
+              <span className="block text-neutral-900 font-semibold mt-1">Full partner program</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">All 8 services under your brand. One partner agreement.</span>
             </span>
           </LinkButton>
         </div>
@@ -225,7 +225,7 @@ export default function AutomatedSeoPage() {
       <CtaSection
         title={
           <>
-            Ready to <em className="font-serif not-italic text-lime-400">stop being invisible</em> on Google?
+            Ready to <em className="font-serif not-italic text-blue-600">stop being invisible</em> on Google?
           </>
         }
         subhead="Get a free audit, or book a 15-min strategy call. Either way, you'll have a 90-day plan in hand."

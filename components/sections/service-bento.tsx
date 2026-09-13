@@ -30,7 +30,7 @@ export function ServiceBento({ eyebrow, title, subhead, services }: ServiceBento
         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
           {title}
         </h2>
-        {subhead && <p className="mt-4 text-white/70 max-w-xl">{subhead}</p>}
+        {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl">{subhead}</p>}
       </ScrollReveal>
 
       <StaggerGroup
@@ -59,22 +59,22 @@ function BentoCard({ service }: { service: BentoService }) {
       )}
     >
       <div className="flex items-center gap-3">
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
           <Icon className="h-5 w-5" />
         </span>
         {service.feature && (
-          <span className="text-[11px] uppercase tracking-widest text-lime-400 font-semibold">
+          <span className="text-[11px] uppercase tracking-widest text-blue-600 font-semibold">
             Flagship
           </span>
         )}
       </div>
-      <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-      <p className="text-sm text-white/65 leading-relaxed flex-1">{service.description}</p>
+      <h3 className="text-xl font-semibold text-neutral-900">{service.title}</h3>
+      <p className="text-sm text-neutral-900/65 leading-relaxed flex-1">{service.description}</p>
       <div className="mt-2 flex items-center justify-between">
         {service.fromPrice && (
-          <span className="text-xs text-white/45">From {service.fromPrice}</span>
+          <span className="text-xs text-neutral-900/45">From {service.fromPrice}</span>
         )}
-        <span className="inline-flex items-center gap-1.5 text-sm text-lime-400 group-hover:gap-2.5 transition-all">
+        <span className="inline-flex items-center gap-1.5 text-sm text-blue-600 group-hover:gap-2.5 transition-all">
           Explore <ArrowUpRight className="h-3.5 w-3.5" />
         </span>
       </div>

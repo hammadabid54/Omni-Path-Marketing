@@ -66,7 +66,7 @@ export function FloatingCta() {
       <div className="bento-lg bento flex items-center gap-3 shadow-2xl shadow-black/50 md:gap-4">
         <a
           href="/audit"
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0a0a0f] transition-all hover:bg-lime-300 hover:shadow-lg hover:shadow-lime-400/30 md:py-3 md:text-base"
+          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0a0a0f] transition-all hover:bg-blue-300 hover:shadow-lg hover:shadow-blue-600/30 md:py-3 md:text-base"
         >
           <Sparkles className="h-4 w-4" aria-hidden />
           <span>Get a free audit</span>
@@ -74,7 +74,7 @@ export function FloatingCta() {
         </a>
         <a
           href="/contact"
-          className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2.5 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/10"
+          className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-neutral-200/15 bg-neutral-900/5 px-3 py-2.5 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-200/30 hover:bg-neutral-900/10"
         >
           Talk to us
         </a>
@@ -82,7 +82,7 @@ export function FloatingCta() {
           type="button"
           onClick={handleDismiss}
           aria-label="Dismiss"
-          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-white/45 transition-colors hover:bg-white/5 hover:text-white"
+          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-neutral-900/45 transition-colors hover:bg-neutral-900/5 hover:text-neutral-900"
         >
           <X className="h-4 w-4" />
         </button>

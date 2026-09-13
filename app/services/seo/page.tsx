@@ -302,7 +302,7 @@ export default function SeoServicePage() {
         heroTitle={
           <>
             SEO that ranks.{" "}
-            <em className="font-serif not-italic text-lime-400">Without the agency overhead.</em>
+            <em className="font-serif not-italic text-blue-600">Without the agency overhead.</em>
           </>
         }
         heroSubhead="White-label SEO services for agencies at $150-250/client (same engine at every tier). Direct SEO services for businesses at $250-450/mo Bronze / Silver / Gold. Technical SEO, on-page, content, links, local, reporting. Same deliverables as a $1,500-3,000/mo traditional agency at 60-70% lower cost."
@@ -315,7 +315,7 @@ export default function SeoServicePage() {
         whatWeDoTitle={
           <>
             The full SEO stack.{" "}
-            <em className="font-serif not-italic text-lime-400">One team.</em>
+            <em className="font-serif not-italic text-blue-600">One team.</em>
           </>
         }
         whatWeDoSubhead="Technical SEO, on-page SEO, content production, link building, local SEO, and reporting — run by one senior team under one flat monthly fee. No subcontractors, no account-manager relay, no waiting two weeks for an answer."
@@ -356,7 +356,7 @@ export default function SeoServicePage() {
         directTitle={
           <>
             For businesses.{" "}
-            <em className="font-serif not-italic text-lime-400">Flat fee, no markup.</em>
+            <em className="font-serif not-italic text-blue-600">Flat fee, no markup.</em>
           </>
         }
         directSubhead="Bronze / Silver / Gold — one monthly fee, no percentage of spend. The number on your invoice is the number on your books. Move up when your business does, no re-negotiation, no setup fee on the upgrade."
@@ -373,9 +373,9 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">Direct plans, in detail</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             What you get.{" "}
-            <em className="font-serif not-italic text-lime-400">And what scales with you.</em>
+            <em className="font-serif not-italic text-blue-600">And what scales with you.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Every plan covers the full search engine optimization loop — technical, on-page, content, links, local, reporting. Higher tiers add volume, multi-location support, and dedicated senior attention. Move up when your business does, no setup fee on the upgrade.
           </p>
         </ScrollReveal>
@@ -389,13 +389,13 @@ export default function SeoServicePage() {
               <div
                 className={cn(
                   "bento h-full flex flex-col",
-                  tier.popular && "border-lime-400/40 bg-lime-400/[0.03]"
+                  tier.popular && "border-blue-600/40 bg-blue-600/[0.03]"
                 )}
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <Layers className="h-4 w-4 text-lime-400" />
-                    <h3 className="text-lg font-semibold text-white">
+                    <Layers className="h-4 w-4 text-blue-600" />
+                    <h3 className="text-lg font-semibold text-neutral-900">
                       Direct · {tier.name}
                     </h3>
                   </div>
@@ -412,23 +412,23 @@ export default function SeoServicePage() {
                 </div>
 
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-lime-400">
+                  <span className="text-4xl font-bold text-blue-600">
                     {tier.price}
                   </span>
-                  <span className="text-xs text-white/55">per month</span>
+                  <span className="text-xs text-neutral-900/55">per month</span>
                 </div>
 
                 <div className="mt-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-white/55">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-900/55">
                     What we do under this tier
                   </p>
                   <ul className="mt-3 space-y-2">
                     {tier.includes.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2 text-sm text-white/80 leading-relaxed"
+                        className="flex items-start gap-2 text-sm text-neutral-900/80 leading-relaxed"
                       >
-                        <Check className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                        <Check className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -436,17 +436,17 @@ export default function SeoServicePage() {
                 </div>
 
                 {tier.upgrade && tier.upgrade.length > 0 && (
-                  <div className="mt-6 rounded-lg border border-white/8 bg-white/[0.02] p-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+                  <div className="mt-6 rounded-lg border border-neutral-200/8 bg-neutral-900/[0.02] p-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-widest text-blue-600">
                       Upgrade to {directTiers[i + 1]?.name ?? "next tier"} for:
                     </p>
                     <ul className="mt-2 space-y-1.5">
                       {tier.upgrade.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2 text-sm text-white/70 leading-relaxed"
+                          className="flex items-start gap-2 text-sm text-neutral-900/70 leading-relaxed"
                         >
-                          <ArrowRight className="h-3.5 w-3.5 mt-1 text-white/40 shrink-0" />
+                          <ArrowRight className="h-3.5 w-3.5 mt-1 text-neutral-900/40 shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -470,13 +470,13 @@ export default function SeoServicePage() {
         </StaggerGroup>
 
         <ScrollReveal className="mt-10" delay={0.15}>
-          <p className="text-sm text-white/55 text-center max-w-2xl mx-auto">
+          <p className="text-sm text-neutral-900/55 text-center max-w-2xl mx-auto">
             Ad spend is not a factor for SEO. The monthly fee above is the only line item — no setup fees, no percentage of revenue, no hidden costs. Pair SEO with{" "}
-            <Link href="/services/paid-ads" className="text-lime-400 hover:underline">
+            <Link href="/services/paid-ads" className="text-blue-600 hover:underline">
               paid ads
             </Link>{" "}
             for immediate leads while organic compounds. See the{" "}
-            <Link href="/pricing" className="text-lime-400 hover:underline">
+            <Link href="/pricing" className="text-blue-600 hover:underline">
               full pricing
             </Link>{" "}
             for bundle discounts.
@@ -492,17 +492,17 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             For agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
+            <em className="font-serif not-italic text-blue-600">60-70% margin.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Resell under your own brand. Your client never sees us, never hears from us, and every deliverable ships with your logo and your colors. The numbers below show the math: what you pay us, what you charge, and the margin you keep.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">You pay us</th>
@@ -516,11 +516,11 @@ export default function SeoServicePage() {
                   <tr
                     key={row.name}
                     className={cn(
-                      "border-b border-white/5 last:border-0",
-                      row.name === "Growth" && "bg-lime-400/5"
+                      "border-b border-neutral-200/5 last:border-0",
+                      row.name === "Growth" && "bg-blue-600/5"
                     )}
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {row.name}
                       {row.name === "Growth" && (
                         <span className="pill pill-accent text-[10px] ml-2">
@@ -528,20 +528,20 @@ export default function SeoServicePage() {
                         </span>
                       )}
                     </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
+                    <td className="px-5 py-4 text-blue-600 font-semibold">
                       {row.ourPrice}
                     </td>
-                    <td className="px-5 py-4 text-white/85">{row.resell}</td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
+                    <td className="px-5 py-4 text-neutral-900/85">{row.resell}</td>
+                    <td className="px-5 py-4 text-blue-600 font-semibold">
                       {row.margin}
                     </td>
-                    <td className="px-5 py-4 text-white/70">{row.clientCount}</td>
+                    <td className="px-5 py-4 text-neutral-900/70">{row.clientCount}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-xs text-white/45">
+          <p className="mt-4 text-xs text-neutral-900/45">
             Margins calculated on the low end of the resell range. White-label
             partner agencies get a private Slack, white-labeled delivery portal,
             and a dedicated partner manager after 5 active clients.
@@ -554,43 +554,43 @@ export default function SeoServicePage() {
         >
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 5 clients at Growth
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$2,750-5,000/mo</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">$2,750-5,000/mo</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Margin on a 5-client book at the Growth tier, charged at the lower to upper end of typical agency pricing.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 15 clients at Scale
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$12,750-20,250/mo</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">$12,750-20,250/mo</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Scale-tier pricing on a 15-client book. We do not cap how many clients you can run through us.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 Partner bundle (8 services)
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">From $150/client</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">From $150/client</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Bundle SEO with{" "}
-                <Link href="/services/paid-ads" className="text-lime-400 hover:underline">
+                <Link href="/services/paid-ads" className="text-blue-600 hover:underline">
                   paid ads
                 </Link>
                 ,{" "}
-                <Link href="/services/web-design" className="text-lime-400 hover:underline">
+                <Link href="/services/web-design" className="text-blue-600 hover:underline">
                   web design
                 </Link>
                 , and{" "}
-                <Link href="/services/branding" className="text-lime-400 hover:underline">
+                <Link href="/services/branding" className="text-blue-600 hover:underline">
                   branding
                 </Link>{" "}
                 at lower per-client rates.
@@ -608,11 +608,11 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             How we ship{" "}
-            <em className="font-serif not-italic text-lime-400">
+            <em className="font-serif not-italic text-blue-600">
               10x faster than the agency down the street.
             </em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Most SEO agencies bill you for meetings, account-manager handoffs, and quarterly manual reports. We replaced that overhead with a custom AI and automation stack. Same work, same deliverables, shipped faster and priced 60-70% lower.
           </p>
         </ScrollReveal>
@@ -624,16 +624,16 @@ export default function SeoServicePage() {
           {stackTools.map((tool) => (
             <StaggerItem key={tool.name}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {tool.icon}
                 </div>
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-neutral-900">
                   {tool.name}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {tool.body}
                 </p>
-                <p className="mt-4 text-xs text-lime-400 font-medium">
+                <p className="mt-4 text-xs text-blue-600 font-medium">
                   {tool.stat}
                 </p>
               </div>
@@ -642,31 +642,31 @@ export default function SeoServicePage() {
         </StaggerGroup>
 
         <ScrollReveal className="mt-12" delay={0.1}>
-          <div className="rounded-2xl border border-lime-400/20 bg-lime-400/[0.04] p-6 md:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+          <div className="rounded-2xl border border-blue-600/20 bg-blue-600/[0.04] p-6 md:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-blue-600">
               What this means for you
             </p>
             <div className="mt-6 grid gap-6 md:grid-cols-3">
               <div>
-                <p className="text-3xl font-bold text-white">5h</p>
-                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                <p className="text-3xl font-bold text-neutral-900">5h</p>
+                <p className="mt-1 text-sm text-neutral-900/70 leading-relaxed">
                   Human time per client per month. Traditional agencies run 25-30h per account. The rest is the overhead you are paying for.
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-white">Every 30 days</p>
-                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                <p className="text-3xl font-bold text-neutral-900">Every 30 days</p>
+                <p className="mt-1 text-sm text-neutral-900/70 leading-relaxed">
                   100% of clients get a fresh technical audit. Most agencies audit quarterly at best. Some never re-audit after month one.
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-white">70% lower</p>
-                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                <p className="text-3xl font-bold text-neutral-900">70% lower</p>
+                <p className="mt-1 text-sm text-neutral-900/70 leading-relaxed">
                   Same deliverables. 5x faster turnaround. 70% lower cost. The number on your invoice is the number on your books.
                 </p>
               </div>
             </div>
-            <p className="mt-8 text-sm text-white/75 max-w-2xl leading-relaxed">
+            <p className="mt-8 text-sm text-neutral-900/75 max-w-2xl leading-relaxed">
               That is why we can charge $150-250/client for white-label SEO while the agency down the street charges $1,500. We do less manual work. We ship more, and ship it sooner.
             </p>
           </div>
@@ -681,20 +681,20 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">Why us vs a traditional agency</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Same work.{" "}
-            <em className="font-serif not-italic text-lime-400">A different price tag.</em>
+            <em className="font-serif not-italic text-blue-600">A different price tag.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Traditional SEO agencies charge studio overhead, account-manager layers, and 12-month lock-ins. We built the delivery pipeline on AI and automation so our costs are 60-70% lower. The savings go to you. The quality stays. Here is the side-by-side.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">What you get</th>
-                  <th className="px-5 py-4 font-medium text-lime-400">
+                  <th className="px-5 py-4 font-medium text-blue-600">
                     Omni Path
                   </th>
                   <th className="px-5 py-4 font-medium">Traditional agency</th>
@@ -704,15 +704,15 @@ export default function SeoServicePage() {
                 {whyUsRows.map((row) => (
                   <tr
                     key={row.label}
-                    className="border-b border-white/5 last:border-0"
+                    className="border-b border-neutral-200/5 last:border-0"
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {row.label}
                     </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
+                    <td className="px-5 py-4 text-blue-600 font-semibold">
                       {row.us}
                     </td>
-                    <td className="px-5 py-4 text-white/60">{row.them}</td>
+                    <td className="px-5 py-4 text-neutral-900/60">{row.them}</td>
                   </tr>
                 ))}
               </tbody>
@@ -721,9 +721,9 @@ export default function SeoServicePage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
-          <p className="text-sm text-white/65 leading-relaxed">
+          <p className="text-sm text-neutral-900/65 leading-relaxed">
             The short version: search engine optimization services that cost $1,500-3,000/mo at a traditional agency land at $250-450/mo here, with the same deliverables and a senior human on your account. The process is faster because we cut the meetings, the account-manager relay, and the long proposal cycles. Your rankings move sooner, your bill is lower, and you ship with no lock-in contract from day one. Pair SEO with{" "}
-            <Link href="/services/paid-ads" className="text-lime-400 hover:underline">
+            <Link href="/services/paid-ads" className="text-blue-600 hover:underline">
               paid ads
             </Link>{" "}
             for immediate leads while organic compounds.
@@ -739,9 +739,9 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">What&apos;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Non-negotiables.{" "}
-            <em className="font-serif not-italic text-lime-400">In every tier.</em>
+            <em className="font-serif not-italic text-blue-600">In every tier.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Whether you are on Bronze at $250/mo or Gold at $450/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor (audit + on-page + reporting).
           </p>
         </ScrollReveal>
@@ -753,13 +753,13 @@ export default function SeoServicePage() {
           {includedInEveryPlan.map((item) => (
             <StaggerItem key={item.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {item.icon}
                 </div>
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {item.body}
                 </p>
               </div>
@@ -776,9 +776,9 @@ export default function SeoServicePage() {
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Audit to ranking.{" "}
-            <em className="font-serif not-italic text-lime-400">Five steps.</em>
+            <em className="font-serif not-italic text-blue-600">Five steps.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Same process whether you are a direct client booking a $350 Silver plan or an agency running a $200 white-label resell. Audit lands in week one. Strategy approved in week two. Technical fixes, content, and links ship from month one.
           </p>
         </ScrollReveal>
@@ -790,19 +790,19 @@ export default function SeoServicePage() {
           {processSteps.map((step) => (
             <StaggerItem key={step.number}>
               <div className="bento h-full">
-                <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10">
+                <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/10">
                     {step.number}
                   </span>
                   Step
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-white">
+                <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {step.body}
                 </p>
-                <p className="mt-3 text-xs text-white/45 inline-flex items-center gap-1.5">
+                <p className="mt-3 text-xs text-neutral-900/45 inline-flex items-center gap-1.5">
                   <span className="dot" /> {step.meta}
                 </p>
               </div>
@@ -811,19 +811,19 @@ export default function SeoServicePage() {
         </StaggerGroup>
 
         <ScrollReveal
-          className="mt-10 text-center text-sm text-white/55"
+          className="mt-10 text-center text-sm text-neutral-900/55"
           delay={0.2}
         >
           Total time, audit to first ranking movement:{" "}
-          <span className="text-lime-400 font-semibold">30-60 days</span>.
+          <span className="text-blue-600 font-semibold">30-60 days</span>.
           Meaningful organic traffic in 4-6 months. Top 3 rankings in 6-12 months.
         </ScrollReveal>
       </Section>
 
       {/* Internal links — pair SEO with the rest of the stack */}
       <Section spacing="tight">
-        <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 md:p-8">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/55">
+        <div className="rounded-2xl border border-neutral-200/8 bg-neutral-900/[0.02] p-6 md:p-8">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-900/55">
             Pair SEO with
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-3 text-sm">
@@ -833,7 +833,7 @@ export default function SeoServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               Paid ads — get leads now while SEO compounds
             </LinkButton>
             <LinkButton
@@ -842,7 +842,7 @@ export default function SeoServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               Content — ship more posts, faster
             </LinkButton>
             <LinkButton
@@ -851,7 +851,7 @@ export default function SeoServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               Web design — fix the technical SEO baseline
             </LinkButton>
           </div>
@@ -873,7 +873,7 @@ export default function SeoServicePage() {
         title={
           <>
             SEO questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         subhead="If you don't see your question here, just ask. We reply within 4 business hours, no sales team in between."
@@ -884,7 +884,7 @@ export default function SeoServicePage() {
         variant="panel"
         title={
           <>
-            Ready to <em className="font-serif not-italic text-lime-400">rank higher?</em>
+            Ready to <em className="font-serif not-italic text-blue-600">rank higher?</em>
           </>
         }
         subhead="Get a free audit, or book a 15-min call with a senior SEO strategist. No sales team, no SDR follow-up, no proposal deck."

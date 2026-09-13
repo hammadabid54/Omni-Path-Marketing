@@ -63,7 +63,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer me"
             aria-label={`Omni Path Marketing on ${label}`}
-            className={`inline-flex items-center justify-center ${sizeClass} rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:border-lime-400/40 hover:bg-lime-400/10 hover:text-lime-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-400/60`}
+            className={`inline-flex items-center justify-center ${sizeClass} rounded-full border border-neutral-200/10 bg-neutral-900/5 text-neutral-900/70 transition-colors hover:border-blue-600/40 hover:bg-blue-600/10 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/60`}
           >
             <Icon {...ICON_PROPS} className={iconClass} />
             {showLabels && <span className="ml-2 text-sm">{label}</span>}

@@ -40,7 +40,7 @@ export function Sparkline({
       <path
         d={linePath}
         fill="none"
-        stroke="#A3E635"
+        stroke="#0070f3"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"

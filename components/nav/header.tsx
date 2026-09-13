@@ -60,14 +60,14 @@ export function Header() {
       className={cn(
         "sticky top-0 z-40 w-full backdrop-blur-md transition-colors duration-300",
         scrolled
-          ? "bg-[#0a0a0f]/85 border-b border-white/8"
+          ? "bg-white/85 border-b border-neutral-200/8"
           : "bg-transparent border-b border-transparent",
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-6">
         <Link
           href="/"
-          className="flex items-center gap-2 text-white font-semibold tracking-tight"
+          className="flex items-center gap-2 text-neutral-900 font-semibold tracking-tight"
           aria-label="Omni Path Marketing — home"
         >
           <LogoMark />
@@ -91,8 +91,8 @@ export function Header() {
               className={cn(
                 "px-3 py-2 text-sm rounded-md transition-colors",
                 pathname === item.href
-                  ? "text-lime-400"
-                  : "text-white/75 hover:text-white hover:bg-white/5",
+                  ? "text-blue-600"
+                  : "text-neutral-900/75 hover:text-neutral-900 hover:bg-neutral-900/5",
               )}
             >
               {item.label}
@@ -108,7 +108,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <LinkButton href="/audit" variant="ghost" size="sm" className="text-white/85">
+          <LinkButton href="/audit" variant="ghost" size="sm" className="text-neutral-900/85">
             Free audit
           </LinkButton>
           <LinkButton href="/contact" variant="primary" size="sm">
@@ -121,7 +121,7 @@ export function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-neutral-200/10 text-neutral-900"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -129,39 +129,39 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-white/8 bg-[#0a0a0f]">
+        <div className="lg:hidden border-t border-neutral-200/8 bg-white">
           <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1">
-            <div className="text-xs uppercase tracking-widest text-white/45 px-3 pt-2 pb-1">Services</div>
+            <div className="text-xs uppercase tracking-widest text-neutral-900/45 px-3 pt-2 pb-1">Services</div>
             {SERVICES.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="px-3 py-2 rounded-md text-white/80 hover:text-white hover:bg-white/5"
+                className="px-3 py-2 rounded-md text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5"
               >
                 {s.label}
               </Link>
             ))}
-            <div className="h-px bg-white/8 my-2" />
+            <div className="h-px bg-neutral-900/8 my-2" />
             {PRIMARY.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "px-3 py-2 rounded-md",
-                  pathname === item.href ? "text-lime-400" : "text-white/80 hover:text-white hover:bg-white/5",
+                  pathname === item.href ? "text-blue-600" : "text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5",
                 )}
               >
                 {item.label}
               </Link>
             ))}
-            <div className="text-xs uppercase tracking-widest text-white/45 px-3 pt-3 pb-1">More</div>
+            <div className="text-xs uppercase tracking-widest text-neutral-900/45 px-3 pt-3 pb-1">More</div>
             {MORE.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "px-3 py-2 rounded-md",
-                  pathname === item.href ? "text-lime-400" : "text-white/80 hover:text-white hover:bg-white/5",
+                  pathname === item.href ? "text-blue-600" : "text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5",
                 )}
               >
                 {item.label}
@@ -212,7 +212,7 @@ function NavDropdown({
         aria-haspopup="true"
         className={cn(
           "px-3 py-2 text-sm rounded-md transition-colors inline-flex items-center gap-1",
-          isActive ? "text-lime-400" : "text-white/75 hover:text-white hover:bg-white/5",
+          isActive ? "text-blue-600" : "text-neutral-900/75 hover:text-neutral-900 hover:bg-neutral-900/5",
         )}
       >
         {label}
@@ -222,7 +222,7 @@ function NavDropdown({
       </button>
       {isOpen && (
         <div className="absolute left-0 top-full pt-2 w-[260px]">
-          <div className="rounded-xl border border-white/10 bg-[#0a0a0f]/95 backdrop-blur-md p-2 shadow-2xl">
+          <div className="rounded-xl border border-neutral-200/10 bg-white/95 backdrop-blur-md p-2 shadow-2xl">
             {items.map((s) => (
               <Link
                 key={s.href}
@@ -230,8 +230,8 @@ function NavDropdown({
                 className={cn(
                   "block px-3 py-2 rounded-md text-sm",
                   pathname === s.href
-                    ? "bg-lime-400/10 text-lime-400"
-                    : "text-white/80 hover:text-white hover:bg-white/5",
+                    ? "bg-blue-600/10 text-blue-600"
+                    : "text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5",
                 )}
               >
                 {s.label}
@@ -239,10 +239,10 @@ function NavDropdown({
             ))}
             {viewAllHref && viewAllLabel && (
               <>
-                <div className="h-px bg-white/8 my-1" />
+                <div className="h-px bg-neutral-900/8 my-1" />
                 <Link
                   href={viewAllHref}
-                  className="block px-3 py-2 rounded-md text-sm text-white/60 hover:text-lime-400"
+                  className="block px-3 py-2 rounded-md text-sm text-neutral-900/60 hover:text-blue-600"
                 >
                   {viewAllLabel}
                 </Link>
@@ -260,15 +260,15 @@ function LogoMark() {
     <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden>
       <defs>
         <linearGradient id="omni-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#a3e635" />
-          <stop offset="1" stopColor="#bef264" />
+          <stop offset="0" stopColor="#0070f3" />
+          <stop offset="1" stopColor="#2f8eff" />
         </linearGradient>
       </defs>
       <path
         d="M16 3 L29 26 H21 L16 17 L11 26 H3 Z"
         fill="url(#omni-mark)"
       />
-      <circle cx="16" cy="22" r="2" fill="#0a0a0f" />
+      <circle cx="16" cy="22" r="2" fill="#ffffff" />
     </svg>
   );
 }

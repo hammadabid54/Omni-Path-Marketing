@@ -42,13 +42,13 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[1100px] h-[90vh] max-h-[800px] bg-[#11111A] border border-white/10 rounded-2xl overflow-hidden flex flex-col shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]"
+        className="w-full max-w-[1100px] h-[90vh] max-h-[800px] bg-[#11111A] border border-neutral-200/10 rounded-2xl overflow-hidden flex flex-col shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-[#1A1A24]">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-neutral-200/10 bg-[#1A1A24]">
           <div className="flex items-center gap-3 min-w-0 flex-1">
-            <div className="w-8 h-8 bg-lime-400/15 border border-lime-400/30 rounded-lg flex items-center justify-center text-lime-400 shrink-0">
+            <div className="w-8 h-8 bg-blue-600/15 border border-blue-600/30 rounded-lg flex items-center justify-center text-blue-600 shrink-0">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
@@ -57,8 +57,8 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
               </svg>
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-sm font-semibold text-white truncate">{pdf.name}</div>
-              <div className="text-[11px] text-white/45 mt-0.5">
+              <div className="text-sm font-semibold text-neutral-900 truncate">{pdf.name}</div>
+              <div className="text-[11px] text-neutral-900/45 mt-0.5">
                 {pdf.service} · {pdf.region} · {pdf.year}
               </div>
             </div>
@@ -67,7 +67,7 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
             <a
               href={pdfUrl}
               download
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 text-white/85 text-xs font-medium hover:bg-white/5 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200/10 text-neutral-900/85 text-xs font-medium hover:bg-neutral-900/5 transition-colors"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -81,7 +81,7 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open in new tab"
-              className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/10 text-white/85 hover:bg-white/5 transition-colors"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-neutral-200/10 text-neutral-900/85 hover:bg-neutral-900/5 transition-colors"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -92,7 +92,7 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
             <button
               onClick={onClose}
               aria-label="Close"
-              className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/10 text-white/85 hover:bg-white/5 transition-colors"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-neutral-200/10 text-neutral-900/85 hover:bg-neutral-900/5 transition-colors"
             >
               <span className="text-lg leading-none">×</span>
             </button>

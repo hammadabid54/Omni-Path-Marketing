@@ -22,7 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   if (!authed) {
     return (
-      <main className="min-h-screen bg-[#0a0a0f] flex items-center justify-center p-6">
+      <main className="min-h-screen bg-white flex items-center justify-center p-6">
         <PasswordGate />
       </main>
     );
@@ -33,13 +33,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
 function AdminShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
-      <header className="border-b border-white/8 bg-[#0a0a0f]">
+    <div className="min-h-screen bg-white">
+      <header className="border-b border-neutral-200/8 bg-white">
         <div className="container-page py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-6">
-            <Link href="/admin" className="text-white font-semibold tracking-tight" aria-label="Admin home">
+            <Link href="/admin" className="text-neutral-900 font-semibold tracking-tight" aria-label="Admin home">
               <span className="inline-flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-lime-400/15 text-lime-400 text-xs font-bold">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-blue-600/15 text-blue-600 text-xs font-bold">
                   A
                 </span>
                 <span>Omni Path Admin</span>
@@ -54,7 +54,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
           <form action="/admin/logout" method="post">
             <button
               type="submit"
-              className="text-xs text-white/55 hover:text-white transition-colors"
+              className="text-xs text-neutral-900/55 hover:text-neutral-900 transition-colors"
             >
               Sign out
             </button>
@@ -70,7 +70,7 @@ function AdminLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="px-3 py-1.5 rounded-md text-white/65 hover:text-white hover:bg-white/5 transition-colors"
+      className="px-3 py-1.5 rounded-md text-neutral-900/65 hover:text-neutral-900 hover:bg-neutral-900/5 transition-colors"
     >
       {label}
     </Link>
@@ -112,17 +112,17 @@ function PasswordGate() {
   }
 
   return (
-    <div className="max-w-md w-full rounded-2xl border border-white/10 bg-[#11111A] p-8">
-      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400 text-xl font-bold">
+    <div className="max-w-md w-full rounded-2xl border border-neutral-200/10 bg-[#11111A] p-8">
+      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600 text-xl font-bold">
         A
       </div>
-      <h1 className="mt-4 text-2xl font-semibold text-white">Admin sign-in</h1>
-      <p className="mt-1 text-sm text-white/55">
+      <h1 className="mt-4 text-2xl font-semibold text-neutral-900">Admin sign-in</h1>
+      <p className="mt-1 text-sm text-neutral-900/55">
         Enter the admin password to manage intake links and view lead submissions.
       </p>
       <form action={login} className="mt-6 space-y-3">
         <label className="block">
-          <span className="text-xs font-semibold uppercase tracking-widest text-white/45">Password</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-neutral-900/45">Password</span>
           <input
             type="password"
             name="password"
@@ -134,8 +134,8 @@ function PasswordGate() {
         </label>
         <button type="submit" className="btn btn-primary w-full">Sign in</button>
       </form>
-      <p className="mt-3 text-xs text-white/40">
-        Wrong password? Check <code className="text-white/55">ADMIN_PASSWORD</code> in <code className="text-white/55">.env.local</code>.
+      <p className="mt-3 text-xs text-neutral-900/40">
+        Wrong password? Check <code className="text-neutral-900/55">ADMIN_PASSWORD</code> in <code className="text-neutral-900/55">.env.local</code>.
       </p>
     </div>
   );

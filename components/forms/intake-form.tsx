@@ -221,17 +221,17 @@ export function IntakeForm({ token }: { token: string }) {
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border border-lime-400/30 bg-lime-400/5 p-8 text-center"
+        className="rounded-2xl border border-blue-600/30 bg-blue-600/5 p-8 text-center"
         role="status"
       >
-        <CheckCircle2 className="h-10 w-10 text-lime-400 mx-auto" />
-        <h3 className="mt-3 text-2xl font-semibold text-white">Intake received.</h3>
-        <p className="mt-2 text-white/70 text-sm max-w-md mx-auto">
+        <CheckCircle2 className="h-10 w-10 text-blue-600 mx-auto" />
+        <h3 className="mt-3 text-2xl font-semibold text-neutral-900">Intake received.</h3>
+        <p className="mt-2 text-neutral-900/70 text-sm max-w-md mx-auto">
           We&apos;ve sent a recap to your contact email with the full credentials checklist. Send
           access by the dates you picked and we&apos;ll meet you on the kickoff call.
         </p>
-        <p className="mt-4 text-xs text-white/45 max-w-md mx-auto">
-          Reference: <span className="font-mono text-lime-400">{token}</span>
+        <p className="mt-4 text-xs text-neutral-900/45 max-w-md mx-auto">
+          Reference: <span className="font-mono text-blue-600">{token}</span>
         </p>
       </motion.div>
     );
@@ -241,7 +241,7 @@ export function IntakeForm({ token }: { token: string }) {
     <form
       onSubmit={handleSubmit(onSubmit, onInvalid)}
       noValidate
-      className="rounded-2xl border border-white/10 bg-white/2 p-6 md:p-8"
+      className="rounded-2xl border border-neutral-200/10 bg-neutral-900/2 p-6 md:p-8"
     >
       {/* Progress bar */}
       <ol className="mb-8 flex flex-wrap gap-2" aria-label="Form progress">
@@ -255,10 +255,10 @@ export function IntakeForm({ token }: { token: string }) {
               className={
                 "flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors " +
                 (isActive
-                  ? "bg-lime-400 text-[#0a0a0f]"
+                  ? "bg-blue-600 text-[#0a0a0f]"
                   : isDone
-                  ? "bg-lime-400/15 text-lime-400"
-                  : "bg-white/5 text-white/55")
+                  ? "bg-blue-600/15 text-blue-600"
+                  : "bg-neutral-900/5 text-neutral-900/55")
               }
               aria-current={isActive ? "step" : undefined}
             >
@@ -374,8 +374,8 @@ export function IntakeForm({ token }: { token: string }) {
                         className={
                           "cursor-pointer rounded-xl border p-4 transition-colors " +
                           (active
-                            ? "border-lime-400 bg-lime-400/5"
-                            : "border-white/10 bg-white/2 hover:border-white/20")
+                            ? "border-blue-600 bg-blue-600/5"
+                            : "border-neutral-200/10 bg-neutral-900/2 hover:border-neutral-200/20")
                         }
                       >
                         <input
@@ -391,13 +391,13 @@ export function IntakeForm({ token }: { token: string }) {
                         />
                         <div className="flex items-center justify-between gap-3">
                           <div>
-                            <div className="text-sm font-semibold text-white">{s.label}</div>
-                            <div className="mt-1 text-xs text-white/55">{s.blurb}</div>
+                            <div className="text-sm font-semibold text-neutral-900">{s.label}</div>
+                            <div className="mt-1 text-xs text-neutral-900/55">{s.blurb}</div>
                           </div>
                           <div
                             className={
                               "h-5 w-5 rounded-md border flex items-center justify-center " +
-                              (active ? "border-lime-400 bg-lime-400" : "border-white/20")
+                              (active ? "border-blue-600 bg-blue-600" : "border-neutral-200/20")
                             }
                           >
                             {active && <Check className="h-3 w-3 text-[#0a0a0f]" />}
@@ -424,24 +424,24 @@ export function IntakeForm({ token }: { token: string }) {
               {INBOXES.map((box) => (
                 <div
                   key={box.email}
-                  className="rounded-xl border border-white/8 bg-white/2 p-4 mb-4"
+                  className="rounded-xl border border-neutral-200/8 bg-neutral-900/2 p-4 mb-4"
                 >
                   <div className="flex items-center justify-between gap-2 flex-wrap">
                     <div>
-                      <div className="text-[10px] uppercase tracking-widest text-lime-400 font-semibold">
+                      <div className="text-[10px] uppercase tracking-widest text-blue-600 font-semibold">
                         {box.label}
                       </div>
-                      <a href={`mailto:${box.email}`} className="text-sm font-mono text-white hover:text-lime-400">
+                      <a href={`mailto:${box.email}`} className="text-sm font-mono text-neutral-900 hover:text-blue-600">
                         {box.email}
                       </a>
                     </div>
                   </div>
-                  <p className="mt-2 text-xs text-white/55">{box.description}</p>
+                  <p className="mt-2 text-xs text-neutral-900/55">{box.description}</p>
                 </div>
               ))}
 
               {selectedServices.length === 0 ? (
-                <p className="text-sm text-white/55 italic">Pick at least one service in the previous step to see your tailored checklist.</p>
+                <p className="text-sm text-neutral-900/55 italic">Pick at least one service in the previous step to see your tailored checklist.</p>
               ) : (
                 <div className="mt-4 space-y-4">
                   {selectedServices.map((sid) => {
@@ -451,29 +451,29 @@ export function IntakeForm({ token }: { token: string }) {
                     return (
                       <div
                         key={sid}
-                        className="rounded-xl border border-white/8 bg-[#0d0d14] p-4"
+                        className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4"
                       >
                         <div className="flex items-center justify-between gap-3 flex-wrap">
                           <div>
-                            <div className="text-sm font-semibold text-white">{svc.label}</div>
-                            <div className="mt-0.5 text-[11px] text-white/45">{svc.blurb}</div>
+                            <div className="text-sm font-semibold text-neutral-900">{svc.label}</div>
+                            <div className="mt-0.5 text-[11px] text-neutral-900/45">{svc.blurb}</div>
                           </div>
                         </div>
 
                         {svc.credentials.length > 0 ? (
                           <ul className="mt-3 space-y-1.5 text-xs">
                             {svc.credentials.map((c, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-white/75">
-                                <span className="mt-1.5 h-1 w-1 rounded-full bg-lime-400 shrink-0" />
+                              <li key={idx} className="flex items-start gap-2 text-neutral-900/75">
+                                <span className="mt-1.5 h-1 w-1 rounded-full bg-blue-600 shrink-0" />
                                 <span>
-                                  <strong className="text-white/90">{c.label}</strong> — {c.action}
-                                  <span className="ml-1 text-white/40">→ {c.inbox}</span>
+                                  <strong className="text-neutral-900/90">{c.label}</strong> — {c.action}
+                                  <span className="ml-1 text-neutral-900/40">→ {c.inbox}</span>
                                 </span>
                               </li>
                             ))}
                           </ul>
                         ) : (
-                          <p className="mt-3 text-xs text-white/55 italic">No credentials needed — kickoff call only.</p>
+                          <p className="mt-3 text-xs text-neutral-900/55 italic">No credentials needed — kickoff call only.</p>
                         )}
 
                         <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_2fr]">
@@ -567,14 +567,14 @@ export function IntakeForm({ token }: { token: string }) {
                   />
                 </Field>
 
-                <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-4">
+                <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">
+                    <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">
                       Anti-spam
                     </div>
                     {hasTurnstile ? (
                       turnOk ? (
-                        <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest font-semibold text-lime-400">
+                        <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest font-semibold text-blue-600">
                           <Check className="h-3 w-3" /> Verified
                         </span>
                       ) : (
@@ -587,7 +587,7 @@ export function IntakeForm({ token }: { token: string }) {
                   {hasTurnstile ? (
                     <div id="turnstile-widget" />
                   ) : (
-                    <p className="text-xs text-white/45">
+                    <p className="text-xs text-neutral-900/45">
                       Anti-spam challenge not configured. (The form will still work — Turnstile is
                       optional during dev.)
                     </p>
@@ -648,7 +648,7 @@ export function IntakeForm({ token }: { token: string }) {
         )}
       </div>
 
-      <p className="mt-4 text-xs text-white/45 flex items-center gap-1.5">
+      <p className="mt-4 text-xs text-neutral-900/45 flex items-center gap-1.5">
         <Lock className="h-3 w-3" />
         Private link · Single use · No public access · {hasTurnstile ? "Anti-spam enabled" : "No anti-spam (dev mode)"}
       </p>
@@ -663,8 +663,8 @@ export function IntakeForm({ token }: { token: string }) {
 function Section({ title, subhead, children }: { title: string; subhead?: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-xl md:text-2xl font-semibold text-white">{title}</h2>
-      {subhead && <p className="mt-1 text-sm text-white/55">{subhead}</p>}
+      <h2 className="text-xl md:text-2xl font-semibold text-neutral-900">{title}</h2>
+      {subhead && <p className="mt-1 text-sm text-neutral-900/55">{subhead}</p>}
       <div className="mt-5">{children}</div>
     </section>
   );
@@ -687,7 +687,7 @@ function Field({
     <div>
       <label htmlFor={id} className="label">
         {label}
-        {required && <span aria-hidden className="text-lime-400 ml-1">*</span>}
+        {required && <span aria-hidden className="text-blue-600 ml-1">*</span>}
       </label>
       {children}
       {error && (
@@ -718,7 +718,7 @@ function LegalBlock({
     <div
       className={
         "rounded-xl border p-4 transition-colors " +
-        (checked ? "border-lime-400/40 bg-lime-400/5" : "border-white/8 bg-[#0d0d14]")
+        (checked ? "border-blue-600/40 bg-blue-600/5" : "border-neutral-200/8 bg-[#0d0d14]")
       }
     >
       <div className="flex items-start gap-3">
@@ -727,11 +727,11 @@ function LegalBlock({
           type="checkbox"
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="mt-1 h-4 w-4 accent-lime-400"
+          className="mt-1 h-4 w-4 accent-blue-600"
         />
         <label htmlFor={id} className="flex-1 cursor-pointer">
-          <div className="text-sm font-semibold text-white">{title}</div>
-          <p className="mt-1 text-xs text-white/60 leading-relaxed">{body}</p>
+          <div className="text-sm font-semibold text-neutral-900">{title}</div>
+          <p className="mt-1 text-xs text-neutral-900/60 leading-relaxed">{body}</p>
         </label>
       </div>
       {error && (

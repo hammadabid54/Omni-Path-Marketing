@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 const STATUSES: LeadStatus[] = ["new", "contacted", "won", "lost"];
 const STATUS_COLOR: Record<string, string> = {
-  new: "bg-lime-400/15 text-lime-400 border-lime-400/30",
+  new: "bg-blue-600/15 text-blue-600 border-blue-600/30",
   contacted: "bg-amber-400/15 text-amber-300 border-amber-400/30",
   won: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
   lost: "bg-rose-400/15 text-rose-300 border-rose-400/30",
@@ -46,18 +46,18 @@ export default async function LeadDetailPage({
   return (
     <div>
       <div className="mb-4">
-        <Link href="/admin/leads" className="text-xs text-white/55 hover:text-white">← All leads</Link>
+        <Link href="/admin/leads" className="text-xs text-neutral-900/55 hover:text-neutral-900">← All leads</Link>
       </div>
 
       <div className="flex items-start justify-between gap-4 mb-6 flex-wrap">
         <div>
-          <div className="text-[10px] uppercase tracking-widest text-lime-400 font-semibold">
+          <div className="text-[10px] uppercase tracking-widest text-blue-600 font-semibold">
             {TYPE_LABEL[lead.type] ?? lead.type}
           </div>
-          <h1 className="mt-1 text-2xl font-bold text-white">
+          <h1 className="mt-1 text-2xl font-bold text-neutral-900">
             {lead.name ?? lead.email}
           </h1>
-          {lead.company && <p className="text-sm text-white/65 mt-0.5">{lead.company}</p>}
+          {lead.company && <p className="text-sm text-neutral-900/65 mt-0.5">{lead.company}</p>}
         </div>
         <div className="flex items-center gap-2">
           <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${STATUS_COLOR[lead.status] ?? ""}`}>
@@ -99,7 +99,7 @@ export default async function LeadDetailPage({
 
           {lead.message && (
             <Section title="Message">
-              <p className="text-sm text-white/85 whitespace-pre-wrap">{lead.message}</p>
+              <p className="text-sm text-neutral-900/85 whitespace-pre-wrap">{lead.message}</p>
             </Section>
           )}
 
@@ -125,7 +125,7 @@ export default async function LeadDetailPage({
           <Section title="Status & notes">
             <form action={update} className="space-y-3">
               <div>
-                <label className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">
+                <label className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">
                   Status
                 </label>
                 <select name="status" defaultValue={lead.status} className="select mt-1.5">
@@ -135,7 +135,7 @@ export default async function LeadDetailPage({
                 </select>
               </div>
               <div>
-                <label className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">
+                <label className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">
                   Admin note
                 </label>
                 <textarea
@@ -148,7 +148,7 @@ export default async function LeadDetailPage({
               </div>
               <button type="submit" className="btn btn-primary w-full">Save</button>
               {lead.statusUpdatedAt && (
-                <p className="text-[10px] text-white/40 text-center">
+                <p className="text-[10px] text-neutral-900/40 text-center">
                   Last updated {fmtDate(lead.statusUpdatedAt)}
                 </p>
               )}
@@ -162,8 +162,8 @@ export default async function LeadDetailPage({
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-5">
-      <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mb-3">
+    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5">
+      <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">
         {title}
       </div>
       <div className="space-y-2.5">{children}</div>
@@ -174,19 +174,19 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Field({ label, value, mono, link }: { label: string; value?: string | null; mono?: boolean; link?: boolean }) {
   return (
     <div>
-      <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">{label}</div>
+      <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">{label}</div>
       <div
         className={
-          "mt-0.5 text-sm text-white/85 break-words " +
+          "mt-0.5 text-sm text-neutral-900/85 break-words " +
           (mono ? "font-mono text-xs " : "") +
-          (value ? "" : "text-white/30")
+          (value ? "" : "text-neutral-900/30")
         }
       >
         {value
           ? link && /^https?:\/\//.test(value)
-            ? <a href={value} target="_blank" rel="noopener" className="text-lime-400 hover:underline">{value}</a>
+            ? <a href={value} target="_blank" rel="noopener" className="text-blue-600 hover:underline">{value}</a>
             : link && value.startsWith("/")
-            ? <Link href={value} className="text-lime-400 hover:underline">{value}</Link>
+            ? <Link href={value} className="text-blue-600 hover:underline">{value}</Link>
             : value
           : "—"}
       </div>
@@ -196,13 +196,13 @@ function Field({ label, value, mono, link }: { label: string; value?: string | n
 
 function IntakeData({ data }: { data: Record<string, unknown> }) {
   const entries = Object.entries(data).filter(([_, v]) => v !== undefined && v !== "");
-  if (entries.length === 0) return <p className="text-sm text-white/55">No additional data captured.</p>;
+  if (entries.length === 0) return <p className="text-sm text-neutral-900/55">No additional data captured.</p>;
   return (
     <div className="space-y-2 text-sm">
       {entries.map(([k, v]) => (
-        <div key={k} className="border-b border-white/5 pb-2 last:border-0">
-          <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold">{k}</div>
-          <div className="text-white/85 mt-0.5 break-words">
+        <div key={k} className="border-b border-neutral-200/5 pb-2 last:border-0">
+          <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">{k}</div>
+          <div className="text-neutral-900/85 mt-0.5 break-words">
             {renderValue(v)}
           </div>
         </div>
@@ -221,11 +221,11 @@ function renderValue(v: unknown): React.ReactNode {
     const keys = Object.keys(obj);
     if (keys.length === 0) return "—";
     return (
-      <div className="ml-2 mt-1 border-l border-white/8 pl-3 space-y-1.5">
+      <div className="ml-2 mt-1 border-l border-neutral-200/8 pl-3 space-y-1.5">
         {keys.map((k) => (
           <div key={k}>
-            <span className="text-white/55 text-[11px]">{k}:</span>{" "}
-            <span className="text-white/85">{renderValue(obj[k])}</span>
+            <span className="text-neutral-900/55 text-[11px]">{k}:</span>{" "}
+            <span className="text-neutral-900/85">{renderValue(obj[k])}</span>
           </div>
         ))}
       </div>

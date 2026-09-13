@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
   return (
     <Section spacing="default" container="narrow">
       <div className="prose-legal">
-        <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">Last updated: August 2026</p>
+        <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">Last updated: August 2026</p>
         <h1>Privacy Policy</h1>
         <p>
           This Privacy Policy explains how Omni Path Marketing (&ldquo;Omni Path&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses, and protects information when you use our website, tools, and services. We try to keep this short, honest, and in plain English.

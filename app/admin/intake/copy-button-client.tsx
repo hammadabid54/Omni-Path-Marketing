@@ -25,7 +25,7 @@ export default function CopyButton({ url }: { url: string }) {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-lime-400 hover:text-lime-300"
+      className="inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-blue-600 hover:text-blue-300"
     >
       {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
       {copied ? "Copied" : "Copy"}

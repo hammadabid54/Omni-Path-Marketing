@@ -49,22 +49,22 @@ export function FooterContactForm() {
   }
 
   const inputClass =
-    "w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/35 text-sm focus:border-lime-400 focus:outline-none focus:bg-white/8 transition";
+    "w-full px-4 py-2.5 rounded-lg bg-neutral-900/5 border border-neutral-200/10 text-neutral-900 placeholder:text-neutral-900/35 text-sm focus:border-blue-600 focus:outline-none focus:bg-neutral-900/8 transition";
 
   if (status === "sent") {
     return (
       <div
         role="status"
-        className="rounded-xl border border-lime-400/30 bg-lime-400/5 p-5 flex items-start gap-3"
+        className="rounded-xl border border-blue-600/30 bg-blue-600/5 p-5 flex items-start gap-3"
       >
-        <CheckCircle2 className="h-5 w-5 text-lime-400 flex-shrink-0 mt-0.5" aria-hidden />
+        <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden />
         <div>
-          <p className="text-white font-medium">Message sent.</p>
-          <p className="text-sm text-white/65 mt-1">
+          <p className="text-neutral-900 font-medium">Message sent.</p>
+          <p className="text-sm text-neutral-900/65 mt-1">
             We&apos;ll reply within 4 business hours. Want it faster?{" "}
             <a
               href={`mailto:${BRAND_EMAIL}`}
-              className="text-lime-400 hover:underline"
+              className="text-blue-600 hover:underline"
             >
               Email us directly
             </a>
@@ -136,13 +136,13 @@ export function FooterContactForm() {
         )}
       </div>
       <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 pt-1">
-        <p className="text-xs text-white/40">
+        <p className="text-xs text-neutral-900/40">
           Replies in &lt;4 business hours · We never share your info
         </p>
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-lime-400 text-[#0a0a0f] font-semibold text-sm hover:bg-lime-300 active:scale-[0.98] transition disabled:opacity-60 disabled:cursor-not-allowed"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-[#0a0a0f] font-semibold text-sm hover:bg-blue-300 active:scale-[0.98] transition disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === "sending" ? (
             <>

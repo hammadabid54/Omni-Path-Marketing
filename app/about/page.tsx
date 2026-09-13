@@ -81,7 +81,7 @@ export default function AboutPage() {
       <Hero
         title={
           <>
-            We&apos;re a small team that <em className="font-serif not-italic text-lime-400">ships a lot of work.</em>
+            We&apos;re a small team that <em className="font-serif not-italic text-blue-600">ships a lot of work.</em>
           </>
         }
         subhead="5 humans. 30+ AI workflows. 100+ clients. We don't scale by hiring. We scale by automating. The result: agency-grade work at freelancer prices."
@@ -92,10 +92,10 @@ export default function AboutPage() {
           <ScrollReveal>
             <Eyebrow className="mb-4">Our story</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              Why we <em className="font-serif not-italic text-lime-400">built it this way.</em>
+              Why we <em className="font-serif not-italic text-blue-600">built it this way.</em>
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>
               Most agencies bill hours. More hours = more revenue. We built on outcomes. Lower cost, same quality, better for clients.
             </p>
@@ -110,16 +110,16 @@ export default function AboutPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">The principles</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            How we <em className="font-serif not-italic text-lime-400">operate.</em>
+            How we <em className="font-serif not-italic text-blue-600">operate.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           {PRINCIPLES.map((p) => (
             <StaggerItem key={p.t}>
               <div className="bento h-full">
-                <div className="text-xs text-lime-400 font-semibold uppercase tracking-widest">Principle {p.n}</div>
-                <h3 className="mt-2 text-lg font-semibold text-white">{p.t}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{p.d}</p>
+                <div className="text-xs text-blue-600 font-semibold uppercase tracking-widest">Principle {p.n}</div>
+                <h3 className="mt-2 text-lg font-semibold text-neutral-900">{p.t}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{p.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -130,15 +130,15 @@ export default function AboutPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">By the numbers</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            The receipts. <em className="font-serif not-italic text-lime-400">Updated monthly.</em>
+            The receipts. <em className="font-serif not-italic text-blue-600">Updated monthly.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3" stagger={0.04}>
           {STATS.map((s) => (
             <StaggerItem key={s.l}>
               <div className="bento text-center">
-                <div className="text-3xl md:text-4xl font-bold text-lime-400">{s.v}</div>
-                <div className="mt-1 text-xs text-white/55">{s.l}</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-600">{s.v}</div>
+                <div className="mt-1 text-xs text-neutral-900/55">{s.l}</div>
               </div>
             </StaggerItem>
           ))}
@@ -149,17 +149,17 @@ export default function AboutPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Team</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            5 humans. <em className="font-serif not-italic text-lime-400">Senior only.</em>
+            5 humans. <em className="font-serif not-italic text-blue-600">Senior only.</em>
           </h2>
-          <p className="mt-4 text-white/65">5 humans. 30+ AI workflows. Every senior, every specialist.</p>
+          <p className="mt-4 text-neutral-900/65">5 humans. 30+ AI workflows. Every senior, every specialist.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
           {TEAM.map((member) => (
             <StaggerItem key={member.slug}>
               <div className="bento flex h-full flex-col">
-                <div className="text-xs text-lime-400 font-semibold uppercase tracking-widest">{member.title}</div>
-                <div className="mt-3 text-xl font-semibold text-white">{member.name}</div>
-                <p className="mt-3 text-sm text-white/65 leading-relaxed flex-1">{member.bio}</p>
+                <div className="text-xs text-blue-600 font-semibold uppercase tracking-widest">{member.title}</div>
+                <div className="mt-3 text-xl font-semibold text-neutral-900">{member.name}</div>
+                <p className="mt-3 text-sm text-neutral-900/65 leading-relaxed flex-1">{member.bio}</p>
                 <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
                   <LinkButton href={`/about/${member.slug}`} variant="link" size="sm">
                     Read full bio

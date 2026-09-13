@@ -45,7 +45,7 @@ export default function ForAgenciesPage() {
         eyebrow="For agencies · white-label partner program"
         title={
           <>
-            Your <em className="font-serif not-italic text-lime-400">unfair advantage.</em>
+            Your <em className="font-serif not-italic text-blue-600">unfair advantage.</em>
           </>
         }
         subhead="Add eight services to your agency without hiring. White-labeled under your brand. Resell at your own prices. We do the work."
@@ -57,14 +57,14 @@ export default function ForAgenciesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Services</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Eight services. <em className="font-serif not-italic text-lime-400">One margin opportunity.</em>
+            Eight services. <em className="font-serif not-italic text-blue-600">One margin opportunity.</em>
           </h2>
-          <p className="mt-4 text-white/70">Resell any of these. Your logo. Your pricing. Your client never knows we exist.</p>
+          <p className="mt-4 text-neutral-900/70">Resell any of these. Your logo. Your pricing. Your client never knows we exist.</p>
         </ScrollReveal>
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Service</th>
                   <th className="px-5 py-4 font-medium">From price</th>
@@ -74,11 +74,11 @@ export default function ForAgenciesPage() {
               </thead>
               <tbody>
                 {SERVICES.map((s, i) => (
-                  <tr key={i} className="border-b border-white/5 last:border-0">
-                    <td className="px-5 py-4 text-white/85 font-medium">{s.label}</td>
-                    <td className="px-5 py-4 text-white/70">{s.price}</td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">{s.margin}</td>
-                    <td className="px-5 py-4 text-white/70">{s.resell}</td>
+                  <tr key={i} className="border-b border-neutral-200/5 last:border-0">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">{s.label}</td>
+                    <td className="px-5 py-4 text-neutral-900/70">{s.price}</td>
+                    <td className="px-5 py-4 text-blue-600 font-semibold">{s.margin}</td>
+                    <td className="px-5 py-4 text-neutral-900/70">{s.resell}</td>
                   </tr>
                 ))}
               </tbody>
@@ -91,18 +91,18 @@ export default function ForAgenciesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">How it works</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            14 days from signup to your <em className="font-serif not-italic text-lime-400">first deliverable.</em>
+            14 days from signup to your <em className="font-serif not-italic text-blue-600">first deliverable.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-3" stagger={0.1}>
           {STEPS.map((step) => (
             <StaggerItem key={step.number}>
               <div className="bento bento-lg h-full">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-lime-400/15 text-lime-400 font-semibold">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 font-semibold">
                   {step.number}
                 </span>
-                <h3 className="mt-5 text-xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-white/65 leading-relaxed">{step.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-neutral-900">{step.title}</h3>
+                <p className="mt-2 text-neutral-900/65 leading-relaxed">{step.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -134,7 +134,7 @@ export default function ForAgenciesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Why agencies choose us</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Stay invisible. <em className="font-serif not-italic text-lime-400">Move fast.</em> Make more.
+            Stay invisible. <em className="font-serif not-italic text-blue-600">Move fast.</em> Make more.
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.08}>
@@ -146,8 +146,8 @@ export default function ForAgenciesPage() {
           ].map((c) => (
             <StaggerItem key={c.t}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{c.t}</h3>
-                <p className="mt-2 text-white/65 leading-relaxed">{c.d}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{c.t}</h3>
+                <p className="mt-2 text-neutral-900/65 leading-relaxed">{c.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -171,7 +171,7 @@ export default function ForAgenciesPage() {
       <CtaSection
         title={
           <>
-            Ready to add <em className="font-serif not-italic text-lime-400">eight services</em> to your agency?
+            Ready to add <em className="font-serif not-italic text-blue-600">eight services</em> to your agency?
           </>
         }
         subhead="See partner pricing, or talk to a partner manager about your specific niche."

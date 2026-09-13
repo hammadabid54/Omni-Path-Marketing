@@ -67,12 +67,12 @@ export function TrajectoryChart({
     <div className={cn("bento bento-lg", className)}>
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div>
-          <div className="text-sm text-white/65">{label}</div>
+          <div className="text-sm text-neutral-900/65">{label}</div>
           <div className="mt-1 text-3xl font-bold text-lime">
             {formatNumber(fromValue)} → {formatNumber(toValue)}
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-white/45">
+        <div className="flex items-center gap-2 text-xs text-neutral-900/45">
           <span className="inline-block h-2 w-6 rounded-sm bg-lime" /> {label.split(" ").slice(-1)[0] || "value"}
         </div>
       </div>
@@ -86,8 +86,8 @@ export function TrajectoryChart({
       >
         <defs>
           <linearGradient id="limeGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#A3E635" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#A3E635" stopOpacity="0" />
+            <stop offset="0%" stopColor="#0070f3" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#0070f3" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -140,7 +140,7 @@ export function TrajectoryChart({
         <path
           d={linePath}
           fill="none"
-          stroke="#A3E635"
+          stroke="#0070f3"
           strokeWidth={2.5}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -153,7 +153,7 @@ export function TrajectoryChart({
             cx={x(i)}
             cy={y(d.value)}
             r={3.5}
-            fill="#A3E635"
+            fill="#0070f3"
             stroke="#0A0A0F"
             strokeWidth={2}
           />
@@ -176,7 +176,7 @@ export function TrajectoryChart({
                 height={th}
                 rx={6}
                 fill="#0A0A0F"
-                stroke="#A3E635"
+                stroke="#0070f3"
                 strokeWidth={1}
               />
               <text
@@ -192,7 +192,7 @@ export function TrajectoryChart({
                 x={10}
                 y={29}
                 fontSize={12}
-                fill="#A3E635"
+                fill="#0070f3"
                 fontFamily="JetBrains Mono, monospace"
                 fontWeight={600}
               >

@@ -191,7 +191,7 @@ export default function SocialMediaServicePage() {
         eyebrow="Social Media Management"
         title={
           <>
-            Social that <em className="font-serif not-italic text-lime-400">shows up.</em>
+            Social that <em className="font-serif not-italic text-blue-600">shows up.</em>
           </>
         }
         subhead="Done-for-you social media management for businesses (Bronze $200 / Silver $300 / Gold $400) and agencies ($150-250 / client / mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
@@ -207,10 +207,10 @@ export default function SocialMediaServicePage() {
       {/* Intro */}
       <Section>
         <ScrollReveal className="max-w-3xl">
-          <p className="text-lg text-white/80 leading-relaxed">
+          <p className="text-lg text-neutral-900/80 leading-relaxed">
             Social media management is the work of showing up consistently on the channels where your customers spend time. We handle content creation, posting, community management, and short-form video so you don&apos;t have to. Whether you want organic social that builds a brand or campaigns that convert, we run the full stack.
           </p>
-          <p className="mt-4 text-white/65 leading-relaxed">
+          <p className="mt-4 text-neutral-900/65 leading-relaxed">
             Most agencies charge $3,000-8,000/mo and still miss posts. We charge less because we automated the repetitive 80% of social media marketing and let senior strategists focus on the 20% that actually grows your audience. Same deliverables, lower overhead, real numbers every month.
           </p>
         </ScrollReveal>
@@ -221,9 +221,9 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What you get</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Six moves, <em className="font-serif not-italic text-lime-400">one retainer.</em>
+            Six moves, <em className="font-serif not-italic text-blue-600">one retainer.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Everything you need to grow a brand on social, run by a senior team. No junior account manager. No overseas ghost writers. Real people who know your niche.
           </p>
         </ScrollReveal>
@@ -233,11 +233,11 @@ export default function SocialMediaServicePage() {
             return (
               <StaggerItem key={f.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{f.d}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{f.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{f.d}</p>
                 </div>
               </StaggerItem>
             );
@@ -250,9 +250,9 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            For businesses. <em className="font-serif not-italic text-lime-400">No agency overhead.</em>
+            For businesses. <em className="font-serif not-italic text-blue-600">No agency overhead.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Three tiers, one transparent monthly fee. Pick the level of output your business needs. Upgrade or downgrade anytime as your goals shift.
           </p>
         </ScrollReveal>
@@ -261,31 +261,31 @@ export default function SocialMediaServicePage() {
             <div
               key={t.name}
               className={`bento h-full flex flex-col ${
-                t.popular ? "border border-lime-400/30 bg-lime-400/5" : ""
+                t.popular ? "border border-blue-600/30 bg-blue-600/5" : ""
               }`}
             >
               <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-base font-semibold text-white">Direct · {t.name}</h3>
+                <h3 className="text-base font-semibold text-neutral-900">Direct · {t.name}</h3>
                 {t.popular && <span className="pill pill-accent text-[10px]">Most popular</span>}
               </div>
-              <div className="mt-2 text-3xl font-bold text-lime-400">{t.price}</div>
-              <ul className="mt-6 space-y-2 text-sm text-white/75">
+              <div className="mt-2 text-3xl font-bold text-blue-600">{t.price}</div>
+              <ul className="mt-6 space-y-2 text-sm text-neutral-900/75">
                 {t.items.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-sm text-white/75 leading-relaxed">
-                  <span className="font-semibold text-white">{t.upgrade}</span>
+              <div className="mt-6 pt-5 border-t border-neutral-200/10">
+                <p className="text-sm text-neutral-900/75 leading-relaxed">
+                  <span className="font-semibold text-neutral-900">{t.upgrade}</span>
                 </p>
               </div>
               <div className="mt-auto pt-6">
                 <Link
                   href={t.cta.href}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                 >
                   {t.cta.label}
                 </Link>
@@ -293,9 +293,9 @@ export default function SocialMediaServicePage() {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-sm text-white/55">
+        <p className="mt-6 text-sm text-neutral-900/55">
           Need a custom setup or more than 30 posts per month?{" "}
-          <Link href="/contact" className="text-lime-400 underline underline-offset-4 hover:text-lime-300">
+          <Link href="/contact" className="text-blue-600 underline underline-offset-4 hover:text-blue-300">
             Talk to us
           </Link>{" "}
           about a dedicated pod.
@@ -307,21 +307,21 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            For agencies. <em className="font-serif not-italic text-lime-400">60%+ margin.</em>
+            For agencies. <em className="font-serif not-italic text-blue-600">60%+ margin.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             {WL_ROW.description} Resell under your brand. We never talk to your client. Reports, posts, and replies ship with your logo, your domain, your voice.
           </p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.05}>
           <StaggerItem>
             <div className="bento h-full">
-              <h3 className="text-base font-semibold text-white">White-label · Reseller</h3>
-              <div className="mt-2 text-3xl font-bold text-lime-400">{WL_PRICE_RANGE}</div>
-              <p className="mt-3 text-sm text-white/70">
+              <h3 className="text-base font-semibold text-neutral-900">White-label · Reseller</h3>
+              <div className="mt-2 text-3xl font-bold text-blue-600">{WL_PRICE_RANGE}</div>
+              <p className="mt-3 text-sm text-neutral-900/70">
                 Per client. Resell at $1,000-1,800/mo. That&apos;s 60-80% margin on a service you don&apos;t have to staff. We handle content, posting, community, reporting. You handle the relationship.
               </p>
-              <ul className="mt-5 space-y-2 text-sm text-white/75">
+              <ul className="mt-5 space-y-2 text-sm text-neutral-900/75">
                 {[
                   "Your logo, your domain, your brand",
                   "White-labeled monthly reports (PDF + dashboard)",
@@ -329,24 +329,24 @@ export default function SocialMediaServicePage() {
                   "Partner Slack channel for support",
                 ].map((line) => (
                   <li key={line} className="flex gap-2">
-                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                     <span>{line}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-white/65 leading-relaxed">
-                <span className="font-semibold text-white">Margin math:</span> 10 clients at $200 avg cost = $2,000/mo. Charge $1,200/client × 10 = $12,000/mo revenue.{" "}
-                <span className="text-lime-400 font-semibold">$10,000/mo margin.</span>
+              <p className="mt-5 text-sm text-neutral-900/65 leading-relaxed">
+                <span className="font-semibold text-neutral-900">Margin math:</span> 10 clients at $200 avg cost = $2,000/mo. Charge $1,200/client × 10 = $12,000/mo revenue.{" "}
+                <span className="text-blue-600 font-semibold">$10,000/mo margin.</span>
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <h3 className="text-base font-semibold text-white">Agency perks</h3>
-              <p className="mt-2 text-sm text-white/70">
+              <h3 className="text-base font-semibold text-neutral-900">Agency perks</h3>
+              <p className="mt-2 text-sm text-neutral-900/70">
                 Built for agencies that want to scale social media without scaling headcount.
               </p>
-              <ul className="mt-5 space-y-2 text-sm text-white/75">
+              <ul className="mt-5 space-y-2 text-sm text-neutral-900/75">
                 {[
                   "No client count minimums — start with 1",
                   "Volume pricing kicks in at 5+ clients",
@@ -355,16 +355,16 @@ export default function SocialMediaServicePage() {
                   "30-day money back guarantee on first client",
                 ].map((line) => (
                   <li key={line} className="flex gap-2">
-                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                     <span>{line}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-white/65 leading-relaxed">
+              <p className="mt-5 text-sm text-neutral-900/65 leading-relaxed">
                 Bundle with our{" "}
                 <Link
                   href="/white-label-seo"
-                  className="text-lime-400 underline underline-offset-4 hover:text-lime-300"
+                  className="text-blue-600 underline underline-offset-4 hover:text-blue-300"
                 >
                   white-label SEO
                 </Link>{" "}
@@ -380,9 +380,9 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Why us</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Traditional agency <em className="font-serif not-italic text-lime-400">vs. us.</em>
+            Traditional agency <em className="font-serif not-italic text-blue-600">vs. us.</em>
           </h2>
-          <p className="mt-4 text-white/70">Same deliverables. Different economics. Side by side.</p>
+          <p className="mt-4 text-neutral-900/70">Same deliverables. Different economics. Side by side.</p>
         </ScrollReveal>
         <div className="mt-10 grid gap-3 md:grid-cols-2">
           {[
@@ -394,15 +394,15 @@ export default function SocialMediaServicePage() {
             { label: "Contract", us: "30-day notice, cancel anytime", them: "12-month lock-in" },
           ].map((row) => (
             <div key={row.label} className="bento">
-              <div className="text-xs font-semibold uppercase tracking-widest text-white/45">{row.label}</div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-neutral-900/45">{row.label}</div>
               <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
                 <div>
-                  <div className="text-lime-400 font-semibold">Omni Path</div>
-                  <div className="mt-1 text-white/80 leading-relaxed">{row.us}</div>
+                  <div className="text-blue-600 font-semibold">Omni Path</div>
+                  <div className="mt-1 text-neutral-900/80 leading-relaxed">{row.us}</div>
                 </div>
                 <div>
-                  <div className="text-white/55 font-semibold">Traditional</div>
-                  <div className="mt-1 text-white/55 leading-relaxed">{row.them}</div>
+                  <div className="text-neutral-900/55 font-semibold">Traditional</div>
+                  <div className="mt-1 text-neutral-900/55 leading-relaxed">{row.them}</div>
                 </div>
               </div>
             </div>
@@ -415,9 +415,9 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Every plan includes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            No matter the <em className="font-serif not-italic text-lime-400">tier.</em>
+            No matter the <em className="font-serif not-italic text-blue-600">tier.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             We don&apos;t strip features to push you to a higher tier. Every client gets the same backbone.
           </p>
         </ScrollReveal>
@@ -432,8 +432,8 @@ export default function SocialMediaServicePage() {
           ].map((item) => (
             <StaggerItem key={item}>
               <div className="bento h-full flex gap-3">
-                <CheckCircle2 className="h-5 w-5 mt-0.5 text-lime-400 shrink-0" />
-                <p className="text-sm text-white/80 leading-relaxed">{item}</p>
+                <CheckCircle2 className="h-5 w-5 mt-0.5 text-blue-600 shrink-0" />
+                <p className="text-sm text-neutral-900/80 leading-relaxed">{item}</p>
               </div>
             </StaggerItem>
           ))}
@@ -445,9 +445,9 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Posts that <em className="font-serif not-italic text-lime-400">write themselves. Strategy that doesn&apos;t.</em>
+            Posts that <em className="font-serif not-italic text-blue-600">write themselves. Strategy that doesn&apos;t.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             The tool stack that lets us ship 30 posts a month per client at a third of the cost of a traditional agency — without cutting corners on quality or strategy.
           </p>
         </ScrollReveal>
@@ -457,11 +457,11 @@ export default function SocialMediaServicePage() {
             return (
               <StaggerItem key={t.title}>
                 <div className="bento h-full">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{t.title}</h3>
-                  <p className="mt-2 text-sm text-white/65 leading-relaxed">{t.d}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{t.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{t.d}</p>
                 </div>
               </StaggerItem>
             );
@@ -469,24 +469,24 @@ export default function SocialMediaServicePage() {
         </StaggerGroup>
 
         <ScrollReveal className="mt-12 max-w-3xl">
-          <div className="bento border border-lime-400/20 bg-lime-400/5">
-            <h3 className="text-base font-semibold text-lime-400">What this means for you</h3>
-            <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <div className="bento border border-blue-600/20 bg-blue-600/5">
+            <h3 className="text-base font-semibold text-blue-600">What this means for you</h3>
+            <ul className="mt-4 space-y-2 text-sm text-neutral-900/80">
               <li className="flex gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                 <span>30 posts/mo, all platforms, on autopilot</span>
               </li>
               <li className="flex gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                 <span>AI drafts, senior human edits and approves every piece before it ships</span>
               </li>
               <li className="flex gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                 <span>5 hours of community manager time per client per month (vs 30+ at a traditional agency)</span>
               </li>
             </ul>
-            <p className="mt-5 text-sm text-white/75 leading-relaxed">
-              That&apos;s why Bronze ships at <span className="text-lime-400 font-semibold">$200/mo</span> instead of $3,000+. Same output, lower overhead, real numbers every month — and we pass the savings to you, not to a headcount spreadsheet.
+            <p className="mt-5 text-sm text-neutral-900/75 leading-relaxed">
+              That&apos;s why Bronze ships at <span className="text-blue-600 font-semibold">$200/mo</span> instead of $3,000+. Same output, lower overhead, real numbers every month — and we pass the savings to you, not to a headcount spreadsheet.
             </p>
           </div>
         </ScrollReveal>
@@ -497,17 +497,17 @@ export default function SocialMediaServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            From signup to <em className="font-serif not-italic text-lime-400">first post.</em>
+            From signup to <em className="font-serif not-italic text-blue-600">first post.</em>
           </h2>
-          <p className="mt-4 text-white/70">Five steps. We run the heavy lifting, you approve and ship.</p>
+          <p className="mt-4 text-neutral-900/70">Five steps. We run the heavy lifting, you approve and ship.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" stagger={0.05}>
           {PROCESS_STEPS.map((s) => (
             <StaggerItem key={s.num}>
               <div className="bento h-full">
-                <div className="text-xs font-semibold text-lime-400 tracking-widest">{s.num}</div>
-                <h3 className="mt-3 text-lg font-semibold text-white">{s.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{s.body}</p>
+                <div className="text-xs font-semibold text-blue-600 tracking-widest">{s.num}</div>
+                <h3 className="mt-3 text-lg font-semibold text-neutral-900">{s.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{s.body}</p>
               </div>
             </StaggerItem>
           ))}
@@ -529,7 +529,7 @@ export default function SocialMediaServicePage() {
         title={
           <>
             Social media management questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         subhead="The questions we get on every sales call. Straight answers, no fluff."
@@ -541,7 +541,7 @@ export default function SocialMediaServicePage() {
         title={
           <>
             Ready to make social media management{" "}
-            <em className="font-serif not-italic text-lime-400">work for you?</em>
+            <em className="font-serif not-italic text-blue-600">work for you?</em>
           </>
         }
         subhead="Book a 15-min call. We'll send a 30-day content calendar as a free sample. No credit card, no obligation."

@@ -22,7 +22,7 @@ export function ServiceDefinition({ text, className }: ServiceDefinitionProps) {
   return (
     <Section spacing="tight" className={className}>
       <ScrollReveal>
-        <p className="max-w-3xl text-lg md:text-xl text-white/85 leading-relaxed">
+        <p className="max-w-3xl text-lg md:text-xl text-neutral-900/85 leading-relaxed">
           {text}
         </p>
       </ScrollReveal>

@@ -34,23 +34,23 @@ export function KeywordTable({
         <table className="w-full min-w-[640px] border-collapse text-sm">
           <thead>
             <tr>
-              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
+              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5">
                 Keyword
               </th>
-              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Clicks
               </th>
-              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Impr.
               </th>
-              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 CTR
               </th>
-              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Avg. pos.
               </th>
               {showLeads && (
-                <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+                <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                   Est. leads
                 </th>
               )}
@@ -58,22 +58,22 @@ export function KeywordTable({
           </thead>
           <tbody>
             {display.map((r) => (
-              <tr key={r.keyword} className="hover:bg-white/[0.02]">
-                <td className="px-4 py-3.5 border-b border-white/5 text-white/85">{r.keyword}</td>
-                <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime whitespace-nowrap">
+              <tr key={r.keyword} className="hover:bg-neutral-900/[0.02]">
+                <td className="px-4 py-3.5 border-b border-neutral-200/5 text-neutral-900/85">{r.keyword}</td>
+                <td className="px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-lime whitespace-nowrap">
                   {r.clicks.toLocaleString()}
                 </td>
-                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.impressions.toLocaleString()}
                 </td>
-                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.ctr.toFixed(2)}%
                 </td>
-                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.position.toFixed(2)}
                 </td>
                 {showLeads && (
-                  <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                  <td className="hidden md:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                     {r.leads?.toFixed(1) ?? "—"}
                   </td>
                 )}
@@ -82,7 +82,7 @@ export function KeywordTable({
           </tbody>
         </table>
       </div>
-      <div className="p-4 text-xs text-white/45 text-center border-t border-white/5">
+      <div className="p-4 text-xs text-neutral-900/45 text-center border-t border-neutral-200/5">
         Showing top {display.length} of {rows.length} · 5% lead conversion estimate · Source: Google Search Console ·{" "}
         <span className="sm:hidden">Swipe →</span>
       </div>
@@ -98,39 +98,39 @@ export function LandingPageTable({ rows }: { rows: LandingRow[] }) {
         <table className="w-full min-w-[640px] border-collapse text-sm">
           <thead>
             <tr>
-              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5">
+              <th className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5">
                 Page
               </th>
-              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Clicks
               </th>
-              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden sm:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Impr.
               </th>
-              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 CTR
               </th>
-              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5 whitespace-nowrap">
+              <th className="hidden md:table-cell px-4 py-3 text-right text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5 whitespace-nowrap">
                 Avg. pos.
               </th>
             </tr>
           </thead>
           <tbody>
             {display.map((r) => (
-              <tr key={r.path} className="hover:bg-white/[0.02]">
-                <td className="px-4 py-3.5 border-b border-white/5 text-white/85 font-mono text-xs">
+              <tr key={r.path} className="hover:bg-neutral-900/[0.02]">
+                <td className="px-4 py-3.5 border-b border-neutral-200/5 text-neutral-900/85 font-mono text-xs">
                   {r.path}
                 </td>
-                <td className="px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-lime whitespace-nowrap">
+                <td className="px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-lime whitespace-nowrap">
                   {r.clicks.toLocaleString()}
                 </td>
-                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden sm:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.impressions.toLocaleString()}
                 </td>
-                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.ctr.toFixed(2)}%
                 </td>
-                <td className="hidden md:table-cell px-4 py-3.5 border-b border-white/5 text-right font-mono text-sm text-white whitespace-nowrap">
+                <td className="hidden md:table-cell px-4 py-3.5 border-b border-neutral-200/5 text-right font-mono text-sm text-neutral-900 whitespace-nowrap">
                   {r.position.toFixed(2)}
                 </td>
               </tr>
@@ -138,7 +138,7 @@ export function LandingPageTable({ rows }: { rows: LandingRow[] }) {
           </tbody>
         </table>
       </div>
-      <div className="p-4 text-xs text-white/45 text-center border-t border-white/5">
+      <div className="p-4 text-xs text-neutral-900/45 text-center border-t border-neutral-200/5">
         Showing top {display.length} of {rows.length} commercial landing pages · Source: Google Search Console ·{" "}
         <span className="sm:hidden">Swipe →</span>
       </div>

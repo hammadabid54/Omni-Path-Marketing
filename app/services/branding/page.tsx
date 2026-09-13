@@ -301,7 +301,7 @@ export default function BrandingServicePage() {
         heroTitle={
           <>
             Branding services that{" "}
-            <em className="font-serif not-italic text-lime-400">ship in days.</em>
+            <em className="font-serif not-italic text-blue-600">ship in days.</em>
           </>
         }
         heroSubhead="Branding services for businesses and white-label for agencies. Direct Bronze $150 / Silver $250 / Gold $400 per month. White-label $150-250 per client per month. 3-14 day turnaround, full IP transfer, senior designer on every project."
@@ -314,7 +314,7 @@ export default function BrandingServicePage() {
         whatWeDoTitle={
           <>
             Every brand artifact.{" "}
-            <em className="font-serif not-italic text-lime-400">One team.</em>
+            <em className="font-serif not-italic text-blue-600">One team.</em>
           </>
         }
         whatWeDoSubhead="From the first sketch to the final pitch deck, we run the full branding stack in-house. No subcontracted juniors, no offshore handoffs, no weeks of account-manager relay."
@@ -363,9 +363,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             For businesses.{" "}
-            <em className="font-serif not-italic text-lime-400">No studio overhead.</em>
+            <em className="font-serif not-italic text-blue-600">No studio overhead.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Three tiers, one-time price, full IP transfer. Each tier is a clear
             scope. The &ldquo;Upgrade to&hellip;&rdquo; line under every card
             shows exactly what gets added if you step up, so you can pick the
@@ -382,13 +382,13 @@ export default function BrandingServicePage() {
               <div
                 className={cn(
                   "bento h-full flex flex-col",
-                  tier.popular && "border-lime-400/40 bg-lime-400/[0.03]"
+                  tier.popular && "border-blue-600/40 bg-blue-600/[0.03]"
                 )}
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <Layers className="h-4 w-4 text-lime-400" />
-                    <h3 className="text-lg font-semibold text-white">
+                    <Layers className="h-4 w-4 text-blue-600" />
+                    <h3 className="text-lg font-semibold text-neutral-900">
                       {tier.name}
                     </h3>
                   </div>
@@ -405,26 +405,26 @@ export default function BrandingServicePage() {
                 </div>
 
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-lime-400">
+                  <span className="text-4xl font-bold text-blue-600">
                     {tier.price}
                   </span>
-                  <span className="text-xs text-white/55">monthly</span>
+                  <span className="text-xs text-neutral-900/55">monthly</span>
                 </div>
-                <p className="mt-1 text-xs text-white/55 uppercase tracking-wider">
+                <p className="mt-1 text-xs text-neutral-900/55 uppercase tracking-wider">
                   {tier.turnaround}
                 </p>
 
                 <div className="mt-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-white/55">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-900/55">
                     What we do under this tier
                   </p>
                   <ul className="mt-3 space-y-2">
                     {tier.includes.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2 text-sm text-white/80 leading-relaxed"
+                        className="flex items-start gap-2 text-sm text-neutral-900/80 leading-relaxed"
                       >
-                        <Check className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                        <Check className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -432,17 +432,17 @@ export default function BrandingServicePage() {
                 </div>
 
                 {tier.upgrade && tier.upgrade.length > 0 && (
-                  <div className="mt-6 rounded-lg border border-white/8 bg-white/[0.02] p-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+                  <div className="mt-6 rounded-lg border border-neutral-200/8 bg-neutral-900/[0.02] p-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-widest text-blue-600">
                       Upgrade to {directTiers[directTiers.indexOf(tier) + 1]?.name ?? "next tier"} for:
                     </p>
                     <ul className="mt-2 space-y-1.5">
                       {tier.upgrade.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2 text-sm text-white/70 leading-relaxed"
+                          className="flex items-start gap-2 text-sm text-neutral-900/70 leading-relaxed"
                         >
-                          <ArrowRight className="h-3.5 w-3.5 mt-1 text-white/40 shrink-0" />
+                          <ArrowRight className="h-3.5 w-3.5 mt-1 text-neutral-900/40 shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -474,9 +474,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             For agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">80% margin.</em>
+            <em className="font-serif not-italic text-blue-600">80% margin.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Resell under your own brand. Your client never sees us, never hears
             from us, and the deliverables ship with your logo and your colors.
             The numbers below show the math: what you pay us, what you charge,
@@ -485,9 +485,9 @@ export default function BrandingServicePage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">You pay us</th>
@@ -499,24 +499,24 @@ export default function BrandingServicePage() {
                 {whiteLabelTiers.map((row, i) => (
                   <tr
                     key={i}
-                    className="border-b border-white/5 last:border-0"
+                    className="border-b border-neutral-200/5 last:border-0"
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {row.name}
                     </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
+                    <td className="px-5 py-4 text-blue-600 font-semibold">
                       {row.ourPrice}
                     </td>
-                    <td className="px-5 py-4 text-white/85">
+                    <td className="px-5 py-4 text-neutral-900/85">
                       {row.resell}
                     </td>
-                    <td className="px-5 py-4 text-white/70">{row.margin}</td>
+                    <td className="px-5 py-4 text-neutral-900/70">{row.margin}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-xs text-white/45">
+          <p className="mt-4 text-xs text-neutral-900/45">
             Same branding engine at every tier. Volume unlocks price, not features. White-label partner agencies get a private Slack, white-labeled delivery portal, and a dedicated partner manager after 5 clients.
           </p>
         </ScrollReveal>
@@ -530,9 +530,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">Why us vs a traditional agency</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Same deliverables.{" "}
-            <em className="font-serif not-italic text-lime-400">Better numbers.</em>
+            <em className="font-serif not-italic text-blue-600">Better numbers.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Traditional agencies charge studio overhead, account-manager
             layers, and weeks of meetings. We built the pipeline on AI +
             automation so our costs are 70% lower. The savings go to you. The
@@ -541,12 +541,12 @@ export default function BrandingServicePage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">What you get</th>
-                  <th className="px-5 py-4 font-medium text-lime-400">
+                  <th className="px-5 py-4 font-medium text-blue-600">
                     Omni Path
                   </th>
                   <th className="px-5 py-4 font-medium">Traditional agency</th>
@@ -554,14 +554,14 @@ export default function BrandingServicePage() {
               </thead>
               <tbody>
                 {whyUsBullets.map((row) => (
-                  <tr key={row.label} className="border-b border-white/5 last:border-0">
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                  <tr key={row.label} className="border-b border-neutral-200/5 last:border-0">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {row.label}
                     </td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">
+                    <td className="px-5 py-4 text-blue-600 font-semibold">
                       {row.us}
                     </td>
-                    <td className="px-5 py-4 text-white/60">{row.them}</td>
+                    <td className="px-5 py-4 text-neutral-900/60">{row.them}</td>
                   </tr>
                 ))}
               </tbody>
@@ -570,7 +570,7 @@ export default function BrandingServicePage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15} className="mt-8 max-w-3xl">
-          <p className="text-sm text-white/65 leading-relaxed">
+          <p className="text-sm text-neutral-900/65 leading-relaxed">
             The short version: a logo that takes a traditional agency 6 weeks
             and $4,000 lands in our hands in 5 days for $150/mo Bronze. A full
             brand system that would cost $25,000 at a big studio runs $400/mo
@@ -590,9 +590,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">What&apos;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             No gotchas.{" "}
-            <em className="font-serif not-italic text-lime-400">No add-ons.</em>
+            <em className="font-serif not-italic text-blue-600">No add-ons.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Every tier, direct or white-label, ships with the same four things.
             These are not upsells. They are the baseline.
           </p>
@@ -605,13 +605,13 @@ export default function BrandingServicePage() {
           {includedInEveryPlan.map((item) => (
             <StaggerItem key={item.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {item.icon}
                 </div>
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {item.body}
                 </p>
               </div>
@@ -628,9 +628,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Branding at{" "}
-            <em className="font-serif not-italic text-lime-400">founder speed.</em>
+            <em className="font-serif not-italic text-blue-600">founder speed.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             The reason a 5-day logo costs $150/mo instead of $4,000 is not lower
             quality but a production pipeline built on AI and automation, with
             a senior designer directing every step, the same human review and
@@ -646,13 +646,13 @@ export default function BrandingServicePage() {
           {behindTheScenesTools.map((tool) => (
             <StaggerItem key={tool.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {tool.icon}
                 </div>
-                <h3 className="text-base font-semibold text-white">
+                <h3 className="text-base font-semibold text-neutral-900">
                   {tool.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {tool.body}
                 </p>
               </div>
@@ -661,22 +661,22 @@ export default function BrandingServicePage() {
         </StaggerGroup>
 
         <ScrollReveal delay={0.1} className="mt-12">
-          <div className="rounded-2xl border border-lime-400/30 bg-lime-400/[0.04] p-6 md:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-lime-400">
+          <div className="rounded-2xl border border-blue-600/30 bg-blue-600/[0.04] p-6 md:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-blue-600">
               What this means for you
             </p>
             <ul className="mt-4 grid gap-3 md:grid-cols-3">
               {behindTheScenesOutcomes.map((outcome) => (
                 <li
                   key={outcome}
-                  className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
+                  className="flex items-start gap-2 text-sm text-neutral-900/85 leading-relaxed"
                 >
-                  <Check className="h-4 w-4 mt-0.5 text-lime-400 shrink-0" />
+                  <Check className="h-4 w-4 mt-0.5 text-blue-600 shrink-0" />
                   <span>{outcome}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-white/75 leading-relaxed">
+            <p className="mt-6 text-sm text-neutral-900/75 leading-relaxed">
               Same deliverables a $25,000 studio brand would ship, at
               founder-friendly numbers. The senior designer is still on the
               project — they just stopped spending their week on tasks a script
@@ -703,9 +703,9 @@ export default function BrandingServicePage() {
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Brief to handoff.{" "}
-            <em className="font-serif not-italic text-lime-400">Five steps.</em>
+            <em className="font-serif not-italic text-blue-600">Five steps.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Same process whether you are a direct client booking a $250/mo Silver
             branding or an agency running a $200 white-label resell. The brief
             takes 10 minutes. Concepts land in 48-72 hours. Final files ship
@@ -720,19 +720,19 @@ export default function BrandingServicePage() {
           {processSteps.map((step) => (
             <StaggerItem key={step.number}>
               <div className="bento h-full">
-                <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10">
+                <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/10">
                     {step.number}
                   </span>
                   Step
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-white">
+                <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                   {step.body}
                 </p>
-                <p className="mt-3 text-xs text-white/45 inline-flex items-center gap-1.5">
+                <p className="mt-3 text-xs text-neutral-900/45 inline-flex items-center gap-1.5">
                   <span className="dot" /> {step.meta}
                 </p>
               </div>
@@ -740,17 +740,17 @@ export default function BrandingServicePage() {
           ))}
         </StaggerGroup>
 
-        <ScrollReveal className="mt-10 text-center text-sm text-white/55" delay={0.2}>
+        <ScrollReveal className="mt-10 text-center text-sm text-neutral-900/55" delay={0.2}>
           Total time, brief to delivered files:{" "}
-          <span className="text-lime-400 font-semibold">5-14 days</span>. Fixed
+          <span className="text-blue-600 font-semibold">5-14 days</span>. Fixed
           in writing at signup.
         </ScrollReveal>
       </Section>
 
       {/* Internal links — context for crawlers and users */}
       <Section spacing="tight">
-        <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 md:p-8">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/55">
+        <div className="rounded-2xl border border-neutral-200/8 bg-neutral-900/[0.02] p-6 md:p-8">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-neutral-900/55">
             Pair branding with
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-3 text-sm">
@@ -760,7 +760,7 @@ export default function BrandingServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               Web design — ship a site that matches the new brand
             </LinkButton>
             <LinkButton
@@ -769,7 +769,7 @@ export default function BrandingServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               SEO — rank the new domain from day one
             </LinkButton>
             <LinkButton
@@ -778,7 +778,7 @@ export default function BrandingServicePage() {
               size="sm"
               className="justify-start"
             >
-              <ArrowRight className="h-4 w-4 text-lime-400" />
+              <ArrowRight className="h-4 w-4 text-blue-600" />
               Social media — launch with 30 days of content
             </LinkButton>
           </div>
@@ -798,7 +798,7 @@ export default function BrandingServicePage() {
         title={
           <>
             Branding questions,{" "}
-            <em className="font-serif not-italic text-lime-400">honestly.</em>
+            <em className="font-serif not-italic text-blue-600">honestly.</em>
           </>
         }
         items={brandingFaq}
@@ -809,7 +809,7 @@ export default function BrandingServicePage() {
         title={
           <>
             Ready for a brand that{" "}
-            <em className="font-serif not-italic text-lime-400">works?</em>
+            <em className="font-serif not-italic text-blue-600">works?</em>
           </>
         }
         subhead="Tell us about your business. We will send 3 concepts within 48-72 hours. No long onboarding, no proposal deck, no sales call required."

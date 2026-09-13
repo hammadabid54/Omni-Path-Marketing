@@ -23,7 +23,7 @@ export function CtaSection({
     return (
       <Section spacing="default">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl border border-lime-400/20 bg-lime-400/5 p-8 md:p-14 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-blue-600/20 bg-blue-600/5 p-8 md:p-14 text-center">
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 -z-0 opacity-60"
@@ -34,7 +34,7 @@ export function CtaSection({
             />
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
-              {subhead && <p className="mt-4 text-white/70 max-w-xl mx-auto">{subhead}</p>}
+              {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl mx-auto">{subhead}</p>}
               {(primaryCta || secondaryCta) && (
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                   {primaryCta && (
@@ -60,7 +60,7 @@ export function CtaSection({
     <Section id={id}>
       <ScrollReveal className="text-center max-w-2xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
-        {subhead && <p className="mt-4 text-white/70">{subhead}</p>}
+        {subhead && <p className="mt-4 text-neutral-900/70">{subhead}</p>}
         {(primaryCta || secondaryCta) && (
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {primaryCta && (

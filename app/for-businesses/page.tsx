@@ -54,7 +54,7 @@ export default function ForBusinessesPage() {
         eyebrow="For businesses · done-for-you growth"
         title={
           <>
-            Get a full growth team for <em className="font-serif not-italic text-lime-400">less than one senior hire.</em>
+            Get a full growth team for <em className="font-serif not-italic text-blue-600">less than one senior hire.</em>
           </>
         }
         subhead="Done-for-you growth services for ambitious brands. SEO, paid ads, branding, content, web, email, social, analytics. All under one roof, one team, one invoice."
@@ -67,10 +67,10 @@ export default function ForBusinessesPage() {
           <ScrollReveal>
             <Eyebrow className="mb-4">The 80/20 story</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              Why we&apos;re <em className="font-serif not-italic text-lime-400">half the cost</em> of other agencies.
+              Why we&apos;re <em className="font-serif not-italic text-blue-600">half the cost</em> of other agencies.
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>
               Most agencies charge $1,500-3,000/month for SEO. We charge $250-450 — Bronze / Silver / Gold. Same strategy, same deliverables, same results. The difference? We built our delivery pipeline on AI + automation, so our costs are 70% lower. We pass the savings to you.
             </p>
@@ -85,19 +85,19 @@ export default function ForBusinessesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Pricing</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Pick a tier. <em className="font-serif not-italic text-lime-400">Scale when you&apos;re ready.</em>
+            Pick a tier. <em className="font-serif not-italic text-blue-600">Scale when you&apos;re ready.</em>
           </h2>
-          <p className="mt-4 text-white/70">Move between tiers as your needs change. No long contracts.</p>
+          <p className="mt-4 text-neutral-900/70">Move between tiers as your needs change. No long contracts.</p>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3" stagger={0.04}>
           {PRICING.map((p) => (
             <StaggerItem key={p.tier}>
               <div className={"bento h-full " + (p.tier.includes("popular") ? "card-glow" : "")}>
                 <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="text-base font-semibold text-white">{p.tier}</h3>
-                  <span className="text-lg font-bold text-lime-400">{p.price}</span>
+                  <h3 className="text-base font-semibold text-neutral-900">{p.tier}</h3>
+                  <span className="text-lg font-bold text-blue-600">{p.price}</span>
                 </div>
-                <p className="mt-2 text-sm text-white/65">{p.desc}</p>
+                <p className="mt-2 text-sm text-neutral-900/65">{p.desc}</p>
               </div>
             </StaggerItem>
           ))}
@@ -108,18 +108,18 @@ export default function ForBusinessesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">How it works</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            From audit to live <em className="font-serif not-italic text-lime-400">in 7 days.</em>
+            From audit to live <em className="font-serif not-italic text-blue-600">in 7 days.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
           {STEPS.map((s) => (
             <StaggerItem key={s.number}>
               <div className="bento h-full">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-lime-400/15 text-lime-400 font-semibold">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 font-semibold">
                   {s.number}
                 </span>
-                <h3 className="mt-5 text-lg font-semibold text-white">{s.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{s.description}</p>
+                <h3 className="mt-5 text-lg font-semibold text-neutral-900">{s.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{s.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -130,7 +130,7 @@ export default function ForBusinessesPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Why choose Omni Path</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            One team. <em className="font-serif not-italic text-lime-400">One invoice.</em>
+            One team. <em className="font-serif not-italic text-blue-600">One invoice.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.06}>
@@ -142,8 +142,8 @@ export default function ForBusinessesPage() {
           ].map((c) => (
             <StaggerItem key={c.t}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{c.t}</h3>
-                <p className="mt-2 text-white/65 leading-relaxed">{c.d}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{c.t}</h3>
+                <p className="mt-2 text-neutral-900/65 leading-relaxed">{c.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -166,7 +166,7 @@ export default function ForBusinessesPage() {
       <CtaSection
         title={
           <>
-            Ready to <em className="font-serif not-italic text-lime-400">stop juggling agencies?</em>
+            Ready to <em className="font-serif not-italic text-blue-600">stop juggling agencies?</em>
           </>
         }
         subhead="Get a free audit, or book a 15-min call. Either way, you'll know in 5 minutes if we're a fit."

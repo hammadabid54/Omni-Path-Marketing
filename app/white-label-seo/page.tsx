@@ -46,7 +46,7 @@ export default function WhiteLabelSeoPage() {
         title={
           <>
             White-label SEO for agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">$200/client.</em>
+            <em className="font-serif not-italic text-blue-600">$200/client.</em>
           </>
         }
         subhead="Add a full SEO delivery team to your agency without hiring. We do the work, you put your logo on it. Resell at $500-1,500/client and keep 60-70% margin."
@@ -82,9 +82,9 @@ export default function WhiteLabelSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What&apos;s included</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            The same engine <em className="font-serif not-italic text-lime-400">at every tier.</em>
+            The same engine <em className="font-serif not-italic text-blue-600">at every tier.</em>
           </h2>
-          <p className="mt-4 text-white/65 text-sm">
+          <p className="mt-4 text-neutral-900/65 text-sm">
             Whether a client is paying you $500 or $1,500/month, the work we ship is identical. Only the price-per-client you pay us changes with volume.
           </p>
         </ScrollReveal>
@@ -92,8 +92,8 @@ export default function WhiteLabelSeoPage() {
           {INCLUDED.map((c) => (
             <StaggerItem key={c.t}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{c.t}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{c.d}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{c.t}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{c.d}</p>
               </div>
             </StaggerItem>
           ))}
@@ -104,18 +104,18 @@ export default function WhiteLabelSeoPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">How it works</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            14 days from signup to <em className="font-serif not-italic text-lime-400">first deliverable.</em>
+            14 days from signup to <em className="font-serif not-italic text-blue-600">first deliverable.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-3" stagger={0.1}>
           {STEPS.map((s) => (
             <StaggerItem key={s.title}>
               <div className="bento bento-lg h-full">
-                <span className="inline-flex h-9 px-3 items-center justify-center rounded-full bg-lime-400/15 text-lime-400 font-semibold text-xs uppercase tracking-widest">
+                <span className="inline-flex h-9 px-3 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 font-semibold text-xs uppercase tracking-widest">
                   Day {s.number}
                 </span>
-                <h3 className="mt-5 text-xl font-semibold text-white">{s.title}</h3>
-                <p className="mt-2 text-white/65 leading-relaxed">{s.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-neutral-900">{s.title}</h3>
+                <p className="mt-2 text-neutral-900/65 leading-relaxed">{s.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -149,7 +149,7 @@ export default function WhiteLabelSeoPage() {
       <CtaSection
         title={
           <>
-            Ready to add <em className="font-serif not-italic text-lime-400">eight services</em> to your agency?
+            Ready to add <em className="font-serif not-italic text-blue-600">eight services</em> to your agency?
           </>
         }
         subhead="See partner pricing, or talk to a partner manager about your specific niche."

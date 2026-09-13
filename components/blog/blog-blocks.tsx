@@ -30,7 +30,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode {
   let match: RegExpExecArray | null;
   let k = 0;
   const linkClass =
-    "text-lime-400 underline decoration-lime-400/40 underline-offset-2 hover:text-lime-300 hover:decoration-lime-300";
+    "text-blue-600 underline decoration-blue-600/40 underline-offset-2 hover:text-blue-300 hover:decoration-blue-300";
 
   while ((match = regex.exec(text)) !== null) {
     if (match.index > lastIndex) {
@@ -68,7 +68,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode {
       parts.push(
         <strong
           key={`${keyPrefix}-${k++}`}
-          className="font-semibold text-white"
+          className="font-semibold text-neutral-900"
         >
           {match[3]}
         </strong>,
@@ -76,7 +76,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode {
     } else if (match[4] !== undefined) {
       // *italic*
       parts.push(
-        <em key={`${keyPrefix}-${k++}`} className="italic text-white/90">
+        <em key={`${keyPrefix}-${k++}`} className="italic text-neutral-900/90">
           {match[4]}
         </em>,
       );
@@ -85,7 +85,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode {
       parts.push(
         <code
           key={`${keyPrefix}-${k++}`}
-          className="px-1.5 py-0.5 rounded bg-white/10 text-lime-400 font-mono text-[0.9em]"
+          className="px-1.5 py-0.5 rounded bg-neutral-900/10 text-blue-600 font-mono text-[0.9em]"
         >
           {match[5]}
         </code>,
@@ -136,7 +136,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
         switch (b.type) {
           case "p":
             return (
-              <p key={i} className="text-white/80 leading-relaxed text-[17px]">
+              <p key={i} className="text-neutral-900/80 leading-relaxed text-[17px]">
                 {renderInline(b.text, `p-${i}`)}
               </p>
             );
@@ -146,11 +146,11 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
               <h2
                 key={i}
                 id={id}
-                className="mt-14 mb-4 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-white scroll-mt-24"
+                className="mt-14 mb-4 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-neutral-900 scroll-mt-24"
               >
                 <a
                   href={`#${id}`}
-                  className="no-underline hover:text-lime-400 transition-colors"
+                  className="no-underline hover:text-blue-600 transition-colors"
                 >
                   {renderInline(b.text, `h2-${i}`)}
                 </a>
@@ -161,14 +161,14 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
             return (
               <h3
                 key={i}
-                className="mt-10 mb-3 text-xl md:text-2xl font-semibold text-white"
+                className="mt-10 mb-3 text-xl md:text-2xl font-semibold text-neutral-900"
               >
                 {renderInline(b.text, `h3-${i}`)}
               </h3>
             );
           case "ul":
             return (
-              <ul key={i} className="my-5 space-y-2 list-disc pl-6 text-white/80">
+              <ul key={i} className="my-5 space-y-2 list-disc pl-6 text-neutral-900/80">
                 {b.items.map((it, j) => (
                   <li key={j} className="leading-relaxed text-[17px]">
                     {renderInline(it, `ul-${i}-${j}`)}
@@ -178,7 +178,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
             );
           case "ol":
             return (
-              <ol key={i} className="my-5 space-y-2 list-decimal pl-6 text-white/80">
+              <ol key={i} className="my-5 space-y-2 list-decimal pl-6 text-neutral-900/80">
                 {b.items.map((it, j) => (
                   <li key={j} className="leading-relaxed text-[17px]">
                     {renderInline(it, `ol-${i}-${j}`)}
@@ -190,11 +190,11 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
             return (
               <blockquote
                 key={i}
-                className="my-8 border-l-4 border-lime-400 pl-6 italic text-xl md:text-2xl text-white leading-snug"
+                className="my-8 border-l-4 border-blue-600 pl-6 italic text-xl md:text-2xl text-neutral-900 leading-snug"
               >
                 &ldquo;{renderInline(b.text, `q-${i}`)}&rdquo;
                 {b.cite && (
-                  <footer className="mt-3 text-sm not-italic text-white/55">
+                  <footer className="mt-3 text-sm not-italic text-neutral-900/55">
                     — {renderInline(b.cite, `qc-${i}`)}
                   </footer>
                 )}
@@ -207,16 +207,16 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                 className={[
                   "my-8 rounded-xl border p-5 leading-relaxed",
                   b.tone === "tip" &&
-                    "border-lime-400/30 bg-lime-400/5 text-white/85",
+                    "border-blue-600/30 bg-blue-600/5 text-neutral-900/85",
                   b.tone === "warning" &&
-                    "border-amber-400/30 bg-amber-400/5 text-white/85",
+                    "border-amber-400/30 bg-amber-400/5 text-neutral-900/85",
                   b.tone === "insight" &&
-                    "border-white/15 bg-white/4 text-white/85",
+                    "border-neutral-200/15 bg-neutral-900/4 text-neutral-900/85",
                 ]
                   .filter(Boolean)
                   .join(" ")}
               >
-                <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-lime-400">
+                <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-blue-600">
                   {b.tone === "tip"
                     ? "Tip"
                     : b.tone === "warning"
@@ -234,10 +234,10 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
               >
                 {b.items.map((s) => (
                   <div key={s.label} className="bento text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-lime-400">
+                    <div className="text-2xl md:text-3xl font-bold text-blue-600">
                       {s.value}
                     </div>
-                    <div className="mt-1 text-xs text-white/55">{s.label}</div>
+                    <div className="mt-1 text-xs text-neutral-900/55">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -246,7 +246,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
             return (
               <pre
                 key={i}
-                className="my-6 overflow-x-auto rounded-lg border border-white/10 bg-black/40 p-4 text-sm font-mono text-white/85"
+                className="my-6 overflow-x-auto rounded-lg border border-neutral-200/10 bg-black/40 p-4 text-sm font-mono text-neutral-900/85"
               >
                 <code>{b.text}</code>
               </pre>
@@ -260,7 +260,7 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                       {b.head.map((h, j) => (
                         <th
                           key={j}
-                          className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-white/45 border-b border-white/5"
+                          className="px-4 py-3 text-left text-[0.7rem] font-medium uppercase tracking-widest text-neutral-900/45 border-b border-neutral-200/5"
                         >
                           {renderInline(h, `th-${i}-${j}`)}
                         </th>
@@ -269,11 +269,11 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                   </thead>
                   <tbody>
                     {b.rows.map((r, j) => (
-                      <tr key={j} className="hover:bg-white/[0.02]">
+                      <tr key={j} className="hover:bg-neutral-900/[0.02]">
                         {r.map((c, k) => (
                           <td
                             key={k}
-                            className="px-4 py-3 border-b border-white/5 text-white/85"
+                            className="px-4 py-3 border-b border-neutral-200/5 text-neutral-900/85"
                           >
                             {renderInline(c, `td-${i}-${j}-${k}`)}
                           </td>
@@ -293,19 +293,19 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
               <nav
                 key={i}
                 aria-label="Table of contents"
-                className="my-10 rounded-xl border border-white/10 bg-white/[0.02] p-6 md:p-7"
+                className="my-10 rounded-xl border border-neutral-200/10 bg-neutral-900/[0.02] p-6 md:p-7"
               >
-                <div className="text-[10px] font-semibold uppercase tracking-widest text-lime-400 mb-4">
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-blue-600 mb-4">
                   In this guide
                 </div>
-                <ol className="space-y-2.5 text-[15px] list-decimal pl-5 marker:text-white/40">
+                <ol className="space-y-2.5 text-[15px] list-decimal pl-5 marker:text-neutral-900/40">
                   {h2s.map((h, j) => {
                     const id = idMap.get(h.text);
                     return (
-                      <li key={j} className="text-white/80 leading-snug">
+                      <li key={j} className="text-neutral-900/80 leading-snug">
                         <a
                           href={`#${id}`}
-                          className="hover:text-lime-400 transition-colors"
+                          className="hover:text-blue-600 transition-colors"
                         >
                           {h.text}
                         </a>

@@ -17,7 +17,7 @@ export function FaqAccordion({ items, className, defaultOpen = -1 }: FaqAccordio
   const reduced = useReducedMotion();
 
   return (
-    <div className={cn("divide-y divide-white/8 border-t border-white/8", className)}>
+    <div className={cn("divide-y divide-white/8 border-t border-neutral-200/8", className)}>
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -29,11 +29,11 @@ export function FaqAccordion({ items, className, defaultOpen = -1 }: FaqAccordio
               aria-expanded={isOpen}
               aria-controls={`faq-panel-${i}`}
             >
-              <span className="text-base md:text-lg font-medium text-white">{item.question}</span>
+              <span className="text-base md:text-lg font-medium text-neutral-900">{item.question}</span>
               <motion.span
                 animate={{ rotate: isOpen ? 45 : 0 }}
                 transition={motionTokens.base}
-                className="shrink-0 text-lime-400"
+                className="shrink-0 text-blue-600"
                 aria-hidden
               >
                 <Plus className="h-5 w-5" />
@@ -49,7 +49,7 @@ export function FaqAccordion({ items, className, defaultOpen = -1 }: FaqAccordio
                   transition={motionTokens.slow}
                   className="overflow-hidden"
                 >
-                  <div className="pb-5 pr-8 text-white/70 leading-relaxed">{item.answer}</div>
+                  <div className="pb-5 pr-8 text-neutral-900/70 leading-relaxed">{item.answer}</div>
                 </motion.div>
               )}
             </AnimatePresence>

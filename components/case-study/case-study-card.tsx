@@ -26,7 +26,7 @@ export function CaseStudyCard({ data }: { data: CaseStudyCardData }) {
   return (
     <Link
       href={`/case-studies/${data.slug}`}
-      className="bento bento-lg group block hover:border-lime-400/40"
+      className="bento bento-lg group block hover:border-blue-600/40"
     >
       <div className="flex flex-wrap gap-2">
         <span className="pill pill-accent text-[10px]">{data.vertical}</span>
@@ -34,15 +34,15 @@ export function CaseStudyCard({ data }: { data: CaseStudyCardData }) {
         <span className="pill text-[10px]">{data.engagement}</span>
       </div>
 
-      <h3 className="mt-4 text-xl md:text-2xl font-bold text-white leading-snug">
+      <h3 className="mt-4 text-xl md:text-2xl font-bold text-neutral-900 leading-snug">
         {data.title}
       </h3>
 
-      <p className="mt-3 text-sm text-white/65 leading-relaxed">{data.summary}</p>
+      <p className="mt-3 text-sm text-neutral-900/65 leading-relaxed">{data.summary}</p>
 
       <div className="mt-5 flex items-baseline gap-2">
         <span className="text-2xl font-bold text-lime">{data.headline.split("→").pop()?.trim() ?? ""}</span>
-        <span className="text-xs text-white/45">
+        <span className="text-xs text-neutral-900/45">
           {data.headline.split("→")[0]?.trim() ?? ""}
         </span>
       </div>

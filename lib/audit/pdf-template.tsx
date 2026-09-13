@@ -4,7 +4,7 @@
  * so Puppeteer can render it to PDF without any network fetches.
  *
  * Design system (locked — do not change without design approval):
- *   - Charcoal #0A0A0F background, Lime #A3E635 accent
+ *   - Charcoal #0A0A0F background, Lime #0070f3 accent
  *   - A4 portrait, system fonts only
  *   - Status badges: pass=lime, warn=amber, fail=red
  */
@@ -19,8 +19,8 @@ export interface AuditLead {
 
 const C = {
   bg: "#0A0A0F",
-  accent: "#A3E635",
-  accentBright: "#BEF264",
+  accent: "#0070f3",
+  accentBright: "#2f8eff",
   text: "#FFFFFF",
   text75: "rgba(255, 255, 255, 0.75)",
   text65: "rgba(255, 255, 255, 0.65)",
@@ -29,7 +29,7 @@ const C = {
   line: "rgba(255, 255, 255, 0.08)",
   lineStrong: "rgba(255, 255, 255, 0.16)",
   card: "rgba(255, 255, 255, 0.025)",
-  pass: "#A3E635",
+  pass: "#0070f3",
   warn: "#F59E0B",
   fail: "#EF4444",
 } as const;

@@ -69,12 +69,12 @@ export function PartnerForm() {
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border border-lime-400/30 bg-lime-400/5 p-8 text-center"
+        className="rounded-2xl border border-blue-600/30 bg-blue-600/5 p-8 text-center"
         role="status"
       >
-        <CheckCircle2 className="h-8 w-8 text-lime-400 mx-auto" />
-        <h3 className="mt-3 text-xl font-semibold text-white">You&apos;re in. Partner manager will reach out within 4 hours.</h3>
-        <p className="mt-2 text-white/65 text-sm">
+        <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto" />
+        <h3 className="mt-3 text-xl font-semibold text-neutral-900">You&apos;re in. Partner manager will reach out within 4 hours.</h3>
+        <p className="mt-2 text-neutral-900/65 text-sm">
           We&apos;ll send the partner kit, share next steps, and lock your onboarding window.
         </p>
       </motion.div>
@@ -82,7 +82,7 @@ export function PartnerForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="rounded-2xl border border-white/10 bg-white/2 p-6 md:p-8">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="rounded-2xl border border-neutral-200/10 bg-neutral-900/2 p-6 md:p-8">
       <div className="grid gap-5 md:grid-cols-2">
         <Field id="p-name" label="Name" required error={errors.name?.message}>
           <input id="p-name" type="text" autoComplete="name" className="input" {...register("name")} />
@@ -124,7 +124,7 @@ export function PartnerForm() {
                   const next = active ? servicesSelected.filter((x) => x !== s) : [...servicesSelected, s];
                   setValue("services", next, { shouldValidate: true, shouldDirty: true });
                 }}
-                className={"pill cursor-pointer transition-colors " + (active ? "pill-accent" : "hover:border-white/30")}
+                className={"pill cursor-pointer transition-colors " + (active ? "pill-accent" : "hover:border-neutral-200/30")}
                 aria-pressed={active}
               >
                 {s}
@@ -206,7 +206,7 @@ function Field({
     <div>
       <label htmlFor={id} className="label">
         {label}
-        {required && <span aria-hidden className="text-lime-400 ml-1">*</span>}
+        {required && <span aria-hidden className="text-blue-600 ml-1">*</span>}
       </label>
       {children}
       {error && (

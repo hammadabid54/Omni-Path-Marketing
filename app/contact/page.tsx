@@ -40,7 +40,7 @@ export default function ContactPage() {
       <Hero
         title={
           <>
-            Let&apos;s <em className="font-serif not-italic text-lime-400">talk.</em>
+            Let&apos;s <em className="font-serif not-italic text-blue-600">talk.</em>
           </>
         }
         subhead="Tell us a bit about you. We'll match you with the right strategist and get back within 4 business hours."
@@ -51,33 +51,33 @@ export default function ContactPage() {
           <ScrollReveal>
             <Eyebrow className="mb-4">Get in touch</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              Reach us <em className="font-serif not-italic text-lime-400">directly.</em>
+              Reach us <em className="font-serif not-italic text-blue-600">directly.</em>
             </h2>
-            <ul className="mt-6 space-y-4 text-white/80">
+            <ul className="mt-6 space-y-4 text-neutral-900/80">
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   <Mail className="h-4 w-4" />
                 </span>
-                <a href={`mailto:${BRAND_EMAIL}`} className="hover:text-lime-400 break-all">
+                <a href={`mailto:${BRAND_EMAIL}`} className="hover:text-blue-600 break-all">
                   {BRAND_EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   <Phone className="h-4 w-4" />
                 </span>
-                <a href={BRAND_PHONE_TEL} className="hover:text-lime-400">
+                <a href={BRAND_PHONE_TEL} className="hover:text-blue-600">
                   {BRAND_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   <Clock className="h-4 w-4" />
                 </span>
                 Mon-Fri 9am-6pm in your local timezone
               </li>
               <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   <Globe className="h-4 w-4" />
                 </span>
                 Fully remote · Working with clients globally
@@ -85,10 +85,10 @@ export default function ContactPage() {
             </ul>
 
             <div className="mt-10">
-              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">
+              <h3 className="text-sm font-semibold text-neutral-900 uppercase tracking-widest">
                 Find us on social
               </h3>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-2 text-sm text-neutral-900/60">
                 We share original research, playbooks, and case studies on each channel.
               </p>
               <div className="mt-4">
@@ -97,17 +97,17 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">What happens after you submit</h3>
+              <h3 className="text-sm font-semibold text-neutral-900 uppercase tracking-widest">What happens after you submit</h3>
               <StaggerGroup className="mt-4 space-y-3" stagger={0.06}>
                 {STEPS.map((s, i) => (
                   <StaggerItem key={s.t}>
                     <div className="flex gap-4">
-                      <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-lime-400/15 text-lime-400 text-sm font-semibold">
+                      <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 text-sm font-semibold">
                         {i + 1}
                       </span>
                       <div>
-                        <div className="text-white/85 font-medium" dangerouslySetInnerHTML={{ __html: s.t }} />
-                        <p className="text-sm text-white/60 mt-0.5" dangerouslySetInnerHTML={{ __html: s.d }} />
+                        <div className="text-neutral-900/85 font-medium" dangerouslySetInnerHTML={{ __html: s.t }} />
+                        <p className="text-sm text-neutral-900/60 mt-0.5" dangerouslySetInnerHTML={{ __html: s.d }} />
                       </div>
                     </div>
                   </StaggerItem>
@@ -127,7 +127,7 @@ export default function ContactPage() {
       <CtaSection
         title={
           <>
-            Still deciding? <em className="font-serif not-italic text-lime-400">Book a 15-min call.</em>
+            Still deciding? <em className="font-serif not-italic text-blue-600">Book a 15-min call.</em>
           </>
         }
         subhead="No pitch, no pressure. Just a chat to see if we're a fit."

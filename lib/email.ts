@@ -21,11 +21,11 @@ function brandChrome(inner: string): string {
 <html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /></head>
 <body style="margin:0;background:#0a0a0f;color:#fff;font-family:ui-sans-serif,system-ui,sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:32px 24px;">
-    <div style="display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(163,230,53,0.1);border:1px solid rgba(163,230,53,0.3);color:#a3e635;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;margin-bottom:24px;">Omni Path Marketing</div>
+    <div style="display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(163,230,53,0.1);border:1px solid rgba(163,230,53,0.3);color:#0070f3;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;margin-bottom:24px;">Omni Path Marketing</div>
     ${inner}
     <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;">
       <p style="margin:0 0 8px;">Omni Path Marketing · Fully remote · Working with clients globally</p>
-      <p style="margin:0;"><a href="${env().NEXT_PUBLIC_SITE_URL}" style="color:#a3e635;text-decoration:underline;">omnipathmarketing.com</a></p>
+      <p style="margin:0;"><a href="${env().NEXT_PUBLIC_SITE_URL}" style="color:#0070f3;text-decoration:underline;">omnipathmarketing.com</a></p>
     </div>
   </div>
 </body></html>`;
@@ -50,7 +50,7 @@ export async function sendAuditDelivery(args: AuditDeliveryArgs) {
   const c = client();
   if (!c) return { ok: false, reason: "no-client" };
 
-  const scoreColor = args.bucket === "hot" ? "#bef264" : args.bucket === "warm" ? "#facc15" : "#fb7185";
+  const scoreColor = args.bucket === "hot" ? "#2f8eff" : args.bucket === "warm" ? "#facc15" : "#fb7185";
   const inner = `
     <h1 style="font-size:28px;line-height:1.15;margin:0 0 16px;font-weight:700;letter-spacing:-0.02em;">Your audit is ready, ${escapeHtml(args.name)}.</h1>
     <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 24px;">We scanned <strong style="color:#fff;">${escapeHtml(args.url)}</strong> and generated your 20-point report.</p>
@@ -61,11 +61,11 @@ export async function sendAuditDelivery(args: AuditDeliveryArgs) {
     </div>
     ${args.pdf
       ? `<p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 8px;">Your full 20-point audit report is attached as a PDF.</p>
-         <p style="color:rgba(255,255,255,0.5);line-height:1.6;margin:0 0 24px;font-size:12px;">Filename: <span style="font-family:ui-monospace,monospace;color:#a3e635;">omni-path-audit.pdf</span></p>`
+         <p style="color:rgba(255,255,255,0.5);line-height:1.6;margin:0 0 24px;font-size:12px;">Filename: <span style="font-family:ui-monospace,monospace;color:#0070f3;">omni-path-audit.pdf</span></p>`
       : args.pdfUrl
-      ? `<a href="${args.pdfUrl}" style="display:inline-block;background:#a3e635;color:#0a0a0f;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;margin-bottom:16px;">Download full PDF report</a>`
+      ? `<a href="${args.pdfUrl}" style="display:inline-block;background:#0070f3;color:#0a0a0f;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;margin-bottom:16px;">Download full PDF report</a>`
       : ""}
-    <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:16px 0 0;">Want help fixing the issues? <a href="${env().NEXT_PUBLIC_SITE_URL}/contact" style="color:#a3e635;">Book a free 15-min call</a> or see <a href="${env().NEXT_PUBLIC_SITE_URL}/pricing" style="color:#a3e635;">our pricing</a>.</p>
+    <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:16px 0 0;">Want help fixing the issues? <a href="${env().NEXT_PUBLIC_SITE_URL}/contact" style="color:#0070f3;">Book a free 15-min call</a> or see <a href="${env().NEXT_PUBLIC_SITE_URL}/pricing" style="color:#0070f3;">our pricing</a>.</p>
   `;
 
   try {
@@ -107,8 +107,8 @@ export async function sendContactDelivery(args: { to: string; name: string }) {
   const inner = `
     <h1 style="font-size:28px;line-height:1.15;margin:0 0 16px;font-weight:700;">Got it, ${escapeHtml(args.name)}.</h1>
     <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 16px;">We received your message and a senior strategist will reply within 4 business hours.</p>
-    <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 24px;">In the meantime, want to see what we ship daily? <a href="${env().NEXT_PUBLIC_SITE_URL}/process" style="color:#a3e635;">See our process</a>.</p>
-    <a href="${env().NEXT_PUBLIC_CALCOM_URL}" style="display:inline-block;background:#a3e635;color:#0a0a0f;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;">Or book a 15-min call now</a>
+    <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 24px;">In the meantime, want to see what we ship daily? <a href="${env().NEXT_PUBLIC_SITE_URL}/process" style="color:#0070f3;">See our process</a>.</p>
+    <a href="${env().NEXT_PUBLIC_CALCOM_URL}" style="display:inline-block;background:#0070f3;color:#0a0a0f;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;">Or book a 15-min call now</a>
   `;
 
   try {
@@ -220,7 +220,7 @@ function credentialBlockHtml(
     .map(
       ([inbox, items]) => `
         <div style="margin-top:8px;">
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:rgba(255,255,255,0.5);margin-bottom:6px;">→ <a href="mailto:${inbox}" style="color:#a3e635;text-decoration:underline;">${inbox}</a></div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:rgba(255,255,255,0.5);margin-bottom:6px;">→ <a href="mailto:${inbox}" style="color:#0070f3;text-decoration:underline;">${inbox}</a></div>
           <ul style="margin:0;padding-left:18px;color:rgba(255,255,255,0.75);line-height:1.7;font-size:13px;">
             ${items
               .map(
@@ -237,7 +237,7 @@ function credentialBlockHtml(
     <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;margin-top:8px;">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
         <strong style="color:#fff;font-size:14px;">${escapeHtml(service.label)}</strong>
-        <span style="font-size:11px;color:rgba(255,255,255,0.5);">Client will send by <strong style="color:#a3e635;">${escapeHtml(sendBy)}</strong></span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.5);">Client will send by <strong style="color:#0070f3;">${escapeHtml(sendBy)}</strong></span>
       </div>
       ${service.credentials.length > 0 ? groupsHtml : `<p style="margin:8px 0 0;color:rgba(255,255,255,0.6);font-size:13px;">No credentials needed — kickoff call only.</p>`}
       ${notes ? `<p style="margin:8px 0 0;color:rgba(255,255,255,0.55);font-size:12px;font-style:italic;">Notes: ${escapeHtml(notes)}</p>` : ""}
@@ -322,7 +322,7 @@ export async function notifyIntakeSubmission(sub: IntakeSubmission) {
     .map(([k, v]) => {
       if (v === "") {
         // Section divider
-        return `<tr><td colspan="2" style="padding:14px 12px 4px;color:#a3e635;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">${escapeHtml(k)}</td></tr>`;
+        return `<tr><td colspan="2" style="padding:14px 12px 4px;color:#0070f3;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">${escapeHtml(k)}</td></tr>`;
       }
       return `<tr><td style="padding:6px 12px;color:rgba(255,255,255,0.5);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:35%;vertical-align:top;">${escapeHtml(k)}</td><td style="padding:6px 12px;color:#fff;font-size:14px;line-height:1.5;">${escapeHtml(v)}</td></tr>`;
     })
@@ -330,7 +330,7 @@ export async function notifyIntakeSubmission(sub: IntakeSubmission) {
 
   const inner = `
     <h1 style="font-size:24px;line-height:1.2;margin:0 0 8px;font-weight:700;">New client intake</h1>
-    <p style="color:rgba(255,255,255,0.65);margin:0 0 20px;font-size:14px;">From <strong style="color:#fff;">${escapeHtml(d.businessName)}</strong> · <a href="mailto:${d.contactEmail}" style="color:#a3e635;">${d.contactEmail}</a></p>
+    <p style="color:rgba(255,255,255,0.65);margin:0 0 20px;font-size:14px;">From <strong style="color:#fff;">${escapeHtml(d.businessName)}</strong> · <a href="mailto:${d.contactEmail}" style="color:#0070f3;">${d.contactEmail}</a></p>
     <table style="width:100%;border-collapse:collapse;background:rgba(255,255,255,0.04);border-radius:12px;overflow:hidden;">${table}</table>
   `;
 
@@ -387,10 +387,10 @@ export async function sendIntakeClientRecap(sub: IntakeSubmission) {
     ${serviceBlocks}
     <h2 style="font-size:18px;line-height:1.3;margin:24px 0 8px;font-weight:700;">Where credentials go</h2>
     <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 8px;">
-      <strong style="color:#a3e635;">${INBOX_GOOGLE}</strong> — Google Workspace tools (Search Console, GA4, Google Ads, GTM, YouTube, hosting/DNS/CMS for Web &amp; CRO).
+      <strong style="color:#0070f3;">${INBOX_GOOGLE}</strong> — Google Workspace tools (Search Console, GA4, Google Ads, GTM, YouTube, hosting/DNS/CMS for Web &amp; CRO).
     </p>
     <p style="color:rgba(255,255,255,0.75);line-height:1.6;margin:0 0 24px;">
-      <strong style="color:#a3e635;">${INBOX_SOCIAL}</strong> — Social media accounts (Instagram, Facebook, LinkedIn, X, TikTok, Pinterest).
+      <strong style="color:#0070f3;">${INBOX_SOCIAL}</strong> — Social media accounts (Instagram, Facebook, LinkedIn, X, TikTok, Pinterest).
     </p>
     <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin:24px 0 0;">
       Reply to this email if anything is unclear. Keep this link for your records — it&apos;s how we identify your onboarding thread.

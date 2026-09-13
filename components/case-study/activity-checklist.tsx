@@ -15,7 +15,7 @@ export function ActivityChecklist({ items }: { items: Activity[] }) {
           <div className="flex items-start gap-3">
             <span
               aria-hidden
-              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-lime-400/10 text-lime-400"
+              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-blue-600/10 text-blue-600"
             >
               <svg
                 width="12"
@@ -34,8 +34,8 @@ export function ActivityChecklist({ items }: { items: Activity[] }) {
               </svg>
             </span>
             <div>
-              <div className="text-sm font-medium text-white">{a.title}</div>
-              <div className="mt-1 text-xs text-white/55 leading-relaxed">
+              <div className="text-sm font-medium text-neutral-900">{a.title}</div>
+              <div className="mt-1 text-xs text-neutral-900/55 leading-relaxed">
                 {a.description}
               </div>
             </div>

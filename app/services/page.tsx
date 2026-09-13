@@ -68,7 +68,7 @@ export default function ServicesPage() {
       <Hero
         title={
           <>
-            Eight services. <em className="font-serif not-italic text-lime-400">One partner.</em>
+            Eight services. <em className="font-serif not-italic text-blue-600">One partner.</em>
           </>
         }
         subhead="SEO, paid ads, branding, content, web, email, social, analytics. Hire us direct or resell under your brand."
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         title={
           <>
             Hire us for one.{" "}
-            <em className="font-serif not-italic text-lime-400">Resell them all.</em>
+            <em className="font-serif not-italic text-blue-600">Resell them all.</em>
           </>
         }
         subhead="Every service is available white-label for agencies or done-for-you for businesses."

@@ -21,7 +21,7 @@ export function FaqSection({ eyebrow, title, subhead, items, defaultOpen = 0 }: 
         <ScrollReveal>
           {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">{title}</h2>
-          {subhead && <p className="mt-4 text-white/70 max-w-md">{subhead}</p>}
+          {subhead && <p className="mt-4 text-neutral-900/70 max-w-md">{subhead}</p>}
         </ScrollReveal>
         <ScrollReveal delay={0.05}>
           <FaqAccordion

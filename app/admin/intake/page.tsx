@@ -17,7 +17,7 @@ function statusOf(t: { submittedAt: string | null; expiresAt: string }): "active
 }
 
 const STATUS_COLOR = {
-  active: "bg-lime-400/15 text-lime-400 border-lime-400/30",
+  active: "bg-blue-600/15 text-blue-600 border-blue-600/30",
   submitted: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
   expired: "bg-rose-400/15 text-rose-300 border-rose-400/30",
 };
@@ -55,23 +55,23 @@ export default async function AdminIntakePage() {
     <div>
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Intake tokens</h1>
-          <p className="text-sm text-white/55 mt-1">
-            Mint private links to <code className="text-white/65">/intake/[token]</code>. Each link is single-use.
+          <h1 className="text-2xl font-bold text-neutral-900">Intake tokens</h1>
+          <p className="text-sm text-neutral-900/55 mt-1">
+            Mint private links to <code className="text-neutral-900/65">/intake/[token]</code>. Each link is single-use.
           </p>
         </div>
       </div>
 
       {/* Mint new */}
-      <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-5 mb-6">
-        <div className="text-[10px] uppercase tracking-widest text-white/45 font-semibold mb-3">Mint a new token</div>
+      <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5 mb-6">
+        <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">Mint a new token</div>
         <form action={mint} className="flex flex-wrap items-end gap-3">
           <label className="flex-1 min-w-[200px]">
-            <span className="text-xs text-white/55">Client name</span>
+            <span className="text-xs text-neutral-900/55">Client name</span>
             <input type="text" name="clientName" required placeholder="e.g. Acme Co" className="input mt-1" />
           </label>
           <label className="w-32">
-            <span className="text-xs text-white/55">Days</span>
+            <span className="text-xs text-neutral-900/55">Days</span>
             <input type="number" name="days" defaultValue={14} min={1} max={365} className="input mt-1" />
           </label>
           <button type="submit" className="btn btn-primary">Generate link</button>
@@ -80,13 +80,13 @@ export default async function AdminIntakePage() {
 
       {/* Tokens table */}
       {sorted.length === 0 ? (
-        <div className="rounded-xl border border-white/8 bg-[#0d0d14] p-6 text-center text-sm text-white/55">
+        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-6 text-center text-sm text-neutral-900/55">
           No tokens yet. Use the form above to mint one.
         </div>
       ) : (
-        <div className="rounded-xl border border-white/8 overflow-hidden">
+        <div className="rounded-xl border border-neutral-200/8 overflow-hidden">
           <table className="w-full text-sm">
-            <thead className="bg-white/4 text-[10px] uppercase tracking-widest text-white/45">
+            <thead className="bg-neutral-900/4 text-[10px] uppercase tracking-widest text-neutral-900/45">
               <tr>
                 <th className="text-left px-4 py-2.5 font-semibold">Client</th>
                 <th className="text-left px-4 py-2.5 font-semibold">Status</th>
@@ -110,19 +110,19 @@ export default async function AdminIntakePage() {
                     )
                   : undefined;
                 return (
-                  <tr key={t.token} className="hover:bg-white/2">
+                  <tr key={t.token} className="hover:bg-neutral-900/2">
                     <td className="px-4 py-2.5">
-                      <div className="font-medium text-white">{t.clientName}</div>
-                      <div className="text-[10px] font-mono text-white/40 truncate max-w-[200px]">{t.token}</div>
+                      <div className="font-medium text-neutral-900">{t.clientName}</div>
+                      <div className="text-[10px] font-mono text-neutral-900/40 truncate max-w-[200px]">{t.token}</div>
                     </td>
                     <td className="px-4 py-2.5">
                       <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${STATUS_COLOR[status]}`}>
                         {status}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-white/55 text-xs hidden md:table-cell">{fmtDate(t.createdAt)}</td>
-                    <td className="px-4 py-2.5 text-white/55 text-xs hidden md:table-cell">{fmtDate(t.expiresAt)}</td>
-                    <td className="px-4 py-2.5 text-white/55 text-xs hidden lg:table-cell">
+                    <td className="px-4 py-2.5 text-neutral-900/55 text-xs hidden md:table-cell">{fmtDate(t.createdAt)}</td>
+                    <td className="px-4 py-2.5 text-neutral-900/55 text-xs hidden md:table-cell">{fmtDate(t.expiresAt)}</td>
+                    <td className="px-4 py-2.5 text-neutral-900/55 text-xs hidden lg:table-cell">
                       {t.submittedAt ? fmtDate(t.submittedAt) : "—"}
                     </td>
                     <td className="px-4 py-2.5 text-right">
@@ -133,7 +133,7 @@ export default async function AdminIntakePage() {
                         {matchingLead && (
                           <Link
                             href={`/admin/leads/${matchingLead.id}`}
-                            className="text-[10px] uppercase tracking-widest text-lime-400 hover:text-lime-300"
+                            className="text-[10px] uppercase tracking-widest text-blue-600 hover:text-blue-300"
                           >
                             View
                           </Link>

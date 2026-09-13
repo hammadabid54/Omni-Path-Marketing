@@ -104,21 +104,21 @@ export default async function CaseStudyPage({
       {/* ===== HERO ===== */}
       <Section spacing="default" className="pt-16 md:pt-24">
         <ScrollReveal>
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/55">
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-neutral-900/55">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/case-studies" className="hover:text-lime-400 transition-colors">
+                <Link href="/case-studies" className="hover:text-blue-600 transition-colors">
                   Case studies
                 </Link>
               </li>
-              <li aria-hidden className="text-white/30">›</li>
+              <li aria-hidden className="text-neutral-900/30">›</li>
               <li>
-                <Link href={`/case-studies?vertical=${encodeURIComponent(c.vertical)}`} className="hover:text-lime-400 transition-colors">
+                <Link href={`/case-studies?vertical=${encodeURIComponent(c.vertical)}`} className="hover:text-blue-600 transition-colors">
                   {c.vertical}
                 </Link>
               </li>
-              <li aria-hidden className="text-white/30">›</li>
-              <li className="text-white/85" aria-current="page">{c.title}</li>
+              <li aria-hidden className="text-neutral-900/30">›</li>
+              <li className="text-neutral-900/85" aria-current="page">{c.title}</li>
             </ol>
           </nav>
         </ScrollReveal>
@@ -141,7 +141,7 @@ export default async function CaseStudyPage({
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <p className="mt-6 text-lg text-white/70 leading-relaxed max-w-2xl">
+              <p className="mt-6 text-lg text-neutral-900/70 leading-relaxed max-w-2xl">
                 {c.summary}
               </p>
             </ScrollReveal>
@@ -160,14 +160,14 @@ export default async function CaseStudyPage({
 
           <ScrollReveal delay={0.2}>
             <aside className="bento bento-lg">
-              <div className="text-xs uppercase tracking-widest text-lime-400 font-semibold">At a glance</div>
+              <div className="text-xs uppercase tracking-widest text-blue-600 font-semibold">At a glance</div>
               <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 text-sm">
-                <dt className="text-white/45">Vertical</dt><dd className="text-white">{c.vertical}</dd>
-                <dt className="text-white/45">Region</dt><dd className="text-white">{c.region}</dd>
-                <dt className="text-white/45">Service</dt><dd className="text-white">{c.vertical} ({c.service})</dd>
-                <dt className="text-white/45">Engagement</dt><dd className="text-white">{c.engagement}</dd>
-                <dt className="text-white/45">Timeline</dt><dd className="text-white">{c.timeline}</dd>
-                <dt className="text-white/45">Data source</dt><dd className="text-white">{c.sourceTag}</dd>
+                <dt className="text-neutral-900/45">Vertical</dt><dd className="text-neutral-900">{c.vertical}</dd>
+                <dt className="text-neutral-900/45">Region</dt><dd className="text-neutral-900">{c.region}</dd>
+                <dt className="text-neutral-900/45">Service</dt><dd className="text-neutral-900">{c.vertical} ({c.service})</dd>
+                <dt className="text-neutral-900/45">Engagement</dt><dd className="text-neutral-900">{c.engagement}</dd>
+                <dt className="text-neutral-900/45">Timeline</dt><dd className="text-neutral-900">{c.timeline}</dd>
+                <dt className="text-neutral-900/45">Data source</dt><dd className="text-neutral-900">{c.sourceTag}</dd>
               </dl>
             </aside>
           </ScrollReveal>
@@ -180,10 +180,10 @@ export default async function CaseStudyPage({
           {c.topStats.map((s, i) => (
             <StaggerItem key={s.label}>
               <div className="bento">
-                <div className="text-xs uppercase tracking-widest text-white/45">{s.label}</div>
+                <div className="text-xs uppercase tracking-widest text-neutral-900/45">{s.label}</div>
                 <div className="mt-2 text-3xl font-bold text-lime">{s.value}</div>
                 {s.from && (
-                  <div className="mt-1 text-xs text-white/45">
+                  <div className="mt-1 text-xs text-neutral-900/45">
                     <span className="line-through">{s.from}</span> → <span className="text-lime">{s.value}</span>
                   </div>
                 )}
@@ -203,10 +203,10 @@ export default async function CaseStudyPage({
             <div id="challenge" className="scroll-mt-24">
               <Eyebrow className="mb-4">The challenge</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                <em className="font-serif not-italic text-lime-400">Page 2</em> is where dreams go to die.
+                <em className="font-serif not-italic text-blue-600">Page 2</em> is where dreams go to die.
               </h2>
               {c.challenge.map((p) => (
-                <p key={p} className="mt-4 text-white/75 leading-relaxed">{p}</p>
+                <p key={p} className="mt-4 text-neutral-900/75 leading-relaxed">{p}</p>
               ))}
             </div>
 
@@ -214,24 +214,24 @@ export default async function CaseStudyPage({
             <div id="strategy" className="scroll-mt-24 mt-16">
               <Eyebrow className="mb-4">The strategy</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                <em className="font-serif not-italic text-lime-400">Fix the foundation.</em> Then ship.
+                <em className="font-serif not-italic text-blue-600">Fix the foundation.</em> Then ship.
               </h2>
               {c.strategy.map((p) => (
-                <p key={p} className={`mt-4 text-white/75 leading-relaxed`}>{p}</p>
+                <p key={p} className={`mt-4 text-neutral-900/75 leading-relaxed`}>{p}</p>
               ))}
 
               <div className="mt-6 grid md:grid-cols-3 gap-3">
                 <div className="bento">
                   <div className="text-3xl font-bold text-lime">3 weeks</div>
-                  <div className="mt-1 text-sm text-white/65">technical rebuild</div>
+                  <div className="mt-1 text-sm text-neutral-900/65">technical rebuild</div>
                 </div>
                 <div className="bento">
                   <div className="text-3xl font-bold text-lime">27</div>
-                  <div className="mt-1 text-sm text-white/65">pages shipped in 90 days</div>
+                  <div className="mt-1 text-sm text-neutral-900/65">pages shipped in 90 days</div>
                 </div>
                 <div className="bento">
                   <div className="text-3xl font-bold text-lime">18 mo</div>
-                  <div className="mt-1 text-sm text-white/65">content calendar roadmap</div>
+                  <div className="mt-1 text-sm text-neutral-900/65">content calendar roadmap</div>
                 </div>
               </div>
             </div>
@@ -240,9 +240,9 @@ export default async function CaseStudyPage({
             <div id="trajectory" className="scroll-mt-24 mt-16">
               <Eyebrow className="mb-4">The trajectory</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                <em className="font-serif not-italic text-lime-400">6 months,</em> the line tells the story.
+                <em className="font-serif not-italic text-blue-600">6 months,</em> the line tells the story.
               </h2>
-              <p className="mt-4 text-white/75 leading-relaxed">
+              <p className="mt-4 text-neutral-900/75 leading-relaxed">
                 Monthly trajectory over the engagement window. Source: {c.sourceTag}. We track the
                 primary commercial metric, not vanity traffic.
               </p>
@@ -256,16 +256,16 @@ export default async function CaseStudyPage({
               />
 
               <div className="mt-4 grid md:grid-cols-3 gap-3 text-sm">
-                <div className="rounded-lg border border-white/8 p-3">
-                  <div className="text-xs text-white/45">First ranking improvement</div>
+                <div className="rounded-lg border border-neutral-200/8 p-3">
+                  <div className="text-xs text-neutral-900/45">First ranking improvement</div>
                   <div className="mt-1 text-lg font-semibold text-lime">Day 18</div>
                 </div>
-                <div className="rounded-lg border border-white/8 p-3">
-                  <div className="text-xs text-white/45">First-page ranking</div>
+                <div className="rounded-lg border border-neutral-200/8 p-3">
+                  <div className="text-xs text-neutral-900/45">First-page ranking</div>
                   <div className="mt-1 text-lg font-semibold text-lime">Month 2</div>
                 </div>
-                <div className="rounded-lg border border-white/8 p-3">
-                  <div className="text-xs text-white/45">Top-3 commercial keywords</div>
+                <div className="rounded-lg border border-neutral-200/8 p-3">
+                  <div className="text-xs text-neutral-900/45">Top-3 commercial keywords</div>
                   <div className="mt-1 text-lg font-semibold text-lime">Month 4</div>
                 </div>
               </div>
@@ -276,9 +276,9 @@ export default async function CaseStudyPage({
               <div id="keywords" className="scroll-mt-24 mt-16">
                 <Eyebrow className="mb-4">Top commercial keywords</Eyebrow>
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                  Where the <em className="font-serif not-italic text-lime-400">money lives.</em>
+                  Where the <em className="font-serif not-italic text-blue-600">money lives.</em>
                 </h2>
-                <p className="mt-4 text-white/75 leading-relaxed">
+                <p className="mt-4 text-neutral-900/75 leading-relaxed">
                   The highest-value queries driving commercial clicks. Branded and local-intent
                   searches are the bread and butter — these are the people who book.
                 </p>
@@ -293,9 +293,9 @@ export default async function CaseStudyPage({
               <div id="pages" className="scroll-mt-24 mt-16">
                 <Eyebrow className="mb-4">Top landing pages</Eyebrow>
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                  The pages that <em className="font-serif not-italic text-lime-400">actually convert.</em>
+                  The pages that <em className="font-serif not-italic text-blue-600">actually convert.</em>
                 </h2>
-                <p className="mt-4 text-white/75 leading-relaxed">
+                <p className="mt-4 text-neutral-900/75 leading-relaxed">
                   The 6-8 pages that carry 90% of the work. Service pages and location pages
                   drive the leads; the homepage carries the brand.
                 </p>
@@ -309,7 +309,7 @@ export default async function CaseStudyPage({
             <div id="activities" className="scroll-mt-24 mt-16">
               <Eyebrow className="mb-4">What we did</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                10 <em className="font-serif not-italic text-lime-400">deliverables,</em> one outcome.
+                10 <em className="font-serif not-italic text-blue-600">deliverables,</em> one outcome.
               </h2>
               <div className="mt-6">
                 <ActivityChecklist items={c.activities} />
@@ -320,25 +320,25 @@ export default async function CaseStudyPage({
             <div id="impact" className="scroll-mt-24 mt-16">
               <Eyebrow className="mb-4">Business impact</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                From <em className="font-serif not-italic text-lime-400">invisible</em> to a full pipeline.
+                From <em className="font-serif not-italic text-blue-600">invisible</em> to a full pipeline.
               </h2>
 
-              <blockquote className="mt-6 bento bento-lg border-l-4 border-lime-400">
-                <div className="text-2xl md:text-3xl font-serif italic text-white leading-snug">
+              <blockquote className="mt-6 bento bento-lg border-l-4 border-blue-600">
+                <div className="text-2xl md:text-3xl font-serif italic text-neutral-900 leading-snug">
                   &ldquo;{c.pullQuote.quote}&rdquo;
                 </div>
-                <div className="mt-4 text-sm text-white/55">— {c.pullQuote.attribution}</div>
+                <div className="mt-4 text-sm text-neutral-900/55">— {c.pullQuote.attribution}</div>
               </blockquote>
 
               {c.impact.map((p) => (
-                <p key={p} className="mt-6 text-white/75 leading-relaxed">{p}</p>
+                <p key={p} className="mt-6 text-neutral-900/75 leading-relaxed">{p}</p>
               ))}
 
               <div className="mt-6 grid sm:grid-cols-3 gap-3">
                 {c.impactMetrics.map((m) => (
                   <div key={m.label} className="bento text-center">
                     <div className="text-3xl font-bold text-lime">{m.value}</div>
-                    <div className="mt-1 text-xs text-white/55">{m.label}</div>
+                    <div className="mt-1 text-xs text-neutral-900/55">{m.label}</div>
                   </div>
                 ))}
               </div>
@@ -349,12 +349,12 @@ export default async function CaseStudyPage({
 
       {/* ===== RELATED CASE STUDIES ===== */}
       {related.length > 0 && (
-        <Section className="border-t border-white/5">
+        <Section className="border-t border-neutral-200/5">
           <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
             <div>
               <Eyebrow className="mb-3">More case studies</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                Same playbook, <em className="font-serif not-italic text-lime-400">different verticals.</em>
+                Same playbook, <em className="font-serif not-italic text-blue-600">different verticals.</em>
               </h2>
             </div>
             <LinkButton href="/case-studies" variant="ghost">
@@ -376,7 +376,7 @@ export default async function CaseStudyPage({
       <CtaSection
         title={
           <>
-            Want to be the <em className="font-serif not-italic text-lime-400">next case study?</em>
+            Want to be the <em className="font-serif not-italic text-blue-600">next case study?</em>
           </>
         }
         subhead="Get a free audit, or book a 15-min call with a senior strategist. We'll show you exactly what's broken, what's working, and what we'd change in the first 30 days."

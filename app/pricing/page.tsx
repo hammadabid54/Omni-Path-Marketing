@@ -206,7 +206,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title={
           <>
-            Same quality. <em className="font-serif not-italic text-lime-400">Fraction of the cost.</em>
+            Same quality. <em className="font-serif not-italic text-blue-600">Fraction of the cost.</em>
           </>
         }
         subhead="By design. No setup fees. No long contracts. 20% off annual."
@@ -230,9 +230,9 @@ export default function PricingPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label SEO</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Three tiers. <em className="font-serif not-italic text-lime-400">Same engine.</em> Better margin as you grow.
+            Three tiers. <em className="font-serif not-italic text-blue-600">Same engine.</em> Better margin as you grow.
           </h2>
-          <p className="mt-4 text-white/65 text-sm">
+          <p className="mt-4 text-neutral-900/65 text-sm">
             Every white-label tier ships the same SEO engine. Price scales by client count, not by what you get.
           </p>
         </ScrollReveal>
@@ -241,16 +241,16 @@ export default function PricingPage() {
             <StaggerItem key={t.tier}>
               <div className={"bento h-full flex flex-col " + (t.popular ? "bento-feature card-glow" : "")}>
                 {t.popular && <span className="pill pill-accent text-[10px] self-start">Most popular</span>}
-                <h3 className="mt-2 text-xl font-semibold text-white">{t.tier}</h3>
+                <h3 className="mt-2 text-xl font-semibold text-neutral-900">{t.tier}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-5xl font-bold text-lime-400">{t.price}</span>
-                  <span className="text-sm text-white/55">{t.per}</span>
+                  <span className="text-5xl font-bold text-blue-600">{t.price}</span>
+                  <span className="text-sm text-neutral-900/55">{t.per}</span>
                 </div>
-                <div className="mt-1 text-xs text-white/45">{t.min}</div>
-                <ul className="mt-6 space-y-2 text-sm text-white/75 flex-1">
+                <div className="mt-1 text-xs text-neutral-900/45">{t.min}</div>
+                <ul className="mt-6 space-y-2 text-sm text-neutral-900/75 flex-1">
                   {WL_OFFERING.map((f) => (
                     <li key={f} className="flex gap-2">
-                      <span className="text-lime-400 mt-0.5 shrink-0">→</span> <span>{f}</span>
+                      <span className="text-blue-600 mt-0.5 shrink-0">→</span> <span>{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -273,9 +273,9 @@ export default function PricingPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Other white-label services</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Same <em className="font-serif not-italic text-lime-400">$150-$250 tier structure.</em> Every service.
+            Same <em className="font-serif not-italic text-blue-600">$150-$250 tier structure.</em> Every service.
           </h2>
-          <p className="mt-4 text-white/65 text-sm">
+          <p className="mt-4 text-neutral-900/65 text-sm">
             Pick any service, run it under your brand. Each service has its own standardized offering at every tier — no surprises when a client upgrades.
           </p>
         </ScrollReveal>
@@ -283,9 +283,9 @@ export default function PricingPage() {
           {WL_OTHER_SERVICES.map((s) => (
             <StaggerItem key={s.service}>
               <div className="bento h-full">
-                <h3 className="text-base font-semibold text-white">{s.service}</h3>
-                <p className="mt-2 text-sm text-white/65">{s.description}</p>
-                <div className="mt-3 text-xs text-lime-400 font-medium">
+                <h3 className="text-base font-semibold text-neutral-900">{s.service}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65">{s.description}</p>
+                <div className="mt-3 text-xs text-blue-600 font-medium">
                   $250 / $200 / $150 per client per month
                 </div>
               </div>
@@ -299,13 +299,13 @@ export default function PricingPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Annual cost</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Your margin <em className="font-serif not-italic text-lime-400">at 10 clients.</em>
+            Your margin <em className="font-serif not-italic text-blue-600">at 10 clients.</em>
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Option</th>
                   <th className="px-5 py-4 font-medium">Annual cost</th>
@@ -314,28 +314,28 @@ export default function PricingPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-white/5">
-                  <td className="px-5 py-4 text-white/80">In-house SEO specialist</td>
-                  <td className="px-5 py-4 line-through text-white/45">~~$96k-$144k~~</td>
-                  <td className="px-5 py-4 text-white/60">N/A</td>
-                  <td className="px-5 py-4 text-white/60">N/A</td>
+                <tr className="border-b border-neutral-200/5">
+                  <td className="px-5 py-4 text-neutral-900/80">In-house SEO specialist</td>
+                  <td className="px-5 py-4 line-through text-neutral-900/45">~~$96k-$144k~~</td>
+                  <td className="px-5 py-4 text-neutral-900/60">N/A</td>
+                  <td className="px-5 py-4 text-neutral-900/60">N/A</td>
                 </tr>
-                <tr className="border-b border-white/5">
-                  <td className="px-5 py-4 text-white/80">Other white-label providers</td>
-                  <td className="px-5 py-4 line-through text-white/45">~~$48k-$96k~~</td>
-                  <td className="px-5 py-4 text-white/70">$84k</td>
-                  <td className="px-5 py-4 text-white/70">10-43%</td>
+                <tr className="border-b border-neutral-200/5">
+                  <td className="px-5 py-4 text-neutral-900/80">Other white-label providers</td>
+                  <td className="px-5 py-4 line-through text-neutral-900/45">~~$48k-$96k~~</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$84k</td>
+                  <td className="px-5 py-4 text-neutral-900/70">10-43%</td>
                 </tr>
-                <tr className="bg-lime-400/5">
-                  <td className="px-5 py-4 text-white/85 font-medium">Omni Path · Growth (annual)</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$19,200</td>
-                  <td className="px-5 py-4 text-white/85">$84k</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">77%</td>
+                <tr className="bg-blue-600/5">
+                  <td className="px-5 py-4 text-neutral-900/85 font-medium">Omni Path · Growth (annual)</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">$19,200</td>
+                  <td className="px-5 py-4 text-neutral-900/85">$84k</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">77%</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-white/45">20% off annual applied. Resell at $700/client. Same engine at every tier.</p>
+          <p className="mt-3 text-xs text-neutral-900/45">20% off annual applied. Resell at $700/client. Same engine at every tier.</p>
         </ScrollReveal>
       </Section>
 
@@ -346,9 +346,9 @@ export default function PricingPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">For my business</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Direct pricing. <em className="font-serif not-italic text-lime-400">Bronze, Silver, Gold.</em>
+            Direct pricing. <em className="font-serif not-italic text-blue-600">Bronze, Silver, Gold.</em>
           </h2>
-          <p className="mt-4 text-white/65 text-sm">
+          <p className="mt-4 text-neutral-900/65 text-sm">
             Pick the tier that matches your stage. Same delivery team, same tools, just different scale.
           </p>
         </ScrollReveal>
@@ -357,7 +357,7 @@ export default function PricingPage() {
           {DIRECT_SERVICES.map((svc) => (
             <div key={svc.name}>
               <ScrollReveal>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">{svc.name}</h3>
+                <h3 className="text-xl md:text-2xl font-semibold text-neutral-900 mb-4">{svc.name}</h3>
               </ScrollReveal>
               <StaggerGroup className="grid gap-4 md:grid-cols-3" stagger={0.06}>
                 {svc.tiers.map((t) => (
@@ -365,13 +365,13 @@ export default function PricingPage() {
                     <div className={"bento h-full flex flex-col " + (t.popular ? "bento-feature card-glow" : "")}>
                       {t.popular && <span className="pill pill-accent text-[10px] self-start">Most popular</span>}
                       <div className="mt-1 flex items-baseline justify-between gap-2">
-                        <h4 className="text-lg font-semibold text-white">{t.name}</h4>
-                        <span className="text-2xl font-bold text-lime-400">{t.price}</span>
+                        <h4 className="text-lg font-semibold text-neutral-900">{t.name}</h4>
+                        <span className="text-2xl font-bold text-blue-600">{t.price}</span>
                       </div>
-                      <ul className="mt-4 space-y-1.5 text-xs text-white/75 flex-1">
+                      <ul className="mt-4 space-y-1.5 text-xs text-neutral-900/75 flex-1">
                         {t.features.map((f) => (
                           <li key={f} className="flex gap-2">
-                            <span className="text-lime-400 mt-1 shrink-0">→</span> <span>{f}</span>
+                            <span className="text-blue-600 mt-1 shrink-0">→</span> <span>{f}</span>
                           </li>
                         ))}
                       </ul>
@@ -392,17 +392,17 @@ export default function PricingPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Payment terms</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            No surprises. <em className="font-serif not-italic text-lime-400">Ever.</em>
+            No surprises. <em className="font-serif not-italic text-blue-600">Ever.</em>
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
               <tbody>
                 {TERMS.map((t) => (
-                  <tr key={t.term} className="border-b border-white/5 last:border-0">
-                    <td className="px-5 py-4 text-white/60 font-medium">{t.term}</td>
-                    <td className="px-5 py-4 text-white/90">{t.value}</td>
+                  <tr key={t.term} className="border-b border-neutral-200/5 last:border-0">
+                    <td className="px-5 py-4 text-neutral-900/60 font-medium">{t.term}</td>
+                    <td className="px-5 py-4 text-neutral-900/90">{t.value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -416,7 +416,7 @@ export default function PricingPage() {
       <CtaSection
         title={
           <>
-            Not sure which tier? <em className="font-serif not-italic text-lime-400">Start with 1 client.</em>
+            Not sure which tier? <em className="font-serif not-italic text-blue-600">Start with 1 client.</em>
           </>
         }
         subhead="The Starter tier is built for testing. Move up when you see results."

@@ -40,43 +40,43 @@ const LEGAL = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/8 bg-[#0a0a0f] mt-24">
+    <footer className="border-t border-neutral-200/8 bg-white mt-24">
       <div className="container-page py-16">
         {/* Get in touch — contact form on every page */}
-        <div className="grid gap-10 lg:grid-cols-5 pb-12 mb-12 border-b border-white/8">
+        <div className="grid gap-10 lg:grid-cols-5 pb-12 mb-12 border-b border-neutral-200/8">
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 text-white font-semibold">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-lime-400 text-[#0a0a0f] font-bold">
+            <Link href="/" className="inline-flex items-center gap-2 text-neutral-900 font-semibold">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 text-[#0a0a0f] font-bold">
                 O
               </span>
               Omni Path
             </Link>
-            <h2 className="mt-5 font-serif text-3xl md:text-4xl text-white leading-[1.1]">
+            <h2 className="mt-5 font-serif text-3xl md:text-4xl text-neutral-900 leading-[1.1]">
               Get in touch.{" "}
-              <span className="italic text-lime-400">We reply fast.</span>
+              <span className="italic text-blue-600">We reply fast.</span>
             </h2>
-            <p className="mt-3 max-w-sm text-sm text-white/65">
+            <p className="mt-3 max-w-sm text-sm text-neutral-900/65">
               Tell us what you need — white-label fulfillment, a growth audit, a brand
               sprint. A human reads every message and replies within 4 business hours.
             </p>
-            <div className="mt-5 flex flex-col gap-2 text-sm text-white/80">
+            <div className="mt-5 flex flex-col gap-2 text-sm text-neutral-900/80">
               <a
                 href={`mailto:${BRAND_EMAIL}`}
-                className="inline-flex items-center gap-2 hover:text-lime-400"
+                className="inline-flex items-center gap-2 hover:text-blue-600"
               >
                 <Mail className="h-4 w-4" /> {BRAND_EMAIL}
               </a>
               <a
                 href={BRAND_PHONE_TEL}
-                className="inline-flex items-center gap-2 hover:text-lime-400"
+                className="inline-flex items-center gap-2 hover:text-blue-600"
               >
                 <Phone className="h-4 w-4" /> {BRAND_PHONE_DISPLAY}
               </a>
             </div>
-            <p className="mt-4 text-xs text-white/45">Fully remote · Working with clients globally</p>
+            <p className="mt-4 text-xs text-neutral-900/45">Fully remote · Working with clients globally</p>
 
             <div className="mt-6">
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/45 mb-3">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-900/45 mb-3">
                 Follow us
               </h3>
               <SocialLinks variant="compact" />
@@ -98,7 +98,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-white/8 pt-6 text-xs text-white/45">
+        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-neutral-200/8 pt-6 text-xs text-neutral-900/45">
           <p>© {new Date().getFullYear()} Omni Path Marketing. All rights reserved.</p>
           <p>USD pricing default · AUD/GBP/EUR on request</p>
         </div>
@@ -110,11 +110,11 @@ export function Footer() {
 function FooterColumn({ title, items }: { title: string; items: { label: string; href: string }[] }) {
   return (
     <div>
-      <h3 className="text-xs font-semibold uppercase tracking-widest text-white/45 mb-3">{title}</h3>
+      <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-900/45 mb-3">{title}</h3>
       <ul className="flex flex-col gap-2">
         {items.map((i) => (
           <li key={i.href}>
-            <Link href={i.href} className="text-sm text-white/75 hover:text-lime-400">
+            <Link href={i.href} className="text-sm text-neutral-900/75 hover:text-blue-600">
               {i.label}
             </Link>
           </li>

@@ -25,23 +25,23 @@ export function ProcessSteps({ eyebrow, title, subhead, steps, totalNote }: Proc
       <ScrollReveal className="max-w-2xl">
         {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
-        {subhead && <p className="mt-4 text-white/70 max-w-xl">{subhead}</p>}
+        {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl">{subhead}</p>}
       </ScrollReveal>
 
       <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" stagger={0.08}>
         {steps.map((step) => (
           <StaggerItem key={step.number}>
             <div className="bento h-full">
-              <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10">
+              <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/10">
                   {step.number}
                 </span>
                 Step
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">{step.description}</p>
+              <h3 className="mt-4 text-lg font-semibold text-neutral-900">{step.title}</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{step.description}</p>
               {step.meta && (
-                <p className="mt-3 text-xs text-white/45 inline-flex items-center gap-1.5">
+                <p className="mt-3 text-xs text-neutral-900/45 inline-flex items-center gap-1.5">
                   <span className="dot" /> {step.meta}
                 </p>
               )}
@@ -51,7 +51,7 @@ export function ProcessSteps({ eyebrow, title, subhead, steps, totalNote }: Proc
       </StaggerGroup>
 
       {totalNote && (
-        <ScrollReveal className="mt-10 text-center text-sm text-white/55" delay={0.2}>
+        <ScrollReveal className="mt-10 text-center text-sm text-neutral-900/55" delay={0.2}>
           {totalNote}
         </ScrollReveal>
       )}
@@ -81,13 +81,13 @@ export function TimingTable({ eyebrow, title, subhead, rows, totalNote }: Timing
       <ScrollReveal className="max-w-2xl">
         {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
         <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
-        {subhead && <p className="mt-4 text-white/70 max-w-xl">{subhead}</p>}
+        {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl">{subhead}</p>}
       </ScrollReveal>
 
       <ScrollReveal delay={0.1} className="mt-10">
-        <div className="overflow-x-auto rounded-2xl border border-white/8">
+        <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+            <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
               <tr>
                 <th className="px-5 py-4 font-medium">Step</th>
                 <th className="px-5 py-4 font-medium">What</th>
@@ -98,10 +98,10 @@ export function TimingTable({ eyebrow, title, subhead, rows, totalNote }: Timing
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i} className="border-b border-white/5 last:border-0">
-                  <td className="px-5 py-4 text-white/85 font-medium">{row.step}</td>
-                  <td className="px-5 py-4 text-white/70">{row.what}</td>
-                  <td className="px-5 py-4 text-white/80">{row.time}</td>
+                <tr key={i} className="border-b border-neutral-200/5 last:border-0">
+                  <td className="px-5 py-4 text-neutral-900/85 font-medium">{row.step}</td>
+                  <td className="px-5 py-4 text-neutral-900/70">{row.what}</td>
+                  <td className="px-5 py-4 text-neutral-900/80">{row.time}</td>
                   <td className="px-5 py-4">
                     <span
                       className={cn(
@@ -112,13 +112,13 @@ export function TimingTable({ eyebrow, title, subhead, rows, totalNote }: Timing
                       {row.type}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-white/55 text-xs hidden md:table-cell">{row.tool ?? "—"}</td>
+                  <td className="px-5 py-4 text-neutral-900/55 text-xs hidden md:table-cell">{row.tool ?? "—"}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        {totalNote && <p className="mt-4 text-sm text-white/55">{totalNote}</p>}
+        {totalNote && <p className="mt-4 text-sm text-neutral-900/55">{totalNote}</p>}
       </ScrollReveal>
     </Section>
   );

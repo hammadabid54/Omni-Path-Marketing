@@ -107,7 +107,7 @@ export default function PaidAdsServicePage() {
         heroTitle={
           <>
             Google + Meta ads.{" "}
-            <em className="font-serif not-italic text-lime-400">Without the agency overhead.</em>
+            <em className="font-serif not-italic text-blue-600">Without the agency overhead.</em>
           </>
         }
         heroSubhead="Paid ads management for Google Ads and Meta Ads. White-label for agencies $150-250 per client at 60-70% margin. Direct for businesses Bronze $250 / Silver $400 / Gold $600 per month. Senior strategists, weekly refinements, no setup fees, cancel anytime."
@@ -120,7 +120,7 @@ export default function PaidAdsServicePage() {
         whatWeDoTitle={
           <>
             The full paid media stack.{" "}
-            <em className="font-serif not-italic text-lime-400">Both platforms.</em>
+            <em className="font-serif not-italic text-blue-600">Both platforms.</em>
           </>
         }
         whatWeDoSubhead="One team running your Google Ads management, Meta Ads management, and PPC management end-to-end. Strategy, research, creative, bidding, A/B testing, and reporting — all under one roof, billed by a flat monthly management fee instead of a percentage of ad spend."
@@ -161,7 +161,7 @@ export default function PaidAdsServicePage() {
         directTitle={
           <>
             For businesses.{" "}
-            <em className="font-serif not-italic text-lime-400">Flat fee, no markup.</em>
+            <em className="font-serif not-italic text-blue-600">Flat fee, no markup.</em>
           </>
         }
         directSubhead="You pay the platforms directly for ad spend. We charge a flat monthly management fee. No percentage of spend, no hidden fees, no markup on media. The number you see is the number you pay."
@@ -176,7 +176,7 @@ export default function PaidAdsServicePage() {
         whiteLabelTitle={
           <>
             For agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
+            <em className="font-serif not-italic text-blue-600">60-70% margin.</em>
           </>
         }
         whiteLabelSubhead="Resell at $500-1,500/client/month. Your logo, your pricing, your client never sees us. We work for you, not around you."
@@ -196,9 +196,9 @@ export default function PaidAdsServicePage() {
           <Eyebrow className="mb-4">Direct plans, in detail</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             What you get.{" "}
-            <em className="font-serif not-italic text-lime-400">And what scales with you.</em>
+            <em className="font-serif not-italic text-blue-600">And what scales with you.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Every plan covers the full paid ads management loop. Higher tiers add platforms, testing depth, creative volume, and senior attention. Move up when your spend does — no re-negotiation, no setup fee on the upgrade.
           </p>
         </ScrollReveal>
@@ -208,47 +208,47 @@ export default function PaidAdsServicePage() {
           <StaggerItem>
             <div className="bento bento-lg h-full flex flex-col">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Bronze</h3>
+                <h3 className="text-xl font-semibold text-neutral-900">Direct · Bronze</h3>
                 <span className="pill text-[10px]">1 platform</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$250/mo</p>
-              <p className="mt-3 text-sm text-white/55">
+              <p className="mt-1 text-2xl font-bold text-blue-600">$250/mo</p>
+              <p className="mt-3 text-sm text-neutral-900/55">
                 Best for: one channel, one offer, a clean test.
               </p>
-              <p className="mt-6 text-xs uppercase tracking-widest text-white/45 font-semibold">
+              <p className="mt-6 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">
                 What we do under this tier
               </p>
-              <ul className="mt-3 space-y-2 text-sm text-white/80">
+              <ul className="mt-3 space-y-2 text-sm text-neutral-900/80">
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>1 platform (Google Ads OR Meta Ads)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Campaign setup + monthly optimization</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>3 ad copy variations, 2 static image ads</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Weekly bid + budget adjustments</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Monthly performance report (PDF)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Ad spend billed separately by the platform</span>
                 </li>
               </ul>
-              <div className="mt-6 pt-6 border-t border-white/8">
-                <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <div className="mt-6 pt-6 border-t border-neutral-200/8">
+                <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                   Upgrade to Silver for:
                 </p>
-                <ul className="mt-3 space-y-2 text-sm text-white/70">
+                <ul className="mt-3 space-y-2 text-sm text-neutral-900/70">
                   <li>+ Both Google and Meta managed together</li>
                   <li>+ A/B testing + retargeting</li>
                   <li>+ 5 ad copy variations + 1 video ad</li>
@@ -260,53 +260,53 @@ export default function PaidAdsServicePage() {
 
           {/* Silver */}
           <StaggerItem>
-            <div className="bento bento-lg h-full flex flex-col border-lime-400/30 bg-lime-400/4">
+            <div className="bento bento-lg h-full flex flex-col border-blue-600/30 bg-blue-600/4">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Silver</h3>
+                <h3 className="text-xl font-semibold text-neutral-900">Direct · Silver</h3>
                 <span className="pill pill-accent text-[10px]">Most popular</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$400/mo</p>
-              <p className="mt-3 text-sm text-white/55">
+              <p className="mt-1 text-2xl font-bold text-blue-600">$400/mo</p>
+              <p className="mt-3 text-sm text-neutral-900/55">
                 Best for: two channels, real testing, more creative volume.
               </p>
-              <p className="mt-6 text-xs uppercase tracking-widest text-white/45 font-semibold">
+              <p className="mt-6 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">
                 What we do under this tier
               </p>
-              <ul className="mt-3 space-y-2 text-sm text-white/80">
+              <ul className="mt-3 space-y-2 text-sm text-neutral-900/80">
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>2 platforms (Google Ads + Meta Ads)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>A/B testing + retargeting</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>5 ad copy variations, 4 static + 1 video ad</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Audience testing across 3-5 segments</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Weekly written updates with reasoning</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Biweekly 30-min strategy call</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Ad spend billed separately by the platform</span>
                 </li>
               </ul>
-              <div className="mt-6 pt-6 border-t border-white/8">
-                <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <div className="mt-6 pt-6 border-t border-neutral-200/8">
+                <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                   Upgrade to Gold for:
                 </p>
-                <ul className="mt-3 space-y-2 text-sm text-white/70">
+                <ul className="mt-3 space-y-2 text-sm text-neutral-900/70">
                   <li>+ 3-4 platforms (+ TikTok / LinkedIn)</li>
                   <li>+ Full-funnel strategy</li>
                   <li>+ 8 ad copies + 6 static + 3 video ads</li>
@@ -320,53 +320,53 @@ export default function PaidAdsServicePage() {
           <StaggerItem>
             <div className="bento bento-lg h-full flex flex-col">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h3 className="text-xl font-semibold text-white">Direct · Gold</h3>
+                <h3 className="text-xl font-semibold text-neutral-900">Direct · Gold</h3>
                 <span className="pill text-[10px]">3-4 platforms</span>
               </div>
-              <p className="mt-1 text-2xl font-bold text-lime-400">$600/mo</p>
-              <p className="mt-3 text-sm text-white/55">
+              <p className="mt-1 text-2xl font-bold text-blue-600">$600/mo</p>
+              <p className="mt-3 text-sm text-neutral-900/55">
                 Best for: full funnel, multi-platform, dedicated senior attention.
               </p>
-              <p className="mt-6 text-xs uppercase tracking-widest text-white/45 font-semibold">
+              <p className="mt-6 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">
                 What we do under this tier
               </p>
-              <ul className="mt-3 space-y-2 text-sm text-white/80">
+              <ul className="mt-3 space-y-2 text-sm text-neutral-900/80">
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>3-4 platforms (+ TikTok / LinkedIn)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Full-funnel strategy</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>8 ad copy variations, 6 static + 3 video ads</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Landing page A/B testing (we ship variants)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Dedicated senior strategist (1:1)</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Weekly 30-min call + written weekly brief</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-lime-400 mt-0.5">→</span>
+                  <span className="text-blue-600 mt-0.5">→</span>
                   <span>Ad spend billed separately by the platform</span>
                 </li>
               </ul>
-              <div className="mt-6 pt-6 border-t border-white/8">
-                <p className="text-xs uppercase tracking-widest text-white/55 font-semibold">
+              <div className="mt-6 pt-6 border-t border-neutral-200/8">
+                <p className="text-xs uppercase tracking-widest text-neutral-900/55 font-semibold">
                   No tier above this
                 </p>
-                <p className="mt-3 text-sm text-white/70">
+                <p className="mt-3 text-sm text-neutral-900/70">
                   If your spend crosses $100K/mo, we move you to a custom engagement with a partner manager and a 5-person pod.{" "}
-                  <Link href="/contact" className="text-lime-400 hover:underline">
+                  <Link href="/contact" className="text-blue-600 hover:underline">
                     Talk to us
                   </Link>
                   .
@@ -377,13 +377,13 @@ export default function PaidAdsServicePage() {
         </StaggerGroup>
 
         <ScrollReveal className="mt-12" delay={0.2}>
-          <p className="text-sm text-white/55 text-center max-w-2xl mx-auto">
+          <p className="text-sm text-neutral-900/55 text-center max-w-2xl mx-auto">
             Ad spend is billed separately, directly to Google or Meta. The management fee above is what you pay us. No setup fees, no percentage of spend, no hidden costs. See the{" "}
-            <Link href="/pricing" className="text-lime-400 hover:underline">
+            <Link href="/pricing" className="text-blue-600 hover:underline">
               full pricing
             </Link>{" "}
             for bundle discounts when you pair paid ads with{" "}
-            <Link href="/services/seo" className="text-lime-400 hover:underline">
+            <Link href="/services/seo" className="text-blue-600 hover:underline">
               SEO
             </Link>
             .
@@ -397,17 +397,17 @@ export default function PaidAdsServicePage() {
           <Eyebrow className="mb-4">White-label math</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             The numbers.{" "}
-            <em className="font-serif not-italic text-lime-400">Your margin, in plain English.</em>
+            <em className="font-serif not-italic text-blue-600">Your margin, in plain English.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             You pay us a flat fee per client per month. You charge the client whatever you want. Everything ships under your logo — your client never sees us. Here is what that looks like at each tier, with the actual margin numbers.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-12">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">You pay us</th>
@@ -417,28 +417,28 @@ export default function PaidAdsServicePage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-white/5">
-                  <td className="px-5 py-4 text-white/85 font-medium">Starter (1 client)</td>
-                  <td className="px-5 py-4 text-white/70">$250/client</td>
-                  <td className="px-5 py-4 text-white/70">$500-800/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$250-550/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">50-69%</td>
+                <tr className="border-b border-neutral-200/5">
+                  <td className="px-5 py-4 text-neutral-900/85 font-medium">Starter (1 client)</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$250/client</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$500-800/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">$250-550/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">50-69%</td>
                 </tr>
-                <tr className="border-b border-white/5 bg-lime-400/5">
-                  <td className="px-5 py-4 text-white/85 font-medium">
+                <tr className="border-b border-neutral-200/5 bg-blue-600/5">
+                  <td className="px-5 py-4 text-neutral-900/85 font-medium">
                     Growth (5+ clients) <span className="pill pill-accent text-[10px] ml-1">Popular</span>
                   </td>
-                  <td className="px-5 py-4 text-white/70">$200/client</td>
-                  <td className="px-5 py-4 text-white/70">$750-1,200/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$550-1,000/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">73-83%</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$200/client</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$750-1,200/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">$550-1,000/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">73-83%</td>
                 </tr>
                 <tr>
-                  <td className="px-5 py-4 text-white/85 font-medium">Scale (15+ clients)</td>
-                  <td className="px-5 py-4 text-white/70">$150/client</td>
-                  <td className="px-5 py-4 text-white/70">$1,200-1,500/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">$1,050-1,350/client</td>
-                  <td className="px-5 py-4 text-lime-400 font-semibold">88-90%</td>
+                  <td className="px-5 py-4 text-neutral-900/85 font-medium">Scale (15+ clients)</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$150/client</td>
+                  <td className="px-5 py-4 text-neutral-900/70">$1,200-1,500/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">$1,050-1,350/client</td>
+                  <td className="px-5 py-4 text-blue-600 font-semibold">88-90%</td>
                 </tr>
               </tbody>
             </table>
@@ -448,43 +448,43 @@ export default function PaidAdsServicePage() {
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-3" stagger={0.08}>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 5 clients at Growth
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$2,750-5,000/mo</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">$2,750-5,000/mo</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Margin on a 5-client book at the Growth tier, charged at the lower to upper end of typical agency pricing.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 10 clients at Growth
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">$5,500-10,000/mo</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">$5,500-10,000/mo</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Double the book, same per-client margin. We do not cap how many clients you can run through us.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+              <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
                 Partner bundle (8 services)
               </p>
-              <p className="mt-3 text-3xl font-bold text-white">From $150/client</p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-3 text-3xl font-bold text-neutral-900">From $150/client</p>
+              <p className="mt-2 text-sm text-neutral-900/60">
                 Bundle paid ads with{" "}
-                <Link href="/services/seo" className="text-lime-400 hover:underline">
+                <Link href="/services/seo" className="text-blue-600 hover:underline">
                   SEO
                 </Link>
                 ,{" "}
-                <Link href="/services/branding" className="text-lime-400 hover:underline">
+                <Link href="/services/branding" className="text-blue-600 hover:underline">
                   branding
                 </Link>
                 , and{" "}
-                <Link href="/services/web-design" className="text-lime-400 hover:underline">
+                <Link href="/services/web-design" className="text-blue-600 hover:underline">
                   web design
                 </Link>{" "}
                 at lower per-client rates.
@@ -499,7 +499,7 @@ export default function PaidAdsServicePage() {
         eyebrow="Why us vs a traditional agency"
         title={
           <>
-            Same work. <em className="font-serif not-italic text-lime-400">A different price tag.</em>
+            Same work. <em className="font-serif not-italic text-blue-600">A different price tag.</em>
           </>
         }
         subhead="We are a senior paid media agency running AI + automation to deliver at a lower cost than a 30-person shop. The math is simple: less overhead, same deliverables, faster decisions, and a senior human on your account — not a junior AM with 30 logins."
@@ -522,9 +522,9 @@ export default function PaidAdsServicePage() {
           <Eyebrow className="mb-4">What&apos;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Non-negotiables.{" "}
-            <em className="font-serif not-italic text-lime-400">In every tier.</em>
+            <em className="font-serif not-italic text-blue-600">In every tier.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             Whether you are on Bronze at $250/mo or Gold at $600/mo, these are the baseline you get. We do not strip them out to hit a cheaper headline number. Every client gets the same floor.
           </p>
         </ScrollReveal>
@@ -532,66 +532,66 @@ export default function PaidAdsServicePage() {
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <BarChart3 className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Monthly performance report</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Monthly performance report</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 PDF with spend, conversions, CPA, ROAS, top movers, and the next 30-day plan. Plain English, not a screenshot dump.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Megaphone className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Dedicated Slack channel</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Dedicated Slack channel</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Direct line to the team running your account. No ticket queue, no waiting two business days for a reply.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <LineChart className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Conversion tracking audit</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Conversion tracking audit</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 We verify GA4, pixels, server-side events, and offline conversions before we touch any campaign. Numbers must be honest.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Users className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Senior human oversight</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Senior human oversight</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 AI drafts, humans approve. Every campaign is reviewed by a senior strategist before launch and at every monthly checkpoint.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Sparkles className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">No lock-in contract</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">No lock-in contract</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Month-to-month. Cancel with 30 days notice, no penalty. We keep clients by delivering, not by trapping them in paperwork.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Rocket className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">No setup fees, ever</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">No setup fees, ever</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 $0 onboarding, $0 hidden costs, $0 percentage of ad spend. The monthly management fee is the only line item on our invoice.
               </p>
             </div>
@@ -604,9 +604,9 @@ export default function PaidAdsServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            How we ship paid ads <em className="font-serif not-italic text-lime-400">so fast.</em>
+            How we ship paid ads <em className="font-serif not-italic text-blue-600">so fast.</em>
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl">
+          <p className="mt-4 text-neutral-900/70 max-w-xl">
             The paid ads stack we run on the back end, the tools that ship your campaigns, the testing cadence, and what it means for your turnaround, your cost, and the volume of creative we can run each week.
           </p>
         </ScrollReveal>
@@ -614,66 +614,66 @@ export default function PaidAdsServicePage() {
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Code2 className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Google Ads API + Meta Marketing API</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Google Ads API + Meta Marketing API</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Direct bid automation through the platforms&apos; native APIs. No manual dashboard, no copy-paste, no waiting on a junior AM to push changes next week. Bid changes ship in minutes, not days, and the audit log is always on.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Bot className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">GPT-4 + custom prompts</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">GPT-4 + custom prompts</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 20+ ad copy variations per ad group, generated in minutes, A/B tested automatically, with senior human review and approval before any copy ships. We move faster because the first draft is free, and the senior edits only take minutes.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Users className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Lookalike modeling + custom audiences</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Lookalike modeling + custom audiences</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Audience expansion runs daily, not monthly. We refresh seed lists, exclusion lists, and interest stacks on a daily cron tied to your best customers. Your top of funnel never goes stale because the audience model is always running.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <RefreshCw className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Automated budget reallocation</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Automated budget reallocation</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Under-performing campaigns lose budget in under 24 hours. Top performers scale the same day. We do not let a bad week bleed into a bad month on your watch — the system pulls the lever the moment the numbers drop.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <Camera className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Puppeteer screenshots</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Puppeteer screenshots</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Every landing page variant gets screenshotted and reviewed for compliance, broken forms, broken pixels, and layout regressions before any spend goes through. Catches what humans miss in the QA pass and saves your budget from a bad launch.
               </p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="bento h-full">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                 <LayoutDashboard className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-white">Looker Studio dashboards</h3>
-              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+              <h3 className="text-lg font-semibold text-neutral-900">Looker Studio dashboards</h3>
+              <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">
                 Real-time ROAS, CPA, and conversion tracking, white-labeled with your logo, pulled straight from the platform APIs. No PDF exports, no waiting on month-end. You see the same numbers we see, the same day we see them.
               </p>
             </div>
@@ -681,21 +681,21 @@ export default function PaidAdsServicePage() {
         </StaggerGroup>
 
         <ScrollReveal className="mt-10" delay={0.1}>
-          <div className="bento bento-lg border-lime-400/30 bg-lime-400/4">
-            <p className="text-xs uppercase tracking-widest text-lime-400 font-semibold">
+          <div className="bento bento-lg border-blue-600/30 bg-blue-600/4">
+            <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold">
               What this means for you
             </p>
-            <ul className="mt-4 space-y-3 text-base text-white/85 leading-relaxed">
+            <ul className="mt-4 space-y-3 text-base text-neutral-900/85 leading-relaxed">
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1 shrink-0">→</span>
+                <span className="text-blue-600 mt-1 shrink-0">→</span>
                 <span>Bid adjustments every 6 hours, not weekly — no wasted spend sitting in bad campaigns over the weekend.</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1 shrink-0">→</span>
+                <span className="text-blue-600 mt-1 shrink-0">→</span>
                 <span>20+ creative variants per ad group, always testing — your winning message gets more budget, the losers get cut.</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-lime-400 mt-1 shrink-0">→</span>
+                <span className="text-blue-600 mt-1 shrink-0">→</span>
                 <span>5 hours of senior human strategy per client per month (vs 25-30 at a traditional agency) — automation does the rest.</span>
               </li>
             </ul>
@@ -703,7 +703,7 @@ export default function PaidAdsServicePage() {
         </ScrollReveal>
 
         <ScrollReveal className="mt-8" delay={0.15}>
-          <p className="text-base text-white/75 max-w-3xl mx-auto text-center leading-relaxed">
+          <p className="text-base text-neutral-900/75 max-w-3xl mx-auto text-center leading-relaxed">
             Same deliverables as a 30-person shop. Lower cost because the rest is automated, not because we cut corners on strategy, creative, or review. Most agencies charge you for the junior hours. We charge you for the senior strategy and the automation that handles the rest — which is exactly why Bronze is $250/mo and Gold is $600/mo instead of $500-1,800.
           </p>
         </ScrollReveal>
@@ -714,7 +714,7 @@ export default function PaidAdsServicePage() {
         eyebrow="The process"
         title={
           <>
-            From signup to live ads in <em className="font-serif not-italic text-lime-400">7 days.</em>
+            From signup to live ads in <em className="font-serif not-italic text-blue-600">7 days.</em>
           </>
         }
         subhead="Same playbook, every client. We do not reinvent the wheel for each account — we ship a tested process and customize the inputs. Most teams finish onboarding in a single working week."
@@ -734,7 +734,7 @@ export default function PaidAdsServicePage() {
         eyebrow="FAQ"
         title={
           <>
-            Paid ads <em className="font-serif not-italic text-lime-400">questions.</em>
+            Paid ads <em className="font-serif not-italic text-blue-600">questions.</em>
           </>
         }
         items={paidAdsFaqLocal}
@@ -744,7 +744,7 @@ export default function PaidAdsServicePage() {
         variant="panel"
         title={
           <>
-            Ready to <em className="font-serif not-italic text-lime-400">scale without the overhead?</em>
+            Ready to <em className="font-serif not-italic text-blue-600">scale without the overhead?</em>
           </>
         }
         subhead="Get a free audit of your current campaigns, or book a 15-min strategy call with a senior strategist. No sales team, no SDR, no follow-up spam."

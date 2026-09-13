@@ -44,7 +44,7 @@ export default function ProcessPage() {
         title={
           <>
             5 hours per client per month.{" "}
-            <em className="font-serif not-italic text-lime-400">Not 25.</em>
+            <em className="font-serif not-italic text-blue-600">Not 25.</em>
           </>
         }
         subhead="80% of our work is automated. 20% is senior strategy. Here's exactly what happens — every step, every tool, every minute."
@@ -54,7 +54,7 @@ export default function ProcessPage() {
         eyebrow="The exact workflow"
         title={
           <>
-            End to end. <em className="font-serif not-italic text-lime-400">Step by step.</em>
+            End to end. <em className="font-serif not-italic text-blue-600">Step by step.</em>
           </>
         }
         rows={TIMING}
@@ -66,10 +66,10 @@ export default function ProcessPage() {
           <ScrollReveal>
             <Eyebrow className="mb-4">The 80/20 rule</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              Why automation works <em className="font-serif not-italic text-lime-400">without</em> sacrificing quality.
+              Why automation works <em className="font-serif not-italic text-blue-600">without</em> sacrificing quality.
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="text-white/75 leading-relaxed">
+          <ScrollReveal delay={0.1} className="text-neutral-900/75 leading-relaxed">
             <p>
               AI does the heavy lifting — research, drafts, audits, reports. It doesn&apos;t make strategic decisions. It doesn&apos;t catch brand voice issues. It doesn&apos;t know your industry.
             </p>
@@ -84,15 +84,15 @@ export default function ProcessPage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Tool stack (public)</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            Same tools the <em className="font-serif not-italic text-lime-400">top agencies</em> use.
+            Same tools the <em className="font-serif not-italic text-blue-600">top agencies</em> use.
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-4" stagger={0.04}>
           {TOOLS.map((t) => (
             <StaggerItem key={t.fn}>
               <div className="bento h-full">
-                <div className="text-xs uppercase tracking-widest text-lime-400 font-semibold">{t.fn}</div>
-                <p className="mt-3 text-white/85">{t.list}</p>
+                <div className="text-xs uppercase tracking-widest text-blue-600 font-semibold">{t.fn}</div>
+                <p className="mt-3 text-neutral-900/85">{t.list}</p>
               </div>
             </StaggerItem>
           ))}
@@ -104,9 +104,9 @@ export default function ProcessPage() {
           <Eyebrow className="mb-4">Our team</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             5 humans. 30+ AI workflows.{" "}
-            <em className="font-serif not-italic text-lime-400">100+ clients.</em>
+            <em className="font-serif not-italic text-blue-600">100+ clients.</em>
           </h2>
-          <p className="mt-4 text-white/75">
+          <p className="mt-4 text-neutral-900/75">
             We don&apos;t scale by hiring. We scale by automating. The result: agency-grade work at freelancer prices.
           </p>
         </ScrollReveal>
@@ -117,7 +117,7 @@ export default function ProcessPage() {
       <CtaSection
         title={
           <>
-            Want to see <em className="font-serif not-italic text-lime-400">real samples?</em>
+            Want to see <em className="font-serif not-italic text-blue-600">real samples?</em>
           </>
         }
         subhead="Redacted audits, blog posts, and reports from real client work."

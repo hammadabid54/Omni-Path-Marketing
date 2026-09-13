@@ -102,7 +102,7 @@ export default function HomePage() {
         title={
           <>
             Stop hiring five agencies.{" "}
-            <em className="font-serif not-italic text-lime-400">Hire us once.</em>
+            <em className="font-serif not-italic text-blue-600">Hire us once.</em>
           </>
         }
         subhead="We run the full growth stack for ambitious brands — and for the agencies that serve them. SEO, ads, branding, content, web, email, social, analytics. White-label or done-for-you."
@@ -125,7 +125,7 @@ export default function HomePage() {
       <ServiceBento
         title={
           <>
-            Pick what you need. <em className="font-serif not-italic text-lime-400">Resell them all.</em>
+            Pick what you need. <em className="font-serif not-italic text-blue-600">Resell them all.</em>
           </>
         }
         subhead="Hire us for one, or get the whole stack under your brand."
@@ -142,12 +142,12 @@ export default function HomePage() {
                   <span className="pill pill-accent text-[10px]">Most popular</span>
                   <h2 className="mt-4 text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
                     Full Growth Stack.{" "}
-                    <em className="font-serif not-italic text-lime-400">One invoice.</em>
+                    <em className="font-serif not-italic text-blue-600">One invoice.</em>
                   </h2>
-                  <p className="mt-4 text-white/70 max-w-md">
+                  <p className="mt-4 text-neutral-900/70 max-w-md">
                     SEO, content, social, email, one paid channel, and a monthly report — for less than the cost of one junior hire. AI does the heavy lifting, senior humans do the strategy.
                   </p>
-                  <ul className="mt-6 space-y-2 text-sm text-white/75">
+                  <ul className="mt-6 space-y-2 text-sm text-neutral-900/75">
                     {[
                       "White-label ready (your logo, your domain)",
                       "Monthly report + quarterly strategy call",
@@ -155,15 +155,15 @@ export default function HomePage() {
                       "Same deliverables as a $10K/mo traditional agency",
                     ].map((b) => (
                       <li key={b} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-lime-400 shrink-0" />
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
                         {b}
                       </li>
                     ))}
                   </ul>
                   <div className="mt-7 flex flex-wrap items-baseline gap-3">
-                    <span className="text-5xl font-bold text-lime-400">$1,999</span>
-                    <span className="text-sm text-white/55">/mo · all-in</span>
-                    <span className="text-xs text-white/45 line-through ml-2">$4,500 at other agencies</span>
+                    <span className="text-5xl font-bold text-blue-600">$1,999</span>
+                    <span className="text-sm text-neutral-900/55">/mo · all-in</span>
+                    <span className="text-xs text-neutral-900/45 line-through ml-2">$4,500 at other agencies</span>
                   </div>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <LinkButton href="/contact" variant="primary" size="md" magnetic>
@@ -186,9 +186,9 @@ export default function HomePage() {
                     ["Quarterly strategy call", "60 min with senior strategist"],
                     ["Dedicated Slack channel", "< 4 hr response, business hrs"],
                   ].map(([k, v]) => (
-                    <div key={k} className="rounded-lg bg-white/4 border border-white/8 p-3">
-                      <div className="text-[10px] uppercase tracking-widest text-white/45">{k}</div>
-                      <div className="mt-1 text-white">{v}</div>
+                    <div key={k} className="rounded-lg bg-neutral-900/4 border border-neutral-200/8 p-3">
+                      <div className="text-[10px] uppercase tracking-widest text-neutral-900/45">{k}</div>
+                      <div className="mt-1 text-neutral-900">{v}</div>
                     </div>
                   ))}
                 </div>
@@ -200,20 +200,20 @@ export default function HomePage() {
           <ScrollReveal className="mt-20 max-w-2xl">
             <Eyebrow className="mb-4">Transparent pricing</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-              Every service. <em className="font-serif not-italic text-lime-400">Every tier.</em>
+              Every service. <em className="font-serif not-italic text-blue-600">Every tier.</em>
             </h2>
-            <p className="mt-3 text-white/65">No % of spend, no setup fees, no long contracts. Same deliverables as agencies charging 3-5x.</p>
+            <p className="mt-3 text-neutral-900/65">No % of spend, no setup fees, no long contracts. Same deliverables as agencies charging 3-5x.</p>
           </ScrollReveal>
 
           <div className="mt-10 overflow-x-auto">
             <table className="w-full min-w-[820px] text-sm">
               <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left py-3 pr-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Service</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Bronze</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-lime-400 font-semibold">Silver · most picked</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-white/45 font-semibold">Gold</th>
-                  <th className="text-right py-3 pl-4 text-xs uppercase tracking-widest text-white/45 font-semibold">White-label /client</th>
+                <tr className="border-b border-neutral-200/10">
+                  <th className="text-left py-3 pr-4 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">Service</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">Bronze</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-blue-600 font-semibold">Silver · most picked</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">Gold</th>
+                  <th className="text-right py-3 pl-4 text-xs uppercase tracking-widest text-neutral-900/45 font-semibold">White-label /client</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/8">
@@ -226,16 +226,16 @@ export default function HomePage() {
                   ["Creative Services", "$200/mo", "$350/mo", "$550/mo", "$150-$250"],
                 ].map(([svc, ...tiers]) => (
                   <tr key={svc}>
-                    <td className="py-4 pr-4 text-white font-medium">{svc}</td>
+                    <td className="py-4 pr-4 text-neutral-900 font-medium">{svc}</td>
                     {tiers.slice(0, 3).map((t, i) => (
-                      <td key={i} className={`py-4 px-4 ${i === 1 ? "text-lime-400 font-medium" : "text-white/75"}`}>{t}</td>
+                      <td key={i} className={`py-4 px-4 ${i === 1 ? "text-blue-600 font-medium" : "text-neutral-900/75"}`}>{t}</td>
                     ))}
-                    <td className="py-4 pl-4 text-right text-lime-400 font-medium">{tiers[3]}</td>
+                    <td className="py-4 pl-4 text-right text-blue-600 font-medium">{tiers[3]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="mt-4 text-xs text-white/45">
+            <p className="mt-4 text-xs text-neutral-900/45">
               Direct pricing is what your client pays you. White-label is what you pay us to deliver under your brand — same engine at every tier. 60-70% margin on every line.
             </p>
           </div>
@@ -248,12 +248,12 @@ export default function HomePage() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ScrollReveal>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                Add a full SEO team for <em className="font-serif not-italic text-lime-400">$150-250/client.</em>
+                Add a full SEO team for <em className="font-serif not-italic text-blue-600">$150-250/client.</em>
               </h2>
-              <p className="mt-4 text-white/70 max-w-lg">
+              <p className="mt-4 text-neutral-900/70 max-w-lg">
                 You sell. We deliver. Your client never knows we exist. We use AI to do the heavy lifting, senior humans to do the strategy. You get agency-grade work at freelancer prices.
               </p>
-              <ul className="mt-6 space-y-3 text-white/80">
+              <ul className="mt-6 space-y-3 text-neutral-900/80">
                 {[
                   "No hires. No overhead. No training.",
                   "White-labeled reports, dashboards, deliverables.",
@@ -262,7 +262,7 @@ export default function HomePage() {
                   "14-day onboarding for your first 5 clients.",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-lime-400 shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
                     {b}
                   </li>
                 ))}
@@ -310,9 +310,9 @@ export default function HomePage() {
         <div className="container-page">
           <ScrollReveal className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-              Same quality. <em className="font-serif not-italic text-lime-400">Fraction of the cost.</em>
+              Same quality. <em className="font-serif not-italic text-blue-600">Fraction of the cost.</em>
             </h2>
-            <p className="mt-4 text-white/70">By design. No setup fees. No long contracts. 20% off annual.</p>
+            <p className="mt-4 text-neutral-900/70">By design. No setup fees. No long contracts. 20% off annual.</p>
           </ScrollReveal>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -329,18 +329,18 @@ export default function HomePage() {
                   }
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-white">{t.tier}</span>
+                    <span className="text-sm font-semibold text-neutral-900">{t.tier}</span>
                     {t.popular && <span className="pill pill-accent text-[10px]">Most popular</span>}
                   </div>
                   <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-5xl font-bold text-lime-400">{t.price}</span>
-                    <span className="text-sm text-white/55">/client/mo</span>
+                    <span className="text-5xl font-bold text-blue-600">{t.price}</span>
+                    <span className="text-sm text-neutral-900/55">/client/mo</span>
                   </div>
-                  <div className="text-xs text-white/45 mt-1">{t.clients}</div>
-                  <ul className="mt-5 space-y-2 text-sm text-white/75">
+                  <div className="text-xs text-neutral-900/45 mt-1">{t.clients}</div>
+                  <ul className="mt-5 space-y-2 text-sm text-neutral-900/75">
                     {t.features.map((f) => (
                       <li key={f} className="flex gap-2">
-                        <span className="text-lime-400">→</span> {f}
+                        <span className="text-blue-600">→</span> {f}
                       </li>
                     ))}
                   </ul>
@@ -363,7 +363,7 @@ export default function HomePage() {
         eyebrow="Process"
         title={
           <>
-            5 hours per client per month. <em className="font-serif not-italic text-lime-400">Not 25.</em>
+            5 hours per client per month. <em className="font-serif not-italic text-blue-600">Not 25.</em>
           </>
         }
         subhead="80% of our work is automated. 20% is senior strategy. Here's exactly what happens."
@@ -376,7 +376,7 @@ export default function HomePage() {
         variant="panel"
         title={
           <>
-            Get a <em className="font-serif not-italic text-lime-400">free</em> SEO audit.
+            Get a <em className="font-serif not-italic text-blue-600">free</em> SEO audit.
           </>
         }
         subhead="20-point audit, scored 0-100. Delivered to your inbox in 60 seconds."
@@ -394,7 +394,7 @@ export default function HomePage() {
       <CtaSection
         title={
           <>
-            Ready to <em className="font-serif not-italic text-lime-400">stop hiring five agencies?</em>
+            Ready to <em className="font-serif not-italic text-blue-600">stop hiring five agencies?</em>
           </>
         }
         subhead="Get a free audit, or talk to a partner about white-label. Both take less than 5 minutes."

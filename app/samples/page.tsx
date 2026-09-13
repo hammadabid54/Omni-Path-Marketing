@@ -50,7 +50,7 @@ export default function SamplesPage() {
         eyebrow="Samples · Redacted, real client work"
         title={
           <>
-            See what we <em className="font-serif not-italic text-lime-400">actually ship.</em>
+            See what we <em className="font-serif not-italic text-blue-600">actually ship.</em>
           </>
         }
         subhead="Real audits, blog posts, reports, and dashboards. Names redacted, numbers intact."
@@ -61,7 +61,7 @@ export default function SamplesPage() {
           <Eyebrow className="mb-4">Sample library</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Four sample types.{" "}
-            <em className="font-serif not-italic text-lime-400">All real.</em>
+            <em className="font-serif not-italic text-blue-600">All real.</em>
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2" stagger={0.08}>
@@ -71,19 +71,19 @@ export default function SamplesPage() {
               <StaggerItem key={s.title}>
                 <div className="bento bento-lg h-full">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <span className="text-xs uppercase tracking-widest text-white/45">{s.tag}</span>
+                    <span className="text-xs uppercase tracking-widest text-neutral-900/45">{s.tag}</span>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{s.title}</h3>
-                  <p className="mt-2 text-white/65 leading-relaxed">{s.desc}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">{s.title}</h3>
+                  <p className="mt-2 text-neutral-900/65 leading-relaxed">{s.desc}</p>
                 </div>
               </StaggerItem>
             );
           })}
         </StaggerGroup>
-        <p className="mt-8 text-sm text-white/55">
+        <p className="mt-8 text-sm text-neutral-900/55">
           Want a live walkthrough? Book a 15-min call and we&apos;ll share a redacted sample live in the meeting.
         </p>
         <LinkButton href="/contact" variant="primary" className="mt-4">
@@ -94,7 +94,7 @@ export default function SamplesPage() {
       <CtaSection
         title={
           <>
-            Want the full process <em className="font-serif not-italic text-lime-400">spelled out?</em>
+            Want the full process <em className="font-serif not-italic text-blue-600">spelled out?</em>
           </>
         }
         primaryCta={{ label: "See our process", href: "/process" }}
@@ -106,23 +106,23 @@ export default function SamplesPage() {
         <div className="grid gap-3 sm:grid-cols-3">
           <LinkButton href="/for-agencies" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">For agencies</span>
-              <span className="block text-white font-semibold mt-1">White-label partner program</span>
-              <span className="block text-xs text-white/55 mt-1">All these samples can ship under your brand.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">For agencies</span>
+              <span className="block text-neutral-900 font-semibold mt-1">White-label partner program</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">All these samples can ship under your brand.</span>
             </span>
           </LinkButton>
           <LinkButton href="/case-studies" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">Proof</span>
-              <span className="block text-white font-semibold mt-1">22 case studies</span>
-              <span className="block text-xs text-white/55 mt-1">Real numbers from real engagements.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">Proof</span>
+              <span className="block text-neutral-900 font-semibold mt-1">22 case studies</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">Real numbers from real engagements.</span>
             </span>
           </LinkButton>
           <LinkButton href="/process" variant="ghost" className="justify-start">
             <span className="block">
-              <span className="text-xs uppercase tracking-widest text-white/45">Process</span>
-              <span className="block text-white font-semibold mt-1">How we work</span>
-              <span className="block text-xs text-white/55 mt-1">The full delivery pipeline, in plain English.</span>
+              <span className="text-xs uppercase tracking-widest text-neutral-900/45">Process</span>
+              <span className="block text-neutral-900 font-semibold mt-1">How we work</span>
+              <span className="block text-xs text-neutral-900/55 mt-1">The full delivery pipeline, in plain English.</span>
             </span>
           </LinkButton>
         </div>

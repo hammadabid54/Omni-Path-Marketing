@@ -37,7 +37,7 @@ export default function CaseStudiesPage() {
       <Hero
         title={
           <>
-            Real results. <em className="font-serif not-italic text-lime-400">From real clients.</em>
+            Real results. <em className="font-serif not-italic text-blue-600">From real clients.</em>
           </>
         }
         subhead="22 client wins across local SEO, enterprise SEO, and SaaS. Anonymized for the global brand. Real numbers. Real compounding."
@@ -45,14 +45,14 @@ export default function CaseStudiesPage() {
       />
 
       <Section spacing="tight">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-white/55">
-          <span className="text-white/45 mr-1">Filter:</span>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-900/55">
+          <span className="text-neutral-900/45 mr-1">Filter:</span>
           {VERTICALS.map((v) => (
             <span key={v} className="pill text-xs">
               {v} · {CASE_STUDIES.filter((c) => c.vertical === v).length}
             </span>
           ))}
-          <span className="text-white/30 mx-1">|</span>
+          <span className="text-neutral-900/30 mx-1">|</span>
           {REGIONS.map((r) => (
             <span key={r} className="pill text-xs">
               {r} · {CASE_STUDIES.filter((c) => c.region === r).length}
@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
       <CtaSection
         title={
           <>
-            Want to be the <em className="font-serif not-italic text-lime-400">next case study?</em>
+            Want to be the <em className="font-serif not-italic text-blue-600">next case study?</em>
           </>
         }
         subhead="Get a free audit, or book a 15-min call with a senior strategist."

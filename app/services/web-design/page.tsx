@@ -110,7 +110,7 @@ export default function WebDesignServicePage() {
         eyebrow="Web Design & CRO · design + build + conversion"
         title={
           <>
-            Sites that <em className="font-serif not-italic text-lime-400">convert.</em>
+            Sites that <em className="font-serif not-italic text-blue-600">convert.</em>
           </>
         }
         subhead="Web design services built for one thing: revenue. Landing pages, multi-page sites, e-commerce, and conversion rate optimization — monthly retainers from $150/mo, no setup fees, 30-day post-launch support, white-label available for agencies."
@@ -128,9 +128,9 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What we do</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Every page type. <em className="font-serif not-italic text-lime-400">Built to ship.</em>
+            Every page type. <em className="font-serif not-italic text-blue-600">Built to ship.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Six core services cover 95% of what a business needs from its web presence. We pick the
             right one for your brief, build it on the right stack, and ship it on a real deadline —
             not a &ldquo;we&apos;ll get back to you with a timeline&rdquo; deadline.
@@ -171,11 +171,11 @@ export default function WebDesignServicePage() {
           ].map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{f.description}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{f.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{f.description}</p>
               </div>
             </StaggerItem>
           ))}
@@ -187,10 +187,10 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Direct pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            For businesses. <em className="font-serif not-italic text-lime-400">No agency markup.</em>
+            For businesses. <em className="font-serif not-italic text-blue-600">No agency markup.</em>
           </h2>
-          <p className="mt-4 text-white/70">
-            Three monthly tiers, fixed monthly fee, real deadlines. Pick the level of design + hosting + ongoing updates that fits your business — or talk to us about a custom build. Every tier ships mobile-first, with on-page SEO and source files included. See the full <Link href="/pricing" className="text-lime-400 hover:underline">pricing breakdown</Link>{" "}
+          <p className="mt-4 text-neutral-900/70">
+            Three monthly tiers, fixed monthly fee, real deadlines. Pick the level of design + hosting + ongoing updates that fits your business — or talk to us about a custom build. Every tier ships mobile-first, with on-page SEO and source files included. See the full <Link href="/pricing" className="text-blue-600 hover:underline">pricing breakdown</Link>{" "}
             for retainer bundles and ongoing care plans.
           </p>
         </ScrollReveal>
@@ -201,34 +201,34 @@ export default function WebDesignServicePage() {
               <div
                 className={
                   t.popular
-                    ? "bento h-full flex flex-col border-lime-400/40 bg-lime-400/[0.04]"
+                    ? "bento h-full flex flex-col border-blue-600/40 bg-blue-600/[0.04]"
                     : "bento h-full flex flex-col"
                 }
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-white">Direct · {t.name}</h3>
+                  <h3 className="text-xl font-semibold text-neutral-900">Direct · {t.name}</h3>
                   {t.popular && <span className="pill pill-accent text-[10px]">Most popular</span>}
                 </div>
                 <div className="mt-3 flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-lime-400">{t.price}</span>
-                  <span className="text-xs text-white/55">monthly retainer</span>
+                  <span className="text-4xl font-bold text-blue-600">{t.price}</span>
+                  <span className="text-xs text-neutral-900/55">monthly retainer</span>
                 </div>
-                <p className="mt-2 text-sm text-white/70 leading-relaxed">{t.blurb}</p>
-                <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-white/55">
+                <p className="mt-2 text-sm text-neutral-900/70 leading-relaxed">{t.blurb}</p>
+                <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-neutral-900/55">
                   What&rsquo;s included
                 </p>
-                <ul className="mt-3 space-y-2 text-sm text-white/75">
+                <ul className="mt-3 space-y-2 text-sm text-neutral-900/75">
                   {t.includes.map((line) => (
                     <li key={line} className="flex gap-2">
-                      <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
+                      <Check className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
                       <span>{line}</span>
                     </li>
                   ))}
                 </ul>
                 {t.upgrade && (
-                  <div className="mt-6 rounded-lg border border-lime-400/20 bg-lime-400/5 p-4">
-                    <p className="text-sm text-white/85">
-                      <strong className="text-lime-400">{t.upgrade.split(":")[0]}:</strong>
+                  <div className="mt-6 rounded-lg border border-blue-600/20 bg-blue-600/5 p-4">
+                    <p className="text-sm text-neutral-900/85">
+                      <strong className="text-blue-600">{t.upgrade.split(":")[0]}:</strong>
                       {t.upgrade.includes(":")
                         ? t.upgrade.split(":").slice(1).join(":")
                         : ""}
@@ -238,7 +238,7 @@ export default function WebDesignServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-lime-400 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-lime-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -248,7 +248,7 @@ export default function WebDesignServicePage() {
           ))}
         </StaggerGroup>
 
-        <ScrollReveal delay={0.15} className="mt-8 text-center text-sm text-white/55">
+        <ScrollReveal delay={0.15} className="mt-8 text-center text-sm text-neutral-900/55">
           All prices in USD. No setup fees. No hidden costs. Build timeline: 5-21 days, then ongoing retainer for design updates + hosting + CRO.
         </ScrollReveal>
       </Section>
@@ -258,19 +258,19 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">White-label pricing</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-            For agencies. <em className="font-serif not-italic text-lime-400">60-70% margin.</em>
+            For agencies. <em className="font-serif not-italic text-blue-600">60-70% margin.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             {WL_ROW.description} Resell our work under your brand. Your client never sees us. Same deliverables, your logo, your domain, your markup. Built for agencies — see the{" "}
-            <Link href="/for-agencies" className="text-lime-400 hover:underline">white-label partner program</Link>{" "}
+            <Link href="/for-agencies" className="text-blue-600 hover:underline">white-label partner program</Link>{" "}
             for full terms and onboarding details.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-10">
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/8 text-white/55 text-xs uppercase tracking-wider">
+              <thead className="border-b border-neutral-200/8 text-neutral-900/55 text-xs uppercase tracking-wider">
                 <tr>
                   <th className="px-5 py-4 font-medium">Tier</th>
                   <th className="px-5 py-4 font-medium">Your cost (per client)</th>
@@ -288,23 +288,23 @@ export default function WebDesignServicePage() {
                     key={row.tier}
                     className={
                       row.popular
-                        ? "border-b border-white/5 bg-lime-400/5 last:border-0"
-                        : "border-b border-white/5 last:border-0"
+                        ? "border-b border-neutral-200/5 bg-blue-600/5 last:border-0"
+                        : "border-b border-neutral-200/5 last:border-0"
                     }
                   >
-                    <td className="px-5 py-4 text-white/85 font-medium">
+                    <td className="px-5 py-4 text-neutral-900/85 font-medium">
                       {row.tier}
                       {row.popular && <span className="ml-2 pill pill-accent text-[10px]">Popular</span>}
                     </td>
-                    <td className="px-5 py-4 text-white/75">{row.cost}</td>
-                    <td className="px-5 py-4 text-lime-400 font-semibold">{row.resell}</td>
-                    <td className="px-5 py-4 text-white/85">{row.margin}</td>
+                    <td className="px-5 py-4 text-neutral-900/75">{row.cost}</td>
+                    <td className="px-5 py-4 text-blue-600 font-semibold">{row.resell}</td>
+                    <td className="px-5 py-4 text-neutral-900/85">{row.margin}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-xs text-white/45">
+          <p className="mt-4 text-xs text-neutral-900/45">
             Same web design + CRO engine at every tier. Volume unlocks price, not features.
           </p>
         </ScrollReveal>
@@ -315,9 +315,9 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Behind the scenes</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            Sites built <em className="font-serif not-italic text-lime-400">in days, not months.</em>
+            Sites built <em className="font-serif not-italic text-blue-600">in days, not months.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Six tools in our stack carry the heavy lifting on every project, so our senior designers
             and developers focus on the 20% that actually wins the click. Same automation on every tier — Bronze, Silver, and Gold all ship with the same engine.
           </p>
@@ -364,40 +364,40 @@ export default function WebDesignServicePage() {
           ].map((tool) => (
             <StaggerItem key={tool.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {tool.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{tool.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{tool.description}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{tool.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{tool.description}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerGroup>
 
         <ScrollReveal delay={0.15} className="mt-10">
-          <div className="rounded-2xl border border-lime-400/25 bg-lime-400/5 p-6 md:p-8">
-            <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
+          <div className="rounded-2xl border border-blue-600/25 bg-blue-600/5 p-6 md:p-8">
+            <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
               <Zap className="h-4 w-4" />
               What this means for you
             </div>
-            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">
-              Real speed. <em className="font-serif not-italic text-lime-400">Real numbers.</em>
+            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-neutral-900">
+              Real speed. <em className="font-serif not-italic text-blue-600">Real numbers.</em>
             </h3>
             <ul className="mt-6 grid gap-3 md:grid-cols-3">
-              <li className="flex gap-2 text-white/85">
-                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
-                <span><strong className="text-white">5-day landing page turnaround</strong>, not 5 weeks.</span>
+              <li className="flex gap-2 text-neutral-900/85">
+                <Check className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
+                <span><strong className="text-neutral-900">5-day landing page turnaround</strong>, not 5 weeks.</span>
               </li>
-              <li className="flex gap-2 text-white/85">
-                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
-                <span><strong className="text-white">Sub-2-second load times</strong>, guaranteed on real 4G.</span>
+              <li className="flex gap-2 text-neutral-900/85">
+                <Check className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
+                <span><strong className="text-neutral-900">Sub-2-second load times</strong>, guaranteed on real 4G.</span>
               </li>
-              <li className="flex gap-2 text-white/85">
-                <Check className="h-4 w-4 text-lime-400 mt-0.5 shrink-0" />
-                <span><strong className="text-white">Around 8 hours of senior designer time</strong>, not 80.</span>
+              <li className="flex gap-2 text-neutral-900/85">
+                <Check className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
+                <span><strong className="text-neutral-900">Around 8 hours of senior designer time</strong>, not 80.</span>
               </li>
             </ul>
-            <p className="mt-6 text-sm text-white/70 leading-relaxed">
+            <p className="mt-6 text-sm text-neutral-900/70 leading-relaxed">
               That&rsquo;s how Silver ships at $300/mo direct — and resells at $750-1,200/mo to your clients if you&rsquo;re a white-label partner. Same engineering, same craft, no agency overhead, no six-week kickoff phase, no padded hourly billing. The automation is the margin, and we pass the margin to you.
             </p>
           </div>
@@ -409,9 +409,9 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">Why us vs a traditional agency</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            The old way is <em className="font-serif not-italic text-lime-400">slow and expensive.</em>
+            The old way is <em className="font-serif not-italic text-blue-600">slow and expensive.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             A traditional web agency burns 25-30 hours of human time on a single project, charges
             $5,000-15,000, and ships in 6-12 weeks. We run AI + automation on the 80% that&rsquo;s
             repetitive, and put senior humans on the 20% that actually moves the needle. Same
@@ -453,11 +453,11 @@ export default function WebDesignServicePage() {
           ].map((card) => (
             <ScrollReveal key={card.title}>
               <div className="bento h-full">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400/15 text-lime-400">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                   {card.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{card.body}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{card.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{card.body}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -469,12 +469,12 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">What&rsquo;s in every plan</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            The baseline we <em className="font-serif not-italic text-lime-400">never skip.</em>
+            The baseline we <em className="font-serif not-italic text-blue-600">never skip.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Whether you start with Bronze or Gold, these ship in every engagement.
             No upsell, no add-on fees, no fine print. If you want ongoing SEO on top of the launch
-            baseline, see our <Link href="/services/seo" className="text-lime-400 hover:underline">SEO services</Link>.
+            baseline, see our <Link href="/services/seo" className="text-blue-600 hover:underline">SEO services</Link>.
           </p>
         </ScrollReveal>
         <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
@@ -488,8 +488,8 @@ export default function WebDesignServicePage() {
           ].map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
-                <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{f.body}</p>
+                <h3 className="text-lg font-semibold text-neutral-900">{f.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{f.body}</p>
               </div>
             </StaggerItem>
           ))}
@@ -501,9 +501,9 @@ export default function WebDesignServicePage() {
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">The process</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-            From brief to launch in <em className="font-serif not-italic text-lime-400">days, not months.</em>
+            From brief to launch in <em className="font-serif not-italic text-blue-600">days, not months.</em>
           </h2>
-          <p className="mt-4 text-white/70">
+          <p className="mt-4 text-neutral-900/70">
             Five steps. No project managers, no weekly status meetings, no 40-slide kickoff deck.
             You talk to the people doing the work, you get a real deadline, and we hit it. The monthly retainer kicks in after launch.
           </p>
@@ -518,15 +518,15 @@ export default function WebDesignServicePage() {
           ].map((step) => (
             <StaggerItem key={step.number}>
               <div className="bento h-full">
-                <div className="flex items-center gap-2 text-lime-400 text-xs uppercase tracking-widest font-semibold">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10">
+                <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/10">
                     {step.number}
                   </span>
                   Step
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-sm text-white/65 leading-relaxed">{step.description}</p>
-                <p className="mt-3 text-xs text-white/45 inline-flex items-center gap-1.5">
+                <h3 className="mt-4 text-lg font-semibold text-neutral-900">{step.title}</h3>
+                <p className="mt-2 text-sm text-neutral-900/65 leading-relaxed">{step.description}</p>
+                <p className="mt-3 text-xs text-neutral-900/45 inline-flex items-center gap-1.5">
                   <span className="dot" /> {step.meta}
                 </p>
               </div>
@@ -547,7 +547,7 @@ export default function WebDesignServicePage() {
       {/* 9. FAQ */}
       <FaqSection
         eyebrow="FAQ"
-        title={<>Web design <em className="font-serif not-italic text-lime-400">questions.</em></>}
+        title={<>Web design <em className="font-serif not-italic text-blue-600">questions.</em></>}
         subhead="Straight answers to the five questions we get most often. If yours isn't here, book a call."
         items={webDesignFaq}
       />
@@ -555,7 +555,7 @@ export default function WebDesignServicePage() {
       {/* 10. Final CTA */}
       <CtaSection
         variant="panel"
-        title={<>Ready for a site that <em className="font-serif not-italic text-lime-400">converts?</em></>}
+        title={<>Ready for a site that <em className="font-serif not-italic text-blue-600">converts?</em></>}
         subhead="Get a free conversion audit, or book a 15-min call. Web design services from $150/mo direct, $150-250/client white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
         secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
