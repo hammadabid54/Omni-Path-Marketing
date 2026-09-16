@@ -18,7 +18,10 @@ export interface BlogPost {
   category: "Original research" | "Playbooks" | "Case studies" | "Industry news";
   author: string;        // matches TEAM slug in /about (e.g. "hammad-abid")
   authorTitle: string;
-  date: string;          // ISO YYYY-MM-DD
+  date: string;          // ISO YYYY-MM-DD (publish date)
+  /** ISO YYYY-MM-DD, when the post was last materially revised.
+   *  Same as `date` for first-publish-no-revision posts. */
+  dateModified?: string;
   readMinutes: number;
   /** Hero image, can be null for now (we ship without one). */
   hero?: { src: string; alt: string } | null;
@@ -32,6 +35,8 @@ export interface BlogPost {
   body: BlogBlock[];
   /** Optional related slugs. */
   relatedSlugs?: string[];
+  /** Optional freshness pill rendered above the title (e.g. "Updated for X"). */
+  liveBadge?: string;
 }
 
 export type BlogBlock =
@@ -47,7 +52,555 @@ export type BlogBlock =
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "toc" };
 
-export const BLOG_POSTS: BlogPost[] = [...BLOG_POSTS_SEO_PACK];
+export const BLOG_POSTS: BlogPost[] = [
+  // --- Hand-written posts (Tier 1). Keep above the auto-generated SEO pack. ---
+  {
+    slug: "dentist-seo-checklist",
+    title: "Dentist SEO Checklist: 25 Things to Ship This Quarter",
+    description:
+      "A 2026 dental SEO checklist that moves Map Pack rankings — GBP, reviews, on-page, links, technical SEO. For solo, multi-location, and DSO practices.",
+    category: "Playbooks",
+    author: "hammad-abid",
+    authorTitle: "Founder & Managing Director",
+    date: "2026-09-16",
+    dateModified: "2026-03-15",
+    readMinutes: 8,
+    hero: null,
+    tags: ["dentists", "seo", "local-seo", "google-business-profile", "checklist"],
+    gatedCta: false,
+    subscribeCta: true,
+    liveBadge: "Updated for the March 2026 Google core update",
+    relatedSlugs: [
+      "dental-google-business-profile-optimization",
+      "local-seo-getting-started",
+      "local-business-reviews",
+    ],
+    body: [
+      { type: "toc" },
+      {
+        type: "callout",
+        tone: "insight",
+        text:
+          "Dental SEO is the combined set of Google Business Profile optimization, review velocity, on-page signals, and link building that ranks a dental practice in the Map Pack for \"dentist [city]\" and on organic page one for procedure terms like \"dental implants [city].\" The biggest lever is the Google Business Profile itself — roughly a third of Local Pack ranking weight lives there.",
+      },
+      {
+        type: "h2",
+        text: "What does dental SEO include in 2026?",
+      },
+      {
+        type: "p",
+        text:
+          "Dental SEO splits into two tracks. The Map Pack track ranks the local three-pack for \"dentist [city]\" and similar geo-queries. The organic track ranks the ten blue links for procedure terms like \"dental implants [city]\" or \"Invisalign [city].\"",
+      },
+      {
+        type: "p",
+        text:
+          "Both tracks share four levers: Google Business Profile optimization, review velocity, on-page signals, and link building. The Map Pack leans harder on the GBP and reviews. The organic track leans harder on on-page and links. Roughly a third of Local Pack ranking weight sits on the GBP itself, and review recency is weighted about 2.3x more than older reviews after the March 2026 Google core update ([Pete Johnson IV's dental SEO guide](https://petejohnsoniv.com/guide/dental-seo)).",
+      },
+      {
+        type: "p",
+        text:
+          "AI Overviews show up on about 0% of local-provider dental queries but on 75-100% of informational queries like \"how long do dental implants last\" ([Chad Kubik on healthcare search](https://www.chadkubik.com/articles/healthcare-search-changing/), [Dentree's 2026 AI Overviews guide](https://dentree.co.uk/google-ai-overviews-for-dentists-how-to-appear-in-ai-search-results-2026-guide/)). That split is why the Map Pack still drives most new-patient calls — AI Overviews don't replace local intent yet. About 77% of patients search online before booking a first dental appointment ([MIS Services, 2026 dental marketing stats](https://misservices.us/dental-practice-marketing-statistics-2026)), so this is the channel that pays the rent.",
+      },
+      {
+        type: "p",
+        text:
+          "If you're a solo practice, the Map Pack and three or four procedure pages cover you. If you're a multi-location group or DSO, the same playbook runs at every location with its own GBP, its own landing page, and its own monthly report line. The work doesn't get harder — it gets more parallel.",
+      },
+      {
+        type: "h2",
+        text: "The Google Business Profile checklist",
+      },
+      {
+        type: "p",
+        text:
+          "The GBP is the cheapest, highest-impact ranking move in dental SEO. Treat it as a separate workstream from your website.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Claim and verify every location. Postcard, phone, or email — whichever Google offers. Each location gets its own GBP, not a parent dashboard.",
+          "Pick the right primary category. \"Dentist\" is the default. Add procedure-specific secondaries (dental implants, cosmetic dentist, pediatric dentist) where the practice actually does that work.",
+          "Fill in every field. Hours, services, attributes (wheelchair access, insurance accepted, languages), payment methods, opening date. Profile completeness is a ranking factor.",
+          "Add procedure-level services. List implants, Invisalign, full-arch, sedation, emergency, cleaning as named services on the GBP, not just on the website.",
+          "Upload 50+ authentic, recent photos. Exterior, interior, operatories, team, technology. Owner-uploaded phone photos outperform stock.",
+          "Post weekly GBP updates. Promotions, new technology, team spotlights, FAQs. Cadence matters more than word count.",
+          "Seed and answer every Q&A. Pre-populate the most common ones yourself, then respond fast to patient-submitted questions.",
+          "Turn on GBP call tracking. Use Google's forwarding number so call data lands in GBP Insights, not just your POS.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The review velocity checklist",
+      },
+      {
+        type: "p",
+        text:
+          "After the March 2026 core update, fresh reviews outweigh older ones — review recency carries about 2.3x the weight of older reviews ([Pete Johnson IV's dental SEO guide](https://petejohnsoniv.com/guide/dental-seo)). Steady velocity beats a static count every time.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Target 8-15 new reviews per location per month. 4.7+ stars and 50+ total puts you in contention in most metros.",
+          "Ask at appointment close-out, not in the email blast. A text-back review request two hours after the appointment converts 5-10x better than a follow-up email.",
+          "Reply to every review within four business hours. Templates keep response time under a minute.",
+          "Flag negative reviews fast. 24-hour response windows matter more than the wording of the reply.",
+          "Avoid review gating. Don't filter patients before asking for a review — Google penalizes that pattern.",
+          "Diversify review sources. Google is primary, but Birdeye, Healthgrades, and Yelp all feed the same brand-trust signal.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The on-page SEO checklist",
+      },
+      {
+        type: "p",
+        text:
+          "One procedure page per high-value service. That's the floor.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Build a page per high-value procedure. Implants, Invisalign, full-arch, cosmetic, sedation, same-day emergency. Each page targets one keyword cluster.",
+          "Ship procedure-page schema. Service + FAQ + BreadcrumbList markup on every procedure page, validated against Google's Rich Results Test.",
+          "Rewrite titles, H1s, and meta descriptions quarterly. Match the current top 10 ranking pages for each target term.",
+          "Internal link from the homepage to every procedure page. Anchor text matches the target keyword — \"dental implants [city],\" not \"click here.\"",
+          "Use illustrations in place of before/after galleries. Patient photos need written consent; illustrated explainers don't.",
+          "Write for the patient's question, not the dentist's CV. \"How much do dental implants cost?\" beats \"Our practice offers implants.\"",
+          "Add a booking CTA above the fold on every procedure page. Phone + online booking, both visible.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The link building checklist for dentists",
+      },
+      {
+        type: "p",
+        text:
+          "Links still matter. For dental practices, the bar is lower than for national brands and the trust check is higher.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Citation cleanup first. Run NAP (name, address, phone) consistency across Yelp, Healthgrades, Birdeye, Apple Maps, Bing Places. Mismatches here cost more than a missing link.",
+          "Get listed in local directories. Chamber of Commerce, city business directories, dental-specific directories.",
+          "Place one or two dental-specific links per month. Healthcare sites, dental associations, local health publications. Avoid PBNs and generic blog networks.",
+          "Sponsor a local event, get the link. Schools, sports teams, charity runs. The link is local, the placement is real.",
+          "Pitch one expert comment per quarter. Local newspaper health sections, dental trade press, podcast appearances. One mention from a credible outlet beats ten blog comments.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The technical SEO checklist",
+      },
+      {
+        type: "p",
+        text:
+          "If your GBP is the front door, your site is the waiting room. It needs to load fast and not break.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Mobile-first, sub-2-second load on real 4G. Lighthouse 90+ on mobile, ideally 95+.",
+          "Pass Core Web Vitals. LCP under 2.5s, INP under 200ms, CLS under 0.1. These are ranking factors, not suggestions.",
+          "Indexation hygiene. No `noindex` on service pages, no orphan pages, no redirect chains over one hop.",
+          "XML sitemap updated weekly. Submit in Google Search Console. New procedure pages ship with internal links from launch.",
+          "HTTPS only, with HSTS. Mixed content breaks ranking signals.",
+          "HIPAA-aware tracking. Server-side Meta CAPI, GA4 server-side. No remarketing pixels on patient-only pages — booking confirmation, patient portal, intake forms. This is a named feature on the SEO service, not an upsell. The full HIPAA-aware tracking spec lives on [SEO for dentists](/industries/dentists/seo).",
+        ],
+      },
+      {
+        type: "h2",
+        text: "How fast do these moves work?",
+      },
+      {
+        type: "p",
+        text:
+          "Honest ranking expectations keep practice owners from over-promising to their teams.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Long-tail local queries (\"dentist for implants [city],\" \"same-day crown [city]\") move into the Map Pack within 60-90 days on a clean GBP with a steady review cadence.",
+          "Head-term Map Pack (\"dentist [city]\") takes 4-6 months for top-3, depending on review base and competitor GBP investment.",
+          "Top-3 on competitive terms takes 6-12 months. Competitive means a market where the head term is dominated by practices with 1,000+ reviews and 4.9-star averages.",
+          "Organic procedure pages start showing top-10 movement from month 4 and compound from there.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "We move the levers we can name. We can't move Google's hard proximity radius or a competitor's 1,000-review moat. The audit names which market you're in before the first invoice.",
+      },
+      {
+        type: "h2",
+        text: "What to do this week",
+      },
+      {
+        type: "p",
+        text:
+          "A 7-day starting plan for solo practices, multi-location groups, and DSOs.",
+      },
+      {
+        type: "ol",
+        items: [
+          "Day 1. Claim and verify every location's GBP. Each location, separate login.",
+          "Day 2. Fill in every GBP field — categories, services, hours, photos, attributes. Upload 50+ authentic photos.",
+          "Day 3. Set up the text-back review request flow tied to appointment close-out.",
+          "Day 4. Audit your site for mobile speed. Run Lighthouse. Anything under 90 on mobile goes on the fix list.",
+          "Day 5. List your top 5 procedure pages. Rewrite one title tag and one H1 each.",
+          "Day 6. Run a citation scan. Fix NAP mismatches on the top 10 directories.",
+          "Day 7. Post your first weekly GBP update. Schedule the next three.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "If you're a DSO or multi-location group, do this at the parent level first, then run the playbook for each location with its own GBP and landing page.",
+      },
+      {
+        type: "p",
+        text:
+          "\"Dentist near me\" pulls 1.2M+ monthly US searches ([Dentalbase's keyword roundup](https://www.dentalbase.ai/blogs/marketing/top-10-dental-keywords-you-should-be-ranking-for)). Most of those clicks go to the Map Pack. Get the GBP right first, then fight for the organic ten-blue-links real estate.",
+      },
+      {
+        type: "h2",
+        text: "FAQ",
+      },
+      {
+        type: "h3",
+        text: "How long until a dental practice ranks in the Map Pack?",
+      },
+      {
+        type: "p",
+        text:
+          "Movement shows in 60-90 days on long-tail local queries and 4-6 months on \"dentist [city].\" Top-3 on competitive terms takes 6-12 months.",
+      },
+      {
+        type: "h3",
+        text: "How many reviews does a dental practice need?",
+      },
+      {
+        type: "p",
+        text:
+          "4.7+ stars and 50+ total to compete in most metros. The lever is velocity — 8-15 fresh reviews per month.",
+      },
+      {
+        type: "h3",
+        text: "What's the most important ranking factor for dentists?",
+      },
+      {
+        type: "p",
+        text:
+          "Google Business Profile. Roughly a third of Local Pack ranking weight sits there.",
+      },
+      {
+        type: "h3",
+        text: "Can I do dental SEO without an agency?",
+      },
+      {
+        type: "p",
+        text:
+          "Some of it, yes — GBP updates, review asks, and basic on-page fixes are within reach of an office manager. Technical audit, schema markup, and link placement usually run through an agency.",
+      },
+      {
+        type: "p",
+        text:
+          "If you'd rather have us run the playbook for you, see [SEO services for dentists pricing](/industries/dentists/seo).",
+      },
+      {
+        type: "callout",
+        tone: "insight",
+        text:
+          "If you're comparing options for dental marketing, the [full dentist playbook](/industries/dentists) covers SEO, paid ads, web design, and social for solo practices, multi-location groups, and DSOs.",
+      },
+    ],
+  },
+  {
+    slug: "dental-google-business-profile-optimization",
+    title: "Google Business Profile for Dentists: The Optimization Playbook",
+    description:
+      "How dentists rank in the Map Pack — claim, complete, populate, build reviews, track metrics. HIPAA-aware tracking included.",
+    category: "Playbooks",
+    author: "hammad-abid",
+    authorTitle: "Founder & Managing Director",
+    date: "2026-09-16",
+    dateModified: "2026-03-15",
+    readMinutes: 7,
+    hero: null,
+    tags: ["dentists", "google-business-profile", "local-seo", "how-to"],
+    gatedCta: false,
+    subscribeCta: true,
+    liveBadge: "Updated for the March 2026 Google core update",
+    relatedSlugs: [
+      "dentist-seo-checklist",
+      "optimize-google-my-business",
+      "local-business-reviews",
+    ],
+    body: [
+      { type: "toc" },
+      {
+        type: "callout",
+        tone: "insight",
+        text:
+          "A dental Google Business Profile is the free Google listing that powers the Map Pack for \"dentist [city]\" queries. Optimization is the set of completion, accuracy, photo, post, Q&A, and review-response moves that move that listing into the top three. Roughly a third of Local Pack ranking weight sits on the GBP itself.",
+      },
+      {
+        type: "h2",
+        text: "What is a Google Business Profile for dentists?",
+      },
+      {
+        type: "p",
+        text:
+          "A Google Business Profile is the free Google listing that shows up in Maps and in the local Map Pack — the three results that appear above the organic ten-blue-links for \"dentist [city]\" and similar geo-queries. It's the listing that carries your practice name, address, phone, hours, photos, reviews, and Q&A. When a patient searches from a phone inside your service radius, the Map Pack is the first thing they see.",
+      },
+      {
+        type: "p",
+        text:
+          "For dental practices, the GBP is the highest-impact ranking asset on the local web. Roughly a third of Local Pack ranking weight sits on the profile itself ([Pete Johnson IV's dental SEO guide](https://petejohnsoniv.com/guide/dental-seo)). That weight comes from completeness, accuracy, recency, and review velocity — not raw link building. If your GBP is half-empty or stale, the Map Pack loses you calls.",
+      },
+      {
+        type: "p",
+        text:
+          "Local intent still resolves to the Map Pack. AI Overviews show up on roughly 75-100% of informational dental queries like \"how long do implants last\" but on about 0% of local-provider queries like \"dentist near me\" ([Chad Kubik on healthcare search](https://www.chadkubik.com/articles/healthcare-search-changing/), [Dentree's 2026 AI Overviews guide](https://dentree.co.uk/google-ai-overviews-for-dentists-how-to-appear-in-ai-search-results-2026-guide/)). About 77% of patients search online before booking a first dental appointment ([MIS Services, 2026 dental marketing stats](https://misservices.us/dental-practice-marketing-statistics-2026)), and most of those local searches land on the Map Pack first. This playbook covers solo practices, multi-location groups, and DSOs.",
+      },
+      {
+        type: "h2",
+        text: "How do I claim and verify my dental GBP?",
+      },
+      {
+        type: "p",
+        text:
+          "Google creates your GBP listing automatically when it finds your practice name, address, and phone in directory data — but you don't \"own\" it until you verify. Until verification, you can't edit business description, hours, services, attributes, photos, or posts, and you can't respond to reviews.",
+      },
+      {
+        type: "p",
+        text:
+          "Start at [business.google.com](https://business.google.com/). Search your practice name. If a listing exists, claim it; if not, create one. Google offers three verification paths: postcard (default, 5-14 days), phone (where available, immediate), or video (newer, when postcard and phone aren't options).",
+      },
+      {
+        type: "p",
+        text:
+          "Verify every location separately. A DSO with ten offices has ten GBPs and ten flows. Group-level staff can't verify on behalf of a location — the PIN or call lands at the practice itself. If you lost access after a manager or agency transition, Google's reinstatement flow runs 2-4 weeks with proof of management — utility bill, signage photo, or business license.",
+      },
+      {
+        type: "h2",
+        text: "How do I complete my dental GBP correctly?",
+      },
+      {
+        type: "p",
+        text:
+          "Profile completeness is one of the few ranking factors Google confirms directly. An incomplete profile loses to a complete one, even when the incomplete one has more reviews.",
+      },
+      {
+        type: "p",
+        text: "Fill in this order:",
+      },
+      {
+        type: "ul",
+        items: [
+          "NAP. Name, address, phone — match your website and top directory listings exactly. \"Suite 200\" and \"Ste 200\" are not the same to Google.",
+          "Primary category. \"Dentist\" for general practices. Use \"pediatric dentist,\" \"endodontist,\" \"orthodontist,\" \"cosmetic dentist,\" or \"dental implants periodontist\" if that matches the specialty.",
+          "Secondary categories. Add procedure-specific secondaries where the practice actually does the work — implants, Invisalign, cosmetic, sedation, emergency.",
+          "Hours. Standard hours plus holiday hours. Set special hours for Thanksgiving week now, not the day of.",
+          "Services. List implants, Invisalign, full-arch, cosmetic, sedation, same-day emergency as named services. Each becomes a clickable anchor in the Map Pack.",
+          "Attributes. Wheelchair access, parking, insurance accepted, languages spoken, payment methods. Green badges move click-through.",
+          "Business description. 600 characters, written for patients, not Google. Name the city, the procedures, the insurance networks.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "Audit quarterly. Practices that audit don't lose hours fields to competitors who update more.",
+      },
+      {
+        type: "h2",
+        text: "How do photos and posts move Map Pack ranking?",
+      },
+      {
+        type: "p",
+        text:
+          "Photos and posts aren't decorative. They're ranking signals — Google reads them as evidence the practice is current.",
+      },
+      {
+        type: "p",
+        text: "Photos:",
+      },
+      {
+        type: "ul",
+        items: [
+          "50+ authentic, recent uploads. Owner-uploaded phone photos outperform stock every time.",
+          "Mix categories: exterior, interior, operatories, team, technology. No before/after patient photos without written consent.",
+          "Refresh monthly. New photos outrank old ones on the same listing.",
+          "Geotag on upload if you can. GPS-tagged photos carry location data.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Posts (Google calls them \"Updates\"):",
+      },
+      {
+        type: "ul",
+        items: [
+          "One per week, minimum. Promotions, new technology, team spotlights, insurance FAQs.",
+          "100-300 words per post. Short reads outperform long.",
+          "Include a CTA button. \"Book online,\" \"Call now,\" \"Learn more.\"",
+          "Mix formats: text, photo, offer, event.",
+          "Pin a post on big campaigns — Invisalign month, new patient specials, holiday hours — for 30 days.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "Cadence matters more than word count. A weekly 100-word post beats a quarterly 800-word essay. Active profiles outrank stale ones in the Map Pack.",
+      },
+      {
+        type: "h2",
+        text: "How do reviews move Map Pack ranking?",
+      },
+      {
+        type: "p",
+        text:
+          "Reviews carry one of the heaviest Map Pack weights. Google weighs three things: star average, total count, and recency.",
+      },
+      {
+        type: "p",
+        text:
+          "Recency is the lever most practices underuse. After the March 2026 Google core update, fresh reviews carry about 2.3x the weight of older reviews ([Pete Johnson IV's dental SEO guide](https://petejohnsoniv.com/guide/dental-seo)). A practice earning 8-15 new reviews per month beats a practice sitting at 300 reviews with no recent flow.",
+      },
+      {
+        type: "p",
+        text: "The velocity system:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Ask at appointment close-out, not in the email blast. A text-back review request two hours after the appointment converts 5-10x better than a follow-up email.",
+          "Reply to every review within four business hours. Templates keep response time under a minute.",
+          "Flag negative reviews fast. A 24-hour response window matters more than the wording.",
+          "Avoid review gating. Don't filter patients before asking — Google penalizes that pattern.",
+          "Diversify sources. Google is primary; Birdeye, Healthgrades, and Yelp feed the same brand-trust signal.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "Target band: 4.7+ stars with 50+ total reviews puts you in contention in most metros. Steady cadence keeps recency high. Without it, even a high-review practice drifts down the Map Pack.",
+      },
+      {
+        type: "h2",
+        text: "What metrics should I track on my dental GBP?",
+      },
+      {
+        type: "p",
+        text:
+          "GBP Insights is free inside the dashboard. It tracks the metrics that move phone calls.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Search queries. Which phrases trigger your listing. Map these to procedure pages and you know where to invest content.",
+          "Calls. Total volume, duration, weekday vs weekend split. Turn on GBP call tracking with Google's forwarding number so the data lands in Insights.",
+          "Direction requests. Patients who requested driving directions. Strong intent signal.",
+          "Photo views. How many searchers viewed your photos vs your competitors'. Higher views correlate with higher click-through.",
+          "Bookings. If online booking is linked, the booking action count shows in Insights.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "The HIPAA-aware piece matters. When call tracking routes through Google's forwarding number, call data can include patient identifiers — first names, procedure types, callback numbers. Keep call recordings out of public surfaces and route analytics through HIPAA-aware server-side tagging rather than browser pixels. The full HIPAA-aware tracking spec lives on [SEO services for dentists](/industries/dentists/seo).",
+      },
+      {
+        type: "p",
+        text:
+          "Review monthly. Practices that audit their Insights catch decay before the Map Pack notices.",
+      },
+      {
+        type: "h2",
+        text: "What to do this week",
+      },
+      {
+        type: "p",
+        text: "A 7-day starting plan:",
+      },
+      {
+        type: "ol",
+        items: [
+          "Day 1. Claim and verify every location's GBP.",
+          "Day 2. Fill in every field — categories, services, hours, photos, attributes. Upload 50+ authentic photos.",
+          "Day 3. Set up the text-back review request flow tied to appointment close-out.",
+          "Day 4. Write a 100-word GBP post. Schedule the next three weeks at once.",
+          "Day 5. Draft five review-response templates. Train the front desk on the four-hour response window.",
+          "Day 6. Audit one competitor's GBP. Note what they have that you don't.",
+          "Day 7. Pull your GBP Insights report. Note where you stand on queries, calls, and direction requests.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "If you're a DSO, run this at one pilot location first, prove the cadence, then replicate at every location with its own GBP manager.",
+      },
+      {
+        type: "p",
+        text:
+          "\"dentist near me\" pulls 1.2M+ monthly US searches ([Dentalbase keyword roundup](https://www.dentalbase.ai/blogs/marketing/top-10-dental-keywords-you-should-be-ranking-for)). Most land on the Map Pack. Get the GBP right before fighting for organic ten-blue-links real estate.",
+      },
+      {
+        type: "h2",
+        text: "FAQ",
+      },
+      {
+        type: "h3",
+        text: "Do I need a Google Business Profile for each dental location?",
+      },
+      {
+        type: "p",
+        text:
+          "Yes. Each location gets its own GBP, its own landing page, and its own rank-tracked keyword set. Multi-location groups and DSOs run a per-location GBP inventory and roll up at the parent dashboard level.",
+      },
+      {
+        type: "h3",
+        text: "How many photos should my dental GBP have?",
+      },
+      {
+        type: "p",
+        text:
+          "50+ authentic, recent photos — exterior, interior, team, operatories, technology. Owner-uploaded phone photos outperform stock.",
+      },
+      {
+        type: "h3",
+        text: "How many reviews does my dental GBP need?",
+      },
+      {
+        type: "p",
+        text:
+          "4.7+ stars with 50+ reviews puts you in contention in most metros. The lever that moves Map Pack is velocity — 8-15 fresh reviews per month.",
+      },
+      {
+        type: "h3",
+        text: "Can I run paid ads from my dental GBP?",
+      },
+      {
+        type: "p",
+        text:
+          "You can run Google Ads with a GBP location extension, but the GBP itself doesn't take paid boosts. Local Service Ads (LSAs) are a separate product that shows above the Map Pack for \"dentist [city]\" and require Google background checks.",
+      },
+      {
+        type: "p",
+        text:
+          "If you'd rather have us run GBP upkeep across all locations, see [SEO services for dentists pricing](/industries/dentists/seo).",
+      },
+      {
+        type: "callout",
+        tone: "insight",
+        text:
+          "If you're comparing options for dental marketing, the [full dentist playbook](/industries/dentists) covers SEO, paid ads, web design, and social for solo practices, multi-location groups, and DSOs.",
+      },
+    ],
+  },
+  ...BLOG_POSTS_SEO_PACK,
+];
 
 export const BLOG_POST_BY_SLUG: Record<string, BlogPost> = Object.fromEntries(
   BLOG_POSTS.map((p) => [p.slug, p])

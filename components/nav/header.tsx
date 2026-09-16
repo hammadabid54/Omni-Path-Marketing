@@ -28,6 +28,7 @@ const PRIMARY = [
 
 const MORE = [
   { label: "White-Label SEO", href: "/white-label-seo" },
+  { label: "Industries", href: "/industries" },
   { label: "Process", href: "/process" },
   { label: "Blog", href: "/blog" },
   { label: "Tools", href: "/tools" },

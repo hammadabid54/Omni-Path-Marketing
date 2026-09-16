@@ -43,6 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services/tiktok-linkedin-ads", changeFrequency: "monthly", priority: 0.6 },
     { path: "/services/email-lifecycle", changeFrequency: "monthly", priority: 0.6 },
     { path: "/services/analytics", changeFrequency: "monthly", priority: 0.6 },
+    // Niche industries cluster (Wave 1: Dentists)
+    { path: "/industries", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/industries/dentists", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/industries/dentists/seo", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/industries/dentists/google-ads", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/industries/dentists/web-design", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/industries/dentists/social-media", changeFrequency: "monthly", priority: 0.7 },
     { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   ];

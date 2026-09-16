@@ -23,6 +23,8 @@ const COMPANY = [
   { label: "Case studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Industries", href: "/industries" },
+  { label: "Dentists", href: "/industries/dentists" },
 ];
 
 const AUDIENCE = [
@@ -93,9 +95,7 @@ export function Footer() {
           <FooterColumn title="Services" items={SERVICES} />
           <FooterColumn title="For you" items={AUDIENCE} />
           <FooterColumn title="Company" items={COMPANY} />
-          <div className="flex flex-col gap-6">
-            <FooterColumn title="Legal" items={LEGAL} />
-          </div>
+          <FooterColumn title="Legal" items={LEGAL} />
         </div>
 
         <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-neutral-200/8 pt-6 text-xs text-neutral-900/45">

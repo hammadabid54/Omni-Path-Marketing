@@ -3,12 +3,12 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section } from "@/components/ui/section";
-import { Eyebrow } from "@/components/ui/badge";
+import { Eyebrow, Badge } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
 import { LinkButton } from "@/components/ui/button";
 import { CtaSection } from "@/components/sections/cta";
 import { BlogBlockRenderer } from "@/components/blog/blog-blocks";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, howtoSchema, itemListSchema } from "@/lib/seo";
 import { BLOG_POSTS, BLOG_POST_BY_SLUG } from "@/content/blog";
 import { TEAM_BY_SLUG } from "@/content/team";
 import { Clock, ArrowLeft, ArrowRight } from "lucide-react";
@@ -56,7 +56,7 @@ export default async function BlogPostPage({
     url: `https://omnipathmarketing.com/blog/${slug}`,
     mainEntityOfPage: { "@type": "WebPage", "@id": `https://omnipathmarketing.com/blog/${slug}` },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.dateModified ?? post.date,
     inLanguage: "en",
     keywords: post.tags?.join(", ") || post.category,
     articleSection: post.category,
@@ -91,6 +91,14 @@ export default async function BlogPostPage({
         </ScrollReveal>
 
         <div className="max-w-3xl">
+          {post.liveBadge && (
+            <ScrollReveal>
+              <div className="mb-5">
+                <Badge variant="live">{post.liveBadge}</Badge>
+              </div>
+            </ScrollReveal>
+          )}
+
           <ScrollReveal>
             <div className="flex flex-wrap items-center gap-2 text-xs">
               <span className="pill pill-accent">{post.category}</span>
@@ -137,12 +145,29 @@ export default async function BlogPostPage({
                 {post.readMinutes} min read
               </span>
               <span>
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+                <time dateTime={post.date} itemProp="datePublished">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
               </span>
+              {post.dateModified && post.dateModified !== post.date && (
+                <span>
+                  <time
+                    dateTime={post.dateModified}
+                    itemProp="dateModified"
+                  >
+                    Updated{" "}
+                    {new Date(post.dateModified).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                </span>
+              )}
             </div>
           </ScrollReveal>
         </div>
@@ -265,6 +290,112 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+
+      {/* ===== Inline HowTo (GBP blog only) ===== */}
+      {slug === "dental-google-business-profile-optimization" && (
+        <Script
+          id={`ld-howto-${slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              howtoSchema({
+                name: "Optimize a dental Google Business Profile to rank in the Map Pack",
+                description:
+                  "How dental practices claim, complete, populate, and measure a Google Business Profile to rank in the local Map Pack for \"dentist [city]\" queries.",
+                path: `/blog/${slug}`,
+                steps: [
+                  {
+                    name: "Claim and verify the dental GBP",
+                    text:
+                      "Go to business.google.com and search your practice name. If a listing exists, claim it; if not, create one. Verify via postcard (5-14 days), phone (immediate, where available), or video (when the others aren't an option). Verify every location separately — a DSO with ten offices has ten GBPs and ten flows. If you lost access after a manager or agency transition, Google's reinstatement flow runs 2-4 weeks with proof of management (utility bill, signage photo, or business license).",
+                  },
+                  {
+                    name: "Complete the GBP so Google treats it as authoritative",
+                    text:
+                      "Profile completeness is a confirmed ranking factor — an incomplete profile loses to a complete one even with more reviews. Fill in NAP (matching the website and top directories exactly), primary category (\"Dentist\" for general practices, or a specialty category), secondary procedure categories, hours including holidays, named services (implants, Invisalign, full-arch, cosmetic, sedation, emergency), accessibility and payment attributes, and a 600-character patient-facing business description. Audit quarterly so hours fields don't decay against competitors who update more.",
+                  },
+                  {
+                    name: "Upload photos and ship weekly GBP posts",
+                    text:
+                      "Photos and posts are ranking signals, not decoration — Google reads them as evidence the practice is current. Upload 50+ authentic, recent phone photos monthly: exterior, interior, operatories, team, technology (no patient photos without written consent). Ship at least one GBP post per week, 100-300 words, with a CTA button, and mix text, photo, offer, and event formats. Cadence matters more than word count: a weekly 100-word post beats a quarterly 800-word essay, and active profiles outrank stale ones in the Map Pack.",
+                  },
+                  {
+                    name: "Build review velocity into the patient flow",
+                    text:
+                      "Reviews carry one of the heaviest Map Pack weights through star average, total count, and recency. After the March 2026 Google core update, fresh reviews carry about 2.3x the weight of older reviews, so a practice earning 8-15 new reviews per month beats a practice sitting at 300 reviews with no recent flow. Ask at appointment close-out with text-back requests two hours after the appointment (5-10x better conversion than email blasts). Reply to every review within four business hours. Avoid review gating — Google penalizes filtering patients before asking. Target band: 4.7+ stars, 50+ total reviews.",
+                  },
+                  {
+                    name: "Track Map Pack metrics monthly in GBP Insights",
+                    text:
+                      "GBP Insights is free inside the dashboard and tracks the metrics that move phone calls: search queries (map to procedure pages), calls (route through Google's forwarding number so call data lands in Insights), direction requests, photo views vs competitors, and bookings if online booking is linked. Route analytics through HIPAA-aware server-side tagging rather than browser pixels — call recordings on Google's forwarding number can capture patient identifiers (first names, procedure types, callback numbers). Review monthly so you catch decay before the Map Pack does.",
+                  },
+                ],
+              }),
+            ),
+          }}
+        />
+      )}
+
+      {/* ===== Inline ItemList (dentist SEO checklist blog only) ===== */}
+      {slug === "dentist-seo-checklist" && (
+        <Script
+          id={`ld-itemlist-${slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              itemListSchema({
+                name: "Dental Google Business Profile optimization checklist",
+                description:
+                  "Eight GBP moves that move Map Pack rankings for dental practices in 2026. Roughly a third of Local Pack ranking weight sits on the GBP itself.",
+                path: `/blog/${slug}#the-google-business-profile-checklist`,
+                items: [
+                  {
+                    name: "Claim and verify every location",
+                    description:
+                      "Postcard, phone, or email — whichever Google offers. Each location gets its own GBP, not a parent dashboard.",
+                    url: `/blog/${slug}#the-google-business-profile-checklist`,
+                  },
+                  {
+                    name: "Pick the right primary category",
+                    description:
+                      "\"Dentist\" is the default. Add procedure-specific secondaries (dental implants, cosmetic dentist, pediatric dentist) where the practice actually does that work.",
+                  },
+                  {
+                    name: "Fill in every field",
+                    description:
+                      "Hours, services, attributes (wheelchair access, insurance accepted, languages), payment methods, opening date. Profile completeness is a ranking factor.",
+                  },
+                  {
+                    name: "Add procedure-level services",
+                    description:
+                      "List implants, Invisalign, full-arch, sedation, emergency, cleaning as named services on the GBP, not just on the website.",
+                  },
+                  {
+                    name: "Upload 50+ authentic, recent photos",
+                    description:
+                      "Exterior, interior, operatories, team, technology. Owner-uploaded phone photos outperform stock.",
+                  },
+                  {
+                    name: "Post weekly GBP updates",
+                    description:
+                      "Promotions, new technology, team spotlights, FAQs. Cadence matters more than word count.",
+                  },
+                  {
+                    name: "Seed and answer every Q&A",
+                    description:
+                      "Pre-populate the most common ones yourself, then respond fast to patient-submitted questions.",
+                  },
+                  {
+                    name: "Turn on GBP call tracking",
+                    description:
+                      "Use Google's forwarding number so call data lands in GBP Insights, not just your POS.",
+                  },
+                ],
+              }),
+            ),
+          }}
+        />
+      )}
     </>
   );
 }

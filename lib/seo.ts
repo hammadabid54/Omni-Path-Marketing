@@ -271,3 +271,89 @@ export function contactPageSchema() {
     description: "Get in touch with the Omni Path team. Replies within 4 business hours.",
   };
 }
+
+export interface HowToStep {
+  /** Short label (used for the HowToStep `name` field). */
+  name: string;
+  /** Full step text (used for `text`). Plain prose; inline links are fine. */
+  text: string;
+  /** Optional URL the step points to (e.g. a section anchor on the same page). */
+  url?: string;
+}
+
+export interface HowToSchemaOptions {
+  name: string;
+  description: string;
+  /** Page path where the HowTo is embedded (e.g. "/blog/dental-google-business-profile-optimization"). */
+  path: string;
+  steps: HowToStep[];
+}
+
+/**
+ * Build a Schema.org `HowTo` JSON-LD object. Use for how-to guides where the
+ * H2 questions map cleanly to ordered steps (claim, complete, post, etc.).
+ *
+ * Render via `<Script type="application/ld+json">` in the page component.
+ *
+ * Schema reference: https://schema.org/HowTo
+ */
+export function howtoSchema(opts: HowToSchemaOptions) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    inLanguage: "en",
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      url: s.url ? `${SITE_URL}${s.url}` : undefined,
+    })),
+  };
+}
+
+export interface ItemListItem {
+  /** Item label as shown to users. */
+  name: string;
+  /** Optional description / supporting text. */
+  description?: string;
+  /** Optional URL (relative path) for the item, e.g. a section anchor. */
+  url?: string;
+}
+
+export interface ItemListSchemaOptions {
+  name: string;
+  description?: string;
+  /** Page path where the ItemList is embedded. */
+  path: string;
+  items: ItemListItem[];
+}
+
+/**
+ * Build a Schema.org `ItemList` JSON-LD object. Use for checklists where the
+ * item order matters (e.g. "The Google Business Profile checklist").
+ *
+ * Render via `<Script type="application/ld+json">` in the page component.
+ *
+ * Schema reference: https://schema.org/ItemList
+ */
+export function itemListSchema(opts: ItemListSchemaOptions) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    inLanguage: "en",
+    itemListElement: opts.items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      description: it.description,
+      url: it.url ? `${SITE_URL}${it.url}` : undefined,
+    })),
+  };
+}
