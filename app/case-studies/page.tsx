@@ -9,7 +9,7 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { CASE_STUDIES } from "@/content/case-studies";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Marketing Case Studies · 22 Real Wins | Omni Path",
+  title: "AI Marketing Case Studies · 22 Real Wins",
   description:
     "22 client wins in AI-powered SEO, paid ads, and full-funnel marketing. Real numbers, anonymized clients, before/after data. See the work and the compounding.",
   path: "/case-studies",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { isAdminAuthed, adminEnabled, setSessionCookieHeader } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Admin · Omni Path", robots: { index: false, follow: false } };
+export const metadata = { title: "Admin", robots: { index: false, follow: false } };
 
 /**
  * Admin layout. Gates the entire /admin tree.

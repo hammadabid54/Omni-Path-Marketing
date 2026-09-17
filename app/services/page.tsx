@@ -12,7 +12,7 @@ import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { DIRECT_SERVICES, WL_PRICE_RANGE, getDirectService, type ServiceId } from "@/content/pricing";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Eight Services. One Partner. | Omni Path",
+  title: "Eight Services. One Partner.",
   description:
     "SEO, paid ads, branding, content, web, email, social, analytics. Hire us direct or resell under your brand. From $150-250/client white-label.",
   path: "/services",

@@ -38,7 +38,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Branding Services · Bronze $150 to Gold $400/mo | Omni Path",
+  title: "Branding Services · Bronze $150 to Gold $400/mo",
   description:
     "Branding services for businesses and white-label for agencies. Direct Bronze $150 / Silver $250 / Gold $400 per month. White-label $150-250 per client per month. 3-14 day turnaround, full IP transfer.",
   path: "/services/branding",

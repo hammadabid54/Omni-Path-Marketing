@@ -10,7 +10,7 @@ import { buildMetadata, faqSchema, breadcrumbSchema, type FaqItem } from "@/lib/
 import { FileText, LineChart, BarChart3, PenLine } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Sample Work · Real AI Marketing Deliverables | Omni Path",
+  title: "Sample Work · Real AI Marketing Deliverables",
   description:
     "Real deliverables from real clients, names redacted. AI-powered SEO reports, paid ads dashboards, branding work, web builds. See the work before you commit.",
   path: "/samples",

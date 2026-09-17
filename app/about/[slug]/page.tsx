@@ -410,7 +410,7 @@ export async function generateMetadata({
     return { title: "Team member not found" };
   }
   return buildMetadata({
-    title: `${person.name} — ${person.title} | Omni Path`,
+    title: `${person.name} — ${person.title}`,
     description: person.shortBio,
     path: `/about/${slug}`,
   });

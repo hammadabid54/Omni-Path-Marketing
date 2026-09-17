@@ -8,7 +8,7 @@ import { LinkButton } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Marketing Tool Stack · Public | Omni Path",
+  title: "AI Marketing Tool Stack · Public",
   description:
     "Six AI + automation tools carry the heavy lifting on every campaign. Senior strategists spend time on the work that needs a human. Full public tool list.",
   path: "/tools",

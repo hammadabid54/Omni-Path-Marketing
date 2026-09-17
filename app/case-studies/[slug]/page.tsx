@@ -28,7 +28,7 @@ export async function generateMetadata({
   const c = CASE_STUDY_BY_SLUG[slug];
   if (!c) return { title: "Case study not found" };
   return buildMetadata({
-    title: `${c.title} · ${c.vertical} Case Study | Omni Path`,
+    title: `${c.title} · ${c.vertical} Case Study`,
     description: c.summary,
     path: `/case-studies/${slug}`,
   });

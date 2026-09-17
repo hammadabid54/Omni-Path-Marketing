@@ -13,7 +13,7 @@ import { agencyFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "White-Label Marketing Agency Partner Program | Omni Path",
+  title: "White-Label Marketing Agency Partner Program",
   description:
     "Add AI-powered SEO, paid ads, and 6 more services to your agency without hiring. White-labeled under your brand. 60-70% margin. 14-day onboarding.",
   path: "/for-agencies",

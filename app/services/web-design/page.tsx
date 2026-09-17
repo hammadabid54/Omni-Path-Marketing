@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Web Design & CRO Services · Bronze $150 to Gold $500/mo | Omni Path",
+  title: "AI Web Design & CRO Services · Bronze $150 to Gold $500/mo",
   description:
     "AI-assisted web design on Next.js, Webflow, WordPress, Shopify. Direct Bronze $150 / Silver $300 / Gold $500 per month. White-label $150-250 per client. Mobile-first, Lighthouse 90+, monthly retainer.",
   path: "/services/web-design",

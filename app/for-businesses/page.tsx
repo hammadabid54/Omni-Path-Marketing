@@ -11,7 +11,7 @@ import { businessFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Digital Marketing Agency for Businesses | Omni Path",
+  title: "AI Digital Marketing Agency for Businesses",
   description:
     "Done-for-you growth for ambitious brands. SEO, paid ads, web, branding, social, email. Bronze / Silver / Gold tiers. One team, one invoice. 60-70% lower than traditional agencies.",
   path: "/for-businesses",

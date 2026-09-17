@@ -26,7 +26,7 @@ export async function generateMetadata({
   const post = BLOG_POST_BY_SLUG[slug];
   if (!post) return { title: "Post not found" };
   return buildMetadata({
-    title: `${post.title} | Omni Path Blog`,
+    title: post.title,
     description: post.description,
     path: `/blog/${slug}`,
   });

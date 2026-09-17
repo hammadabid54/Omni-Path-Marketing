@@ -14,7 +14,7 @@ import { BLOG_POSTS } from "@/content/blog";
 import { TEAM_BY_SLUG } from "@/content/team";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Marketing Blog · SEO, Automation, Growth | Omni Path",
+  title: "AI Marketing Blog · SEO, Automation, Growth",
   description:
     "Original research, playbooks, and frameworks on AI marketing, SEO, and growth. Written by the senior team that runs the work for agencies and businesses.",
   path: "/blog",

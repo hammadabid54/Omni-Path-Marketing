@@ -11,7 +11,7 @@ import { processFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Our AI Marketing Process · Tools + Time + Team | Omni Path",
+  title: "Our AI Marketing Process · Tools + Time + Team",
   description:
     "80% AI-automated, 20% senior strategy. We show the actual process: tools, time per task, who does what. The full delivery pipeline, in plain English.",
   path: "/process",

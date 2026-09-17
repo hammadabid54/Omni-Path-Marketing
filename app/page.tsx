@@ -20,7 +20,7 @@ import { homeFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Marketing Agency · White-Label & Direct | Omni Path",
+  title: "AI Marketing Agency · White-Label & Direct",
   description:
     "AI-powered digital marketing agency. White-label from $150-250/client (same engine at every tier). Direct Bronze/Silver/Gold from $250/mo. SEO, paid ads, web, branding, social, email, analytics.",
   path: "/",

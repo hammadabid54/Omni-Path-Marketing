@@ -8,7 +8,7 @@ import { BRAND_EMAIL, BRAND_PHONE_DISPLAY, BRAND_PHONE_TEL } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Client Intake · Omni Path",
+  title: "Client Intake",
   description: "Private client intake form. Token required.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/intake" },

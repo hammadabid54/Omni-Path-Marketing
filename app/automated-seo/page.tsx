@@ -13,7 +13,7 @@ import { automatedSeoFaq } from "@/content/faqs";
 import { buildMetadata, faqSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Automated AI SEO Service · From $400/month | Omni Path",
+  title: "Automated AI SEO Service · From $400/month",
   description:
     "AI-driven automated SEO for direct clients. From $400/month. AI audits, content, links, and reporting. No long contracts. First ranking lift in 30-60 days.",
   path: "/automated-seo",
