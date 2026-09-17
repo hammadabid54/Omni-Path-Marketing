@@ -93,7 +93,7 @@ export default async function AdminLeadsPage({
       </form>
 
       {leads.length === 0 ? (
-        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-8 text-center text-sm text-neutral-900/55">
+        <div className="rounded-xl border border-neutral-200/8 bg-white p-8 text-center text-sm text-neutral-900/55">
           No leads match the current filters.
         </div>
       ) : (

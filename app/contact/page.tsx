@@ -23,7 +23,7 @@ import { Mail, Phone, Clock, Globe } from "lucide-react";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Omni Path · Reply in 4 hours | AI Marketing",
   description:
-    "Reach the Omni Path team. Replies within 4 business hours from a senior strategist. Book a 15-min call or send a message about white-label or direct services.",
+    "Reach the Omni Path team. Replies within 4 business hours from a senior strategist. Request a 15-min call or send a message about white-label or direct services.",
   path: "/contact",
 });
 
@@ -34,7 +34,9 @@ const STEPS = [
   { t: "Custom proposal within 24 hours", d: "With pricing, timeline, and a clear next step." },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ type?: string; service?: string; plan?: string }> }) {
+  const params = await searchParams;
+  const initialType = params.type === "agency" ? "agency" : "business";
   return (
     <>
       <Hero
@@ -117,7 +119,7 @@ export default function ContactPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <ContactForm />
+            <div id="enquiry"><ContactForm key={[initialType, params.service, params.plan].join("-")} initialType={initialType} initialService={params.service?.slice(0,100)} initialPlan={params.plan?.slice(0,100)} /></div>
           </ScrollReveal>
         </div>
       </Section>
@@ -127,11 +129,11 @@ export default function ContactPage() {
       <CtaSection
         title={
           <>
-            Still deciding? <em className="font-serif not-italic text-blue-600">Book a 15-min call.</em>
+            Still deciding? <em className="font-serif not-italic text-blue-600">Request a 15-min call.</em>
           </>
         }
         subhead="No pitch, no pressure. Just a chat to see if we're a fit."
-        primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        primaryCta={{ label: "Request a 15-min call", href: "#enquiry" }}
         secondaryCta={{ label: "Email us", href: `mailto:${BRAND_EMAIL}` }}
       />
 

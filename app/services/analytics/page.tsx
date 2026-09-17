@@ -664,7 +664,7 @@ export default function AnalyticsServicePage() {
         }
         subhead="Get a free 60-second audit, or book a 15-min call. We will show you exactly what your marketing analytics services setup is missing — no pitch, no obligation."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a call", href: "/contact" }}
+        secondaryCta={{ label: "Request a call", href: "/contact?service=analytics#enquiry" }}
       />
 
       {/* JSON-LD */}

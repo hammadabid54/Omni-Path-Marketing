@@ -1,3 +1,4 @@
+import { Search, Compass, PenTool, CheckCircle2, Send } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
@@ -29,9 +30,10 @@ export function ProcessSteps({ eyebrow, title, subhead, steps, totalNote }: Proc
       </ScrollReveal>
 
       <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" stagger={0.08}>
-        {steps.map((step) => (
+        {steps.map((step, index) => { const Icon = [Search, Compass, PenTool, CheckCircle2, Send][index % 5]; return (
           <StaggerItem key={step.number}>
             <div className="bento h-full">
+              <Icon size={30} className="mb-5 text-blue-600" aria-hidden="true" />
               <div className="flex items-center gap-2 text-blue-600 text-xs uppercase tracking-widest font-semibold">
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600/10">
                   {step.number}
@@ -47,7 +49,7 @@ export function ProcessSteps({ eyebrow, title, subhead, steps, totalNote }: Proc
               )}
             </div>
           </StaggerItem>
-        ))}
+        ); })}
       </StaggerGroup>
 
       {totalNote && (

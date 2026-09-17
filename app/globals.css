@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+section[id], [id="enquiry"], [id="bundle-inclusions"] { scroll-margin-top: 90px; }
+h1, h2 { text-wrap: balance; }
+.service-visual { overflow:hidden; border:1px solid #d5e4f5; border-radius:24px; background:linear-gradient(145deg,#fff,#f4f8ff); box-shadow:0 18px 60px -30px #6797cd66; }
+.visual-topline {display:flex;justify-content:space-between;padding:18px 22px;border-bottom:1px solid #e1ebf7;font-size:12px;color:#345574;}
+.visual-topline>span:first-child,.visual-bottom span {display:flex;align-items:center;gap:8px;}
+.visual-dots {letter-spacing:3px;color:#96b2ce;}
+.visual-canvas {display:block;width:100%;height:auto;}
+.visual-title {padding:0 24px 18px;font-size:22px;line-height:1.25;font-weight:600;letter-spacing:-.5px;color:#163858;}
+.visual-bottom {display:flex;gap:20px;padding:16px 24px;background:#fff;border-top:1px solid #e1ebf7;color:#4b6581;font-size:11px;}
+.service-visual-compact {border-radius:12px;box-shadow:none;}
+.service-visual-compact .visual-topline {padding:10px 12px;font-size:10px;}
+.service-visual-compact .visual-canvas {max-height:145px;}
+.pricing-switch {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.pricing-switch button {padding:12px 20px;border:1px solid #cfdfef;border-radius:999px;background:#fff;color:#345574;font-weight:600;cursor:pointer;}
+.pricing-switch button[aria-pressed="true"] {background:#0061d5;color:white;border-color:#0061d5;}
+.pricing-select {display:block;width:100%;max-width:360px;padding:12px;border:1px solid #cfdfef;border-radius:10px;background:#fff;color:#173451;margin:10px 0 24px;}
+@media(max-width:640px){.visual-title{font-size:19px}.visual-bottom{gap:12px}.service-visual-compact .visual-canvas{max-height:170px}}
+
 /* =============================================================
    OMNI PATH — Design System (Tailwind v4 @theme)
    Vercel / Arc style · Light only · Base #FFFFFF · Accent #0070F3
@@ -159,11 +177,11 @@ body {
 
 /* --- Section spacing --- */
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 @media (min-width: 768px) {
-  .section { padding-top: 7rem; padding-bottom: 7rem; }
+  .section { padding-top: 4rem; padding-bottom: 4rem; }
 }
 
 /* --- Eyebrow --- */
@@ -237,6 +255,8 @@ body {
 .btn-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .btn-sm { padding: 0.5rem 0.875rem; font-size: 0.8rem; }
+.btn-related { min-width: 0; white-space: normal; text-align: left; justify-content: flex-start; line-height: 1.5; }
+.btn-related > svg { flex-shrink: 0; }
 .btn-lg { padding: 1rem 1.75rem; font-size: 1rem; border-radius: 12px; }
 
 /* --- Surface (sections / cards) --- */

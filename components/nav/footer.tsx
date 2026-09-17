@@ -48,7 +48,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-5 pb-12 mb-12 border-b border-neutral-200/8">
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 text-neutral-900 font-semibold">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 text-[#0a0a0f] font-bold">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 text-white font-bold">
                 O
               </span>
               Omni Path

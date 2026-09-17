@@ -59,3 +59,7 @@ data/intake-tokens.json
 # Admin portal — operational data. Written by the form endpoints, read by /admin/*
 data/leads.json
 
+# Local QA artifacts and Python caches
+__pycache__/
+*.py[cod]
+/_screenshots/

@@ -68,7 +68,7 @@ const directTiers: DirectTier[] = directService.tiers.map((t, i) => ({
   badge: t.id === "Bronze" ? "Starter" : t.id === "Silver" ? "Most popular" : "Complete rebrand",
   includes: t.features,
   upgrade: i < directService.tiers.length - 1 ? directService.tiers[i + 1].features : undefined,
-  cta: { label: `Start ${t.id} branding`, href: "/contact" },
+  cta: { label: `Start ${t.id} branding`, href: `/contact?type=business&service=branding&plan=${t.id}#enquiry` },
   popular: t.popular,
 }));
 
@@ -758,7 +758,7 @@ export default function BrandingServicePage() {
               href="/services/web-design"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               Web design — ship a site that matches the new brand
@@ -767,7 +767,7 @@ export default function BrandingServicePage() {
               href="/services/seo"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               SEO — rank the new domain from day one
@@ -776,7 +776,7 @@ export default function BrandingServicePage() {
               href="/services/social-media"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               Social media — launch with 30 days of content
@@ -814,7 +814,7 @@ export default function BrandingServicePage() {
         }
         subhead="Tell us about your business. We will send 3 concepts within 48-72 hours. No long onboarding, no proposal deck, no sales call required."
         primaryCta={{ label: "Get a free brand audit", href: "/contact" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
       />
 
       <Script

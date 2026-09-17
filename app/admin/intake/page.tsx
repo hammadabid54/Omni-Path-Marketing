@@ -63,7 +63,7 @@ export default async function AdminIntakePage() {
       </div>
 
       {/* Mint new */}
-      <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5 mb-6">
+      <div className="rounded-xl border border-neutral-200/8 bg-white p-5 mb-6">
         <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">Mint a new token</div>
         <form action={mint} className="flex flex-wrap items-end gap-3">
           <label className="flex-1 min-w-[200px]">
@@ -80,7 +80,7 @@ export default async function AdminIntakePage() {
 
       {/* Tokens table */}
       {sorted.length === 0 ? (
-        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-6 text-center text-sm text-neutral-900/55">
+        <div className="rounded-xl border border-neutral-200/8 bg-white p-6 text-center text-sm text-neutral-900/55">
           No tokens yet. Use the form above to mint one.
         </div>
       ) : (

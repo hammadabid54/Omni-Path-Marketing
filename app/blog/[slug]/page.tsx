@@ -280,9 +280,9 @@ export default async function BlogPostPage({
             Want to talk to the team that wrote this?
           </>
         }
-        subhead="Book a 15-min call with a senior strategist, or get a free audit of your site."
+        subhead="Request a 15-min call with a senior strategist, or get a free audit of your site."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
       />
 
       <Script

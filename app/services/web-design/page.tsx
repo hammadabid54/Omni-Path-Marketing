@@ -98,7 +98,7 @@ const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
       ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
       : undefined,
   popular: t.popular,
-  cta: { label: `Start with ${t.id}`, href: "/contact" },
+  cta: { label: `Start with ${t.id}`, href: `/contact?type=business&service=web-design&plan=${t.id}#enquiry` },
 }));
 
 const WL_ROW = WL_OTHER_SERVICES.find((s) => s.id === "web-design")!;
@@ -238,7 +238,7 @@ export default function WebDesignServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -558,7 +558,7 @@ export default function WebDesignServicePage() {
         title={<>Ready for a site that <em className="font-serif not-italic text-blue-600">converts?</em></>}
         subhead="Get a free conversion audit, or book a 15-min call. Web design services from $150/mo direct, $150-250/client white-label. No setup fees, no contracts, no surprises — just a site that pays for itself."
         primaryCta={{ label: "Get a free conversion audit", href: "/contact" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
       />
 
       {/* 11. JSON-LD */}

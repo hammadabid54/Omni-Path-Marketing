@@ -59,7 +59,7 @@ export default function ForBusinessesPage() {
         }
         subhead="Done-for-you growth services for ambitious brands. SEO, paid ads, branding, content, web, email, social, analytics. All under one roof, one team, one invoice."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "See pricing", href: "/pricing" }}
+        secondaryCta={{ label: "See pricing", href: "/pricing?audience=business#plans" }}
       />
 
       <Section>
@@ -171,7 +171,7 @@ export default function ForBusinessesPage() {
         }
         subhead="Get a free audit, or book a 15-min call. Either way, you'll know in 5 minutes if we're a fit."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact?type=business#enquiry" }}
       />
 
       <Script

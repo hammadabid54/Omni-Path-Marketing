@@ -1,5 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { MarketingImage } from "./marketing-image";
+import { ProofPreview } from "./proof-preview";
+import { ServiceVisual } from "./service-visual";
 import { type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { heroContainer, heroItem, motionTokens } from "@/lib/motion";
@@ -39,9 +43,11 @@ export function Hero({
   className,
 }: HeroProps) {
   const reduced = useReducedMotion();
+  const pathname = usePathname();
+  const visual = rightRail ?? (/case-studies|samples/.test(pathname) ? <ProofPreview /> : /for-businesses|services\/(branding|web-design)/.test(pathname) ? <MarketingImage /> : <ServiceVisual topic={pathname} />);
 
   return (
-    <section className={cn("relative isolate overflow-hidden pt-16 md:pt-24", className)}>
+    <section className={cn("relative isolate overflow-hidden pt-10 pb-10 md:pt-16 md:pb-12", className)}>
       {/* Soft lime radial backdrop (scoped to the hero via isolate) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-32 left-1/2 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-blue-600/8 blur-3xl" />
@@ -51,7 +57,7 @@ export function Hero({
 
       <div className="container-page">
         <motion.div
-          className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr]"
+          className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr]"
           initial={reduced ? false : "hidden"}
           animate={reduced ? undefined : "show"}
           variants={heroContainer}
@@ -69,7 +75,7 @@ export function Hero({
             )}
             <motion.h1
               variants={heroItem}
-              className="text-[40px] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight"
+              className="text-[40px] sm:text-5xl md:text-6xl lg:text-[60px] text-balance font-bold leading-[1.02] tracking-tight"
             >
               {title}
             </motion.h1>
@@ -105,13 +111,13 @@ export function Hero({
             )}
           </div>
 
-          {rightRail && (
+          {visual && (
             <motion.div
               variants={heroItem}
               transition={{ ...motionTokens.slow, delay: 0.3 }}
               className="lg:pl-4"
             >
-              {rightRail}
+              {visual}
             </motion.div>
           )}
         </motion.div>

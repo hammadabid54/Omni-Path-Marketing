@@ -105,7 +105,7 @@ const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
       ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 2).join(" + ")}.`
       : undefined,
   popular: t.popular,
-  cta: { label: `Start with ${t.id}`, href: "/contact" },
+  cta: { label: `Start with ${t.id}`, href: `/contact?type=business&service=email-lifecycle&plan=${t.id}#enquiry` },
 }));
 
 const PROCESS = [
@@ -206,7 +206,7 @@ export default function EmailLifecycleServicePage() {
           </>
         }
         subhead="Email marketing services on Klaviyo, HubSpot, or ActiveCampaign. Direct Bronze $200 / Silver $300 / Gold $400 per month. White-label $150-250 / client / mo. Welcome series, abandoned cart, win-back, behavioral triggers. Built once, running forever."
-        primaryCta={{ label: "Book a call", href: "/contact" }}
+        primaryCta={{ label: "Request a call", href: "/contact?service=email-lifecycle#enquiry" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
         trustMicrocopy="$0 setup fees · Cancel anytime · 20% off annual"
       />
@@ -319,7 +319,7 @@ export default function EmailLifecycleServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -362,7 +362,7 @@ export default function EmailLifecycleServicePage() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/for-agencies"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                 >
                   See agency partner program
                 </Link>
@@ -631,8 +631,8 @@ export default function EmailLifecycleServicePage() {
             <em className="font-serif not-italic text-blue-600">highest-ROI channel?</em>
           </>
         }
-        subhead="Book a 15-min call. We'll audit your current setup and tell you which tier fits — even if it's not ours."
-        primaryCta={{ label: "Book a call", href: "/contact" }}
+        subhead="Request a 15-min call. We'll audit your current setup and tell you which tier fits — even if it's not ours."
+        primaryCta={{ label: "Request a call", href: "/contact?service=email-lifecycle#enquiry" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
       />
 

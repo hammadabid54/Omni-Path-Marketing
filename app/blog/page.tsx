@@ -1,3 +1,4 @@
+import { ServiceVisual } from "@/components/sections/service-visual";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
@@ -75,6 +76,7 @@ export default function BlogPage() {
                   href={`/blog/${p.slug}`}
                   className="bento bento-lg h-full group block hover:border-blue-600/40"
                 >
+                  <div className="mb-5"><ServiceVisual topic={p.category + " " + p.title} compact /></div>
                   <div className="flex flex-wrap items-center gap-2 text-[10px]">
                     <span className="pill pill-accent">{p.category}</span>
                     <span className="pill inline-flex items-center gap-1">

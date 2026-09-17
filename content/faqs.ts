@@ -159,7 +159,7 @@ export const contactFaq: FaqItem[] = [
   },
   {
     question: "Can I book a call directly?",
-    answer: "Yes. Use the \"Book a 15-min call\" button to pick a time. We'll send a Cal.com link.",
+    answer: "Use the enquiry form to request a call. We will reply with available times.",
   },
   {
     question: "Is the strategy call really free?",

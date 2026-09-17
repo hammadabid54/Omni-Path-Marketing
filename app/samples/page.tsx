@@ -84,10 +84,10 @@ export default function SamplesPage() {
           })}
         </StaggerGroup>
         <p className="mt-8 text-sm text-neutral-900/55">
-          Want a live walkthrough? Book a 15-min call and we&apos;ll share a redacted sample live in the meeting.
+          Want a live walkthrough? Request a 15-min call and we&apos;ll share a redacted sample live in the meeting.
         </p>
         <LinkButton href="/contact" variant="primary" className="mt-4">
-          Book a 15-min call
+          Request a 15-min call
         </LinkButton>
       </Section>
 

@@ -149,7 +149,7 @@ export default function ThankYouPage() {
           <ScrollReveal delay={0.2}>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <LinkButton href="/contact" variant="primary" size="lg" magnetic>
-                Book a 15-min call
+                Request a 15-min call
               </LinkButton>
               <LinkButton href="/pricing" variant="ghost" size="lg">
                 See pricing
@@ -173,7 +173,7 @@ export default function ThankYouPage() {
               </li>
               <li className="flex gap-4">
                 <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 text-sm font-semibold">2</span>
-                <span><strong className="text-neutral-900">Walk-through.</strong> Book a 15-min call and a senior strategist will walk you through the top 3 wins.</span>
+                <span><strong className="text-neutral-900">Walk-through.</strong> Request a 15-min call and a senior strategist will walk you through the top 3 wins.</span>
               </li>
               <li className="flex gap-4">
                 <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600/15 text-blue-600 text-sm font-semibold">3</span>

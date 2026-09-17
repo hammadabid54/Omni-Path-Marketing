@@ -255,7 +255,7 @@ export function IntakeForm({ token }: { token: string }) {
               className={
                 "flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors " +
                 (isActive
-                  ? "bg-blue-600 text-[#0a0a0f]"
+                  ? "bg-blue-600 text-white"
                   : isDone
                   ? "bg-blue-600/15 text-blue-600"
                   : "bg-neutral-900/5 text-neutral-900/55")
@@ -400,7 +400,7 @@ export function IntakeForm({ token }: { token: string }) {
                               (active ? "border-blue-600 bg-blue-600" : "border-neutral-200/20")
                             }
                           >
-                            {active && <Check className="h-3 w-3 text-[#0a0a0f]" />}
+                            {active && <Check className="h-3 w-3 text-white" />}
                           </div>
                         </div>
                       </label>
@@ -451,7 +451,7 @@ export function IntakeForm({ token }: { token: string }) {
                     return (
                       <div
                         key={sid}
-                        className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4"
+                        className="rounded-xl border border-neutral-200/8 bg-white p-4"
                       >
                         <div className="flex items-center justify-between gap-3 flex-wrap">
                           <div>
@@ -567,7 +567,7 @@ export function IntakeForm({ token }: { token: string }) {
                   />
                 </Field>
 
-                <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
+                <div className="rounded-xl border border-neutral-200/8 bg-white p-4">
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">
                       Anti-spam
@@ -718,7 +718,7 @@ function LegalBlock({
     <div
       className={
         "rounded-xl border p-4 transition-colors " +
-        (checked ? "border-blue-600/40 bg-blue-600/5" : "border-neutral-200/8 bg-[#0d0d14]")
+        (checked ? "border-blue-600/40 bg-blue-600/5" : "border-neutral-200/8 bg-white")
       }
     >
       <div className="flex items-start gap-3">

@@ -75,7 +75,7 @@ const directTiers: DirectTier[] = directService.tiers.map((t: DirectTierConfig, 
   badge: t.id === "Bronze" ? "Starter" : t.id === "Gold" ? "Custom" : "Most popular",
   includes: t.features,
   upgrade: i < directService.tiers.length - 1 ? directService.tiers[i + 1].features : undefined,
-  cta: { label: `Start with ${t.id} SEO`, href: "/contact" },
+  cta: { label: `Start with ${t.id} SEO`, href: `/contact?type=business&service=seo&plan=${t.id}#enquiry` },
   popular: t.popular,
 }));
 
@@ -101,8 +101,8 @@ const whiteLabelTiers: WhiteLabelTier[] = WL_SEO_TIERS.map((t, i) => {
   ];
   const marginBrackets = [
     "50-69%",  // Starter
-    "60-73%",  // Growth
-    "70-85%",  // Scale
+    "73-83%",  // Growth
+    "85-90%",  // Scale
   ];
   return {
     name: t.id,
@@ -542,7 +542,7 @@ export default function SeoServicePage() {
             </table>
           </div>
           <p className="mt-4 text-xs text-neutral-900/45">
-            Margins calculated on the low end of the resell range. White-label
+            Gross margins use both ends of the displayed resale range and exclude your operating costs. White-label
             partner agencies get a private Slack, white-labeled delivery portal,
             and a dedicated partner manager after 5 active clients.
           </p>
@@ -831,7 +831,7 @@ export default function SeoServicePage() {
               href="/services/paid-ads"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               Paid ads — get leads now while SEO compounds
@@ -840,7 +840,7 @@ export default function SeoServicePage() {
               href="/services/content"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               Content — ship more posts, faster
@@ -849,7 +849,7 @@ export default function SeoServicePage() {
               href="/services/web-design"
               variant="ghost"
               size="sm"
-              className="justify-start"
+              className="btn-related"
             >
               <ArrowRight className="h-4 w-4 text-blue-600" />
               Web design — fix the technical SEO baseline
@@ -889,7 +889,7 @@ export default function SeoServicePage() {
         }
         subhead="Get a free audit, or book a 15-min call with a senior SEO strategist. No sales team, no SDR follow-up, no proposal deck."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a call", href: "/contact" }}
+        secondaryCta={{ label: "Request a call", href: "/contact?service=seo#enquiry" }}
       />
 
       <Script

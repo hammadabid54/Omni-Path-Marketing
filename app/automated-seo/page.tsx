@@ -230,7 +230,7 @@ export default function AutomatedSeoPage() {
         }
         subhead="Get a free audit, or book a 15-min strategy call. Either way, you'll have a 90-day plan in hand."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
       />
 
       <Script

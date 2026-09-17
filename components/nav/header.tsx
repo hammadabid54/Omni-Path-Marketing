@@ -131,18 +131,8 @@ export function Header() {
       {/* Mobile menu */}
       {open && (
         <div className="lg:hidden border-t border-neutral-200/8 bg-white">
-          <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1">
-            <div className="text-xs uppercase tracking-widest text-neutral-900/45 px-3 pt-2 pb-1">Services</div>
-            {SERVICES.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="px-3 py-2 rounded-md text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5"
-              >
-                {s.label}
-              </Link>
-            ))}
-            <div className="h-px bg-neutral-900/8 my-2" />
+          <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1 max-h-[calc(100dvh-64px)] overflow-y-auto">
+            <LinkButton href="/contact#enquiry" variant="primary" className="mb-3 justify-center">Get started</LinkButton>
             {PRIMARY.map((item) => (
               <Link
                 key={item.href}
@@ -155,25 +145,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="text-xs uppercase tracking-widest text-neutral-900/45 px-3 pt-3 pb-1">More</div>
-            {MORE.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "px-3 py-2 rounded-md",
-                  pathname === item.href ? "text-blue-600" : "text-neutral-900/80 hover:text-neutral-900 hover:bg-neutral-900/5",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            <details className="my-2 rounded-xl border border-blue-100 p-3"><summary className="cursor-pointer font-medium">Explore services</summary><div className="mt-2 grid grid-cols-2 gap-1">{SERVICES.map(s=><Link key={s.href} href={s.href} className="py-3 text-sm text-slate-700">{s.label}</Link>)}</div></details>
+            <details className="rounded-xl border border-blue-100 p-3"><summary className="cursor-pointer font-medium">More about Omni Path</summary><div className="mt-2 grid grid-cols-2 gap-1">{MORE.map(s=><Link key={s.href} href={s.href} className="py-3 text-sm text-slate-700">{s.label}</Link>)}</div></details>
             <div className="flex flex-col gap-2 pt-4">
               <LinkButton href="/audit" variant="ghost">
                 Free audit
-              </LinkButton>
-              <LinkButton href="/contact" variant="primary">
-                Get started
               </LinkButton>
             </div>
           </nav>
@@ -211,6 +187,8 @@ function NavDropdown({
         type="button"
         aria-expanded={isOpen}
         aria-haspopup="true"
+        onClick={() => onOpenChange(!isOpen)}
+        onKeyDown={(event) => { if (event.key === "Escape") onOpenChange(false); }}
         className={cn(
           "px-3 py-2 text-sm rounded-md transition-colors inline-flex items-center gap-1",
           isActive ? "text-blue-600" : "text-neutral-900/75 hover:text-neutral-900 hover:bg-neutral-900/5",

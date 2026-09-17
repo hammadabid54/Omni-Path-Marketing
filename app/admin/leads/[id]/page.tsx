@@ -162,7 +162,7 @@ export default async function LeadDetailPage({
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5">
+    <div className="rounded-xl border border-neutral-200/8 bg-white p-5">
       <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">
         {title}
       </div>

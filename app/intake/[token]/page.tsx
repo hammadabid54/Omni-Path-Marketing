@@ -92,7 +92,7 @@ function FreshView({
 function ExpiredView({ token }: { token: string }) {
   return (
     <main className="min-h-screen bg-white flex items-center justify-center p-6">
-      <div className="max-w-md w-full rounded-2xl border border-neutral-200/10 bg-[#11111A] p-8 text-center">
+      <div className="max-w-md w-full rounded-2xl border border-neutral-200/10 bg-white p-8 text-center">
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-rose-400/10 text-rose-400">
           <Clock className="h-6 w-6" />
         </div>

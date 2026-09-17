@@ -1,3 +1,4 @@
+import { ServiceVisual } from "./service-visual";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
@@ -38,6 +39,7 @@ export function ServicesIndexSection({ rows, eyebrow, title, subhead }: Services
                 href={r.href}
                 className="bento group flex h-full flex-col gap-4 hover:border-blue-600/40"
               >
+                <ServiceVisual topic={r.href} compact />
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
                     <Icon className="h-5 w-5" />

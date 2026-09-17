@@ -92,7 +92,7 @@ export default function ServicesPage() {
         title={<>Not sure where to start?</>}
         subhead="Get a free audit, or talk to us about your goals."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a call", href: "/contact" }}
+        secondaryCta={{ label: "Request a call", href: "/contact" }}
       />
 
       <Script

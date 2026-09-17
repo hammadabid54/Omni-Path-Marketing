@@ -1,3 +1,4 @@
+import { ServiceVisual } from "./service-visual";
 import Link from "next/link";
 import { ArrowUpRight, type LucideIcon } from "lucide-react";
 import { Section } from "@/components/ui/section";
@@ -58,6 +59,7 @@ function BentoCard({ service }: { service: BentoService }) {
         service.feature && "bento-feature sm:col-span-2 lg:col-span-2 bento-lg",
       )}
     >
+      <ServiceVisual topic={service.href} compact />
       <div className="flex items-center gap-3">
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
           <Icon className="h-5 w-5" />
@@ -72,7 +74,7 @@ function BentoCard({ service }: { service: BentoService }) {
       <p className="text-sm text-neutral-900/65 leading-relaxed flex-1">{service.description}</p>
       <div className="mt-2 flex items-center justify-between">
         {service.fromPrice && (
-          <span className="text-xs text-neutral-900/45">From {service.fromPrice}</span>
+          <span className="text-xs text-neutral-900/45">From {service.fromPrice.replace(/^From\s+/i, "")}</span>
         )}
         <span className="inline-flex items-center gap-1.5 text-sm text-blue-600 group-hover:gap-2.5 transition-all">
           Explore <ArrowUpRight className="h-3.5 w-3.5" />

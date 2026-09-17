@@ -122,7 +122,7 @@ export default function ProcessPage() {
         }
         subhead="Redacted audits, blog posts, and reports from real client work."
         primaryCta={{ label: "See samples", href: "/samples" }}
-        secondaryCta={{ label: "Book a call", href: "/contact" }}
+        secondaryCta={{ label: "Request a call", href: "/contact" }}
       />
 
       <Script

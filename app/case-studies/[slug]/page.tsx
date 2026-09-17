@@ -381,7 +381,7 @@ export default async function CaseStudyPage({
         }
         subhead="Get a free audit, or book a 15-min call with a senior strategist. We'll show you exactly what's broken, what's working, and what we'd change in the first 30 days."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
       />
 
       <Script

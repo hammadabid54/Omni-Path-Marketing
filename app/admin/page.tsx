@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
           { label: "Warm", value: stats.byBucket.warm, color: "text-amber-300" },
           { label: "Cold", value: stats.byBucket.cold, color: "text-rose-300" },
         ]} />
-        <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
+        <div className="rounded-xl border border-neutral-200/8 bg-white p-4">
           <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">Quick links</div>
           <div className="space-y-2 text-sm">
             <Link href="/admin/leads" className="block text-blue-600 hover:text-blue-300">→ View all leads</Link>
@@ -85,7 +85,7 @@ export default async function AdminDashboard() {
           <Link href="/admin/leads" className="text-xs text-blue-600 hover:text-blue-300">See all →</Link>
         </div>
         {recent.length === 0 ? (
-          <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-6 text-center text-sm text-neutral-900/45">
+          <div className="rounded-xl border border-neutral-200/8 bg-white p-6 text-center text-sm text-neutral-900/45">
             No leads yet. Submit the contact form on <Link href="/contact" target="_blank" rel="noopener" className="text-blue-600 hover:underline">/contact</Link> to test.
           </div>
         ) : (
@@ -138,7 +138,7 @@ function Stat({ label, value, accent }: { label: string; value: number; accent?:
   const color =
     accent === "amber" ? "text-amber-300" : accent === "emerald" ? "text-emerald-300" : "text-blue-600";
   return (
-    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-5">
+    <div className="rounded-xl border border-neutral-200/8 bg-white p-5">
       <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold">{label}</div>
       <div className={`mt-1.5 text-3xl font-bold ${color}`}>{value}</div>
     </div>
@@ -147,7 +147,7 @@ function Stat({ label, value, accent }: { label: string; value: number; accent?:
 
 function Breakdown({ title, rows }: { title: string; rows: { label: string; value: number; color?: string }[] }) {
   return (
-    <div className="rounded-xl border border-neutral-200/8 bg-[#0d0d14] p-4">
+    <div className="rounded-xl border border-neutral-200/8 bg-white p-4">
       <div className="text-[10px] uppercase tracking-widest text-neutral-900/45 font-semibold mb-3">{title}</div>
       <div className="space-y-1.5 text-sm">
         {rows.map((r) => (

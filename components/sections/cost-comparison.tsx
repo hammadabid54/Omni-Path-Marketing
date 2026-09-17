@@ -36,7 +36,7 @@ export function CostComparison({
     <Section className={className}>
       <ScrollReveal className="max-w-2xl">
         {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-        <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>
+        {title && <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">{title}</h2>}
         {subhead && <p className="mt-4 text-neutral-900/70 max-w-xl">{subhead}</p>}
       </ScrollReveal>
 
@@ -80,7 +80,7 @@ export function CostComparison({
                         typeof v === "string" && v.startsWith("~~") && "line-through text-neutral-900/45",
                       )}
                     >
-                      {v}
+                      {typeof v === "string" ? v.replace(/^~~|~~$/g, "") : v}
                       {row.note && ci === highlightColumn && (
                         <span className="block text-xs text-neutral-900/50 mt-1 font-normal">{row.note}</span>
                       )}

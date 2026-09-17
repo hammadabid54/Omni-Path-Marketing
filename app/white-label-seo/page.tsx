@@ -50,8 +50,8 @@ export default function WhiteLabelSeoPage() {
           </>
         }
         subhead="Add a full SEO delivery team to your agency without hiring. We do the work, you put your logo on it. Resell at $500-1,500/client and keep 60-70% margin."
-        primaryCta={{ label: "Become a partner", href: "/contact" }}
-        secondaryCta={{ label: "See pricing", href: "/pricing" }}
+        primaryCta={{ label: "Become a partner", href: "/contact?type=agency#enquiry" }}
+        secondaryCta={{ label: "See pricing", href: "/pricing?audience=agency#plans" }}
         trustMicrocopy="14-day onboarding · White-labeled reports · Cancel anytime"
         rightRail={
           <MarginCard
@@ -64,7 +64,7 @@ export default function WhiteLabelSeoPage() {
             ]}
             footer="71% margin · Zero delivery work"
             ctaText="See full pricing"
-            ctaHref="/pricing"
+            ctaHref="/pricing?audience=agency#plans"
           />
         }
       />
@@ -126,7 +126,7 @@ export default function WhiteLabelSeoPage() {
         columns={["Per-client cost", "Annual cost (10 clients)", "Margin if resell at $700"]}
         rows={[
           { label: "In-house SEO hire (US/EU)", values: ["~~$800-1,200~~", "~~$96k-144k~~", "N/A"] },
-          { label: "Other white-label providers", values: ["~~$400-800~~", "~~$48k-96k~~", "10-43%"] },
+          { label: "Other white-label providers", values: ["~~$400-800~~", "~~$48k-96k~~", "−14–43%"] },
           { label: "Omni Path · Growth", values: ["$200", "$24k", "71%"], highlight: true },
         ]}
         caption="Annual cost assumes 20% off annual. 71% margin = $700 - $200 = $500 / $700."
@@ -153,8 +153,8 @@ export default function WhiteLabelSeoPage() {
           </>
         }
         subhead="See partner pricing, or talk to a partner manager about your specific niche."
-        primaryCta={{ label: "Become a partner", href: "/contact" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        primaryCta={{ label: "Become a partner", href: "/contact?type=agency#enquiry" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact?type=agency#enquiry" }}
       />
 
       <Script

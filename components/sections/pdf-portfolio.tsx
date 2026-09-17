@@ -52,12 +52,12 @@ export function PdfPortfolio() {
           <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight max-w-3xl">
             Real work. <em className="font-serif not-italic text-blue-600">Real numbers.</em>
             <br className="hidden md:block" />
-            Tap any case to open the PDF.
+            Explore the work behind the results.
           </h2>
         </ScrollReveal>
         <ScrollReveal>
           <p className="text-sm text-neutral-900/55 max-w-sm">
-            Anonymized previews available on request. <strong className="text-neutral-900/75 font-medium">Full audit reports under NDA.</strong>
+            Explore selected engagement reports. <strong className="text-neutral-900/75 font-medium">Ask us about the work behind each report.</strong>
           </p>
         </ScrollReveal>
       </div>
@@ -75,7 +75,7 @@ export function PdfPortfolio() {
               className={cn(
                 "shrink-0 px-4 py-2 rounded-full border text-xs font-medium transition-colors",
                 active
-                  ? "bg-blue-600 border-blue-600 text-[#0A0A0F]"
+                  ? "bg-blue-600 border-blue-600 text-white"
                   : "border-neutral-200/10 text-neutral-900/65 hover:border-neutral-200/25 hover:text-neutral-900/85",
               )}
             >
@@ -90,7 +90,7 @@ export function PdfPortfolio() {
         <div
           ref={trackRef}
           className="flex gap-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-5"
-          style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.08) transparent" }}
+          style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(0,112,243,0.25) transparent" }}
         >
           {filtered.map((c) => (
             <PdfCard key={c.slug} pdf={c} onOpen={() => setActive(c)} />
@@ -107,7 +107,7 @@ export function PdfPortfolio() {
               type="button"
               onClick={() => scrollBy(-1)}
               aria-label="Previous"
-              className="w-10 h-10 rounded-full bg-white border border-neutral-200/15 text-neutral-900/85 hover:bg-blue-600 hover:text-[#0A0A0F] hover:border-blue-600 transition-colors flex items-center justify-center shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-neutral-200/15 text-neutral-900/85 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors flex items-center justify-center shadow-sm"
             >
               ←
             </button>
@@ -115,7 +115,7 @@ export function PdfPortfolio() {
               type="button"
               onClick={() => scrollBy(1)}
               aria-label="Next"
-              className="w-10 h-10 rounded-full bg-white border border-neutral-200/15 text-neutral-900/85 hover:bg-blue-600 hover:text-[#0A0A0F] hover:border-blue-600 transition-colors flex items-center justify-center shadow-sm"
+              className="w-10 h-10 rounded-full bg-white border border-neutral-200/15 text-neutral-900/85 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors flex items-center justify-center shadow-sm"
             >
               →
             </button>
@@ -138,7 +138,7 @@ function PdfCard({ pdf, onOpen }: PdfCardProps) {
     <button
       type="button"
       onClick={onOpen}
-      className="group shrink-0 snap-start w-[320px] sm:w-[340px] text-left bg-[#11111A] border border-neutral-200/10 rounded-[18px] overflow-hidden transition-all duration-300 hover:border-blue-600/30 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(163,230,53,0.15)] focus:outline-none focus:ring-2 focus:ring-blue-600/40"
+      className="group shrink-0 snap-start w-[320px] sm:w-[340px] text-left bg-white border border-neutral-200/10 rounded-[18px] overflow-hidden transition-all duration-300 hover:border-blue-600/30 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(163,230,53,0.15)] focus:outline-none focus:ring-2 focus:ring-blue-600/40"
     >
       {/* PDF cover — second-to-last page rendered as PNG by scripts/build-pdf-covers.mjs */}
       <div className="relative aspect-[8.5/11] overflow-hidden border-b border-neutral-200/5 bg-white">

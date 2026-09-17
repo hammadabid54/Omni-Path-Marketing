@@ -749,7 +749,7 @@ export default function PaidAdsServicePage() {
         }
         subhead="Get a free audit of your current campaigns, or book a 15-min strategy call with a senior strategist. No sales team, no SDR, no follow-up spam."
         primaryCta={{ label: "Get a free audit", href: "/audit" }}
-        secondaryCta={{ label: "Book a call", href: "/contact" }}
+        secondaryCta={{ label: "Request a call", href: "/contact?service=paid-ads#enquiry" }}
       />
 
       <Script

@@ -32,11 +32,14 @@ const SERVICES = [
   "TikTok + LinkedIn",
   "Email & Lifecycle",
   "Analytics",
+  "Creative Services",
 ];
 
-const BUDGETS = ["Under $2,000", "$2,000-5,000", "$5,000-15,000", "$15,000+", "Not sure yet"];
+const BUDGETS = ["Under $500", "$500-1,000", "$1,000-2,000", "$2,000-5,000", "$5,000-15,000", "$15,000+", "Not sure yet"];
 
-export function ContactForm({ initialType }: { initialType?: "agency" | "business" } = {}) {
+export function ContactForm({ initialType, initialService, initialPlan }: { initialType?: "agency" | "business"; initialService?: string; initialPlan?: string } = {}) {
+  const serviceAliases: Record<string, string> = {"seo":"SEO", "social-media":"Social Media", "social media management":"Social Media", "paid-ads":"Paid Ads", "paid ads (ppc / meta)":"Paid Ads", "branding":"Branding", "web-design":"Web & CRO", "web design & development":"Web & CRO", "email-lifecycle":"Email & Lifecycle", "tiktok-linkedin-ads":"TikTok + LinkedIn", "tiktok + linkedin ads":"TikTok + LinkedIn", "analytics":"Analytics", "analytics & reporting":"Analytics"};
+  const selectedInitialService = initialService ? serviceAliases[initialService.toLowerCase()] ?? initialService : undefined;
   const [state, setState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -49,7 +52,7 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange",
-    defaultValues: { type: initialType ?? "business", services: [] },
+    defaultValues: { type: initialType ?? "business", services: selectedInitialService && SERVICES.includes(selectedInitialService) ? [selectedInitialService] : [], note: initialPlan ? `I am interested in the ${initialPlan}${initialService ? ` ${initialService}` : ""} package.` : "" },
   });
 
   const selectedServices = watch("services") ?? [];
@@ -106,6 +109,7 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
       noValidate
       className="rounded-2xl border border-neutral-200/10 bg-neutral-900/2 p-6 md:p-8"
     >
+      {initialPlan && <p className="mb-5 rounded-lg bg-blue-50 p-3 text-sm text-blue-900">Your selection: {initialService} · {initialPlan}. You can add details below.</p>}
       <fieldset>
         <legend className="label">I&apos;m interested as a…</legend>
         <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -127,7 +131,8 @@ export function ContactForm({ initialType }: { initialType?: "agency" | "busines
                 <input
                   type="radio"
                   value={opt.v}
-                  className="sr-only"
+                  className="mr-2 accent-blue-600"
+                  name="enquiry-type"
                   checked={selected}
                   onChange={() => setValue("type", opt.v as "agency" | "business")}
                 />

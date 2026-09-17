@@ -90,7 +90,7 @@ const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
       ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
       : "Need a custom pod? We build dedicated teams for 40+ channel accounts and multi-brand portfolios.",
   popular: t.popular,
-  cta: { label: `Start with ${t.id}`, href: "/contact" },
+  cta: { label: `Start with ${t.id}`, href: `/contact?type=business&service=social-media&plan=${t.id}#enquiry` },
 }));
 
 const TOOLS = [
@@ -195,7 +195,7 @@ export default function SocialMediaServicePage() {
           </>
         }
         subhead="Done-for-you social media management for businesses (Bronze $200 / Silver $300 / Gold $400) and agencies ($150-250 / client / mo white-label). Posts, community, short-form video, monthly reporting. AI + senior human production, 70% lower than traditional agencies."
-        primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        primaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustMicrocopy="Cancel anytime · No setup fees · 20% off annual"
       />
@@ -285,7 +285,7 @@ export default function SocialMediaServicePage() {
               <div className="mt-auto pt-6">
                 <Link
                   href={t.cta.href}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                 >
                   {t.cta.label}
                 </Link>
@@ -544,8 +544,8 @@ export default function SocialMediaServicePage() {
             <em className="font-serif not-italic text-blue-600">work for you?</em>
           </>
         }
-        subhead="Book a 15-min call. We'll send a 30-day content calendar as a free sample. No credit card, no obligation."
-        primaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        subhead="Request a 15-min call. We'll send a 30-day content calendar as a free sample. No credit card, no obligation."
+        primaryCta={{ label: "Request a 15-min call", href: "/contact#enquiry" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
       />
 

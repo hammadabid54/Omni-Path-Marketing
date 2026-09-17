@@ -1,3 +1,4 @@
+import { CheckCircle2 } from "lucide-react";
 import { type ReactNode } from "react";
 import { Hero } from "./hero";
 import { Section } from "@/components/ui/section";
@@ -111,9 +112,9 @@ export function ServicePageTemplate(props: ServicePageTemplateProps) {
           {props.features.map((f) => (
             <StaggerItem key={f.title}>
               <div className="bento h-full">
-                {f.icon && (
+                {(
                   <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/15 text-blue-600">
-                    {f.icon}
+                    {f.icon ?? <CheckCircle2 className="h-5 w-5" aria-hidden="true" />}
                   </div>
                 )}
                 <h3 className="text-lg font-semibold text-neutral-900">{f.title}</h3>

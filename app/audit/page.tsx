@@ -48,7 +48,7 @@ export default function AuditPage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <ScrollReveal>
-            <AuditForm />
+            <div id="audit-form"><AuditForm /></div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
@@ -96,7 +96,7 @@ export default function AuditPage() {
       <CtaSection
         title={<>Ready to see <em className="font-serif not-italic text-blue-600">what&apos;s wrong?</em></>}
         subhead="Submit your URL. Get a 20-point report in 60 seconds. Then decide if you want help."
-        primaryCta={{ label: "Run my free audit", href: "#" }}
+        primaryCta={{ label: "Run my free audit", href: "#audit-form" }}
       />
 
       <Script

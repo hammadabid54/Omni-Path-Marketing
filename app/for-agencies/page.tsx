@@ -22,18 +22,18 @@ export const metadata: Metadata = buildMetadata({
 // All white-label services use the same $150/$200/$250 tier structure
 // (1 / 5+ / 15+ clients). Updated 2026-08-22 — same engine at every tier.
 const SERVICES = [
-  { label: "White-label SEO", price: "$150-250/client/mo", margin: "70%", resell: "$500-1,500/client/mo" },
-  { label: "Paid Ads (Google / Meta)", price: "$150-250/client/mo", margin: "65%", resell: "$800-1,500/mo" },
-  { label: "Branding", price: "$150-250/client/mo", margin: "60-70%", resell: "$500-1,500" },
-  { label: "Web & CRO", price: "$150-250/client/mo", margin: "60-70%", resell: "$1,000-3,000" },
-  { label: "Social Media", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "TikTok + LinkedIn", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "Email & Lifecycle", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
-  { label: "Analytics", price: "$150-250/client/mo", margin: "55%", resell: "$1,000-1,800/mo" },
+  { label: "White-label SEO", price: "$150-250/client/mo", margin: "50–90%", resell: "$500-1,500/client/mo" },
+  { label: "Paid Ads (Google / Meta)", price: "$150-250/client/mo", margin: "69–90%", resell: "$800-1,500/mo" },
+  { label: "Branding", price: "$150-250/client/mo", margin: "Scope-dependent", resell: "$500-1,500" },
+  { label: "Web & CRO", price: "$150-250/client/mo", margin: "Scope-dependent", resell: "$1,000-3,000" },
+  { label: "Social Media", price: "$150-250/client/mo", margin: "75–92%", resell: "$1,000-1,800/mo" },
+  { label: "TikTok + LinkedIn", price: "$150-250/client/mo", margin: "75–92%", resell: "$1,000-1,800/mo" },
+  { label: "Email & Lifecycle", price: "$150-250/client/mo", margin: "75–92%", resell: "$1,000-1,800/mo" },
+  { label: "Analytics", price: "$150-250/client/mo", margin: "75–92%", resell: "$1,000-1,800/mo" },
 ];
 
 const STEPS = [
-  { number: "1", title: "Sign up", description: "5 minutes. Pick a tier, share your logo + colors, send your first 5 client domains." },
+  { number: "1", title: "Sign up", description: "5 minutes. Pick a tier, share your logo + colors, send your initial client domains." },
   { number: "2", title: "Onboarding (Days 1-14)", description: "We audit every domain, build 90-day roadmaps, set up white-label dashboards, hand you the partner kit." },
   { number: "3", title: "Delivery (Day 15+)", description: "Monthly content, links, on-page, reports — all shipped under your brand. You sell the next client." },
 ];
@@ -49,8 +49,8 @@ export default function ForAgenciesPage() {
           </>
         }
         subhead="Add eight services to your agency without hiring. White-labeled under your brand. Resell at your own prices. We do the work."
-        primaryCta={{ label: "See partner pricing", href: "/pricing" }}
-        secondaryCta={{ label: "Talk to a partner manager", href: "/contact" }}
+        primaryCta={{ label: "See partner pricing", href: "/pricing?audience=agency#plans" }}
+        secondaryCta={{ label: "Talk to a partner manager", href: "/contact?type=agency#enquiry" }}
       />
 
       <Section>
@@ -59,7 +59,7 @@ export default function ForAgenciesPage() {
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Eight services. <em className="font-serif not-italic text-blue-600">One margin opportunity.</em>
           </h2>
-          <p className="mt-4 text-neutral-900/70">Resell any of these. Your logo. Your pricing. Your client never knows we exist.</p>
+          <p className="mt-4 text-neutral-900/70">Resell any of these under your brand. Monthly gross margins below use the displayed price ranges and exclude your operating costs. Project-based branding and web work require an agreed scope.</p>
         </ScrollReveal>
         <ScrollReveal delay={0.1} className="mt-10">
           <div className="overflow-x-auto rounded-2xl border border-neutral-200/8">
@@ -68,7 +68,7 @@ export default function ForAgenciesPage() {
                 <tr>
                   <th className="px-5 py-4 font-medium">Service</th>
                   <th className="px-5 py-4 font-medium">From price</th>
-                  <th className="px-5 py-4 font-medium">Your margin</th>
+                  <th className="px-5 py-4 font-medium">Gross margin</th>
                   <th className="px-5 py-4 font-medium">Resell at</th>
                 </tr>
               </thead>
@@ -124,7 +124,7 @@ export default function ForAgenciesPage() {
         columns={["Per-client cost", "Annual cost (10 clients)", "Margin if resell at $700"]}
         rows={[
           { label: "In-house SEO hire", values: ["~~$800-1,200~~", "~~$96k-144k~~", "N/A"] },
-          { label: "Other white-label providers", values: ["~~$400-800~~", "~~$48k-96k~~", "10-43%"] },
+          { label: "Other white-label providers", values: ["~~$400-800~~", "~~$48k-96k~~", "−14–43%"] },
           { label: "Omni Path", values: ["$200", "$24k", "71%"], highlight: true },
         ]}
         caption="Numbers are illustrative. Annual = 12 × monthly × clients. Resell at $700/client is the typical Growth tier price."
@@ -175,8 +175,8 @@ export default function ForAgenciesPage() {
           </>
         }
         subhead="See partner pricing, or talk to a partner manager about your specific niche."
-        primaryCta={{ label: "See partner pricing", href: "/pricing" }}
-        secondaryCta={{ label: "Book a 15-min call", href: "/contact" }}
+        primaryCta={{ label: "See partner pricing", href: "/pricing?audience=agency#plans" }}
+        secondaryCta={{ label: "Request a 15-min call", href: "/contact?type=agency#enquiry" }}
       />
 
       <Script

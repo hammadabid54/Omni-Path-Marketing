@@ -65,7 +65,7 @@ const directTiers: DirectTierRow[] = directService.tiers.map((t, i) => ({
     i < directService.tiers.length - 1
       ? `Upgrade to ${directService.tiers[i + 1].id} for: ${directService.tiers[i + 1]!.features.slice(0, 3).join(" + ")}.`
       : undefined,
-  cta: { label: `Start with ${t.id}`, href: "/contact" },
+  cta: { label: `Start with ${t.id}`, href: `/contact?type=business&service=tiktok-linkedin-ads&plan=${t.id}#enquiry` },
 }));
 
 const behindTheScenesTools = [
@@ -271,7 +271,7 @@ export default function TikTokLinkedInServicePage() {
                 <div className="mt-auto pt-6">
                   <Link
                     href={t.cta.href}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                   >
                     {t.cta.label}
                   </Link>
@@ -317,7 +317,7 @@ export default function TikTokLinkedInServicePage() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/for-agencies"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-[#0A0A0F] hover:bg-blue-300 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 transition-colors"
                 >
                   See agency partner program
                 </Link>

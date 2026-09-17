@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { caseStudyPdfUrl, type CaseStudyPdf } from "@/content/case-study-pdfs";
 
 interface PdfModalProps {
@@ -14,18 +14,29 @@ interface PdfModalProps {
  * Closes on backdrop click, ESC, or ×. Body scroll is locked while open.
  */
 export function PdfModal({ pdf, onClose }: PdfModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   // Lock body scroll + ESC key
   useEffect(() => {
     if (!pdf) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    dialogRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close"]')?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "Tab") {
+        const items = dialogRef.current?.querySelectorAll<HTMLElement>('a[href], button');
+        if (!items?.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       document.removeEventListener("keydown", onKey);
+      previousFocus?.focus();
     };
   }, [pdf, onClose]);
 
@@ -35,18 +46,19 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-label={`${pdf.name} case study`}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-3 md:p-6"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[1100px] h-[90vh] max-h-[800px] bg-[#11111A] border border-neutral-200/10 rounded-2xl overflow-hidden flex flex-col shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]"
+        className="w-full max-w-[1100px] h-[90vh] max-h-[800px] bg-white border border-neutral-200/10 rounded-2xl overflow-hidden flex flex-col shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-neutral-200/10 bg-[#1A1A24]">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-neutral-200/10 bg-white">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <div className="w-8 h-8 bg-blue-600/15 border border-blue-600/30 rounded-lg flex items-center justify-center text-blue-600 shrink-0">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -99,13 +111,10 @@ export function PdfModal({ pdf, onClose }: PdfModalProps) {
           </div>
         </div>
 
-        {/* PDF body */}
-        <div className="flex-1 bg-[#0d0d14]">
-          <iframe
-            src={pdfUrl}
-            title={`${pdf.name} case study PDF`}
-            className="w-full h-full border-0 bg-white"
-          />
+        <div className="min-h-0 flex-1 overflow-y-auto bg-blue-50 p-4 md:p-6">
+          <p className="mb-4 text-center text-sm text-slate-600">Report preview · <a className="text-blue-700 underline" href={pdfUrl} target="_blank" rel="noopener noreferrer">Open the full PDF</a> to read every page.</p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={pdf.cover} alt={`${pdf.name} report preview`} className="mx-auto h-auto w-full max-w-2xl rounded-lg border border-blue-100 bg-white" />
         </div>
       </div>
     </div>
