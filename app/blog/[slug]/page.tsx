@@ -8,6 +8,7 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scr
 import { LinkButton } from "@/components/ui/button";
 import { CtaSection } from "@/components/sections/cta";
 import { BlogBlockRenderer } from "@/components/blog/blog-blocks";
+import { TableOfContents, extractH2Entries } from "@/components/shared/toc";
 import { buildMetadata, howtoSchema, itemListSchema } from "@/lib/seo";
 import { BLOG_POSTS, BLOG_POST_BY_SLUG } from "@/content/blog";
 import { TEAM_BY_SLUG } from "@/content/team";
@@ -176,6 +177,7 @@ export default async function BlogPostPage({
       {/* ===== BODY ===== */}
       <Section spacing="tight">
         <article className="max-w-3xl mx-auto">
+          <TableOfContents entries={extractH2Entries(post.body)} />
           <ScrollReveal>
             <BlogBlockRenderer blocks={post.body} />
           </ScrollReveal>

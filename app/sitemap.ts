@@ -3,6 +3,9 @@ import { env } from "@/lib/env";
 import { CASE_STUDIES } from "@/content/case-studies";
 import { BLOG_POST_BY_SLUG } from "@/content/blog";
 import { TEAM_BY_SLUG } from "@/content/team";
+import { PROGRAMS } from "./reviews/[program]/_programs";
+import { getAllHubSlugs } from "@/content/hubs";
+import { getReviewArticle } from "@/content/reviews";
 
 const SITE = env().NEXT_PUBLIC_SITE_URL;
 
@@ -86,6 +89,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  // Affiliate review program pillars — high commercial intent, high priority
+  const reviewHubEntries: MetadataRoute.Sitemap = [
+    { url: `${SITE}/reviews`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${SITE}/reviews/disclosure`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.4 },
+    ...PROGRAMS.map((p) => ({
+      url: `${SITE}/reviews/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
+    ...getAllHubSlugs().map((slug) => ({
+      url: `${SITE}/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
+  ];
+
+  // Affiliate review cluster articles — only the ones with live articles
+  const reviewClusterEntries: MetadataRoute.Sitemap = [];
+  for (const p of PROGRAMS) {
+    for (const c of p.clusters) {
+      // Skip if no article exists in the registry (skip the coming-soon placeholders)
+      const article = getReviewArticle(p.slug, c.slug);
+      if (!article || article.status !== "live") continue;
+      reviewClusterEntries.push({
+        url: `${SITE}/reviews/${p.slug}/${c.slug}`,
+        lastModified: new Date(article.dateModified ?? article.date),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      });
+    }
+  }
+
   // Dedupe by URL (defensive — service routes appear in both static and dynamic
   // paths and we want one entry per URL).
   const allEntries = [
@@ -93,6 +130,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseStudyEntries,
     ...blogEntries,
     ...teamEntries,
+    ...reviewHubEntries,
+    ...reviewClusterEntries,
   ];
   const seen = new Set<string>();
   return allEntries.filter((e) => {

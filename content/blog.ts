@@ -50,7 +50,8 @@ export type BlogBlock =
   | { type: "stats"; items: { value: string; label: string }[] }
   | { type: "code"; language?: string; text: string }
   | { type: "table"; head: string[]; rows: string[][] }
-  | { type: "toc" };
+  | { type: "toc" }
+  | { type: "sources"; heading?: string; items: { name: string; url: string; description?: string; sourceType?: "vendor" | "research" | "benchmark" | "operator" }[] };
 
 export const BLOG_POSTS: BlogPost[] = [
   // --- Hand-written posts (Tier 1). Keep above the auto-generated SEO pack. ---

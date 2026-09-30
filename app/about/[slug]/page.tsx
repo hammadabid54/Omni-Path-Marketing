@@ -21,6 +21,7 @@ import {
   MapPin,
   MessageSquare,
   Palette,
+  Play,
   Rocket,
   Send,
   Star,
@@ -237,6 +238,8 @@ interface PersonExtras {
   worksIcons: LucideIcon[];
   tldrItems: string[];
   winsDisplay: WinDisplay[];
+  /** YouTube video id (e.g. "dQw4w9WgXcQ"). Renders a 9:16 Shorts embed if present. */
+  youtubeId?: string;
 }
 
 const EXTRAS: Record<string, PersonExtras> = {
@@ -268,6 +271,7 @@ const EXTRAS: Record<string, PersonExtras> = {
       { value: "4.2M", label: "monthly organic visits managed" },
       { value: "12,000+", label: "keywords ranked in top 3" },
     ],
+    youtubeId: "WESuiMP9m8k",
   },
   "rana-moneeb": {
     heroLine: (
@@ -518,6 +522,46 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           </p>
         </ScrollReveal>
       </Section>
+
+      {/* ====================== FEATURED VIDEO (under hero, opt-in per person) ====================== */}
+      {extras.youtubeId && (
+        <Section spacing="tight">
+          <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
+            <ScrollReveal>
+              <Eyebrow className="mb-4">
+                <span className="inline-flex items-center gap-2">
+                  <Play className="h-3.5 w-3.5" aria-hidden />
+                  Watch
+                </span>
+              </Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+                Hear it from{" "}
+                <em className="font-serif not-italic text-blue-600">
+                  {firstName}.
+                </em>
+              </h2>
+              <p className="mt-4 text-neutral-900/65 leading-relaxed">
+                90 seconds on why Omni Path exists, and why the math finally works for SMBs.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1} className="flex justify-center md:justify-end">
+              <div className="relative w-full max-w-[280px] overflow-hidden rounded-2xl border border-neutral-900/10 bg-neutral-900 shadow-lg">
+                <div className="relative w-full" style={{ paddingTop: "177.78%" /* 9:16 */ }}>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${extras.youtubeId}?rel=0&modestbranding=1`}
+                    title={`${person.name} — featured video`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="absolute inset-0 h-full w-full"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </Section>
+      )}
 
       {/* ====================== TLDR ====================== */}
       <TldrBox title="At a glance" items={extras.tldrItems} />

@@ -1,25 +1,27 @@
 /**
- * BlogBlockRenderer — renders a BlogBlock tree as styled HTML.
+ * ReviewBlockRenderer — renders a ReviewBlock tree as styled HTML.
  * Server component. No JS, no client deps.
  *
- * H2s are NOT wrapped in <a> tags — they're plain anchors with `id`, so
- * the text remains selectable. The auto-generated TOC (in the route) deep-links
- * to each H2 by id.
+ * Extends the blog-blocks renderer with review-specific blocks:
+ * - verdict (winner banner for vs-articles)
+ * - pros-cons (two-column comparison)
+ * - affiliate-cta (FTC-compliant contextual CTA)
+ * - faq (Q&A list with stable anchors)
  *
  * Supports inline markdown in text fields: `[anchor](url)` links,
  * `**bold**`, `*italic*`, and `` `inline code` ``.
- * External URLs (http/https) render as <a target="_blank">;
- * relative URLs render as Next.js <Link>.
+ *
+ * Heading IDs are computed via the shared `buildHeadingIdMap` helper so
+ * the auto-generated TOC can deep-link to each H2. H2s are NOT wrapped
+ * in <a> — they're plain anchors with `id`, but the text is selectable
+ * for better readability.
  */
-import type { BlogBlock } from "@/content/blog";
+import type { ReviewBlock } from "@/content/reviews/types";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { buildHeadingIdMap } from "@/components/shared/toc";
+import { LinkButton } from "@/components/ui/button";
+import { buildHeadingIdMap, slugifyHeading } from "@/components/shared/toc";
 
-/**
- * Parse inline markdown in a text field and render as React elements.
- * Supports: `[anchor](url)` links, `**bold**`, `*italic*`, and `` `inline code` ``.
- */
 function renderInline(text: string, keyPrefix: string): ReactNode {
   if (!text) return text;
   if (!/[\[*`]/.test(text)) return text;
@@ -96,7 +98,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode {
   return parts.length > 0 ? parts : text;
 }
 
-export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
+export function ReviewBlockRenderer({ blocks }: { blocks: ReviewBlock[] }) {
   const idMap = buildHeadingIdMap(blocks);
   return (
     <div className="article-prose">
@@ -249,8 +251,130 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
             );
           case "toc":
             // Manual toc blocks are now ignored — the route auto-generates
-            // the TOC at the top of the article from H2s.
+            // the TOC at the top of the article from H2s. Keeping the case
+            // here so existing content with `toc` blocks still typechecks.
             return null;
+          case "verdict": {
+            const winnerLabel =
+              b.winner === "tool-a"
+                ? b.toolA
+                : b.winner === "tool-b"
+                ? b.toolB
+                : "It's a tie";
+            const winnerTone =
+              b.winner === "tie"
+                ? "border-neutral-200/15 bg-neutral-900/4 text-neutral-900/90"
+                : "border-blue-600/30 bg-blue-600/5 text-neutral-900/90";
+            return (
+              <div
+                key={i}
+                className={`my-10 rounded-xl border p-6 ${winnerTone}`}
+              >
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-blue-600">
+                  Winner: {winnerLabel}
+                </div>
+                <p className="text-[16px] leading-relaxed text-neutral-900/85">
+                  {renderInline(b.text, `v-${i}`)}
+                </p>
+              </div>
+            );
+          }
+          case "pros-cons":
+            return (
+              <div
+                key={i}
+                className="my-10 grid gap-4 md:grid-cols-2"
+              >
+                {[b.toolA, b.toolB].map((tool, idx) => (
+                  <div key={tool.name} className="bento p-5">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="text-base font-semibold text-neutral-900">
+                        {tool.name}
+                      </span>
+                      {idx === 0 ? (
+                        <span className="text-[10px] uppercase tracking-widest text-blue-600">
+                          Tool A
+                        </span>
+                      ) : (
+                        <span className="text-[10px] uppercase tracking-widest text-neutral-900/45">
+                          Tool B
+                        </span>
+                      )}
+                    </div>
+                    <div className="mb-4">
+                      <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-emerald-600">
+                        Pros
+                      </div>
+                      <ul className="space-y-1.5 text-sm text-neutral-900/85">
+                        {tool.pros.map((p, j) => (
+                          <li key={j} className="leading-snug">
+                            <span className="text-emerald-600 font-semibold mr-1.5">+</span>
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-rose-600">
+                        Cons
+                      </div>
+                      <ul className="space-y-1.5 text-sm text-neutral-900/85">
+                        {tool.cons.map((c, j) => (
+                          <li key={j} className="leading-snug">
+                            <span className="text-rose-600 font-semibold mr-1.5">−</span>
+                            {c}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          case "affiliate-cta": {
+            const tone =
+              b.tone === "soft"
+                ? "border-blue-100 bg-blue-50/40"
+                : b.tone === "contextual"
+                ? "border-blue-200 bg-blue-50/60"
+                : "border-blue-600/30 bg-blue-600/8";
+            return (
+              <div
+                key={i}
+                className={`my-10 rounded-2xl border p-6 md:p-8 ${tone}`}
+              >
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-blue-600">
+                  {b.placement === "intro"
+                    ? "Quick note"
+                    : b.placement === "mid"
+                    ? "Worth a look"
+                    : "Get started"}
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-neutral-900 leading-tight">
+                  {b.headline}
+                </h3>
+                <p className="mt-3 text-[15px] text-neutral-900/75 leading-relaxed">
+                  {b.body}
+                </p>
+                <div className="mt-5">
+                  {b.ctaHref.startsWith("http") ? (
+                    <a
+                      href={b.ctaHref}
+                      target="_blank"
+                      rel="sponsored noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-300 hover:text-blue-600 transition-colors"
+                    >
+                      {b.ctaLabel}
+                    </a>
+                  ) : (
+                    <LinkButton href={b.ctaHref} variant="primary">
+                      {b.ctaLabel}
+                    </LinkButton>
+                  )}
+                </div>
+              </div>
+            );
+          }
           case "sources": {
             const sourceBadge = (kind?: string) => {
               switch (kind) {
@@ -316,6 +440,28 @@ export function BlogBlockRenderer({ blocks }: { blocks: BlogBlock[] }) {
                   })}
                 </ul>
               </section>
+            );
+          }
+          case "faq": {
+            return (
+              <dl
+                key={i}
+                className="my-10 space-y-6"
+              >
+                {b.items.map((q, j) => {
+                  const id = slugifyHeading(q.q);
+                  return (
+                    <div key={j} id={id} className="scroll-mt-24">
+                      <dt className="text-lg font-semibold text-neutral-900 leading-snug">
+                        {q.q}
+                      </dt>
+                      <dd className="mt-2 text-[16px] text-neutral-900/80 leading-relaxed">
+                        {renderInline(q.a, `faq-${i}-${j}`)}
+                      </dd>
+                    </div>
+                  );
+                })}
+              </dl>
             );
           }
           default:

@@ -85,6 +85,16 @@ export default function ToolsPage() {
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             Every tool. <em className="font-serif not-italic text-blue-600">Every category.</em>
           </h2>
+          <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
+            <p className="text-sm text-neutral-900/80 leading-relaxed">
+              <strong className="text-neutral-900">Want our operator-led reviews?</strong>{" "}
+              We publish hands-on reviews of every SEO and content tool in this stack on{" "}
+              <LinkButton href="/reviews" variant="ghost" size="sm" className="inline-flex px-2 py-1 -my-1 ml-1">
+                /reviews →
+              </LinkButton>
+              {" "}Same tools. Same client campaigns. Honest take, no sitewide banners.
+            </p>
+          </div>
         </ScrollReveal>
         <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3" stagger={0.04}>
           {CATEGORIES.map((c) => (

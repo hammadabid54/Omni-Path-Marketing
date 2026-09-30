@@ -569,7 +569,7 @@ body {
   }
 }
 
-/* --- Prose for legal/markdown-ish content --- */
+/* --- Prose for legal/markdown-ish content (terms, privacy) --- */
 .prose-legal h2 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -597,3 +597,13 @@ body {
 }
 .prose-legal li { margin-bottom: 0.4rem; }
 .prose-legal a { color: var(--color-accent); text-decoration: underline; }
+
+/* --- Article body prose (blog + reviews) ---
+   Tailwind utilities on each block handle sizing. This class only adds
+   the base reading rhythm: text color + line-height + default spacing for
+   paragraphs/lists that don't have their own Tailwind classes. */
+.article-prose p:not([class*="text-"]):not([class*="mb-"]) {
+  color: rgba(10, 10, 15, 0.85);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}

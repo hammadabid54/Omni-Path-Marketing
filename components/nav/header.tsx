@@ -32,6 +32,7 @@ const MORE = [
   { label: "Process", href: "/process" },
   { label: "Blog", href: "/blog" },
   { label: "Tools", href: "/tools" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Samples", href: "/samples" },
   { label: "Contact", href: "/contact" },
 ];
