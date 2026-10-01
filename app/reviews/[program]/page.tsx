@@ -75,7 +75,7 @@ export default async function ProgramPillarPage(
         <ScrollReveal className="max-w-2xl">
           <Eyebrow className="mb-4">In this review</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-            What you'll find inside.
+            What you&apos;ll find inside.
           </h2>
         </ScrollReveal>
         <StaggerGroup className="mt-8 grid gap-4 md:grid-cols-2" stagger={0.03}>
@@ -113,7 +113,7 @@ export default async function ProgramPillarPage(
             <em className="font-serif not-italic text-blue-600">the rest of the stack.</em>
           </h2>
           <p className="mt-4 text-neutral-900/65 leading-relaxed">
-            Direct head-to-head comparisons we've published. Each link below goes to a fully written article — not a placeholder.
+            Direct head-to-head comparisons we&apos;ve published. Each link below goes to a fully written article — not a placeholder.
           </p>
         </ScrollReveal>
         {crossPillar.length > 0 ? (

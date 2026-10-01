@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -64,14 +65,14 @@ export function FloatingCta() {
       )}
     >
       <div className="flex items-center gap-2 rounded-full border border-blue-100 bg-white p-2 shadow-lg">
-        <a
+        <Link
           href="/audit"
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-300 hover:shadow-lg hover:shadow-blue-600/30 md:py-2 md:text-sm"
         >
           <Sparkles className="h-4 w-4" aria-hidden />
           <span>Get a free audit</span>
           <ArrowUpRight className="h-4 w-4" aria-hidden />
-        </a>
+        </Link>
         <button
           type="button"
           onClick={handleDismiss}

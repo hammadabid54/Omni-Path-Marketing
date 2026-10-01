@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
+
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/badge";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/motion/scroll-reveal";
@@ -107,9 +108,9 @@ export default function ReviewsHubPage() {
             We only recommend tools we actually run on client campaigns — Mangools and Semrush daily,
             Surfer for content briefs, Hunter.io for cold outreach, Frase for SERP analysis.
             No sitewide placements, no forced CTAs, no fake urgency. Read our{" "}
-            <a href="/reviews/disclosure" className="text-blue-600 underline-offset-4 hover:underline">
+            <Link href="/reviews/disclosure" className="text-blue-600 underline-offset-4 hover:underline">
               editorial policy
-            </a>
+            </Link>
             .
           </p>
         </ScrollReveal>
@@ -124,7 +125,7 @@ export default function ReviewsHubPage() {
           </h2>
           <p className="mt-4 text-neutral-900/65 leading-relaxed">
             Each program pillar links to its review, pricing breakdown, alternatives, and direct head-to-head
-            comparisons against the other five. SV and CPC shown for the pillar's primary keyword
+            comparisons against the other five. SV and CPC shown for the pillar&apos;s primary keyword
             (Mangools and agencies are the highest-CPC targets on the site).
           </p>
         </ScrollReveal>
@@ -169,7 +170,7 @@ export default function ReviewsHubPage() {
           </h2>
           <p className="mt-4 text-neutral-900/65 leading-relaxed">
             Persona-targeted hubs link down to every program review. These are the broad-intent pages
-            that capture "best X for Y" searches before the buyer knows which tool they want.
+            that capture &ldquo;best X for Y&rdquo; searches before the buyer knows which tool they want.
           </p>
         </ScrollReveal>
         <StaggerGroup className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.03}>

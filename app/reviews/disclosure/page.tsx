@@ -36,12 +36,12 @@ export default function EditorialPolicyPage() {
           <p className="mt-4 text-neutral-900/70 leading-relaxed">
             Every review on <code>/reviews/*</code> opens with an operator-voice affiliate disclosure in
             the first 100 words. We earn a commission when you sign up via our links, at no extra cost
-            to you. That's how this site stays free.
+            to you. That&apos;s how this site stays free.
           </p>
           <p className="mt-4 text-neutral-900/70 leading-relaxed">
-            We follow the FTC's 16 CFR Part 255 guidelines. Disclosure appears <em>before</em> any
+            We follow the FTC&apos;s 16 CFR Part 255 guidelines. Disclosure appears <em>before</em> any
             affiliate link. Disclosure language is in plain English, not legalese. We never use the
-            phrase "we may earn a commission" without naming the specific tool — readers know exactly
+            phrase &ldquo;we may earn a commission&rdquo; without naming the specific tool — readers know exactly
             which link is monetized.
           </p>
         </ScrollReveal>
@@ -49,16 +49,16 @@ export default function EditorialPolicyPage() {
 
       <Section>
         <ScrollReveal className="max-w-2xl">
-          <Eyebrow className="mb-4">What we don't do</Eyebrow>
+          <Eyebrow className="mb-4">What we don&apos;t do</Eyebrow>
           <h2 className="text-2xl md:text-3xl font-semibold leading-snug">
             No sitewide placements. No forced CTAs.
           </h2>
           <ul className="mt-4 space-y-3 text-neutral-900/70 leading-relaxed">
             <li>· No affiliate links in the sidebar, header, footer, or any global nav.</li>
             <li>· No more than three CTAs per article (intro disclosure, contextual mid-article, primary pre-conclusion).</li>
-            <li>· No "limited time offer" urgency unless the program itself runs one.</li>
+            <li>· No &ldquo;limited time offer&rdquo; urgency unless the program itself runs one.</li>
             <li>· No fake scarcity, no fake testimonials, no paid reviews disguised as organic.</li>
-            <li>· No affiliate links in articles where the tool isn't the subject of the article.</li>
+            <li>· No affiliate links in articles where the tool isn&apos;t the subject of the article.</li>
           </ul>
         </ScrollReveal>
       </Section>
@@ -72,11 +72,11 @@ export default function EditorialPolicyPage() {
           <p className="mt-4 text-neutral-900/70 leading-relaxed">
             We run six programs on real client campaigns: <strong>Semrush, Mangools, SE Ranking,
             Surfer SEO, Hunter.io, Frase</strong>. We add a tool to <code>/reviews/*</code> only
-            after we've used it for at least one paid client engagement (or 30 days of internal
+            after we&apos;ve used it for at least one paid client engagement (or 30 days of internal
             use, whichever is longer).
           </p>
           <p className="mt-4 text-neutral-900/70 leading-relaxed">
-            For tools we don't run personally — currently <strong>Ahrefs</strong> — we publish
+            For tools we don&apos;t run personally — currently <strong>Ahrefs</strong> — we publish
             compare-only articles (vs-articles) where the comparison is grounded in our direct
             experience with the other tool in the head-to-head.
           </p>

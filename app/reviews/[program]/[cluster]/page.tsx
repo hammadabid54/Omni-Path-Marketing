@@ -209,7 +209,7 @@ export default async function ClusterArticlePage({ params }: Props) {
               </h2>
               <p className="mt-4 text-neutral-900/70 leading-relaxed">
                 We use {p.name} {p.usageNote} on real client campaigns. If you sign up via our link, we
-                earn a commission at no extra cost to you. That's how this site stays free. We only
+                earn a commission at no extra cost to you. That&apos;s how this site stays free. We only
                 recommend tools we actually run. Read our{" "}
                 <Link href="/reviews/disclosure" className="text-blue-600 underline-offset-4 hover:underline">
                   editorial policy
